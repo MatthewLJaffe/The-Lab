@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3ace72d4a44046963892cb7a069155, type: 3}
+  m_Name: DiseaseToleranceEffect
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 9873c973b65ebbf4c8e9ff2418f8e8a3, type: 3}
+  message: Prolonged exposure increases your tolerance to the infection
+  stack: 1

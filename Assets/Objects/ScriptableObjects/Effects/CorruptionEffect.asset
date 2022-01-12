@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e152b9b79d64ee4bd95f253b89914ad, type: 3}
+  m_Name: CorruptionEffect
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 13b6c7e3e5fa59645b1be4c9a59b35ce, type: 3}
+  message: You feel the infection surging through you +Spd +Atk
+  stack: 2
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  attackBonus: 2
+  speedBonus: 2

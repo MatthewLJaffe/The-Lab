@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2747567943475995244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.151874
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3911841
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.132724
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019050805611953379, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915694963791358054, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_Name
+      value: ScrapMetalEquip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323280771758378026, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 068aa5ecf178b9646b4ddfe152d46c1b, type: 3}
+    - target: {fileID: 5323280771758378026, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f641b12b0479bb47831547017251f80, type: 3}

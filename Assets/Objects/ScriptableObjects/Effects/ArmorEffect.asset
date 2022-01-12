@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e025628326b64e98845c1d67a48bc8e8, type: 3}
+  m_Name: ArmorEffect
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: bed2d6ff0cd6774409032d4300b3e9d0, type: 3}
+  message: +1 Def
+  stack: 1
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}

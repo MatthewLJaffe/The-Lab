@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: BandagesItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: a29e5f6d5f707434ca0fc89182f3bc89, type: 3}
+  itemName: Bandages
+  itemDescription: NOT toilet paper
+  dropPrefab: {fileID: 7644018919711571322, guid: 7ff3a7edbdfa77941a2d764938cdd419, type: 3}
+  equipPrefab: {fileID: 2805898040390296957, guid: db81da6b1e6f23149be76ce7c468c04d, type: 3}
+  maxStack: 10

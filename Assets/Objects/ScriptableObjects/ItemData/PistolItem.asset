@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: PistolItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: 24f46a1f98cf1744687425bf7904df46, type: 3}
+  itemName: pistol
+  itemDescription: pew
+  dropPrefab: {fileID: 6782271987652095420, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+  equipPrefab: {fileID: 687972676328839678, guid: 04f7d4c75c6d90a45a39ce9fc38a9bd8, type: 3}
+  maxStack: 1

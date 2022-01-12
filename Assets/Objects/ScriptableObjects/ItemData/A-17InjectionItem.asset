@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: A-17InjectionItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: c22f90f90a8c027439d28908b8108e06, type: 3}
+  itemName: A-17 Injection
+  itemDescription: Minor increase to health
+  dropPrefab: {fileID: 2151993705189383488, guid: 8283db87ca31dac45b91e35e23936341, type: 3}
+  equipPrefab: {fileID: 8099157921662259968, guid: 8af6bc341b6b5524a9e3f825fb8dbbbe, type: 3}
+  maxStack: 5

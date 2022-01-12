@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: MedKitItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: 088436dcf4e30d7408e49f6947df4a6e, type: 3}
+  itemName: Med Kit
+  itemDescription: Greatly increases health
+  dropPrefab: {fileID: 6924910290678572105, guid: 9ca5c925a10d9844fa99798e82df9917, type: 3}
+  equipPrefab: {fileID: 260838698605090952, guid: 4365416d32faae7439b1dc26f7ea087d, type: 3}
+  maxStack: 3
