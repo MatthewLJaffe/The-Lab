@@ -4,16 +4,13 @@ using Random = UnityEngine.Random;
 
 namespace EnemyScripts.Zombie
 {
-    public class ZombieChaseState : BaseState
+    public class ZombieChaseState : DistanceBasedState
     {
-        [SerializeField] private float attackRange;
-        [SerializeField] private float aggroRange;
         [SerializeField] private float minDashDistance;
         [SerializeField] private float strafeCooldown;
         private float _currentStrafeCooldown;
         [SerializeField] private float strafeChancePerSecond;
         private float _strafeChancePerFrame;
-        private Enemy _enemy;
 
         protected override void Awake()
         {
@@ -22,19 +19,19 @@ namespace EnemyScripts.Zombie
             _strafeChancePerFrame = strafeChancePerSecond / (1f / Time.deltaTime);
         }
 
-        private void Start()
-        {
-            _enemy = GetComponentInParent<Enemy>();
-        }
+
 
         public override Type Tick()
         {
-            if (!_enemy.target || Vector2.Distance(_enemy.target.position, transform.position) > aggroRange)
+            if (!enemy.target)
                 return typeof(ZombieIdleState);
-            if (Vector2.Distance(_enemy.target.position, transform.position) < attackRange)
-                return typeof(ZombieAttackState);
+            
+            var distanceType = base.Tick();
+            if (distanceType != null)
+                return distanceType;
+            
             if (_currentStrafeCooldown <= 0 && Random.Range(0f, 1f) <= _strafeChancePerFrame
-                && Vector2.Distance(_enemy.target.position, transform.position) > minDashDistance)
+                && Vector2.Distance(enemy.target.position, transform.position) > minDashDistance)
             {
                 _currentStrafeCooldown = strafeCooldown;
                 return typeof(ZombieStrafeState);

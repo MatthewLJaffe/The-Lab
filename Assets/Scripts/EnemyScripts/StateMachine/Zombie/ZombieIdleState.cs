@@ -7,6 +7,7 @@ namespace EnemyScripts
     public class ZombieIdleState : BaseState
     {
         [SerializeField] private float aggroRange;
+        [SerializeField] private BaseState aggroState;
         private Enemy _enemy;
 
         protected override void Awake()
@@ -20,7 +21,7 @@ namespace EnemyScripts
         {
             if (!_enemy.target || Vector2.Distance(_enemy.target.position, transform.position) >= aggroRange || !_enemy.EnteredRoom)
                 return null;
-            return typeof(ZombieChaseState);
+            return aggroState.GetType();
         }
     }
 }

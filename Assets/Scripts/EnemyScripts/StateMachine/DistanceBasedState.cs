@@ -20,9 +20,9 @@ namespace EnemyScripts
         
         public override Type Tick()
         {
-            if (Vector2.Distance(enemy.target.transform.position, transform.position) >= farRange)
+            if (Vector2.Distance(enemy.target.transform.position, transform.position) >= farRange && farState)
                 return farState.GetType();
-            if (Vector2.Distance(enemy.target.transform.position, transform.position) <= closeRange)
+            if (Vector2.Distance(enemy.target.transform.position, transform.position) <= closeRange && closeState)
                 return closeState.GetType();
             return null;
         }

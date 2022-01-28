@@ -116,6 +116,7 @@ MonoBehaviour:
   speed: 2
   acceleration: 2
   aggroRange: 10
+  aggroState: {fileID: 5864641038399318974}
 --- !u!114 &5864641038399318974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,8 +140,10 @@ MonoBehaviour:
     weight: 0
   speed: 3.5
   acceleration: 3
-  attackRange: 2.5
-  aggroRange: 15
+  farState: {fileID: 3072911514739938053}
+  farRange: 15
+  closeState: {fileID: 3907632242827498771}
+  closeRange: 2.5
   minDashDistance: 4
   strafeCooldown: 1.2
   strafeChancePerSecond: 0.5

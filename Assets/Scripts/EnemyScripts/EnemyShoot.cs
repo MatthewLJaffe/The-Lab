@@ -6,7 +6,7 @@ using WeaponScripts;
 
 namespace EnemyScripts
 {
-    public class EnemyShoot : MonoBehaviour
+    public class EnemyShoot : MonoBehaviour, IFire
     {
         [SerializeField] private Transform[] shootPoints;
         [SerializeField] private GameObject bulletPrefab;
@@ -56,7 +56,7 @@ namespace EnemyScripts
             }
         }
 
-        private void Fire()
+        public void Fire()
         {
             foreach (var shootPoint in shootPoints)          
             {

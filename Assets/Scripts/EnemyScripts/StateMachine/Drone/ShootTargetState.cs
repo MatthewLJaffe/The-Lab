@@ -7,6 +7,7 @@ namespace EnemyScripts.Drone
     {
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform aimPoint;
+        [SerializeField] private BaseState targetLostState;
 
         protected override void Awake()
         {
@@ -35,7 +36,7 @@ namespace EnemyScripts.Drone
             if (hit.transform == enemy.target) {
                 return null;
             }
-            return typeof(AcquireTargetState);
+            return targetLostState.GetType();
         }
 
         protected override void SwitchState(BaseState state)
