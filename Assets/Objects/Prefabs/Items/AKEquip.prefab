@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   bullet: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
-  stats: {fileID: 11400000, guid: c02cee6be15f1164da0f235fdbaded86, type: 2}
+  gunStats: {fileID: 11400000, guid: c02cee6be15f1164da0f235fdbaded86, type: 2}
   shootPoint: {fileID: 1001071318741463094}
 --- !u!212 &7025089274364120025
 SpriteRenderer:

@@ -15,6 +15,7 @@ namespace LabCreationScripts
         private static bool _firstRoomEntered;
         private bool _doorOpen;
         private DoorAnimator _doorAnimator;
+        public bool lockable = true;
 
         private void Awake()
         {
@@ -41,7 +42,8 @@ namespace LabCreationScripts
         {
             if (room != myRoom || _enteredPreviously || myRoom.RoomId == 0) return;
             _enteredPreviously = true;
-            _doorCollider.enabled = true;
+            if (lockable)
+                _doorCollider.enabled = true;
             _doorAnimator.ShowDoorClosed();
         }
         

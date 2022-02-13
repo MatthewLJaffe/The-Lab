@@ -16,7 +16,7 @@ namespace EntityStatsScripts.Effects
 
         private void Awake()
         {
-            Effect.OnEffectChange += ChangeVisual;
+            Effect.onEffectChange += ChangeVisual;
             effectVisuals = new Dictionary<Effect, GameObject>();
         }
 
@@ -27,7 +27,7 @@ namespace EntityStatsScripts.Effects
 
         private void OnDestroy()
         {
-            Effect.OnEffectChange -= ChangeVisual;
+            Effect.onEffectChange -= ChangeVisual;
         }
 
         private void ChangeVisual(Effect e)

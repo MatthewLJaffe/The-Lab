@@ -18,6 +18,7 @@ namespace InventoryScripts.ItemScripts
         [SerializeField] private bool startAutomatically;
         private GameObjectPool _textPool;
         private Transform _displayPoint;
+        private Coroutine _regenCoroutine;
 
         private void Awake()
         {
@@ -36,21 +37,49 @@ namespace InventoryScripts.ItemScripts
 
         public void StartRegen(PlayerBar.PlayerBarType type, float amount, float duration, GameObject textPrefab)
         {
-            StartCoroutine(Regen(type, amount, duration, textPrefab));
+            _regenCoroutine = StartCoroutine(Regen(type, amount, duration, textPrefab));
+        }
+
+        public void StopRegen()
+        {
+            if (_regenCoroutine != null)
+            {
+                StopCoroutine(_regenCoroutine);
+                _regenCoroutine = null;
+            }
+        }
+
+        public void StartIndefiniteRegen(PlayerBar.PlayerBarType type, float amountPerTick, float tickTime)
+        {
+            _regenCoroutine = StartCoroutine(IndefiniteRegen(type, amountPerTick, tickTime));
         }
         private IEnumerator Regen(PlayerBar.PlayerBarType type, float amount, float duration, GameObject textPrefab)
         {
-            _textPool = new GameObjectPool(textPrefab, _displayPoint);
-            var restorePerSec = amount / duration;
+            if (textPrefab)
+                _textPool = new GameObjectPool(textPrefab, _displayPoint);
+            var restorePerSec = Mathf.Round(amount / duration);
             float amountRestored = 0;
+            var wait = new WaitForSeconds(1);
             for (; amountRestored < amount; amountRestored += restorePerSec)
             {
                 PlayerBarsManager.Instance.ModifyPlayerStat(type, restorePerSec);
-                var restoreText = _textPool.GetFromPool();
-                restoreText.GetComponent<TextMeshProUGUI>().text = "+" + restorePerSec;
-                yield return new WaitForSeconds(1);
+                if (_textPool != null) {
+                    var restoreText = _textPool.GetFromPool();
+                    restoreText.GetComponent<TextMeshProUGUI>().text = "+" + restorePerSec;
+                }
+                yield return wait;
             }
             Destroy(this);
+        }
+
+        private IEnumerator IndefiniteRegen(PlayerBar.PlayerBarType type, float amountPerTick, float tickTime)
+        {
+            var wait = new WaitForSeconds(amountPerTick);
+            while (true)
+            {
+                PlayerBarsManager.Instance.ModifyPlayerStat(type, amountPerTick);
+                yield return wait;
+            }
         }
     }
 }

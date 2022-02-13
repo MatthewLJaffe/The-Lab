@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using EntityStatsScripts;
+using EntityStatsScripts.Effects;
 using General;
 using PlayerScripts;
 using UnityEngine;
@@ -10,42 +11,55 @@ namespace WeaponScripts
 {
     public class Gun : MonoBehaviour
     {
-        public static Action<int, int> BroadcastShot = delegate { };
-
+        public static Action<int, int> broadcastShot = delegate { };
+        public static Action<float> broadcastReload = delegate { };
+        public static Action<Gun> broadCastWeaponSwitch = delegate {  };
         [SerializeField] protected PlayerStats playerStats;
         [SerializeField] protected GameObject bullet;
-        [SerializeField] protected GunStats stats;
+        public GunStats gunStats;
         [SerializeField] protected Transform shootPoint;
-        private bool firstEquip = true;
-        private Transform _playerTrans;
+        private bool _firstEquip = true;
+        protected Transform playerTrans;
+
+        public int CurrentMagSize
+        {
+            get => currentMagSize;
+            set
+            {
+                currentMagSize = value;
+                broadcastShot(currentMagSize, gunStats.magSize);
+            }
+        }
         protected int currentMagSize;
         protected bool reloading;
         protected bool firing;
         protected static float maxReloadTime = 3;
         protected static float minReloadTime = .1f;
         protected GameObjectPool _bulletPool;
-        protected float additionalDamage;
+        protected float atkMult;
         protected float playerCritChance;
         protected float additionalAccuracy;
         protected float additionalFireRate;
+        protected float reloadFactor;
 
         protected void Start() 
         {
-            currentMagSize = stats.magSize;
-            BroadcastShot(currentMagSize, stats.magSize);
-            firstEquip = false;
+            currentMagSize = gunStats.magSize;
+            broadcastShot(currentMagSize, gunStats.magSize);
+            _firstEquip = false;
             _bulletPool = new GameObjectPool(bullet);
-            _playerTrans = PlayerFind.Instance.playerInstance.transform;
-            additionalDamage = playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue;
+            playerTrans = PlayerFind.Instance.playerInstance.transform;
+            atkMult = playerStats.GetAttackMultiplier();
             playerCritChance = playerStats.PlayerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
             additionalAccuracy = playerStats.PlayerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;
             additionalFireRate = playerStats.PlayerStatsDict[PlayerStats.StatType.FireRate].CurrentValue;
+            reloadFactor = playerStats.PlayerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue;
             PlayerStats.OnStatChange += delegate(PlayerStats.StatType type, float newValue) 
             {
                 switch (type)
                 {
                     case PlayerStats.StatType.Attack:
-                        additionalDamage = newValue;
+                        atkMult = playerStats.GetAttackMultiplier();
                         break;
                     case PlayerStats.StatType.CritChance:
                         playerCritChance = newValue;
@@ -57,14 +71,18 @@ namespace WeaponScripts
                     case PlayerStats.StatType.FireRate:
                         additionalFireRate = newValue;
                         break;
+                    case PlayerStats.StatType.ReloadFactor:
+                        reloadFactor = newValue;
+                        break;
                 }
             };
         }
 
         protected void OnEnable() {
-            if (!firstEquip)
-                BroadcastShot(currentMagSize, stats.magSize);
+            if (!_firstEquip)
+                broadcastShot(currentMagSize, gunStats.magSize);
             PlayerInputManager.OnInputDown += StartReload;
+            broadCastWeaponSwitch.Invoke(this);
         }
         
         private void OnDisable()
@@ -86,44 +104,46 @@ namespace WeaponScripts
                 StartCoroutine(Fire());
         }
 
-        protected IEnumerator Fire()
+        private IEnumerator Fire()
         {
             if (reloading || firing)
                 yield break;
-            for (int i = 0; i < stats.projectiles; i++)
-            {
-                GameObject bulletInstance = _bulletPool.GetFromPool();
-                bulletInstance.transform.position = shootPoint.position;
-                var bulletComponent = bulletInstance.GetComponent<Bullet>();
-                var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                bulletComponent.damage = stats.damage + stats.damage * (additionalDamage / 10);
-                if (stats.critChance + playerCritChance > Random.Range(0f, 100f))
-                    bulletComponent.damage *= 2;
-                bulletComponent.accuracy = Mathf.Clamp(stats.accuracy + additionalAccuracy, 0f, 100f);
-                bulletComponent.speed = bulletComponent.accuracy / 8f + 4;
-                if (Vector2.Distance(mousePos, _playerTrans.position) > 1)
-                    bulletComponent.direction = mousePos - shootPoint.position;
-                else
-                    bulletComponent.direction = mousePos - _playerTrans.position;
-                
-            }
             currentMagSize--;
+            broadcastShot(currentMagSize, gunStats.magSize);
+            ShootProjectile();
             if (currentMagSize == 0)
                 StartCoroutine(Reload());
-            BroadcastShot(currentMagSize, stats.magSize);
             firing = true;
-            yield return new WaitForSeconds(60 / (stats.fireRate + stats.fireRate * additionalFireRate / 10));
+            yield return new WaitForSeconds(60 / (gunStats.fireRate + gunStats.fireRate * additionalFireRate / 10));
             firing = false;
+        }
+
+        protected virtual void ShootProjectile()
+        {
+            var bulletInstance = _bulletPool.GetFromPool();
+            bulletInstance.transform.position = shootPoint.position;
+            var bulletComponent = bulletInstance.GetComponent<Bullet>();
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
+            bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
+            bulletComponent.accuracy = Mathf.Clamp(gunStats.accuracy + additionalAccuracy, 0f, 100f);
+            bulletComponent.speed = bulletComponent.accuracy / 8f + 4;
+            if (Vector2.Distance(mousePos, playerTrans.position) > 1)
+                bulletComponent.direction = mousePos - shootPoint.position;
+            else
+                bulletComponent.direction = mousePos - playerTrans.position;
         }
         
         protected IEnumerator Reload()
         {
-            if (reloading || firing)
+            if (reloading || firing || currentMagSize == gunStats.magSize)
                 yield break;
             reloading = true;
-            yield return new WaitForSeconds((minReloadTime - maxReloadTime) / 100 * stats.reloadSpeed + maxReloadTime);
-            currentMagSize = stats.magSize;
-            BroadcastShot(currentMagSize, stats.magSize);
+            var reloadTime = ((minReloadTime - maxReloadTime) / 100 * gunStats.reloadSpeed + maxReloadTime) * reloadFactor;
+            broadcastReload.Invoke(reloadTime);
+            yield return new WaitForSeconds(reloadTime);
+            currentMagSize = gunStats.magSize;
+            broadcastShot(currentMagSize, gunStats.magSize);
             reloading = false;
         }
     }

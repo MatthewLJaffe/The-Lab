@@ -46,8 +46,9 @@ namespace InventoryScripts.ItemScripts
                 {
                      consumable.ItemConsumed += delegate
                      {
-                         Object.Destroy(_equip);
                          Inventory.Instance.DestroyItem(this);
+                         if (_amount == 0)
+                             Object.Destroy(_equip);
                      };
                 }
             }
@@ -61,7 +62,7 @@ namespace InventoryScripts.ItemScripts
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var drop  = Object.Instantiate(itemData.dropPrefab, new Vector3(mousePos.x, mousePos.y, 0),
                 Quaternion.identity);
-            drop.GetComponent<ItemPickup>().ItemToDrop = this;
+            drop.GetComponent<ItemPickup>().itemToDrop = this;
         }
     }
 }

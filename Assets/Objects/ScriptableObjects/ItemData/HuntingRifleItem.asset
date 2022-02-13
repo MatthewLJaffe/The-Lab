@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: HuntingRifleItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: fa66c46fe85ef4149acc2f9e226e236a, type: 3}
+  itemName: Hunting Rifle
+  itemDescription: A trusty rifle
+  dropPrefab: {fileID: 4336774966911779375, guid: 767ca3e5e00dfbe4c9e0a523dd3ae3d2, type: 3}
+  equipPrefab: {fileID: 5384024239233588315, guid: 8da8af6777ae28b4f8c0cb0c13a5720d, type: 3}
+  maxStack: 1

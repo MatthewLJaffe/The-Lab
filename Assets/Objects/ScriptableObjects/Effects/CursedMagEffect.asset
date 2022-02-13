@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fe9571396f41d8b1ad555927ee3820, type: 3}
+  m_Name: CursedMagEffect
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: f9b303483c3709740a000c545613187a, type: 3}
+  message: Increased reload speed. Increased damage after reloading. Reloading may
+    cause damage.
+  stack: 0
+  damageChance: 0.4
+  damageBuffTime: 4
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  minReloadFactor: 0.2
+  attackStep: 3
+  reloadStep: 1
+  damagePerStack: 1

@@ -14,7 +14,7 @@ namespace InventoryScripts
             PlayerInputManager.OnInputDown += Consume;
         }
 
-        protected void OnDestroy()
+        protected virtual void OnDestroy()
         {
             PlayerInputManager.OnInputDown -= Consume;
         }

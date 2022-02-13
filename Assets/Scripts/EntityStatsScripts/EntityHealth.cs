@@ -34,7 +34,7 @@ namespace EntityStatsScripts
             }
         }
         
-        public virtual void TakeDamage(float amount, Vector2 dir, DamageSource source)
+        public virtual void TakeDamage(float amount, Vector2 dir)
         {
             if (Mathf.Abs(amount) < .1f)
                 return;

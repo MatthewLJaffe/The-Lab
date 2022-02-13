@@ -7,7 +7,6 @@ namespace WeaponScripts
     {
         public float damage;
         public float fireRate;
-        public int projectiles;
         public float accuracy;
         public float critChance;
         public float reloadSpeed;

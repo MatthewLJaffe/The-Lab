@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8663708951940368261}
   - component: {fileID: 2447253466808082023}
-  - component: {fileID: -261981329561006840}
+  - component: {fileID: 452009354156256859}
   - component: {fileID: 5879574059853150900}
   m_Layer: 10
   m_Name: ShottyEquip
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddc84c8d8faa0246ac2d37607e11938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-261981329561006840
+--- !u!114 &452009354156256859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,13 +85,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3346838960226083788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76ced0f6bc1a75b4b8abc0ac77aa3683, type: 3}
+  m_Script: {fileID: 11500000, guid: 1404968f30e04466a88b355eb1b9ac71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   bullet: {fileID: 4073495478663857591, guid: efefd7abca1c78c4989a2b71170f11a1, type: 3}
-  stats: {fileID: 11400000, guid: 672242254303157449493a257c2f80c3, type: 2}
+  gunStats: {fileID: 11400000, guid: 672242254303157449493a257c2f80c3, type: 2}
   shootPoint: {fileID: 306972051473257132}
+  maxSpreadAngle: 45
+  bullets: 5
 --- !u!212 &5879574059853150900
 SpriteRenderer:
   m_ObjectHideFlags: 0

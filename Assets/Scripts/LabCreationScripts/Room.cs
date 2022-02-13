@@ -39,8 +39,11 @@ namespace LabCreationScripts
             SetConnectedRooms(tMap, labTiles, dimensions, rooms, roomCategories, dir, RoomBounds, parent, finish);
         }
 
-        public Room(Room[] rooms, Vector3Int lDoor, Vector3Int rDoor, Vector3Int uDoor, Vector3Int dDoor)
+        public Room(Room[] rooms, Vector3Int lDoor, Vector3Int rDoor, Vector3Int uDoor, Vector3Int dDoor, Transform floorParent)
         {
+            roomGameObject = new GameObject($"Room {RoomId}");
+            roomGameObject.transform.SetParent(floorParent);
+            roomGameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             RoomBounds = new BoundsInt(lDoor.x, dDoor.y, 0, (rDoor.x - lDoor.x) + 1, (uDoor.y - dDoor.y) + 1, 1);
             AddRoom(rooms);
         }
@@ -65,9 +68,10 @@ namespace LabCreationScripts
         /// <param name="dir"></param>
         /// <param name="rooms"></param>
         /// <param name="roomType"></param>
-        /// <param name="prevRoom"></param>
+        /// <param name="pRoom"></param>
         /// <returns></returns>
-        private GameObject DrawRoom(Tilemap tMap, LabTiles labTiles, RoomDimensions dim, Vector3Int doorPos, Direction dir, Room[] rooms, ProceduralRoom roomType, Room prevRoom, Transform floorParent)
+        private GameObject DrawRoom(Tilemap tMap, LabTiles labTiles, RoomDimensions dim, Vector3Int doorPos, Direction dir, 
+            Room[] rooms, ProceduralRoom roomType, Room pRoom, Transform floorParent)
         {
             int width = Random.Range(roomType.minSize.x, roomType.maxSize.x);
             int height = Random.Range(roomType.minSize.y, roomType.maxSize.y);
@@ -76,21 +80,21 @@ namespace LabCreationScripts
             if (!CheckIfClear(rooms))
                 return null;
 
-            var roomGameObject = new GameObject();
-            roomGameObject.transform.SetParent(floorParent);
-            roomGameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-            var roomTransform = roomGameObject.transform;
+            var roomGO = new GameObject();
+            roomGO.transform.SetParent(floorParent);
+            roomGO.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+            var roomTransform = roomGO.transform;
             Door prevRoomDoor;
             Door thisRoomDoor;
             switch (dir) 
             {
                 case Direction.Up:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.uDoor, (Vector3)doorPos, Quaternion.identity, roomTransform)
+                    prevRoomDoor = Object.Instantiate(labTiles.uDoor, (Vector3)doorPos, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
-                    thisRoomDoor = Object.Instantiate(labTiles.dDoor, (Vector3)doorPos + Vector3.up * (hallLength - 1 + dDoorOffset), Quaternion.identity, roomTransform)
-                        .GetComponent<Door>();
-                    prevRoomDoor.myRoom = prevRoom;
+                    thisRoomDoor = Object.Instantiate(labTiles.dDoor, (Vector3)doorPos + Vector3.up * (hallLength - 1 + dDoorOffset), Quaternion.identity,
+                            roomTransform).GetComponent<Door>();
+                    prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
@@ -109,11 +113,11 @@ namespace LabCreationScripts
                 
                 case Direction.Right:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.rDoor, (Vector3)doorPos, Quaternion.identity, roomTransform)
+                    prevRoomDoor = Object.Instantiate(labTiles.rDoor, (Vector3)doorPos, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
                     thisRoomDoor = Object.Instantiate(labTiles.lDoor, (Vector3)doorPos + Vector3.right * (hallLength), Quaternion.identity, roomTransform)
                         .GetComponent<Door>();
-                    prevRoomDoor.myRoom = prevRoom;
+                    prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
@@ -132,11 +136,11 @@ namespace LabCreationScripts
 
                 case Direction.Down:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.dDoor, (Vector3)doorPos + Vector3.up*dDoorOffset, Quaternion.identity, roomTransform)
+                    prevRoomDoor = Object.Instantiate(labTiles.dDoor, (Vector3)doorPos + Vector3.up*dDoorOffset, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
                     thisRoomDoor = Object.Instantiate(labTiles.uDoor, (Vector3)doorPos + Vector3.down * (hallLength-1), Quaternion.identity, roomTransform)
                         .GetComponent<Door>();
-                    prevRoomDoor.myRoom = prevRoom;
+                    prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
@@ -155,11 +159,11 @@ namespace LabCreationScripts
 
                 case Direction.Left:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.lDoor, (Vector3)doorPos + Vector3.right, Quaternion.identity, roomTransform)
+                    prevRoomDoor = Object.Instantiate(labTiles.lDoor, (Vector3)doorPos + Vector3.right, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
                     thisRoomDoor = Object.Instantiate(labTiles.rDoor, (Vector3)doorPos + Vector3.left * (hallLength-1), Quaternion.identity, roomTransform)
                         .GetComponent<Door>();
-                    prevRoomDoor.myRoom = prevRoom;
+                    prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
@@ -181,7 +185,7 @@ namespace LabCreationScripts
                     return null;
             }
             DrawWalls(tMap, labTiles);
-            return roomGameObject;
+            return roomGO;
         }
 
         private void DrawWalls(Tilemap tMap, LabTiles labTiles)

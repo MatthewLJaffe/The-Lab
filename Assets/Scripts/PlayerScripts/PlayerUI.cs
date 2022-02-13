@@ -10,7 +10,7 @@ namespace PlayerScripts
         [SerializeField] private TextMeshProUGUI magSize;
 
         private void Awake() {
-            Gun.BroadcastShot += UpdateMag;
+            Gun.broadcastShot += UpdateMag;
         }
 
         private void UpdateMag(int r, int ms) {

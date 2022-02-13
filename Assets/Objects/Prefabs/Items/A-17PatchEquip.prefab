@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a223a0233d424bbb0b2319b4a6dede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   restoreType: 0
   restoreAmount: 30
   restoreDuration: 15
-  restoreTextPrefab: {fileID: 6773606373898106743, guid: d6ae17eee84f34a48b988f4d557d31bd, type: 3}
+  restoreTextPrefab: {fileID: 2471566140574944050, guid: b9790703cfa0e704099631f5334eda95, type: 3}
 --- !u!1001 &7005695435076444696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 303153939b41a454ba8ecf40bd610aad, type: 3}
+    - target: {fileID: 5323280771758378026, guid: 3f641b12b0479bb47831547017251f80, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f641b12b0479bb47831547017251f80, type: 3}
 --- !u!1 &8911727054094289534 stripped

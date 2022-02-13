@@ -7,7 +7,7 @@ namespace General
     {
         public float damage;
         [SerializeField] protected Collider2D sourceCollider;
-        [SerializeField] protected LayerMask layers;
+        public LayerMask layers;
 
         protected virtual void Awake()
         {
@@ -18,15 +18,20 @@ namespace General
         protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
             //check if layer is in layer mask
-            if ( layers != (layers | (1 << collision.gameObject.layer))) return;
-            collision.GetComponentInChildren<IDamageable>()?.TakeDamage(damage, Vector2.zero, this);
+            if ( !LayerInMask(collision.gameObject.layer)) return;
+            collision.GetComponentInChildren<IDamageable>()?.TakeDamage(damage, Vector2.zero);
         }
 
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
             //check if layer is in layer mask
-            if ( layers != (layers | (1 << other.gameObject.layer))) return;
-            other.gameObject.GetComponentInChildren<IDamageable>()?.TakeDamage(damage, Vector2.zero, this);
+            if ( !LayerInMask(other.gameObject.layer)) return;
+            other.gameObject.GetComponentInChildren<IDamageable>()?.TakeDamage(damage, Vector2.zero);
+        }
+
+        public bool LayerInMask(int layer)
+        {
+            return layers == (layers | (1 << layer));
         }
     }
 }

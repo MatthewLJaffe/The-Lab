@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e9f6daf278340774295e178e73cdbf08, type: 2}
     - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
+      value: 0.49825838
       objectReference: {fileID: 0}
     - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0.77864844
       objectReference: {fileID: 0}
     - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Offset.x
@@ -81,7 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782271987652095420, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Name
-      value: InfectionKit
+      value: InfectionKitDrop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782271987652095420, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8666975617360736990, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Color.r

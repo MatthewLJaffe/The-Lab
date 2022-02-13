@@ -18,7 +18,10 @@ namespace EntityStatsScripts
             Defense,
             Accuracy,
             DodgeChance,
-            FireRate
+            FireRate,
+            ReloadFactor,
+            RestoreMultiplier,
+            DontConsumeChance
         }
         
         [Serializable]
@@ -41,6 +44,8 @@ namespace EntityStatsScripts
                 CurrentValue = defaultValue;
             }
         }
+
+        [SerializeField] private float atkToDamageMultiplier;
         [SerializeField] private PlayerStat[] stats;
         public Dictionary<StatType, PlayerStat> PlayerStatsDict;
 
@@ -51,6 +56,11 @@ namespace EntityStatsScripts
                 stat.Initialize();
                 PlayerStatsDict.Add(stat.type, stat);
             }
+        }
+
+        public float GetAttackMultiplier()
+        {
+            return 1f + atkToDamageMultiplier * PlayerStatsDict[StatType.Attack].CurrentValue;
         }
     }
 }

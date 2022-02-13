@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: CursedMagItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: f9b303483c3709740a000c545613187a, type: 3}
+  itemName: Cursed Mag
+  itemDescription: Applies Cursed Mag effect
+  dropPrefab: {fileID: 2264391829373429692, guid: c1bab9ea2efda5f4b8dd528c0bde7386, type: 3}
+  equipPrefab: {fileID: 3372151779755136876, guid: f7f35973a393d2f4a988ab9b677a6161, type: 3}
+  maxStack: 1

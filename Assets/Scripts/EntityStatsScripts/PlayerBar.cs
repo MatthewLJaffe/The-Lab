@@ -1,5 +1,6 @@
 ﻿using System;
 using EntityStatsScripts.Effects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -16,6 +17,7 @@ namespace EntityStatsScripts
         [Tooltip("Can be left uninitialized")]
         [SerializeField] protected GameObject statDisplay;
         [SerializeField] protected RectTransform bar;
+        [SerializeField] protected TextMeshProUGUI amountText;
         [SerializeField] protected float minValue;
         [SerializeField] protected float maxValue;
         [SerializeField] protected Effect barHighEffect;
@@ -75,6 +77,7 @@ namespace EntityStatsScripts
                 else if (newPercentage == 0)
                     BarDeplete.Invoke(barType);
                 barValue = Mathf.Clamp(value, minValue, maxValue);
+                amountText.text = $"{Mathf.Round(barValue)}/{maxValue}";
             }
         }
 

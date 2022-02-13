@@ -10,17 +10,15 @@ namespace InventoryScripts.ItemScripts
     public class ItemPickup : MonoBehaviour
     {
         [SerializeField] private ItemData itemData;
-        public Item ItemToDrop;
-        public static Action<Item> Pickup = delegate{ };
-        private Collider2D _collider2D;
+        public Item itemToDrop;
+        public static Action<Item> pickup = delegate{ };
         private Rigidbody2D _rb;
         private bool _canDrop = true;
 
         private void Awake() {
-            _collider2D = GetComponent<Collider2D>();
             _rb = GetComponent<Rigidbody2D>();
-            if (ItemToDrop == null)
-                ItemToDrop = new Item(itemData);
+            if (itemToDrop == null)
+                itemToDrop = new Item(itemData);
         }
 
         private void OnEnable()
@@ -43,9 +41,19 @@ namespace InventoryScripts.ItemScripts
             if (other.CompareTag("Player") && _canDrop)
             {
                 _canDrop = false;
-                Pickup.Invoke(ItemToDrop);
+                pickup.Invoke(itemToDrop);
                 gameObject.SetActive(false);
             }
+        }
+
+        public void TryPickupItem()
+        {
+            if (!_canDrop) return;
+            _canDrop = false;
+            if (itemToDrop == null)
+                itemToDrop = new Item(itemData);
+            pickup.Invoke(itemToDrop);
+            gameObject.SetActive(false);
         }
 
         public IEnumerator DropItem()

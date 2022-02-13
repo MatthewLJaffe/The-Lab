@@ -11,6 +11,8 @@ namespace WeaponScripts
 {
     public class Bullet : DamageSource, IPooled
     {
+        public static Action<Bullet> bulletDamage = delegate {  };
+        public bool crit;
         public float accuracy;
         public Vector2 direction;
         [Tooltip("Set this to nonzero to give the bullet a fixed speed leave at zero to give bullet speed based on accuracy")]
@@ -41,8 +43,12 @@ namespace WeaponScripts
             var damageable = other.GetComponentInChildren<IDamageable>();
             //using direction as a way to tell if the bullet is live
             //check to see if other layer is damageable
-            if (sourceCollider.isTrigger && direction != Vector2.zero &&layers == (layers | (1 << other.gameObject.layer)))
-                damageable?.TakeDamage(damage, rb.velocity, this);
+            if (sourceCollider.isTrigger && direction != Vector2.zero &&
+                layers == (layers | (1 << other.gameObject.layer)))
+            {
+                bulletDamage.Invoke(this);
+                damageable?.TakeDamage(damage, rb.velocity);
+            }
             if (_capsuleCollider.IsTouching(other) || damageable != null)
             {
                 rb.velocity = Vector2.zero;
@@ -77,6 +83,8 @@ namespace WeaponScripts
         protected IEnumerator InitializeBullet()
         {
             yield return new WaitUntil(() => direction != Vector2.zero);
+            if (crit)
+                damage *= 5;
             BulletReturnRoutine = StartCoroutine(ReturnBullet());
             transform.rotation = GetRotation();
             rb.velocity = transform.rotation * Vector2.up * speed;

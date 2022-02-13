@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4128507266360976446
+--- !u!1001 &4571948907023821431
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1475698626309798022, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: itemData
       value: 
-      objectReference: {fileID: 11400000, guid: b32f974a3dcfb6c42957375cd8720208, type: 2}
+      objectReference: {fileID: 11400000, guid: 070c456ba342c1845b815c2597461889, type: 2}
     - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782271987652095420, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Name
-      value: TriggerFingerDrop
+      value: MaraudersHolsterDrop Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8666975617360736990, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Color.r
@@ -82,6 +82,6 @@ PrefabInstance:
     - target: {fileID: 8666975617360736990, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 59a9911fa7a43c64a976686730487aba, type: 3}
+      objectReference: {fileID: 21300000, guid: 545c5f77ea1fc744ba86dd69e6e0fe8f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26e71dc0ddb711749881c18931d15294, type: 3}

@@ -20,7 +20,7 @@ namespace LabCreationScripts
         [SerializeField] private Transform uDoor;
         [SerializeField] private Transform dDoor;
         public Transform floorParent;
-        private readonly Room[] _rooms = new Room[20];
+        private readonly Room[] _rooms = new Room[25];
         private Tilemap _tMap;
         private bool _floorFinished;
         
@@ -29,6 +29,7 @@ namespace LabCreationScripts
             NoLoot,
             Locker,
             Chest,
+            Gun
         }
 
         [Serializable]
@@ -67,11 +68,11 @@ namespace LabCreationScripts
             foreach (var cat in categories)
                 cat.roomInstances = new List<Room>();
 
-            var startRoom = new Room(_rooms, lDoorPos, rDoorPos, uDoorPos, dDoorPos);
-            startRoom.ConnectedRooms.Add(Direction.Left, 
-                new Room(_tMap, labTiles, dimensions, _rooms, categories, lDoorPos, Direction.Left, startRoom, floorParent, FinishFloor));
-            startRoom.ConnectedRooms.Add(Direction.Right, 
-                new Room(_tMap, labTiles, dimensions, _rooms, categories, rDoorPos, Direction.Right, startRoom, floorParent, FinishFloor));
+            var startRoom = new Room(_rooms, lDoorPos, rDoorPos, uDoorPos, dDoorPos, floorParent);
+            //startRoom.ConnectedRooms.Add(Direction.Left, 
+               // new Room(_tMap, labTiles, dimensions, _rooms, categories, lDoorPos, Direction.Left, startRoom, floorParent, FinishFloor));
+            //startRoom.ConnectedRooms.Add(Direction.Right, 
+               // new Room(_tMap, labTiles, dimensions, _rooms, categories, rDoorPos, Direction.Right, startRoom, floorParent, FinishFloor));
             startRoom.ConnectedRooms.Add(Direction.Up, 
                 new Room(_tMap, labTiles, dimensions, _rooms, categories, uDoorPos, Direction.Up, startRoom, floorParent, FinishFloor));
         }

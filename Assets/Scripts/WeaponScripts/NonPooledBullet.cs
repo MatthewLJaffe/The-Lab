@@ -36,7 +36,7 @@ namespace WeaponScripts
             //using direction as a way to tell if the bullet is live
             //check to see if other layer is damageable
             if (sourceCollider.isTrigger && direction != Vector2.zero &&layers == (layers | (1 << other.gameObject.layer)))
-                damageable?.TakeDamage(damage, rb.velocity, this);
+                damageable?.TakeDamage(damage, rb.velocity);
             if (_destructionCollider.IsTouching(other))
             {
                 rb.velocity = Vector2.zero;

@@ -1,12 +1,14 @@
 ﻿using System.Linq;
 using PlayerScripts;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace InventoryScripts.ItemScripts
 {
     public class ItemSpawner : MonoBehaviour
     {
+        public UnityEvent onItemSpawn;
         [SerializeField] private ItemTableEntry[] itemTable;
         private SpriteRenderer _sr;
         [SerializeField] private Color highlightColor;
@@ -48,7 +50,7 @@ namespace InventoryScripts.ItemScripts
         private void DetermineLoot(PlayerInputManager.PlayerInputName iName)
         {
             if (iName != PlayerInputManager.PlayerInputName.Interact || _looted || !_inRange) return;
-            float probValue = Random.Range(0, 100);
+            float probValue = Random.Range(0f, 100f);
             float currentValue = 0;
             foreach (var entry in itemTable)
             {
@@ -65,6 +67,7 @@ namespace InventoryScripts.ItemScripts
         {
             var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
             StartCoroutine(dropInstance.GetComponent<ItemPickup>().DropItem());
+            onItemSpawn.Invoke();
             _looted = true;
         }
     }

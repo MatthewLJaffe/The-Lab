@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: ImpatientBulletItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: adb2ae229e8883c41a4419343be7ff0e, type: 3}
+  itemName: Impatient Bullets
+  itemDescription: Bullets in the top half deal more damage, bullets in the bottom
+    half deal less
+  dropPrefab: {fileID: 6962433689028432488, guid: 7a5cc550c6a733f4a908ebe1b233a3f1, type: 3}
+  equipPrefab: {fileID: 6615382127157657349, guid: fd17f08917a4de84da246c181d7c6414, type: 3}
+  maxStack: 1

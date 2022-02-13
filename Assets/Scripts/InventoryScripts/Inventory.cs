@@ -25,6 +25,11 @@ namespace InventoryScripts
 
         private void Awake()
         {
+            ItemPickup.pickup += AddItem;
+            PlayerInputManager.OnInputDown += ToggleInventory;
+            PlayerInputManager.OnInputDown += NumberInput;
+            InventorySlot.InventorySlotChanged += UpdateInventorySlots;
+            
             _toggler = GetComponent<Toggler>();
             _hotBar = new GameObject[transform.GetChild(1).childCount];
             for(int i = 0; i < _hotBar.Length; i++) {
@@ -42,19 +47,13 @@ namespace InventoryScripts
                 Destroy(gameObject);
         }
 
-        private void Start()
-        {
-            ItemPickup.Pickup += AddItem;
-            PlayerInputManager.OnInputDown += ToggleInventory;
-            PlayerInputManager.OnInputDown += NumberInput;
-            InventorySlot.InventorySlotChanged += UpdateInventorySlots;
-        }
-
         private void OnDestroy()
         {
             PlayerInputManager.OnInputDown -= ToggleInventory;
             PlayerInputManager.OnInputDown -= NumberInput;
             InventorySlot.InventorySlotChanged -= UpdateInventorySlots;
+            ItemPickup.pickup -= AddItem;
+
             _hotBar.Initialize();
             slotList.Clear();
         }
@@ -119,6 +118,7 @@ namespace InventoryScripts
                 removeSlot.MyItem.Amount -= amount;
             else
             {
+                removeSlot.MyItem.Amount = 0;
                 itemList.Remove(item);
                 removeSlot.MyItem = null;
             }

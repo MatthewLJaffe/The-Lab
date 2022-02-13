@@ -6,9 +6,8 @@ using UnityEngine;
 
 namespace InventoryScripts.ItemScripts
 {
-    public class PatchConsumable : Consumable
+    public class PatchConsumable : RestoreConsumable
     {
-        [SerializeField] private PlayerBar.PlayerBarType restoreType;
         [SerializeField] private float restoreAmount;
         [SerializeField] private float restoreDuration;
         [SerializeField] private GameObject restoreTextPrefab;
@@ -18,7 +17,7 @@ namespace InventoryScripts.ItemScripts
         {
             if (inputName != PlayerInputManager.PlayerInputName.Fire1 || !gameObject.activeSelf) return;
             var regen = transform.parent.parent.gameObject.AddComponent<RegenStat>();
-            regen.StartRegen(restoreType, restoreAmount, restoreDuration, restoreTextPrefab);
+            regen.StartRegen(restoreType, Mathf.Round(restoreAmount * restoreMultiplier), restoreDuration, restoreTextPrefab);
             base.Consume(inputName);
         }
     }

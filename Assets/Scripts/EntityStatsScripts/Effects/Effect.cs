@@ -6,7 +6,7 @@ namespace EntityStatsScripts.Effects
 {
     public abstract class Effect : ScriptableObject
     {
-        public static  Action<Effect> OnEffectChange = delegate{  };
+        public static  Action<Effect> onEffectChange = delegate{  };
         public Sprite sprite;
         public string message;
         [SerializeField] protected int stack;
@@ -19,17 +19,17 @@ namespace EntityStatsScripts.Effects
             {
                ChangeEffectStack(value, stack);
                stack = value;
-               OnEffectChange.Invoke(this);
+               onEffectChange.Invoke(this);
             }
         }
         
-        protected void OnEnable()
+        protected virtual void OnEnable()
         {
             stack = 0;
             PlayerFind.PlayerDestroy += ResetStat;
         }
 
-        protected void OnDisable()
+        protected virtual void OnDisable()
         {
             PlayerFind.PlayerDestroy -= ResetStat;
         }

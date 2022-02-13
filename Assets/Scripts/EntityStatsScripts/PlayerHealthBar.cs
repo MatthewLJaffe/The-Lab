@@ -44,6 +44,7 @@ namespace EntityStatsScripts
 
         private void Awake()
         {
+            DamagePlayer.applyPlayerDamage += TakeDamage;
             _sr = GetComponentInParent<SpriteRenderer>();
             _damageNumberPool = new GameObjectPool(numberPrefab, displayPoint);
             BarDeplete += KillPlayer;
@@ -52,11 +53,12 @@ namespace EntityStatsScripts
 
         private void OnDestroy()
         {
+            DamagePlayer.applyPlayerDamage -= TakeDamage;
             PlayerStats.OnStatChange -= ChangeStats;
             BarDeplete -= KillPlayer;
         }
-
-        public void TakeDamage(float amount, Vector2 dir, DamageSource source)
+        
+        public void TakeDamage(float amount, Vector2 dir)
         {
             if (!_canBeDamaged) return;
             if (Random.Range(0, 100) < dodgeChance)
