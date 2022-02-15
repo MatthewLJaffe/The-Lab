@@ -495,7 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCollider: {fileID: 2674299388460214500}
   target: {fileID: 0}
-  enteredRoom: 1
+  enteredRoom: 0
   roomChild: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &7477241553121777689
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1283099854520831250}
   projectile: {fileID: 4242816469578167626, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
-  shootDelay: 0.5
+  shootDelay: 0.7
   shootPoint: {fileID: 1283099855743925105}
   predictionFrames: 5
 --- !u!1 &4909585478499840626

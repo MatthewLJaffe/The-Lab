@@ -6,14 +6,30 @@ using Random = UnityEngine.Random;
 
 namespace InventoryScripts.ItemScripts
 {
-    public class ItemSpawner : MonoBehaviour
+    public class ItemSpawner : MonoBehaviour, IInteractable
     {
         public UnityEvent onItemSpawn;
         [SerializeField] private ItemTableEntry[] itemTable;
         private SpriteRenderer _sr;
         [SerializeField] private Color highlightColor;
-        private bool _inRange;
+        private bool _canInteract;
         private bool _looted;
+        public bool CanInteract
+        {
+            get => _canInteract;
+            set
+            {
+                _canInteract = value;
+                if (_canInteract && !_looted)
+                    _sr.color = highlightColor;
+                else
+                    _sr.color = Color.white;
+            }
+        }
+        public void Interact()
+        {
+            DetermineLoot();
+        }
 
 
         private void Awake()
@@ -23,7 +39,6 @@ namespace InventoryScripts.ItemScripts
             float probSum = itemTable.Sum(ie => ie.prob);
             for (int i = 0; i < itemTable.Length; i++)
                 itemTable[i].prob = (itemTable[i].prob / probSum) * 100;
-            PlayerInputManager.OnInputDown += DetermineLoot;
         }
 
         [System.Serializable]
@@ -33,24 +48,10 @@ namespace InventoryScripts.ItemScripts
             public GameObject drop;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void DetermineLoot()
         {
-            if (!other.gameObject.CompareTag("Player") || _looted) return;
-            _sr.color = highlightColor;
-            _inRange = true;
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (!other.gameObject.CompareTag("Player")) return;
-            _sr.color = Color.white;
-            _inRange = false;
-        }
-
-        private void DetermineLoot(PlayerInputManager.PlayerInputName iName)
-        {
-            if (iName != PlayerInputManager.PlayerInputName.Interact || _looted || !_inRange) return;
-            float probValue = Random.Range(0f, 100f);
+            if (!_canInteract || _looted) return;
+            var probValue = Random.Range(0f, 100f);
             float currentValue = 0;
             foreach (var entry in itemTable)
             {
@@ -68,6 +69,7 @@ namespace InventoryScripts.ItemScripts
             var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
             StartCoroutine(dropInstance.GetComponent<ItemPickup>().DropItem());
             onItemSpawn.Invoke();
+            CanInteract = false;
             _looted = true;
         }
     }

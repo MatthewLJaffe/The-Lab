@@ -26,7 +26,6 @@ namespace LabCreationScripts
                 finish.Invoke();
                 return;
             }
-
             roomType = PickRoomType(roomCategories, rooms.Count(r => r == null), out var roomCategory);
             roomGameObject = DrawRoom(tMap, labTiles, dimensions, doorPos, dir, rooms, roomType, prevRoom, parent);
             if (!roomGameObject) return;
@@ -289,16 +288,22 @@ namespace LabCreationScripts
         private ProceduralRoom PickRoomType(FloorGenerator.RoomCategory[] roomCategories, int numRooms, out FloorGenerator.RoomCategory category)
         {
             var randValue = Random.Range(0, 1f);
-            category = roomCategories.First(rc => rc.amountToCreate >= 1);
-            foreach (var rc in roomCategories)
+            if (numRooms > 1) 
             {
-                var weight = rc.amountToCreate / (float) numRooms;
-                if (weight >= randValue && rc.amountToCreate != 0) {
-                    category = rc;
-                    break;
+                category = roomCategories.First(rc => rc.amountToCreate >= 1);
+                foreach (var rc in roomCategories)
+                {
+                    var weight = rc.amountToCreate / (float) numRooms;
+                    if (weight >= randValue && rc.amountToCreate != 0) {
+                        category = rc;
+                        break;
+                    }
+                    randValue -= weight;
                 }
-                randValue -= weight;
             }
+            //if there is only one room left to create maxe it the exit room
+            else
+                category = roomCategories.First(rc => rc.categoryName == FloorGenerator.CategoryName.End);
             
             var roomTypes = category.roomTypes;
             var lastRoomType =  roomTypes[roomTypes.Length - 1].proceduralRoom;

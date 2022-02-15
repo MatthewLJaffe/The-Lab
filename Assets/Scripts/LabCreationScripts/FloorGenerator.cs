@@ -29,7 +29,8 @@ namespace LabCreationScripts
             NoLoot,
             Locker,
             Chest,
-            Gun
+            Gun,
+            End
         }
 
         [Serializable]
