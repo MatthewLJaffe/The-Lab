@@ -35,7 +35,7 @@ namespace EnemyScripts
             var velInitial = new Vector2(velocity.x, velocity.y);
             yield return new WaitForSeconds(Time.fixedDeltaTime * predictionFrames);
             var acc = (velocity - velInitial) / predictionFrames;
-            var projectileSpeed = projectile.GetComponent<NonPooledBullet>().speed;
+            var projectileSpeed = projectile.GetComponent<Bullet>().speed;
             var travelTime = Vector2.Distance(targetRb.transform.position, transform.position) / projectileSpeed;
             var targetDest = (Vector2) enemy.target.transform.position + velocity * (shootDelay + travelTime) +
                              .5f * Mathf.Pow((shootDelay + travelTime), 2) * acc;
@@ -47,7 +47,7 @@ namespace EnemyScripts
         {
             var projInstance = Instantiate(projectile, shootPoint.transform.position, quaternion.identity);
             projInstance.transform.up = ShootDir;
-            projInstance.GetComponent<NonPooledBullet>().direction = ShootDir;
+            projInstance.GetComponent<Bullet>().direction = ShootDir;
         }
 
     }

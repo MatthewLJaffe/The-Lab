@@ -62,7 +62,7 @@ namespace EnemyScripts
             {
                 var bulletGo = _bulletPool.GetFromPool();
                 bulletGo.transform.position = shootPoint.position;
-                var bulletComponent = bulletGo.GetComponent<Bullet>();
+                var bulletComponent = bulletGo.GetComponent<PooledBullet>();
                 bulletComponent.direction =  shootPoint.localRotation * -transform.up;
                 bulletComponent.speed = bulletSpeed;
                 bulletComponent.damage = damage;

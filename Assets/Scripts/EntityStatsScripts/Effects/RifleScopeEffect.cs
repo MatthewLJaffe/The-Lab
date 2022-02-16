@@ -15,7 +15,7 @@ namespace EntityStatsScripts.Effects
         {
             base.OnEnable();
             _critChanceBonus = 0;
-            Bullet.bulletDamage += ApplyRifleScopeEffect;
+            Bullet.BulletDamage += ApplyRifleScopeEffect;
         }
 
         protected override void ChangeEffectStack(int newStack, int oldStack)

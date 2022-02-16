@@ -163,14 +163,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  _collider: {fileID: 1171075297966403553}
+  sourceCollider: {fileID: 1171075297966403553}
   layers:
     serializedVersion: 2
     m_Bits: 512
-  accuracy: 0
+  crit: 0
+  accuracy: 100
   direction: {x: 0, y: 0}
   speed: 5
   liveTime: 3
+  maxAngle: 0
+  destroyOnDamage: 1
+  destructionCollider: {fileID: 1736799449864017275}
 --- !u!95 &8053677357786522932
 Animator:
   serializedVersion: 3

@@ -433,7 +433,7 @@ MonoBehaviour:
   acceleration: 4
   scanDirections: 16
   changeDirThreshold: 0.25
-  debug: 1
+  debug: 0
   frameCount: 0
 --- !u!114 &8513788600480466899
 MonoBehaviour:
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83a43bd1ef64c8d97779256ac8b3447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
 --- !u!114 &1283099855493205383
 MonoBehaviour:
   m_ObjectHideFlags: 0

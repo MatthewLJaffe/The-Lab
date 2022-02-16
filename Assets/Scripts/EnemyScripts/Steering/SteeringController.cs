@@ -39,7 +39,7 @@ namespace EnemyScripts
             if (frameCount >= scanFrames) 
             {
                 frameCount = 0;
-                _accDir = SteerDirection().normalized * speed - (velocity);
+                _accDir = SteerDirection().normalized * speed - velocity;
                 if (debug)
                     DebugSteeringWeights();
                 foreach (var dir in _steeringWeights.Keys.ToList())

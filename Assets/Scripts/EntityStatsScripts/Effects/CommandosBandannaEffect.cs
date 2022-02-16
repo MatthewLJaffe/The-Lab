@@ -16,7 +16,7 @@ namespace EntityStatsScripts.Effects
         {
             base.OnEnable();
             _damageMult = 0;
-            Bullet.bulletDamage += ApplyCommandosBandannaEffect;
+            Bullet.BulletDamage += ApplyCommandosBandannaEffect;
         }
 
         protected override void ChangeEffectStack(int newStack, int oldStack)

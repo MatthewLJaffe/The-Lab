@@ -10,6 +10,12 @@ namespace EnemyScripts
         [SerializeField] private float nonHitMultiplier = .5f;
         [SerializeField] private float raycastDistance;
         [SerializeField] private bool debug;
+        private RaycastHit2D[] _raycastResults;
+
+        private void Awake()
+        {
+            _raycastResults = new RaycastHit2D[10];
+        }
 
         public override void AdjustWeights(Dictionary<Vector2, float> steeringWeights)
         {
@@ -48,15 +54,14 @@ namespace EnemyScripts
             for (var theta = 0f; theta < 360f; theta += 360f / numCasts)
             {
                 var dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * theta), Mathf.Sin(Mathf.Deg2Rad * theta)).normalized;
-                var hits = Physics2D.RaycastAll((Vector2)transform.position, dir, raycastDistance,
-                    LayerMask.GetMask("Default", "Enemy", "Block"));
+                var size = Physics2D.RaycastNonAlloc((Vector2)transform.position, dir, _raycastResults, raycastDistance, LayerMask.GetMask("Default", "Enemy", "Block"));
                 if (debug)
                     Debug.DrawRay((Vector2)transform.position, 
                     dir.normalized * raycastDistance, Color.magenta, Time.fixedDeltaTime);
-                foreach (var hit in hits)
+                for (int i = 0; i < size; i++)
                 {
-                    if (hit.transform.gameObject == transform.parent.gameObject) continue;
-                    raycastHits.Add(dir, hit);
+                    if (_raycastResults[i].transform.gameObject == transform.parent.gameObject) continue;
+                    raycastHits.Add(dir, _raycastResults[i]);
                     break;
                 }
             }

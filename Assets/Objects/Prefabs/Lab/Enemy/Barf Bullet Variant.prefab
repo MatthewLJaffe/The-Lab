@@ -17,10 +17,14 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 512
+  crit: 0
   accuracy: 100
   direction: {x: 0, y: 0}
   speed: 8
   liveTime: 3
+  maxAngle: 0
+  destroyOnDamage: 0
+  destructionCollider: {fileID: 4242816469578167621}
 --- !u!1001 &2520849193575063614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +178,11 @@ PrefabInstance:
 --- !u!1 &4242816469578167626 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1736799449864017268, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+  m_PrefabInstance: {fileID: 2520849193575063614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &4242816469578167621 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1736799449864017275, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
   m_PrefabInstance: {fileID: 2520849193575063614}
   m_PrefabAsset: {fileID: 0}
 --- !u!70 &3655696096654168031 stripped

@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: liveTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5587561943361001393, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
+      propertyPath: maxAngle
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 5587561943361001395, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
       propertyPath: m_Offset.y
       value: 0.09838936
