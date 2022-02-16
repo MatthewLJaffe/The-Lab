@@ -12,25 +12,22 @@ namespace InventoryScripts.ItemScripts
         [SerializeField] private ItemTableEntry[] itemTable;
         private SpriteRenderer _sr;
         [SerializeField] private Color highlightColor;
-        private bool _canInteract;
         private bool _looted;
         public bool CanInteract
         {
-            get => _canInteract;
             set
             {
-                _canInteract = value;
-                if (_canInteract && !_looted)
+                if (value && !_looted)
                     _sr.color = highlightColor;
                 else
                     _sr.color = Color.white;
             }
         }
+        
         public void Interact()
         {
             DetermineLoot();
         }
-
 
         private void Awake()
         {
@@ -50,7 +47,7 @@ namespace InventoryScripts.ItemScripts
 
         private void DetermineLoot()
         {
-            if (!_canInteract || _looted) return;
+            if (_looted) return;
             var probValue = Random.Range(0f, 100f);
             float currentValue = 0;
             foreach (var entry in itemTable)
@@ -69,7 +66,7 @@ namespace InventoryScripts.ItemScripts
             var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
             StartCoroutine(dropInstance.GetComponent<ItemPickup>().DropItem());
             onItemSpawn.Invoke();
-            CanInteract = false;
+            _sr.color = Color.white;
             _looted = true;
         }
     }

@@ -58,9 +58,9 @@ namespace InventoryScripts
             slotList.Clear();
         }
 
-        public void ToggleCrafting()
+        public void SetCraftingEnabled(bool enable)
         {
-            craftingParent.SetActive(!craftingParent.activeSelf);
+            craftingParent.SetActive(enable);
         }
 
         public InventorySlot GetSlotFromItem(Item item)
@@ -140,6 +140,11 @@ namespace InventoryScripts
             slotList[_currentlyEquipped].EquipSlot();
             UpdateHotBar();
             OnInventoryUpdated.Invoke();
+        }
+
+        public void ToggleInventory()
+        {
+            _toggler.ToggleItems();
         }
         
         private void ToggleInventory(PlayerInputManager.PlayerInputName iName)

@@ -13,6 +13,7 @@ namespace LabCreationScripts
     {
         public static Action onFloorFinished = delegate {  };
         [SerializeField] private RoomCategory[] categories;
+        
         [SerializeField] private RoomDimensions dimensions;
         [SerializeField] private LabTiles labTiles;
         [SerializeField] private Transform lDoor;

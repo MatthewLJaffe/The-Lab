@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using InventoryScripts.ItemScripts;
+using PlayerScripts;
 using UnityEngine;
 
 namespace InventoryScripts
@@ -16,10 +17,13 @@ namespace InventoryScripts
         private List<CraftingRecipe> _craftable;
         private List<Item> _ingredientSlotItems;
         private CraftingRecipe _crafting;
-
+        private CraftingRecipe.CraftType _craftableType;
         
         private void Awake()
         {
+            _craftableType = CraftingRecipe.CraftType.Hands;
+            Inventory.OnInventoryUpdated += UpdateRecipes;
+            WeaponUpgrade.craftTypeChange += UpdateCraftType;
             _ingredientSlotItems = new List<Item>();
             var craftingObjects = Resources.LoadAll("Crafting Recipes");
             craftingRecipes = new CraftingRecipe[craftingObjects.Length];
@@ -30,15 +34,13 @@ namespace InventoryScripts
                 ingredientsSlots[i] = ingredientsParent.GetChild(i);
         }
 
-        private void Start() {
-            Inventory.OnInventoryUpdated += UpdateRecipes;
-        }
-
         private void OnDestroy() {
             Inventory.OnInventoryUpdated -= UpdateRecipes;
+            WeaponUpgrade.craftTypeChange -= UpdateCraftType;
         }
 
-        private void OnEnable() {
+        private void OnEnable() 
+        {
             UpdateRecipes();
         }
         
@@ -118,8 +120,15 @@ namespace InventoryScripts
             CheckForCraftingResult();
         }
 
+        private void UpdateCraftType(CraftingRecipe.CraftType newCraftType)
+        {
+            _craftableType = newCraftType;
+            UpdateRecipes();
+        }
+
         private bool RecipeCraftable(CraftingRecipe cr, List<Item> itemList)
         {
+            if (cr.craftWith != _craftableType) return false;
             foreach (var ingredient in cr.ingredients)
             {
                 if (!itemList.Any(item => 

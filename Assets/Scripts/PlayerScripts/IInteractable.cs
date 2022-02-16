@@ -1,8 +1,10 @@
-﻿namespace PlayerScripts
+﻿using UnityEngine;
+
+namespace PlayerScripts
 {
     public interface IInteractable
     {
-        bool CanInteract { get; set; }
+        bool CanInteract { set; }
         void Interact();
     }
 }

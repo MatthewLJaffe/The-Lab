@@ -17,4 +17,4 @@ MonoBehaviour:
   itemDescription: Cam be used to craft permanent upgrades
   dropPrefab: {fileID: 3923383155845885380, guid: 85a72eab7d151f74ebddb7f957f7d28c, type: 3}
   equipPrefab: {fileID: 4374323550059416074, guid: 5d81ac3971ae5c94491e9ae83293fbcc, type: 3}
-  maxStack: 1
+  maxStack: 5

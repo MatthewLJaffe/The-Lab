@@ -14,6 +14,11 @@ namespace PlayerScripts
             PlayerInputManager.OnInputDown += InteractWithObjects;
         }
 
+        private void OnDestroy()
+        {
+            PlayerInputManager.OnInputDown -= InteractWithObjects;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             var interact = other.gameObject.GetComponent<IInteractable>();
