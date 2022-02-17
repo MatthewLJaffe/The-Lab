@@ -56,8 +56,8 @@ MonoBehaviour:
     weight: 0
   - behaviour: {fileID: 5477255447879738438}
     weight: 0
-  speed: 2
-  acceleration: 2
+  speed: 1
+  acceleration: 1
   aggroRange: 10
   aggroState: {fileID: 651635345783580237}
 --- !u!114 &651635345783580237
@@ -848,7 +848,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0.5
   avoidMultiplier: 1
-  changeDirTime: 2
+  changeDirTime: 3
+  farDistance: 3
+  maxOffsetAngle: 80
 --- !u!114 &4022875433385541700
 MonoBehaviour:
   m_ObjectHideFlags: 0

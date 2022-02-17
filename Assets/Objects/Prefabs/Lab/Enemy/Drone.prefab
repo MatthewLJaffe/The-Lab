@@ -122,7 +122,6 @@ MonoBehaviour:
   timeBetweenShots: 0.75
   damage: 10
   bulletSpeed: 3.5
-  canShoot: 0
 --- !u!1 &2407412675255305638
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0.3
   avoidMultiplier: 1
-  changeDirTime: 2
+  changeDirTime: 3
+  farDistance: 3
+  maxOffsetAngle: 80
 --- !u!114 &3572731977379662789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +759,7 @@ MonoBehaviour:
   weight: 0.7
   avoidMultiplier: 4
   avoidThreshold: 1
+  nonHitMultiplier: 0.5
   raycastDistance: 2
   debug: 0
 --- !u!114 &3572731977379662788
