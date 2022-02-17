@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  sourceCollider: {fileID: 0}
+  sourceCollider: {fileID: 1171075297966403553}
   layers:
     serializedVersion: 2
     m_Bits: 512
@@ -174,7 +174,7 @@ MonoBehaviour:
   liveTime: 3
   maxAngle: 0
   destroyOnDamage: 1
-  destructionCollider: {fileID: 0}
+  destructionCollider: {fileID: 1736799449864017275}
 --- !u!95 &8053677357786522932
 Animator:
   serializedVersion: 3
