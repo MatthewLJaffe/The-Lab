@@ -1,21 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace EnemyScripts
 {
     public class RoamAround : SteeringBehaviour
     {
         [SerializeField] private float changeDirTime;
+        private float _currTime;
+        [SerializeField] private float farDistance;
+        [SerializeField] private float maxOffsetAngle;
         private float _currentDirTime;
         private Vector2 _currentDir;
-        private float _rayCastDistance = 4f;
+        private Vector2 _spawnPos;
+
+        protected void Start()
+        {
+            _spawnPos = transform.parent.GetComponent<Enemy>().SpawnPos;
+        }
+
         public override void AdjustWeights(Dictionary<Vector2, float> steeringWeights)
         {
-            _currentDirTime -= Time.deltaTime;
-            if (_currentDirTime <= 0) {
-                _currentDir = GetDirection();
-                _currentDirTime = changeDirTime;
+            if (Vector2.Distance(_spawnPos, transform.position) > farDistance)
+            {
+                _currTime = 0;
+                GetDirection();
+            }
+            if (_currTime > changeDirTime)
+            {
+                _currTime = 0;
+                GetDirection();
             }
             
             foreach (var dir in steeringWeights.Keys.ToList()) {
@@ -23,17 +39,14 @@ namespace EnemyScripts
                 weightChange = weightChange < 0 ? weightChange * avoidMultiplier : weightChange;
                 steeringWeights[dir] += weightChange;
             }
+            _currTime += Time.fixedDeltaTime;
         }
 
-        private Vector2 GetDirection()
+        private void GetDirection()
         {
-            for (int i = 0; i < 20; i ++)
-            {
-                var newDir = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f)).normalized;
-                var hit = Physics2D.Raycast((Vector2) transform.position, newDir, _rayCastDistance, LayerMask.GetMask("Default"));
-                if (hit.collider == null) return newDir;
-            }
-            return Vector2.zero;
+            var generalDir = _spawnPos - (Vector2) transform.position;
+            var offsetAngle = Random.Range(-maxOffsetAngle, maxOffsetAngle);
+            _currentDir = Quaternion.Euler(0, 0, offsetAngle) * generalDir;
         }
     }
 }

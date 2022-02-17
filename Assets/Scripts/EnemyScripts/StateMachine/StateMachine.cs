@@ -23,12 +23,6 @@ namespace EnemyScripts
             OnStateChange(CurrentState);
         }
 
-        public void SetStates(Dictionary<Type, BaseState> states)
-        {
-            _availableStates = states;
-        }
-
-        //called in animation controller
         public void SetState(string stateName)
         {
             var stateType = _availableStates.Keys.FirstOrDefault(t => t.Name == stateName);

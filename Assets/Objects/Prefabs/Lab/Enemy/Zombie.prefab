@@ -774,7 +774,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0.5
   avoidMultiplier: 1
-  changeDirTime: 2
+  changeDirTime: 2.5
+  farDistance: 3
+  maxOffsetAngle: 80
 --- !u!114 &2745616192424505485
 MonoBehaviour:
   m_ObjectHideFlags: 0

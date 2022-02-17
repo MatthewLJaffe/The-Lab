@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1736799449864017273, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+      propertyPath: sourceCollider
+      value: 
+      objectReference: {fileID: 4372070914778222192}
+    - target: {fileID: 1736799449864017273, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+      propertyPath: destructionCollider
+      value: 
+      objectReference: {fileID: 3816396577628812522}
     - target: {fileID: 1736799449864017279, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.319
@@ -65,3 +73,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+--- !u!61 &3816396577628812522 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1736799449864017275, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+  m_PrefabInstance: {fileID: 3237183862495371665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &4372070914778222192 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1171075297966403553, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+  m_PrefabInstance: {fileID: 3237183862495371665}
+  m_PrefabAsset: {fileID: 0}
