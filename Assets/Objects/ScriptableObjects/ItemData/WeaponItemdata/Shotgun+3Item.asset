@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: Shotgun+3Item
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: fec551830b91ea746971d06e63685b67, type: 3}
+  itemName: Shotgun
+  itemDescription: boom
+  dropPrefab: {fileID: 286106373671888344, guid: 4eab7666c092a2546adc086fdb895538, type: 3}
+  equipPrefab: {fileID: 1609890486846478305, guid: 791c6ecef85100140b9ea6004687eb40, type: 3}
+  maxStack: 1

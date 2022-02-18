@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
-  m_Name: AmtiSocialBulletsItem
+  m_Name: Shotgun+1Item
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  itemName: 
-  itemDescription: 
-  dropPrefab: {fileID: 0}
-  equipPrefab: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: fec551830b91ea746971d06e63685b67, type: 3}
+  itemName: Shotgun
+  itemDescription: boom
+  dropPrefab: {fileID: 273033115241309109, guid: 99d61be69b1760a4f98892f787922001, type: 3}
+  equipPrefab: {fileID: 4954198288982813743, guid: f78d19e13dcfec74c9b939ac7e43fa11, type: 3}
   maxStack: 1

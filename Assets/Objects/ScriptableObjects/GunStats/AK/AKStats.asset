@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d218e701d8042dd4d9d178c92e871acb, type: 3}
   m_Name: AKStats
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 4
   fireRate: 350
-  accuracy: 85
+  accuracy: 70
   critChance: 5
   reloadSpeed: 30
   magSize: 40
