@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ef0bdfdc624b89be9ba6b065f52631, type: 3}
   m_Name: Shotgun+1Recipe
   m_EditorClassIdentifier: 
-  craftWith: 0
-  ingredients: []
+  craftWith: 1
+  ingredients:
+  - itemData: {fileID: 11400000, guid: da8c50f8948821841a45c562776e2118, type: 2}
+    amount: 2
+  - itemData: {fileID: 11400000, guid: 5b81b23f94460684b8336ef8b84a77e5, type: 2}
+    amount: 1
   result:
-    itemData: {fileID: 0}
-    amount: 0
+    itemData: {fileID: 11400000, guid: f60ab9dcaa3ecef499cf5f4d6ac1cb79, type: 2}
+    amount: 1

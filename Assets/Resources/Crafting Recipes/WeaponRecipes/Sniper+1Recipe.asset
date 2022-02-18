@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ef0bdfdc624b89be9ba6b065f52631, type: 3}
   m_Name: Sniper+1Recipe
   m_EditorClassIdentifier: 
-  craftWith: 0
-  ingredients: []
+  craftWith: 1
+  ingredients:
+  - itemData: {fileID: 11400000, guid: da8c50f8948821841a45c562776e2118, type: 2}
+    amount: 2
+  - itemData: {fileID: 11400000, guid: 2c806ec1a394d9544a67cc89438b4eb5, type: 2}
+    amount: 1
   result:
-    itemData: {fileID: 0}
-    amount: 0
+    itemData: {fileID: 11400000, guid: 44b89f569c7e31341ae4e258c7e48826, type: 2}
+    amount: 1

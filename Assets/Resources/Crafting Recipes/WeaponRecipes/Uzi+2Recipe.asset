@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ef0bdfdc624b89be9ba6b065f52631, type: 3}
   m_Name: Uzi+2Recipe
   m_EditorClassIdentifier: 
-  craftWith: 0
-  ingredients: []
+  craftWith: 1
+  ingredients:
+  - itemData: {fileID: 11400000, guid: da8c50f8948821841a45c562776e2118, type: 2}
+    amount: 2
+  - itemData: {fileID: 11400000, guid: 6c71ac1f91611c0439f21c41570b2044, type: 2}
+    amount: 1
   result:
-    itemData: {fileID: 0}
-    amount: 0
+    itemData: {fileID: 11400000, guid: 4b027639fcdd46243a9f570a18a31935, type: 2}
+    amount: 1

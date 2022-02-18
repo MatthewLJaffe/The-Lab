@@ -15,6 +15,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 7a3414b4e478be945ab461138d4d1381, type: 3}
   itemName: Uzi
   itemDescription: brrrra
-  dropPrefab: {fileID: 0}
-  equipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 8435159247922858375, guid: d074e2fb480c05e4e8b695e2ef80b52c, type: 3}
+  equipPrefab: {fileID: 8676577449820902923, guid: 72212d2886c671f4da1b80f33c339a33, type: 3}
   maxStack: 1
