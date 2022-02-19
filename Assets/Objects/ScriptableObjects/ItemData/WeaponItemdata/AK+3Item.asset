@@ -15,6 +15,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 221352997b5ca8c4babf05f28aa8bd3f, type: 3}
   itemName: AK +3
   itemDescription: Pew Pew +3
-  dropPrefab: {fileID: 0}
-  equipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 3769134308466223122, guid: e28b5b3cf4342f44881b8fd493d4d6c3, type: 3}
+  equipPrefab: {fileID: 2591417531378326272, guid: a9383e63bb2f75e4cbfdd0df9563b6c4, type: 3}
   maxStack: 1

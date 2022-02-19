@@ -115,7 +115,7 @@ namespace EntityStatsScripts
 
         private void KillPlayer(PlayerBarType barType)
         {
-            PlayerFind.Instance.DestroyPlayer();
+            PlayerFind.instance.DestroyPlayer();
         }
 
         private IEnumerator CountToAdrenaline(float increment)

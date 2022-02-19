@@ -28,7 +28,7 @@ namespace EntityStatsScripts.Effects
         private void ApplyCommandosBandannaEffect(Bullet b)
         {
             var distance =
-                Vector2.Distance(b.transform.position, PlayerFind.Instance.playerInstance.transform.position);
+                Vector2.Distance(b.transform.position, PlayerFind.instance.playerInstance.transform.position);
             if (stack == 0 || b.LayerInMask(LayerMask.NameToLayer("Player")) ||
                 distance > maxEffectRange) return;
                 b.damage *= _damageMult;

@@ -26,7 +26,7 @@ namespace EntityStatsScripts.Effects
         private void ApplyRifleScopeEffect(Bullet b)
         {
             var distance =
-                Vector2.Distance(b.transform.position, PlayerFind.Instance.playerInstance.transform.position);
+                Vector2.Distance(b.transform.position, PlayerFind.instance.playerInstance.transform.position);
             if (stack == 0 || b.crit || b.LayerInMask(LayerMask.NameToLayer("Player")) ||
                 distance < minEffectRange) return;
             if ( Random.Range(0f, 1f)< _critChanceBonus) {

@@ -8,39 +8,48 @@ namespace PlayerScripts
     public class PlayerFind : MonoBehaviour
     {
         [SerializeField] private GameObject playerPrefab;
-        public static PlayerFind Instance;
-        public static Action<GameObject> OnPlayerReset = delegate { };
-        public static Action PlayerDestroy = delegate {  };
+        public static PlayerFind instance;
+        public static Action<GameObject> onPlayerReset = delegate { };
+        public static Action playerDestroy = delegate {  };
         [HideInInspector] public GameObject playerInstance;
 
         private void Awake()
         {
-            if (Instance == null)
+            if (instance == null)
             {
-                Instance = this;
+                instance = this;
                 DontDestroyOnLoad(gameObject);
                 playerInstance = Instantiate(playerPrefab, transform.position, Quaternion.identity);
                 DontDestroyOnLoad(playerInstance);
                 SceneManager.sceneLoaded += ResetPlayer;
             }
-            if (Instance != this)
+            if (instance != this)
                 Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= ResetPlayer;
         }
 
         public void DestroyPlayer()
         {
             Destroy(playerInstance);
-            PlayerDestroy.Invoke();
+            playerDestroy.Invoke();
             playerInstance = null;
             SceneManager.LoadScene(0);
         }
         private void ResetPlayer(Scene scene, LoadSceneMode mode)
         {
-            if (playerInstance != null) return;
-            playerInstance = Instantiate(playerPrefab, transform.position, Quaternion.identity);
-            DontDestroyOnLoad(playerInstance);
-            OnPlayerReset.Invoke(playerInstance);
+            if (playerInstance != null) {
+                playerInstance.transform.position = Vector3.zero;
+            }
+            else
+            {
+                playerInstance = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+                DontDestroyOnLoad(playerInstance);
+                onPlayerReset.Invoke(playerInstance);
+            }
         }
-        
     }
 }

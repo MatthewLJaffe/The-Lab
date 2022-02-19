@@ -48,7 +48,7 @@ namespace WeaponScripts
             broadcastShot(currentMagSize, gunStats.magSize);
             _firstEquip = false;
             _bulletPool = new GameObjectPool(bullet);
-            playerTrans = PlayerFind.Instance.playerInstance.transform;
+            playerTrans = PlayerFind.instance.playerInstance.transform;
             atkMult = playerStats.GetAttackMultiplier();
             playerCritChance = playerStats.PlayerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
             additionalAccuracy = playerStats.PlayerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;

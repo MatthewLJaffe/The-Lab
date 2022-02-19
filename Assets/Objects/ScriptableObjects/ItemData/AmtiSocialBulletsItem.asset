@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
-  m_Name: AK+2Item
+  m_Name: AmtiSocialBulletsItem
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: 221352997b5ca8c4babf05f28aa8bd3f, type: 3}
-  itemName: AK +2
-  itemDescription: Pew Pew +2
-  dropPrefab: {fileID: 1605663506473457787, guid: 2dbf01d445fd81748add6679acfbdc14, type: 3}
-  equipPrefab: {fileID: 4036218329325900688, guid: c5616f8f9fddc8343a203da5c06d53ef, type: 3}
+  itemSprite: {fileID: 0}
+  itemName: 
+  itemDescription: 
+  dropPrefab: {fileID: 0}
+  equipPrefab: {fileID: 0}
   maxStack: 1

@@ -28,7 +28,7 @@ namespace EntityStatsScripts.Effects
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
             if (!_regen)
-                _regen = PlayerFind.Instance.playerInstance.AddComponent<RegenStat>();
+                _regen = PlayerFind.instance.playerInstance.AddComponent<RegenStat>();
 
             _regen.StopRegen();
             if (newStack == 0) {

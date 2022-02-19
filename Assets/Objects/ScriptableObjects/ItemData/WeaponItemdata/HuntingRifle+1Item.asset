@@ -15,6 +15,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: fa66c46fe85ef4149acc2f9e226e236a, type: 3}
   itemName: Hunting Rifle
   itemDescription: A trusty rifle
-  dropPrefab: {fileID: 0}
-  equipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 8954529767446059696, guid: 04eadbe8144a13a4f843fe38c5cfd621, type: 3}
+  equipPrefab: {fileID: 2440947688489542958, guid: 7edf9c7a4112c6e41a9b14f9fb8ccaff, type: 3}
   maxStack: 1

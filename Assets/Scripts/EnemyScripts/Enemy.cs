@@ -33,7 +33,7 @@ namespace EnemyScripts
         private void Awake()
         {
             spawnPos = transform.position;
-            PlayerFind.OnPlayerReset += go => target = go.transform;
+            PlayerFind.onPlayerReset += go => target = go.transform;
             if (roomChild && roomChild.parent)
             {
                 var enemyHandler = roomChild.parent.GetComponentInChildren<EnemyHandler>();
@@ -46,8 +46,8 @@ namespace EnemyScripts
 
         private void Start()
         {
-            if (PlayerFind.Instance.playerInstance)
-                target = PlayerFind.Instance.playerInstance.transform;
+            if (PlayerFind.instance.playerInstance)
+                target = PlayerFind.instance.playerInstance.transform;
             else
                 target = null;
         }
