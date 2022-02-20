@@ -58,6 +58,11 @@ namespace InventoryScripts
             slotList.Clear();
         }
 
+        public void ToggleCrafting()
+        {
+            craftingParent.SetActive(!craftingParent.activeSelf);
+        }
+
         public void SetCraftingEnabled(bool enable)
         {
             craftingParent.SetActive(enable);

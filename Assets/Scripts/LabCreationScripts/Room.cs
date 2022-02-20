@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using LabCreationScripts.ProceduralRooms;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 namespace LabCreationScripts
 {
@@ -15,27 +16,27 @@ namespace LabCreationScripts
         public int RoomId { get; private set; } = -1;
         public ProceduralRoom roomType;
         public GameObject roomGameObject;
+        public MiniMapRoom miniMapRoom;
         public readonly Room prevRoom;
         private static float dDoorOffset = .81f;
 
 
-        public Room (Tilemap tMap, LabTiles labTiles, 
-            RoomDimensions dimensions, Room[] rooms, FloorGenerator.RoomCategory[] roomCategories, Vector3Int doorPos, Direction dir, Room prevRoom, Transform parent, System.Action finish) 
+        public Room (RoomData roomData, Vector3Int doorPos, Direction dir, Room prevRoom) 
         {
-            if (rooms[rooms.Length - 1] != null) {
-                finish.Invoke();
+            if (roomData.rooms[roomData.rooms.Length - 1] != null) {
+                roomData.finish.Invoke();
                 return;
             }
-            roomType = PickRoomType(roomCategories, rooms.Count(r => r == null), out var roomCategory);
-            roomGameObject = DrawRoom(tMap, labTiles, dimensions, doorPos, dir, rooms, roomType, prevRoom, parent);
+            roomType = PickRoomType(roomData.roomCategories, roomData.rooms.Count(r => r == null), out var roomCategory);
+            roomGameObject = DrawRoom(roomData, doorPos, dir, roomType, prevRoom);
             if (!roomGameObject) return;
             roomCategory.amountToCreate--;
             roomCategory.roomInstances.Add(this);
-            AddRoom(rooms);
+            AddRoom(roomData.rooms);
             roomGameObject.name = $"Room {RoomId}";
             this.prevRoom = prevRoom;
             //recursive call
-            SetConnectedRooms(tMap, labTiles, dimensions, rooms, roomCategories, dir, RoomBounds, parent, finish);
+            SetConnectedRooms(roomData, dir);
         }
 
         public Room(Room[] rooms, Vector3Int lDoor, Vector3Int rDoor, Vector3Int uDoor, Vector3Int dDoor, Transform floorParent)
@@ -57,31 +58,43 @@ namespace LabCreationScripts
                 }
             }
         }
+
         /// <summary>
         /// Returns a gameobject representing the room if one is succesfully created and null otherwise
         /// </summary>
         /// <param name="tMap"></param>
         /// <param name="labTiles"></param>
         /// <param name="dim"></param>
+        /// <param name="roomData"></param>
         /// <param name="doorPos"></param>
         /// <param name="dir"></param>
         /// <param name="rooms"></param>
-        /// <param name="roomType"></param>
+        /// <param name="proceduralRoom"></param>
         /// <param name="pRoom"></param>
+        /// <param name="miniMap"></param>
+        /// <param name="miniMapRoomPrefab"></param>
+        /// <param name="floorParent"></param>
         /// <returns></returns>
-        private GameObject DrawRoom(Tilemap tMap, LabTiles labTiles, RoomDimensions dim, Vector3Int doorPos, Direction dir, 
-            Room[] rooms, ProceduralRoom roomType, Room pRoom, Transform floorParent)
+        private GameObject DrawRoom(RoomData roomData, Vector3Int doorPos, Direction dir, 
+           ProceduralRoom proceduralRoom, Room pRoom)
         {
-            int width = Random.Range(roomType.minSize.x, roomType.maxSize.x);
-            int height = Random.Range(roomType.minSize.y, roomType.maxSize.y);
-            int hallLength = Random.Range(dim.minHallway, dim.maxHallway);
+            int width = Random.Range(proceduralRoom.minSize.x, proceduralRoom.maxSize.x);
+            int height = Random.Range(proceduralRoom.minSize.y, proceduralRoom.maxSize.y);
+            int hallLength = Random.Range(roomData.dimensions.minHallway, roomData.dimensions.maxHallway);
             RoomBounds = CreateRoomBounds(dir, doorPos, hallLength, width, height);
-            if (!CheckIfClear(rooms))
+            if (!CheckIfClear(roomData.rooms))
                 return null;
 
+            //create miniMap room
+            miniMapRoom = Object.Instantiate
+                (roomData.miniMapRoomPrefab, RoomBounds.center, Quaternion.identity, roomData.miniMap.transform).GetComponent<MiniMapRoom>();
+            miniMapRoom.transform.localScale = new Vector3(width, height, 1);
+            miniMapRoom.myRoom = this;
+            
+            //create roomGameObject
             var roomGO = new GameObject();
-            roomGO.transform.SetParent(floorParent);
-            roomGO.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+            roomGO.transform.SetParent(roomData.parent);
+            roomGO.transform.SetPositionAndRotation(RoomBounds.center, Quaternion.identity);
             var roomTransform = roomGO.transform;
             Door prevRoomDoor;
             Door thisRoomDoor;
@@ -89,92 +102,112 @@ namespace LabCreationScripts
             {
                 case Direction.Up:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.uDoor, (Vector3)doorPos, Quaternion.identity, pRoom.roomGameObject.transform)
+                    prevRoomDoor = Object.Instantiate(roomData.labTiles.uDoor, (Vector3)doorPos, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
-                    thisRoomDoor = Object.Instantiate(labTiles.dDoor, (Vector3)doorPos + Vector3.up * (hallLength - 1 + dDoorOffset), Quaternion.identity,
+                    thisRoomDoor = Object.Instantiate(roomData.labTiles.dDoor, (Vector3)doorPos + Vector3.up * (hallLength - 1 + dDoorOffset), Quaternion.identity,
                             roomTransform).GetComponent<Door>();
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
                     for(int i = 0; i < hallLength; i++) {
-                        tMap.SetTile(new Vector3Int(doorPos.x, doorPos.y + i, 0), labTiles.verticalHallRule);
-                        tMap.SetTile(new Vector3Int(doorPos.x-1, doorPos.y + i, 0), labTiles.verticalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x, doorPos.y + i, 0), roomData.labTiles.verticalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x-1, doorPos.y + i, 0), roomData.labTiles.verticalHallRule);
                     }
+                    var miniMapHallwayU = Object.Instantiate(roomData.miniMapHallwayPrefab, new Vector3(doorPos.x, doorPos.y + hallLength/2, 0),
+                        Quaternion.identity, roomData.miniMap.transform);
+                    miniMapHallwayU.transform.localScale = new Vector3(2, hallLength, 1);
+                    miniMapRoom.hallwaySR = miniMapHallwayU.GetComponent<SpriteRenderer>();
+                    
                     //room spawning
                     for(int x = 0; x < width; x++) {
                         for(int y = 0; y < height; y++) {
-                            if(!tMap.GetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y, 0)))
-                                tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y , 0), labTiles.roomRule);
+                            if(!roomData.tMap.GetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y, 0)))
+                                roomData.tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y , 0), roomData.labTiles.roomRule);
                         }
                     }
                     break;
                 
                 case Direction.Right:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.rDoor, (Vector3)doorPos, Quaternion.identity, pRoom.roomGameObject.transform)
+                    prevRoomDoor = Object.Instantiate(roomData.labTiles.rDoor, (Vector3)doorPos, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
-                    thisRoomDoor = Object.Instantiate(labTiles.lDoor, (Vector3)doorPos + Vector3.right * (hallLength), Quaternion.identity, roomTransform)
+                    thisRoomDoor = Object.Instantiate(roomData.labTiles.lDoor, (Vector3)doorPos + Vector3.right * (hallLength), Quaternion.identity, roomTransform)
                         .GetComponent<Door>();
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
                     for (int i = 0; i < hallLength; i++) {
-                        tMap.SetTile(new Vector3Int(doorPos.x + i, doorPos.y , 0), labTiles.horizontalHallRule);
-                        tMap.SetTile(new Vector3Int(doorPos.x + i, doorPos.y-1, 0), labTiles.horizontalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x + i, doorPos.y , 0), roomData.labTiles.horizontalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x + i, doorPos.y-1, 0), roomData.labTiles.horizontalHallRule);
                     }
+                    var miniMapHallwayR = Object.Instantiate(roomData.miniMapHallwayPrefab, new Vector3(doorPos.x + hallLength/2, doorPos.y, 0),
+                        Quaternion.identity, roomData.miniMap.transform);
+                    miniMapHallwayR.transform.localScale = new Vector3(hallLength, 2, 1);
+                    miniMapRoom.hallwaySR = miniMapHallwayR.GetComponent<SpriteRenderer>();
+                    
                     //room spawning
                     for (int x = 0; x < width; x++) {
                         for (int y = 0; y < height; y++) {
-                            if (!tMap.GetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height / 2 + y, 0)))
-                                tMap.SetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height/2 + y, 0), labTiles.roomRule);
+                            if (!roomData.tMap.GetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height / 2 + y, 0)))
+                                roomData.tMap.SetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height/2 + y, 0), roomData.labTiles.roomRule);
                         }
                     }
                     break;
 
                 case Direction.Down:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.dDoor, (Vector3)doorPos + Vector3.up*dDoorOffset, Quaternion.identity, pRoom.roomGameObject.transform)
+                    prevRoomDoor = Object.Instantiate(roomData.labTiles.dDoor, (Vector3)doorPos + Vector3.up*dDoorOffset, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
-                    thisRoomDoor = Object.Instantiate(labTiles.uDoor, (Vector3)doorPos + Vector3.down * (hallLength-1), Quaternion.identity, roomTransform)
+                    thisRoomDoor = Object.Instantiate(roomData.labTiles.uDoor, (Vector3)doorPos + Vector3.down * (hallLength-1), Quaternion.identity, roomTransform)
                         .GetComponent<Door>();
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
                     for (int i = 0; i < hallLength; i++) {
-                        tMap.SetTile(new Vector3Int(doorPos.x, doorPos.y - i, 0), labTiles.verticalHallRule);
-                        tMap.SetTile(new Vector3Int(doorPos.x-1, doorPos.y - i, 0), labTiles.verticalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x, doorPos.y - i, 0), roomData.labTiles.verticalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x-1, doorPos.y - i, 0), roomData.labTiles.verticalHallRule);
                     }
+                    var miniMapHallwayD = Object.Instantiate(roomData.miniMapHallwayPrefab, new Vector3(doorPos.x, doorPos.y - hallLength/2, 0),
+                        Quaternion.identity, roomData.miniMap.transform);
+                    miniMapHallwayD.transform.localScale = new Vector3(2, hallLength, 1);
+                    miniMapRoom.hallwaySR = miniMapHallwayD.GetComponent<SpriteRenderer>();
+                    
                     //room spawning
                     for (int x = 0; x < width; x++) {
                         for (int y = 0; y < height; y++) {
-                            if(!tMap.GetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0)))
-                                tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0), labTiles.roomRule);
+                            if(!roomData.tMap.GetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0)))
+                                roomData.tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0), roomData.labTiles.roomRule);
                         }
                     }
                     break;
 
                 case Direction.Left:
                     //door spawning
-                    prevRoomDoor = Object.Instantiate(labTiles.lDoor, (Vector3)doorPos + Vector3.right, Quaternion.identity, pRoom.roomGameObject.transform)
+                    prevRoomDoor = Object.Instantiate(roomData.labTiles.lDoor, (Vector3)doorPos + Vector3.right, Quaternion.identity, pRoom.roomGameObject.transform)
                         .GetComponent<Door>();
-                    thisRoomDoor = Object.Instantiate(labTiles.rDoor, (Vector3)doorPos + Vector3.left * (hallLength-1), Quaternion.identity, roomTransform)
+                    thisRoomDoor = Object.Instantiate(roomData.labTiles.rDoor, (Vector3)doorPos + Vector3.left * (hallLength-1), Quaternion.identity, roomTransform)
                         .GetComponent<Door>();
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
                     //hallway spawning
                     for (int i = 0; i < hallLength; i++) {
-                        tMap.SetTile(new Vector3Int(doorPos.x - i, doorPos.y, 0), labTiles.horizontalHallRule);
-                        tMap.SetTile(new Vector3Int(doorPos.x - i, doorPos.y-1, 0), labTiles.horizontalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x - i, doorPos.y, 0), roomData.labTiles.horizontalHallRule);
+                        roomData.tMap.SetTile(new Vector3Int(doorPos.x - i, doorPos.y-1, 0), roomData.labTiles.horizontalHallRule);
                     }
+                    var miniMapHallwayL = Object.Instantiate(roomData.miniMapHallwayPrefab, new Vector3(doorPos.x - hallLength/2, doorPos.y, 0),
+                        Quaternion.identity, roomData.miniMap.transform);
+                    miniMapHallwayL.transform.localScale = new Vector3(hallLength, 2, 1);
+                    miniMapRoom.hallwaySR = miniMapHallwayL.GetComponent<SpriteRenderer>();
+                    
                     //room spawning
                     for (int x = 0; x < width; x++) {
                         for (int y = 0; y < height; y++) {
-                            if(!tMap.GetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0)))
-                                tMap.SetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0), labTiles.roomRule);
+                            if(!roomData.tMap.GetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0)))
+                                roomData.tMap.SetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0), roomData.labTiles.roomRule);
                         }
                     }
                     break;
@@ -183,7 +216,7 @@ namespace LabCreationScripts
                     Debug.LogError("INVALID DIRECTION");
                     return null;
             }
-            DrawWalls(tMap, labTiles);
+            DrawWalls(roomData.tMap, roomData.labTiles);
             return roomGO;
         }
 
@@ -232,8 +265,7 @@ namespace LabCreationScripts
             return new BoundsInt(roomBounds.xMin + 1, roomBounds.yMin + 1, 0, roomBounds.size.x - 2, roomBounds.size.y - 3, 0);
         }
 
-        private async void SetConnectedRooms(Tilemap tMap, LabTiles labTiles, 
-            RoomDimensions dimensions, Room[] rooms, FloorGenerator.RoomCategory[] roomCategories, Direction dir, BoundsInt RoomBounds, Transform parent, System.Action finish)
+        private async void SetConnectedRooms(RoomData roomData, Direction dir)
         {
             //set new rooms connected
             Dictionary<Direction, Vector3Int> potentialRooms = new Dictionary<Direction, Vector3Int>();
@@ -246,7 +278,7 @@ namespace LabCreationScripts
                 allKeys.RemoveAt(index);
                 await Task.Yield();
                 ConnectedRooms.Add(connectionDir, 
-                    new Room(tMap, labTiles, dimensions, rooms, roomCategories, potentialRooms[connectionDir], connectionDir, this, parent, finish));
+                    new Room(roomData, potentialRooms[connectionDir], connectionDir, this));
             }
             var emptyRooms = ConnectedRooms.Where(pair => pair.Value.RoomId == -1);
             var emptyDirs = emptyRooms.ToDictionary

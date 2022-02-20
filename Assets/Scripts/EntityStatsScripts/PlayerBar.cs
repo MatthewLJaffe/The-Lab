@@ -54,25 +54,33 @@ namespace EntityStatsScripts
                 UpdateStatDisplay(newPercentage);
                 if (newPercentage >= .75f && oldPercentage < .75f)
                 {
-                    barHighEffect.Stack = 2;
-                    barLowEffect.Stack = 0;
+                    if (barHighEffect != null)
+                        barHighEffect.Stack = 2;
+                    if (barLowEffect != null)
+                        barLowEffect.Stack = 0;
                 }
                 else if (newPercentage >= .5f && newPercentage < .75f && (oldPercentage >= .75f || oldPercentage < .5f))
                 {
-                    barHighEffect.Stack = 1;
-                    barLowEffect.Stack = 0;
+                    if (barHighEffect != null)
+                        barHighEffect.Stack = 1;
+                    if (barLowEffect != null)
+                        barLowEffect.Stack = 0;
                 }
                     
                 else if (newPercentage <= .25f && oldPercentage > .25f)
                 {
-                    barLowEffect.Stack = 2;
-                    barHighEffect.Stack = 0;
+                    if (barLowEffect != null)
+                        barLowEffect.Stack = 2;
+                    if (barHighEffect != null)
+                        barHighEffect.Stack = 0;
                 }
                 else if (newPercentage <= .5f && newPercentage > .25f &&
                          (oldPercentage >= .5f || oldPercentage <= .25f))
                 {
-                    barLowEffect.Stack = 1;
-                    barHighEffect.Stack = 0;
+                    if (barLowEffect != null)
+                        barLowEffect.Stack = 1;
+                    if (barHighEffect != null)
+                        barHighEffect.Stack = 0;
                 }
                 else if (newPercentage == 0)
                     BarDeplete.Invoke(barType);

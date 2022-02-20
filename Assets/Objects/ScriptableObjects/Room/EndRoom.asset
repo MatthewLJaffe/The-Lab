@@ -19,8 +19,13 @@ MonoBehaviour:
     minSpawns: 1
     maxSpawns: 1
     spawnChance: 1
-    spawnOrder: 0
+    spawnOrder: 1
   - spawner: {fileID: 11400000, guid: 2628e3df1f773b845829454fbbfa661a, type: 2}
+    minSpawns: 1
+    maxSpawns: 1
+    spawnChance: 1
+    spawnOrder: 0
+  - spawner: {fileID: 11400000, guid: 2efdc4e61f3376146ba864cb4027058b, type: 2}
     minSpawns: 1
     maxSpawns: 1
     spawnChance: 1

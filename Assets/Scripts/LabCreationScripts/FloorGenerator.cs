@@ -12,8 +12,10 @@ namespace LabCreationScripts
     public class FloorGenerator : MonoBehaviour
     {
         public static Action onFloorFinished = delegate {  };
+        [SerializeField] private GameObject miniMap;
+        [SerializeField] private GameObject miniMapRoomPrefab;
+        [SerializeField] private GameObject miniMapHallwayPrefab;
         [SerializeField] private RoomCategory[] categories;
-        
         [SerializeField] private RoomDimensions dimensions;
         [SerializeField] private LabTiles labTiles;
         [SerializeField] private Transform lDoor;
@@ -71,12 +73,15 @@ namespace LabCreationScripts
                 cat.roomInstances = new List<Room>();
 
             var startRoom = new Room(_rooms, lDoorPos, rDoorPos, uDoorPos, dDoorPos, floorParent);
+            var roomData = new RoomData(_tMap, labTiles, dimensions, _rooms, categories, floorParent, miniMap,
+                miniMapRoomPrefab, miniMapHallwayPrefab, FinishFloor);
             //startRoom.ConnectedRooms.Add(Direction.Left, 
-               // new Room(_tMap, labTiles, dimensions, _rooms, categories, lDoorPos, Direction.Left, startRoom, floorParent, FinishFloor));
+               // new Room(_tMap, labTiles, dimensions, _rooms, categories, lDoorPos, Direction.Left, startRoom, floorParent, roomPrefab, FinishFloor));
             //startRoom.ConnectedRooms.Add(Direction.Right, 
-               // new Room(_tMap, labTiles, dimensions, _rooms, categories, rDoorPos, Direction.Right, startRoom, floorParent, FinishFloor));
-            startRoom.ConnectedRooms.Add(Direction.Up, 
-                new Room(_tMap, labTiles, dimensions, _rooms, categories, uDoorPos, Direction.Up, startRoom, floorParent, FinishFloor));
+               // new Room(_tMap, labTiles, dimensions, _rooms, categories, rDoorPos, Direction.Right, startRoom, floorParent, roomPrefab, FinishFloor));
+               startRoom.ConnectedRooms.Add(Direction.Right, new Room(roomData, lDoorPos, Direction.Right, startRoom));
+               startRoom.ConnectedRooms.Add(Direction.Left, new Room(roomData, lDoorPos, Direction.Left, startRoom));
+               startRoom.ConnectedRooms.Add(Direction.Up, new Room(roomData, uDoorPos, Direction.Up, startRoom));
         }
 
         private void FinishFloor()
