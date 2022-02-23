@@ -5,14 +5,17 @@ namespace WeaponScripts
 {
     public class GunRotate : MonoBehaviour
     {
-        private SpriteRenderer sr;
+        private SpriteRenderer _sr;
+        private Camera _mainCamera;
         private void Awake() {
-            sr = GetComponent<SpriteRenderer>();
+            _sr = GetComponent<SpriteRenderer>();
+            _mainCamera = Camera.main;
         }
 
         private void FixedUpdate()
         {
-            float theta = Vector2.SignedAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.parent.parent.position, Vector2.up);
+            if (!_mainCamera.gameObject.activeSelf) return;
+            float theta = Vector2.SignedAngle(_mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.parent.parent.position, Vector2.up);
             RotateGun(theta);
         }
 
@@ -22,7 +25,7 @@ namespace WeaponScripts
                 transform.rotation = Quaternion.Euler(0, 0, -theta + 90);
             else
                 transform.rotation = Quaternion.Euler(0,180, theta + 90);
-            sr.sortingOrder = Mathf.Abs(theta) < 90 ? 1 : 3;
+            _sr.sortingOrder = Mathf.Abs(theta) < 90 ? 1 : 3;
         }
     }
 }

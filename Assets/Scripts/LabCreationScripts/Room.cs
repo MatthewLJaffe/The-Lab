@@ -35,6 +35,10 @@ namespace LabCreationScripts
             AddRoom(roomData.rooms);
             roomGameObject.name = $"Room {RoomId}";
             this.prevRoom = prevRoom;
+            //Reveal the last room
+            if (RoomId == roomData.rooms.Length - 1) {
+                miniMapRoom.RevealRoom();
+            }
             //recursive call
             SetConnectedRooms(roomData, dir);
         }

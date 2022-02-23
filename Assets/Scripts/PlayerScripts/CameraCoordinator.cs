@@ -8,6 +8,7 @@ namespace PlayerScripts
         [SerializeField] private Camera rotate;
         [SerializeField] private Camera main;
         [SerializeField] private Camera background;
+        public Camera miniMapCamera;
         private float _currentSize;
 
         private void Start() {

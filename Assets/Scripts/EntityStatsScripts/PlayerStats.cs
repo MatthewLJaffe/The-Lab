@@ -53,8 +53,8 @@ namespace EntityStatsScripts
         {
             PlayerStatsDict = new Dictionary<StatType, PlayerStat>();
             foreach (var stat in stats) {
-                stat.Initialize();
                 PlayerStatsDict.Add(stat.type, stat);
+                stat.Initialize();
             }
         }
 

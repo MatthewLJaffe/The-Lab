@@ -15,6 +15,7 @@ namespace LabCreationScripts
         [SerializeField] private GameObject miniMap;
         [SerializeField] private GameObject miniMapRoomPrefab;
         [SerializeField] private GameObject miniMapHallwayPrefab;
+        [SerializeField] private MiniMapRoom firstRoom;
         [SerializeField] private RoomCategory[] categories;
         [SerializeField] private RoomDimensions dimensions;
         [SerializeField] private LabTiles labTiles;
@@ -73,6 +74,7 @@ namespace LabCreationScripts
                 cat.roomInstances = new List<Room>();
 
             var startRoom = new Room(_rooms, lDoorPos, rDoorPos, uDoorPos, dDoorPos, floorParent);
+            firstRoom.myRoom = startRoom;
             var roomData = new RoomData(_tMap, labTiles, dimensions, _rooms, categories, floorParent, miniMap,
                 miniMapRoomPrefab, miniMapHallwayPrefab, FinishFloor);
             //startRoom.ConnectedRooms.Add(Direction.Left, 

@@ -20,6 +20,7 @@ namespace WeaponScripts
         [SerializeField] protected Transform shootPoint;
         private bool _firstEquip = true;
         protected Transform playerTrans;
+        protected Camera mainCamera;
 
         public int CurrentMagSize
         {
@@ -41,9 +42,10 @@ namespace WeaponScripts
         protected float additionalAccuracy;
         protected float additionalFireRate;
         protected float reloadFactor;
-
+        
         protected void Start() 
         {
+            mainCamera = Camera.main;
             currentMagSize = gunStats.magSize;
             broadcastShot(currentMagSize, gunStats.magSize);
             _firstEquip = false;
@@ -120,10 +122,11 @@ namespace WeaponScripts
 
         protected virtual void ShootProjectile()
         {
+            if (!mainCamera.gameObject.activeSelf) return;
             var bulletInstance = _bulletPool.GetFromPool();
             bulletInstance.transform.position = shootPoint.position;
             var bulletComponent = bulletInstance.GetComponent<PooledBullet>();
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
             bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
             bulletComponent.accuracy = Mathf.Clamp(gunStats.accuracy + additionalAccuracy, 0f, 100f);

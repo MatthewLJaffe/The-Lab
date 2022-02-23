@@ -14,6 +14,7 @@ namespace WeaponScripts
 
         protected override void ShootProjectile()
         {
+            if (!mainCamera.gameObject.activeSelf) return;
             var spreadAngle = maxSpreadAngle * Mathf.Max(0, 1f - (gunStats.accuracy + additionalAccuracy) / 100f);
             for (var c = 0; c < bullets; c++)
             {
@@ -22,7 +23,7 @@ namespace WeaponScripts
                 var bulletInstance = _bulletPool.GetFromPool();
                 bulletInstance.transform.position = shootPoint.position;
                 var bulletComponent = bulletInstance.GetComponent<PooledBullet>();
-                var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
                 bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
 

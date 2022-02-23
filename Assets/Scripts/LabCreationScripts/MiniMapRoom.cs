@@ -24,6 +24,16 @@ namespace LabCreationScripts
             Door.onEnterRoom -= RevealRoom;
         }
 
+        public void RevealRoom()
+        {
+            roomSR.color = revealColor;
+            foreach (var room in myRoom.ConnectedRooms.Values)
+            {
+                if (room.miniMapRoom)
+                    room.miniMapRoom.hallwaySR.color = revealColor;
+            }
+        }
+
 
         private void RevealRoom(Room roomDiscovered)
         {

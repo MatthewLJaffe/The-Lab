@@ -33,6 +33,11 @@ namespace PlayerScripts
             _dir.Normalize();
         }
 
+        private void OnDisable()
+        {
+            _rb.velocity = Vector2.zero;
+        }
+
         private void FixedUpdate()
         {
             _rb.velocity = new Vector2(_dir.x, _dir.y) * moveSpeed;

@@ -7,12 +7,14 @@ namespace PlayerScripts
         private Animator _anim;
         private Rigidbody2D _rb;
         [SerializeField] private OrientationData[] orientationData;
+        private Camera _mainCamera;
 
 
         private void Awake()
         {
             _anim = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
+            _mainCamera = Camera.main;
         }
         [System.Serializable]
         private struct OrientationData 
@@ -61,7 +63,8 @@ namespace PlayerScripts
 
         private int CalculateLookDirection()
         {
-            float theta = AngleFromPoints(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
+            if (!_mainCamera.gameObject.activeSelf) return 1;
+            float theta = AngleFromPoints(_mainCamera.ScreenToWorldPoint(Input.mousePosition), transform.position);
             if (theta > 0 && theta <= 90)
                 return 1;
             if (theta > 90 && theta <= 180)
