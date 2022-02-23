@@ -1,4 +1,6 @@
-﻿using PlayerScripts;
+﻿using System;
+using MiniMapScripts;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,15 +12,35 @@ namespace General
         private Camera _mapCamera;
         [SerializeField] private Image image;
         public UnityEvent onMapButtonPress;
+        
+        private bool _pressable;
+        
+        
+
+        private void Awake()
+        {
+            TeleporterInteractor.teleportInteract += SetPressable;
+        }
+
+        private void OnDestroy()
+        {
+            TeleporterInteractor.teleportInteract -= SetPressable;
+        }
+        
         private void Start()
         {
             _mapCamera =  PlayerFind.instance.playerInstance.GetComponentInChildren<CameraCoordinator>().miniMapCamera;
             PlayerInputManager.OnInputDown += CheckButtonPress;
         }
 
+        private void SetPressable(bool canPress)
+        {
+            _pressable = canPress;
+        }
+
         private void CheckButtonPress(PlayerInputManager.PlayerInputName iName)
         {
-            if (iName != PlayerInputManager.PlayerInputName.Fire1) return;
+            if (iName != PlayerInputManager.PlayerInputName.Fire1 || !_pressable) return;
             var mousePos = _mapCamera.ScreenToWorldPoint(Input.mousePosition);
             if (InsideButton(mousePos))
                 onMapButtonPress.Invoke();
