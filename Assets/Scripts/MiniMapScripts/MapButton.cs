@@ -1,0 +1,36 @@
+﻿using PlayerScripts;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace General
+{
+    public class MapButton : MonoBehaviour
+    {
+        private Camera _mapCamera;
+        [SerializeField] private Image image;
+        public UnityEvent onMapButtonPress;
+        private void Start()
+        {
+            _mapCamera =  PlayerFind.instance.playerInstance.GetComponentInChildren<CameraCoordinator>().miniMapCamera;
+            PlayerInputManager.OnInputDown += CheckButtonPress;
+        }
+
+        private void CheckButtonPress(PlayerInputManager.PlayerInputName iName)
+        {
+            if (iName != PlayerInputManager.PlayerInputName.Fire1) return;
+            var mousePos = _mapCamera.ScreenToWorldPoint(Input.mousePosition);
+            if (InsideButton(mousePos))
+                onMapButtonPress.Invoke();
+        }
+
+        private bool InsideButton(Vector2 mouseWorldPos)
+        {
+            var rectTransform = image.rectTransform;
+            return mouseWorldPos.x < rectTransform.position.x + rectTransform.rect.width / 2 &&
+                   mouseWorldPos.x > rectTransform.position.x - rectTransform.rect.width / 2 &&
+                   mouseWorldPos.y < rectTransform.position.y + rectTransform.rect.height / 2 &&
+                   mouseWorldPos.y > rectTransform.position.y - rectTransform.rect.height / 2;
+        }
+    }
+}
