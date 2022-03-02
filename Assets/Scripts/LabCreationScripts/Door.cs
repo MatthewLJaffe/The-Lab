@@ -12,7 +12,6 @@ namespace LabCreationScripts
         private BoxCollider2D _doorCollider;
         private CapsuleCollider2D _doorTrigger;
         public Room myRoom;
-        private static bool _firstRoomEntered;
         private bool _doorOpen;
         private DoorAnimator _doorAnimator;
         public bool lockable = true;
@@ -31,10 +30,9 @@ namespace LabCreationScripts
 
         private void EnteredFirstRoom()
         {
-            if (!_firstRoomEntered && myRoom.RoomId == 0)
+            if (myRoom.RoomId == 0)
             {
                 onEnterRoom.Invoke(myRoom);
-                _firstRoomEntered = true;
             }
         }
 
@@ -63,6 +61,8 @@ namespace LabCreationScripts
             if (other.gameObject.CompareTag("Player"))
             {
                 onEnterRoom(myRoom);
+                if (!lockable)
+                    EnemyHandler.onRoomClear(myRoom);
                 Debug.Log("Entered room " + myRoom.RoomId);
             }
         }

@@ -50,6 +50,12 @@ MonoBehaviour:
     maxSpawns: 2
     spawnChance: 0.3
     spawnOrder: 0
+  - spawner: {fileID: 11400000, guid: c6ef6657b78c06a4c829bab5b4ac25c6, type: 2}
+    minSpawns: 1
+    maxSpawns: 1
+    spawnChance: 1
+    spawnOrder: 2
+  lockRoom: 1
   enemyHandlerPrefab: {fileID: 670961924503685843, guid: 708bdb9bc8e7daf43874880b4dc13c1e, type: 3}
   minEnemies: 4
   maxEnemies: 7

@@ -34,6 +34,7 @@ namespace LabCreationScripts
             roomCategory.roomInstances.Add(this);
             AddRoom(roomData.rooms);
             roomGameObject.name = $"Room {RoomId}";
+            roomGameObject.GetComponent<RoomInstance>().myRoom = this;
             this.prevRoom = prevRoom;
             //Reveal the last room
             if (RoomId == roomData.rooms.Length - 1) {
@@ -43,13 +44,14 @@ namespace LabCreationScripts
             SetConnectedRooms(roomData, dir);
         }
 
-        public Room(Room[] rooms, Vector3Int lDoor, Vector3Int rDoor, Vector3Int uDoor, Vector3Int dDoor, Transform floorParent)
+        public Room(RoomData roomData, Vector3Int lDoor, Vector3Int rDoor, Vector3Int uDoor, Vector3Int dDoor, Transform floorParent)
         {
-            roomGameObject = new GameObject($"Room {RoomId}");
-            roomGameObject.transform.SetParent(floorParent);
+            roomGameObject = Object.Instantiate(roomData.roomPrefab, floorParent);
+            roomGameObject.GetComponent<RoomInstance>().myRoom = this;
+            roomGameObject.name = $"Room {RoomId}";
             roomGameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             RoomBounds = new BoundsInt(lDoor.x, dDoor.y, 0, (rDoor.x - lDoor.x) + 1, (uDoor.y - dDoor.y) + 1, 1);
-            AddRoom(rooms);
+            AddRoom(roomData.rooms);
         }
 
         private void AddRoom(Room[] rooms)
@@ -96,8 +98,7 @@ namespace LabCreationScripts
             miniMapRoom.myRoom = this;
             
             //create roomGameObject
-            var roomGO = new GameObject();
-            roomGO.transform.SetParent(roomData.parent);
+            var roomGO = Object.Instantiate(roomData.roomPrefab, roomData.parent);
             roomGO.transform.SetPositionAndRotation(RoomBounds.center, Quaternion.identity);
             var roomTransform = roomGO.transform;
             Door prevRoomDoor;

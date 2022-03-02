@@ -12,6 +12,7 @@ namespace LabCreationScripts
         public Room[] rooms;
         public FloorGenerator.RoomCategory[] roomCategories;
         public Transform parent;
+        public GameObject roomPrefab;
         public GameObject miniMap;
         public GameObject miniMapRoomPrefab;
         public GameObject miniMapHallwayPrefab;
@@ -19,7 +20,7 @@ namespace LabCreationScripts
 
         public RoomData(Tilemap tMap, LabTiles labTiles,
             RoomDimensions dimensions, Room[] rooms, FloorGenerator.RoomCategory[] roomCategories,
-            Transform parent, GameObject miniMap, GameObject miniMapRoomPrefab, GameObject miniMapHallwayPrefab,
+            Transform parent, GameObject miniMap, GameObject roomPrefab, GameObject miniMapRoomPrefab, GameObject miniMapHallwayPrefab,
             Action finish)
         {
             this.tMap = tMap;
@@ -29,6 +30,7 @@ namespace LabCreationScripts
             this.roomCategories = roomCategories;
             this.parent = parent;
             this.miniMap = miniMap;
+            this.roomPrefab = roomPrefab;
             this.miniMapRoomPrefab = miniMapRoomPrefab;
             this.miniMapHallwayPrefab = miniMapHallwayPrefab;
             this.finish = finish;
