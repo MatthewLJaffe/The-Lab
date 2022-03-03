@@ -6,10 +6,10 @@ namespace InventoryScripts
     public class Trash : MonoBehaviour
     {
         public static Action TrashItem = delegate { };
-        private void Update()
+
+        public void InvokeTrash()
         {
-            if(Vector2.Distance(Input.mousePosition, transform.position) < 20)
-                TrashItem();
+            TrashItem.Invoke();
         }
     }
 }

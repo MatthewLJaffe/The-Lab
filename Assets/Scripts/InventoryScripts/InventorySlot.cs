@@ -126,6 +126,7 @@ namespace InventoryScripts
                 itemToPlace.transform.localPosition = Vector3.zero;
                 var moveSlot = itemToPlace.GetComponent<MoveSlot>();
                 moveSlot.followMouse = false;
+                if (moveSlot.movingItem == null) return;
                 myItem = moveSlot.movingItem;
                 myItem.ItemAmountUpdate += UpdateAmountText;
                 amountText = itemToPlace.GetComponentInChildren<TextMeshProUGUI>();

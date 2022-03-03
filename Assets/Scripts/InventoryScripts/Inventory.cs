@@ -119,14 +119,16 @@ namespace InventoryScripts
 
         public void DestroyItem(Item item, int amount = 1)
         {
-            var removeSlot = slotList.Find(iSlot => iSlot.MyItem == item);
-            if (removeSlot.MyItem.Amount > amount)
-                removeSlot.MyItem.Amount -= amount;
+            //var removeSlot = slotList.Find(iSlot => iSlot.MyItem == item);
+            if (item.Amount > amount)
+                item.Amount -= amount;
             else
             {
-                removeSlot.MyItem.Amount = 0;
+                item.Amount = 0;   
                 itemList.Remove(item);
-                removeSlot.MyItem = null;
+                var removeSlot = slotList.Find(iSlot => iSlot.MyItem == item);
+                if (removeSlot)
+                    removeSlot.MyItem = null;
             }
             UpdateHotBar();
             OnInventoryUpdated.Invoke();

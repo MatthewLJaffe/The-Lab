@@ -2483,9 +2483,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9f6464f15c08c47bb5f35422a69964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomPrefab: {fileID: 4349472371054269264, guid: 2546c5b92d234f54f89260022ac69dc3, type: 3}
   miniMap: {fileID: 0}
   miniMapRoomPrefab: {fileID: 2918062087459720433, guid: 5bcf8db8d9fce684db90a7fb578eb51d, type: 3}
   miniMapHallwayPrefab: {fileID: 7328996908652691831, guid: d85eaa1899ddd3345b9878db93645d39, type: 3}
+  firstRoom: {fileID: 0}
   categories:
   - categoryName: 0
     amountToCreate: 11

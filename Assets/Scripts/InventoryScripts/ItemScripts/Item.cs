@@ -55,7 +55,8 @@ namespace InventoryScripts.ItemScripts
             return _equip;
         }
 
-        public virtual void Drop() {
+        public virtual void Drop() 
+        {
             //TODO throw dropItem away from player
             if (_equip)
                 Object.Destroy(_equip);
@@ -63,6 +64,11 @@ namespace InventoryScripts.ItemScripts
             var drop  = Object.Instantiate(itemData.dropPrefab, new Vector3(mousePos.x, mousePos.y, 0),
                 Quaternion.identity);
             drop.GetComponent<ItemPickup>().itemToDrop = this;
+        }
+
+        public virtual void DeleteItem()
+        {
+            Inventory.Instance.DestroyItem(this, _amount);
         }
     }
 }

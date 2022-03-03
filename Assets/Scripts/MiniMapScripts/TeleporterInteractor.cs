@@ -18,7 +18,10 @@ namespace MiniMapScripts
 
         private void Awake()
         {
-            _myRoom = GetComponentInParent<RoomInstance>().myRoom;
+            var roomInstance = GetComponentInParent<RoomInstance>();
+            if (roomInstance != null) {
+                _myRoom = roomInstance.myRoom;
+            }
             EnemyHandler.onRoomClear += EnableTeleporter;
         }
 
