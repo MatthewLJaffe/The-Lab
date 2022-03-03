@@ -1,8 +1,7 @@
-﻿using System;
-using PlayerScripts;
+﻿using PlayerScripts;
 using UnityEngine;
 
-namespace General
+namespace MiniMapScripts
 {
     public class AssignMiniMapCamera : MonoBehaviour
     {

@@ -108,12 +108,12 @@ namespace InventoryScripts
             for (int i = 0; i < craftableSlots.Length; i++)
             {
                 if (i < _craftable.Count) {
-                    craftableSlots[i].img.sprite = _craftable[i].result.itemData.itemSprite;
+                    craftableSlots[i].SlotSprite = _craftable[i].result.itemData.itemSprite;
                     craftableSlots[i].amountText.text =_craftable[i].result.amount > 1 ? $"{_craftable[i].result.amount}" : "";
                     craftableSlots[i].myRecipe = _craftable[i];
                     continue;
                 }
-                craftableSlots[i].img.sprite = null;
+                craftableSlots[i].SlotSprite = null;
                 craftableSlots[i].myRecipe = null;
                 craftableSlots[i].amountText.text = "";
             }

@@ -13,7 +13,7 @@ namespace MiniMapScripts
         [SerializeField] private SpriteRenderer sr;
         [SerializeField] private GameObject teleporterUi;
         private static bool _teleportEnabled;
-        private bool _roomClear;
+        [SerializeField] private bool roomClear;
         private Room _myRoom;
 
         private void Awake()
@@ -25,19 +25,19 @@ namespace MiniMapScripts
         private void EnableTeleporter(Room room)
         {
             if (_myRoom != room) return;
-            _roomClear = true;
+            roomClear = true;
             teleporterUi.SetActive(true);
         }
         
 
         public bool CanInteract
         {
-            set => sr.color = value && _roomClear ? interactColor : Color.white;
+            set => sr.color = value && roomClear ? interactColor : Color.white;
         }
 
         public void Interact()
         {
-            if (!_roomClear) return;
+            if (!roomClear) return;
             _teleportEnabled = !_teleportEnabled;
             teleportInteract.Invoke(_teleportEnabled);
         }

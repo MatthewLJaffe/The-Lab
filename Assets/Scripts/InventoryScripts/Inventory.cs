@@ -20,6 +20,7 @@ namespace InventoryScripts
         [SerializeField] private GameObject craftingParent;
         [SerializeField] private Color equipColor;
         [SerializeField] private Color defaultColor;
+        [SerializeField] private Transform hotBarSlotParent;
         public static Inventory Instance;
         private Toggler _toggler;
 
@@ -31,9 +32,9 @@ namespace InventoryScripts
             InventorySlot.InventorySlotChanged += UpdateInventorySlots;
             
             _toggler = GetComponent<Toggler>();
-            _hotBar = new GameObject[transform.GetChild(1).childCount];
+            _hotBar = new GameObject[hotBarSlotParent.childCount];
             for(int i = 0; i < _hotBar.Length; i++) {
-                _hotBar[i] = transform.GetChild(1).GetChild(i).gameObject;
+                _hotBar[i] = hotBarSlotParent.GetChild(i).gameObject;
             }
             slotList = new List<InventorySlot>();
             itemList = new List<Item>();
@@ -173,19 +174,27 @@ namespace InventoryScripts
             for (int i = 0; i < _hotBar.Length; i++) {
                 if (slotList[i].MyItem != null)
                 {
-                    _hotBar[i].GetComponent<Image>().sprite = slotList[i].MyItem.itemData.itemSprite;
+                    var img = _hotBar[i].GetComponent<Image>();
+                    img.sprite = slotList[i].MyItem.itemData.itemSprite;
+                    img.color = new Color(img.color.r, img.color.g, img.color.b, 1);
                     var tmp = _hotBar[i].GetComponentInChildren<TextMeshProUGUI>();
                     tmp.text = slotList[i].MyItem.Amount > 1 ? $"{slotList[i].MyItem.Amount}" : "";
                 }
-                else {
-                    _hotBar[i].transform.GetComponent<Image>().sprite = null;
+                else
+                {
+                    var img= _hotBar[i].transform.GetComponent<Image>();
+                    img.sprite = null;
+                    img.color = new Color(img.color.r, img.color.g, img.color.b, 0);
                     var tmp = _hotBar[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
                 }
             }
         }
 
-        private void SetColor(GameObject slot, Color color) =>
-            slot.GetComponent<Image>().color = color;
+        private void SetColor(GameObject slot, Color color)
+        {
+            var slotImage = slot.GetComponent<Image>();
+            slotImage.color = new Color(color.r, color.g, color.b, slotImage.color.a);
+        }
 
         private void OnDisable()
         {

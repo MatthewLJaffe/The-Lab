@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fd8cc863070ca0445b7fc1d4f6e74a76, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountText: {fileID: 1561874046695049158}
-  img: {fileID: 3820932040102642798}
+  img: {fileID: 6784220631474951140}
   myRecipe: {fileID: 0}
 --- !u!114 &3186154033352127335
 MonoBehaviour:
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 116724283223486033}
   - component: {fileID: 3820932040102642798}
   m_Layer: 5
-  m_Name: Item picture
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -2, y: -2}
+  m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &116724283223486033
 CanvasRenderer:
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: fd8cc863070ca0445b7fc1d4f6e74a76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
