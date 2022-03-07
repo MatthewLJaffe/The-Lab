@@ -110,16 +110,8 @@ namespace InventoryScripts
             }
         }
 
-        public void SwapItems(InventorySlot slot1, InventorySlot slot2)
-        {
-            if (slot1.MyItem == null && slot2.MyItem == null)
-                return;
-            
-        }
-
         public void DestroyItem(Item item, int amount = 1)
         {
-            //var removeSlot = slotList.Find(iSlot => iSlot.MyItem == item);
             if (item.Amount > amount)
                 item.Amount -= amount;
             else
@@ -134,6 +126,7 @@ namespace InventoryScripts
             OnInventoryUpdated.Invoke();
         }
         
+        //TODO update specific inventory index
         public void UpdateInventorySlots()
         {
             slotList.Clear();

@@ -23,17 +23,6 @@ namespace EnemyScripts
             OnStateChange(CurrentState);
         }
 
-        public void SetState(string stateName)
-        {
-            var stateType = _availableStates.Keys.FirstOrDefault(t => t.Name == stateName);
-            if (stateType == null) {
-                Debug.LogError("Could not find state " + stateName);
-                return;
-            }
-            CurrentState = _availableStates[stateType];
-            SwitchStates(stateType);
-        }
-
         private void SetStates()
         {
             _availableStates = new Dictionary<Type, BaseState>();
