@@ -3,6 +3,7 @@ using System.Collections;
 using EntityStatsScripts;
 using General;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 namespace WeaponScripts
@@ -22,12 +23,14 @@ namespace WeaponScripts
         protected Animator Animator;
         protected Coroutine BulletReturnRoutine;
         protected Rigidbody2D Rb;
+        protected ParticleSystem Particle;
 
         protected override void Awake()
         {
             base.Awake();
             Rb = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
+            Particle = GetComponent<ParticleSystem>();
         }
 
         protected void OnEnable()
@@ -49,10 +52,18 @@ namespace WeaponScripts
             }
             if (destructionCollider.IsTouching(other) || destroyOnDamage && damageable != null)
             {
-                Rb.velocity = Vector2.zero;
-                Animator.SetTrigger("Destroy");
-                direction = Vector2.zero;
+                StartBulletDestruction();
             }
+        }
+
+        private void StartBulletDestruction()
+        {
+            Rb.velocity = Vector2.zero;
+            if (Particle && !Particle.isPlaying) {
+                Particle.Play();
+            }
+            Animator.SetTrigger("Destroy");
+            direction = Vector2.zero;
         }
 
         protected Quaternion GetRotation()
@@ -63,11 +74,10 @@ namespace WeaponScripts
             return rot;
         }
 
-        protected virtual IEnumerator DestroyBullet()
+        protected virtual IEnumerator BulletLifetime()
         {
             yield return new WaitForSeconds(liveTime);
-            Rb.velocity = Vector2.zero;
-            Animator.SetTrigger("Destroy");
+            StartBulletDestruction();
         }
 
         //Called by animation event
@@ -83,7 +93,7 @@ namespace WeaponScripts
             yield return new WaitUntil(() => direction != Vector2.zero);
             if (crit)
                 damage *= 5;
-            BulletReturnRoutine = StartCoroutine(DestroyBullet());
+            BulletReturnRoutine = StartCoroutine(BulletLifetime());
             transform.rotation = GetRotation();
             Rb.velocity = transform.rotation * Vector2.up * speed;
         }

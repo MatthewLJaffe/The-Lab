@@ -17,6 +17,12 @@ namespace WeaponScripts
             if (BulletReturnRoutine != null)
                 StopCoroutine(BulletReturnRoutine);
             direction = Vector2.zero;
+            if (Particle && Particle.isPlaying)
+            {
+                Particle.Clear();
+                Particle.Stop();
+                Particle.time = 0;
+            }
             MyPool.ReturnToPool(gameObject);        }
 
         //called by BulletDestroy Animation Event

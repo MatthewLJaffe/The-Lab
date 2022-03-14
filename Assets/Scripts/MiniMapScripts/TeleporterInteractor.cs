@@ -25,6 +25,11 @@ namespace MiniMapScripts
             EnemyHandler.onRoomClear += EnableTeleporter;
         }
 
+        private void OnDestroy()
+        {
+            EnemyHandler.onRoomClear -= EnableTeleporter;
+        }
+
         private void EnableTeleporter(Room room)
         {
             if (_myRoom != room) return;
