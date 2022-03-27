@@ -24,6 +24,9 @@ namespace WeaponScripts
         protected Coroutine BulletReturnRoutine;
         protected Rigidbody2D Rb;
         protected ParticleSystem Particle;
+        protected ParticleSystem.MainModule settings;
+        private Camera _mainCamera;
+        
 
         protected override void Awake()
         {
@@ -31,6 +34,8 @@ namespace WeaponScripts
             Rb = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
             Particle = GetComponent<ParticleSystem>();
+            settings = GetComponent<ParticleSystem>().main;
+            _mainCamera = Camera.main;
         }
 
         protected void OnEnable()
@@ -52,7 +57,25 @@ namespace WeaponScripts
             }
             if (destructionCollider.IsTouching(other) || destroyOnDamage && damageable != null)
             {
+                if (Particle) {
+                    StartCoroutine(PlayParticle());
+                }
                 StartBulletDestruction();
+            }
+        }
+
+        private IEnumerator PlayParticle()
+        {
+            yield return new WaitForEndOfFrame();
+            var viewRect = _mainCamera.pixelRect;
+            Texture2D tex = new Texture2D( (int)viewRect.width, (int)viewRect.height);
+            tex.ReadPixels( viewRect, 0, 0, false );
+            tex.Apply( false );
+            var pixelCoord = _mainCamera.WorldToScreenPoint(transform.position + Vector3.up * .25f);
+            //settings.startColor = tex.GetPixel((int)pixelCoord.x, (int)pixelCoord.y);
+            settings.startColor = new Color(.4f, .7f, .5f);
+            if (!Particle.isPlaying) {
+                Particle.Play();
             }
         }
 
