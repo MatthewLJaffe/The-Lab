@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using EntityStatsScripts;
 using General;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace InventoryScripts.ItemScripts

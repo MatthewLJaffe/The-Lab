@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d5d76b6744c2b8a499aad56dbde6661e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a88e3fe9aa9b584fa255b14f6b45f89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,10 +123,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14}
+  m_Offset: {x: -0.0027880073, y: -0.008693844}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.3}
+    pivot: {x: 0.46966708, y: 0.474217}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -134,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.31264234, y: 0.314501}
   m_EdgeRadius: 0
 --- !u!70 &-4192527064366142167
 CapsuleCollider2D:
@@ -149,8 +149,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000011116266, y: 0.107807964}
-  m_Size: {x: 0.12233919, y: 0.18447477}
+  m_Offset: {x: -0.0028741956, y: -0.00595966}
+  m_Size: {x: 0.18494475, y: 0.18649083}
   m_Direction: 0
 --- !u!114 &5587561943361001393
 MonoBehaviour:
@@ -165,10 +165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  sourceCollider: {fileID: -4192527064366142167}
+  sourceCollider: {fileID: 5587561943361001395}
   layers:
     serializedVersion: 2
     m_Bits: 4096
+  destructionCollider: {fileID: -4192527064366142167}
   crit: 0
   accuracy: 0
   direction: {x: 0, y: 0}
@@ -176,7 +177,7 @@ MonoBehaviour:
   liveTime: 1.5
   maxAngle: 30
   destroyOnDamage: 1
-  destructionCollider: {fileID: 5587561943361001395}
+  colorPickOffset: 0.4
 --- !u!95 &-5020052348399785988
 Animator:
   serializedVersion: 3
@@ -279,7 +280,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -829,7 +830,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0.3, z: 0}
+    m_Position: {x: 0, y: 0.1, z: 0}
     m_Rotation: {x: 0, y: 0, z: -140}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -1029,7 +1030,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 60
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1553,12 +1554,12 @@ ParticleSystem:
   UVModule:
     serializedVersion: 2
     enabled: 1
-    mode: 0
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
       serializedVersion: 2
-      minMaxState: 1
+      minMaxState: 0
       scalar: 0.9999
       minScalar: 0
       maxCurve:
@@ -1611,8 +1612,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startFrame:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 0.9999
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2230,7 +2231,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 1.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4978,7 +4979,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 58dd4919b35263646b516775ad2be304, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -130,7 +130,7 @@ namespace WeaponScripts
             bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
             bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
             bulletComponent.accuracy = Mathf.Clamp(gunStats.accuracy + additionalAccuracy, 0f, 100f);
-            bulletComponent.speed = bulletComponent.accuracy / 8f + 4;
+            bulletComponent.speed = bulletComponent.accuracy / 10f + 2;
             if (Vector2.Distance(mousePos, playerTrans.position) > 1)
                 bulletComponent.direction = mousePos - shootPoint.position;
             else
