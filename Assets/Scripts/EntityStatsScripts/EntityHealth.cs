@@ -16,6 +16,7 @@ namespace EntityStatsScripts
         [SerializeField] protected Slider slider;
         [SerializeField] protected GameObject numberPrefab;
         [SerializeField] protected Transform displayPoint;
+        private TakeDamageFlash _takeDamageFlash;
         private float _currentHealth;
         private float _displayAmount;
         private GameObjectPool _damageNumberPool;
@@ -27,6 +28,7 @@ namespace EntityStatsScripts
             _currentHealth = maxHealth;
             _damageNumberPool = new GameObjectPool(numberPrefab, displayPoint);
             _knockBack = GetComponent<KnockBack>();
+            _takeDamageFlash = GetComponentInChildren<TakeDamageFlash>(true);
             if (slider != null)
             {
                 slider.maxValue = maxHealth;
@@ -43,6 +45,8 @@ namespace EntityStatsScripts
             _displayAmount += amount;
             _currentHealth -= amount;
             slider.value = _currentHealth;
+            if (_takeDamageFlash)
+                _takeDamageFlash.gameObject.SetActive(true);
             if (_currentDisplay == null)
             {
                 var number = _damageNumberPool.GetFromPool();

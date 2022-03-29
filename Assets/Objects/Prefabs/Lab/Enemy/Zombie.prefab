@@ -408,6 +408,7 @@ MonoBehaviour:
   slider: {fileID: 6191364812716931123}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 1924229588570445455}
+  takeDamageFlash: {fileID: 0}
 --- !u!114 &330278179308232533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,13 +837,14 @@ GameObject:
   m_Component:
   - component: {fileID: 744472396366196997}
   - component: {fileID: 7214403746886769398}
+  - component: {fileID: 7682709330699917925}
   m_Layer: 12
   m_Name: TakeDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &744472396366196997
 Transform:
   m_ObjectHideFlags: 0
@@ -908,6 +910,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7682709330699917925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052067729364343376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e28a89bd2141eca08dcccc5f9fc11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainSr: {fileID: 2591415159008789312}
+  flashCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4
+      outSlope: 4
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25
+      value: 1
+      inSlope: 2
+      outSlope: Infinity
+      tangentMode: 97
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9
+      value: 1
+      inSlope: Infinity
+      outSlope: -9.999998
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -9.999998
+      outSlope: -9.999998
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  flashTime: 0.3
 --- !u!1001 &4257605094370040472
 PrefabInstance:
   m_ObjectHideFlags: 0
