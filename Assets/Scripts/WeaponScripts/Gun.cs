@@ -111,6 +111,7 @@ namespace WeaponScripts
             if (reloading || firing)
                 yield break;
             currentMagSize--;
+            CameraShakeController.invokeShake(Mathf.Min(3, 300f / gunStats.fireRate ));
             broadcastShot(currentMagSize, gunStats.magSize);
             ShootProjectile();
             if (currentMagSize == 0)
