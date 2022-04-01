@@ -19,6 +19,7 @@ namespace EntityStatsScripts
         [SerializeField] private Transform displayPoint;
         [SerializeField] private float timeUntilAdrenaline = 100;
         [SerializeField] private Effect adrenaline;
+        [SerializeField] private Animator animator;
         private float _currAddyCount;
         private bool _canBeDamaged = true;
         private Coroutine _currentDisplay;
@@ -114,6 +115,11 @@ namespace EntityStatsScripts
         }
 
         private void KillPlayer(PlayerBarType barType)
+        {
+            animator.SetTrigger("Kill");
+        }
+
+        public void DestroyPlayer()
         {
             PlayerFind.instance.DestroyPlayer();
         }

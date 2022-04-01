@@ -16,6 +16,7 @@ namespace EntityStatsScripts
         [SerializeField] protected Slider slider;
         [SerializeField] protected GameObject numberPrefab;
         [SerializeField] protected Transform displayPoint;
+        [SerializeField] private Animator animator;
         private TakeDamageFlash _takeDamageFlash;
         private float _currentHealth;
         private float _displayAmount;
@@ -57,6 +58,11 @@ namespace EntityStatsScripts
         }
 
         protected virtual void Die()
+        {
+            animator.SetTrigger("Die");
+        }
+
+        protected virtual void DestroyEntity()
         {
             Destroy(gameObject);
         }

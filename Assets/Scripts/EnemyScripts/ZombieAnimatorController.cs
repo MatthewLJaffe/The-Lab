@@ -38,6 +38,7 @@ public class ZombieAnimatorController : MonoBehaviour
         else {
             PlayAnimationState("ZombieDefault");
         }
+        _anim.SetBool("Forward", velNorm.y < 0);
     }
 
     private void PlayAnimationState(string state)

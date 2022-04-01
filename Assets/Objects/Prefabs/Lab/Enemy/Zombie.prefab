@@ -408,7 +408,7 @@ MonoBehaviour:
   slider: {fileID: 6191364812716931123}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 1924229588570445455}
-  takeDamageFlash: {fileID: 0}
+  animator: {fileID: 5209044862565480562}
 --- !u!114 &330278179308232533
 MonoBehaviour:
   m_ObjectHideFlags: 0
