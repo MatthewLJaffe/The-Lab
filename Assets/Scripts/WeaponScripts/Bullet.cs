@@ -10,7 +10,7 @@ namespace WeaponScripts
 {
  public class Bullet : DamageSource
  { 
-     public static Action<Bullet> BulletDamage;
+     public static Action<Bullet> BulletDamage = delegate { };
      [SerializeField] protected Collider2D destructionCollider;
      public bool crit;
      public float accuracy;

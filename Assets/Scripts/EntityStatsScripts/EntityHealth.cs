@@ -46,8 +46,7 @@ namespace EntityStatsScripts
             _displayAmount += amount;
             _currentHealth -= amount;
             slider.value = _currentHealth;
-            if (_takeDamageFlash)
-                _takeDamageFlash.gameObject.SetActive(true);
+            TakeDamageFlash();
             if (_currentDisplay == null)
             {
                 var number = _damageNumberPool.GetFromPool();
@@ -57,9 +56,17 @@ namespace EntityStatsScripts
                 Die();
         }
 
+        protected void TakeDamageFlash()
+        {
+            if (_takeDamageFlash) {
+                _takeDamageFlash.Flash();
+            }
+        }
+
         protected virtual void Die()
         {
-            animator.SetTrigger("Die");
+            
+            animator.SetBool("Die", true);
         }
 
         protected virtual void DestroyEntity()

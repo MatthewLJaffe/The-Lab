@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace EntityStatsScripts
@@ -8,35 +9,64 @@ namespace EntityStatsScripts
     {
         [SerializeField] private SpriteRenderer mainSr;
         [SerializeField] private AnimationCurve flashCurve;
+        [SerializeField] private AnimationCurve deathCurve;
         [SerializeField] private float flashTime;
+        [SerializeField] private float deathTime;
         private SpriteRenderer _flashSr;
+        private Coroutine _flashRoutine;
+        private bool _syncronize;
 
         private void Awake()
         {
             _flashSr = GetComponent<SpriteRenderer>();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            _flashSr.sprite = mainSr.sprite;
+            if (_syncronize)
+            {
+                _flashSr.sprite = mainSr.sprite;
+                _flashSr.flipX = mainSr.flipX;
+            }
         }
 
-        private void OnEnable()
+        public void Flash()
         {
-            StartCoroutine(PlayFlash());
+            if (_flashRoutine == null)
+                _flashRoutine = StartCoroutine(PlayFlash());
         }
 
         private IEnumerator PlayFlash()
         {
-            var transparent = new Color(1f, 1f, 1f, 1f);
+            _syncronize = true;
+            var transparent = new Color(1f, 1f, 1f, 0f);
             for (float currTime = 0; currTime <= flashTime; currTime += Time.deltaTime)
             {
-                transparent.a = 1f - flashCurve.Evaluate(currTime / flashTime);
-                mainSr.color = transparent;
+                transparent.a = flashCurve.Evaluate(currTime / flashTime);
+                _flashSr.color = transparent;
                 yield return null;
             }
-            mainSr.color = Color.white;
-            gameObject.SetActive(false);
+            _flashSr.color = new Color(1f,1f,1f,0);
+            _syncronize = false;
+        }
+
+        private IEnumerator PlayDeathFlash()
+        {
+            var transparent = new Color(1f, 1f, 1f, 0f);
+            for (float t = 0; t <= deathTime; t += Time.deltaTime)
+            {
+                transparent.a = deathCurve.Evaluate(t);
+                _flashSr.color = transparent;
+                yield return null;
+            }
+
+            _flashRoutine = null;
+        }
+
+        public void DeathFlash()
+        {
+            _syncronize = true;
+            StartCoroutine(PlayDeathFlash());
         }
     }
 }

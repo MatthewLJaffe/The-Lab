@@ -1,4 +1,5 @@
 ﻿using System;
+using EntityStatsScripts;
 using PlayerScripts;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace EnemyScripts
 {
     public class Enemy : MonoBehaviour
     {
+        public Action EnemyKilled = delegate {  };
         public BoxCollider2D spawnCollider;
         public Transform target;
         [SerializeField] private bool enteredRoom;
@@ -27,8 +29,23 @@ namespace EnemyScripts
                     transform.position = spawnPos;
             }
         }
-        
-        public Action enemyKilled = delegate {  };
+
+        public void Death()
+        {
+            var flash = GetComponentInChildren<TakeDamageFlash>();
+            if (flash) {
+                flash.DeathFlash();
+            }
+            var steer = GetComponent<SteeringController>();
+            if (steer)
+                steer.speed = 0;
+            var colliders = GetComponents<Collider2D>();
+            if (colliders != null)
+            {
+                foreach (var c in colliders)
+                    c.enabled = false;
+            }
+        }
 
         private void Awake()
         {
@@ -39,7 +56,7 @@ namespace EnemyScripts
                 var enemyHandler = roomChild.parent.GetComponentInChildren<EnemyHandler>();
                 if (enemyHandler && !enemyHandler.enemies.Contains(this)) {
                     enemyHandler.enemies.Add(this);
-                    enemyKilled += enemyHandler.IncrementDead;
+                    EnemyKilled += enemyHandler.IncrementDead;
                 }
             }
         }
@@ -54,7 +71,7 @@ namespace EnemyScripts
 
         public void OnDestroy()
         {
-            enemyKilled.Invoke();
+            EnemyKilled.Invoke();
         }
     }
 }

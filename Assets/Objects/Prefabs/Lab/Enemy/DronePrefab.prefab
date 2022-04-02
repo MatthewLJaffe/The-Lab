@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8982901080976200860}
-  - component: {fileID: 4069358636461010350}
   - component: {fileID: 9007817413806816361}
   - component: {fileID: 2711861484907968520}
   m_Layer: 12
@@ -35,25 +34,6 @@ Transform:
   m_Father: {fileID: 3572731976869190990}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4069358636461010350
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499074609593429033}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d194ca14d0cc7cc4ea01147184cc3884, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &9007817413806816361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -378,8 +358,9 @@ GameObject:
   - component: {fileID: 3572731976869190991}
   - component: {fileID: 3572731976869190988}
   - component: {fileID: 3630796956081265334}
+  - component: {fileID: 4213923982510619092}
   m_Layer: 12
-  m_Name: Drone
+  m_Name: DronePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,6 +470,7 @@ MonoBehaviour:
   slider: {fileID: 3572731976077140348}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 3572731976050256767}
+  animator: {fileID: 4213923982510619092}
 --- !u!114 &3572731976869190991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +519,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 1
+--- !u!95 &4213923982510619092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572731976869190977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d194ca14d0cc7cc4ea01147184cc3884, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3572731976951603740
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,14 +996,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6835855140185802676}
   - component: {fileID: 3344773479546192025}
-  - component: {fileID: 3360381076454816399}
+  - component: {fileID: 5255461643715190287}
   m_Layer: 12
   m_Name: TakeDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6835855140185802676
 Transform:
   m_ObjectHideFlags: 0
@@ -1056,9 +1057,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 8122612962960986689, guid: 73150efa47599a34e90692b11ff74a1f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 8821670638249150406, guid: 6431d6f684ba43d4181f978164f583ad, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1068,7 +1069,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3360381076454816399
+--- !u!114 &5255461643715190287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1080,7 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e28a89bd2141eca08dcccc5f9fc11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSr: {fileID: 9007817413806816361}
+  mainSr: {fileID: 3344773479546192025}
   flashCurve:
     serializedVersion: 2
     m_Curve:
@@ -1123,4 +1124,56 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  deathCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.9988003
+      outSlope: 5.9988003
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1667
+      value: 1
+      inSlope: 2.9994001
+      outSlope: Infinity
+      tangentMode: 97
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.417
+      value: 1
+      inSlope: Infinity
+      outSlope: -1.2
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.667
+      value: 0.7
+      inSlope: -1.2
+      outSlope: Infinity
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   flashTime: 0.3
+  deathTime: 1
