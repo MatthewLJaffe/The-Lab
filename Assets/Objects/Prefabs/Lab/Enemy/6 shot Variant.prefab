@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ad46c3ffba735ef49a6988b93e7e85e1, type: 2}
+    - target: {fileID: 4213923982510619092, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ad46c3ffba735ef49a6988b93e7e85e1, type: 2}
     - target: {fileID: 4297876872365974705, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: avoidDistance
       value: 5.75
@@ -288,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 4297876872365974705, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: chaseDistance
       value: 6.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835855140185802676, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9007817413806816361, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Sprite

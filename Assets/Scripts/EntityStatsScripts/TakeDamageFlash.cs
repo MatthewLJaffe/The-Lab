@@ -48,6 +48,7 @@ namespace EntityStatsScripts
             }
             _flashSr.color = new Color(1f,1f,1f,0);
             _syncronize = false;
+            _flashRoutine = null;
         }
 
         private IEnumerator PlayDeathFlash()
@@ -59,8 +60,6 @@ namespace EntityStatsScripts
                 _flashSr.color = transparent;
                 yield return null;
             }
-
-            _flashRoutine = null;
         }
 
         public void DeathFlash()
