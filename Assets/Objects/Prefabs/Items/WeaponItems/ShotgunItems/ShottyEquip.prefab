@@ -90,6 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   bullet: {fileID: 4073495478663857591, guid: efefd7abca1c78c4989a2b71170f11a1, type: 3}
+  shake: 3
   gunStats: {fileID: 11400000, guid: 672242254303157449493a257c2f80c3, type: 2}
   shootPoint: {fileID: 306972051473257132}
   maxSpreadAngle: 45

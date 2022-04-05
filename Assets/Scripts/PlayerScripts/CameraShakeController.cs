@@ -15,6 +15,8 @@ namespace PlayerScripts
         [SerializeField] private float shakeFactor;
         [SerializeField] private float randomComponent;
         [SerializeField] private float shakeStep;
+        private float _shakeDisp;
+        private bool _shaking;
 
         private void Awake()
         {
@@ -28,18 +30,21 @@ namespace PlayerScripts
 
         private async void ShakeScreen(float intensity)
         {
+            _shakeDisp = Mathf.Max(intensity * shakeFactor, _shakeDisp);
+            if (_shaking) return;
+            _shaking = true;
             var initialPos = cam.transform.localPosition;
-            var shakeDisp = intensity * shakeFactor;
-            Vector2 shakeDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * shakeDisp;
-            while (shakeDisp > minShake)
+            Vector2 shakeDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * _shakeDisp;
+            while (_shakeDisp > minShake)
             {
                 await Move(shakeDir, shakeTime);
-                shakeDisp *= shakeStep;
+                _shakeDisp *= shakeStep;
                 //make new direction opposite and smaller magnitude
-                shakeDir = -shakeDir + -shakeDisp * shakeDir;
-                shakeDir += new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * (randomComponent * shakeDisp);
+                shakeDir = -shakeDir + _shakeDisp * (1f - randomComponent) * -shakeDir;
+                shakeDir += new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * (randomComponent * _shakeDisp);
             }
             await Move(initialPos - cam.transform.localPosition, shakeTime);
+            _shaking = false;
         }
 
         private async Task Move(Vector2 dir, float time)

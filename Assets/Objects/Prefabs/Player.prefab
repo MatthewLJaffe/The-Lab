@@ -830,10 +830,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b6bd17c3104826bfd60d92e30234cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeTime: 0.075
+  shakeTime: 0.05
   cam: {fileID: 1231718619079126158}
-  minShake: 0.01
-  shakeFactor: 0.025
+  minShake: 0.0075
+  shakeFactor: 0.02
   randomComponent: 0.3
   shakeStep: 0.6
 --- !u!1 &1231718619347110166
@@ -1979,6 +1979,7 @@ MonoBehaviour:
   displayPoint: {fileID: 1231718618447735178}
   timeUntilAdrenaline: 100
   adrenaline: {fileID: 11400000, guid: df32f39f77d426d4d9309f7ea050caf5, type: 2}
+  animator: {fileID: 0}
 --- !u!1001 &1084560150381033928
 PrefabInstance:
   m_ObjectHideFlags: 0

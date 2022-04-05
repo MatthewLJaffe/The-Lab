@@ -16,6 +16,7 @@ namespace WeaponScripts
         public static Action<Gun> broadCastWeaponSwitch = delegate {  };
         [SerializeField] protected PlayerStats playerStats;
         [SerializeField] protected GameObject bullet;
+        [SerializeField] private float shake;
         public GunStats gunStats;
         [SerializeField] protected Transform shootPoint;
         private bool _firstEquip = true;
@@ -111,7 +112,7 @@ namespace WeaponScripts
             if (reloading || firing)
                 yield break;
             currentMagSize--;
-            CameraShakeController.invokeShake(Mathf.Min(3, 300f / gunStats.fireRate ));
+            CameraShakeController.invokeShake(shake);
             broadcastShot(currentMagSize, gunStats.magSize);
             ShootProjectile();
             if (currentMagSize == 0)

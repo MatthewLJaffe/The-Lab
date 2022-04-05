@@ -44,6 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   bullet: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
+  shake: 1
   gunStats: {fileID: 11400000, guid: cdc60d578f179cc438709b69b6fa3e2f, type: 2}
   shootPoint: {fileID: 1962365716}
 --- !u!114 &1919950419
@@ -111,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1915694963791358054, guid: 3f641b12b0479bb47831547017251f80, type: 3}
       propertyPath: m_Name
-      value: Sniper Rifle Equip Variant
+      value: SniperRifleEquip Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1915694963791358054, guid: 3f641b12b0479bb47831547017251f80, type: 3}
       propertyPath: m_Layer
