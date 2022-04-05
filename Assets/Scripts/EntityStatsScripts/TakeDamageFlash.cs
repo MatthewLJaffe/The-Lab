@@ -15,6 +15,7 @@ namespace EntityStatsScripts
         private SpriteRenderer _flashSr;
         private Coroutine _flashRoutine;
         private bool _syncronize;
+        private Sprite _deathSprite;
 
         private void Awake()
         {
@@ -58,6 +59,9 @@ namespace EntityStatsScripts
             {
                 transparent.a = deathCurve.Evaluate(t);
                 _flashSr.color = transparent;
+                if (_flashSr.color.a > .99f) {
+                    mainSr.color = new Color(1f, 1f, 1f, 0f);
+                }
                 yield return null;
             }
         }

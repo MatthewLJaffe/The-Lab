@@ -33,12 +33,20 @@ namespace EnemyScripts
         public void Death()
         {
             var flash = GetComponentInChildren<TakeDamageFlash>();
+            var steer = GetComponent<SteeringController>();
+            GetComponent<Animator>().enabled = false;
+            if (steer) {
+                steer.Stop();
+            }
+            else {
+                Debug.LogError("Cannot find steering controller for death animation");
+            }
             if (flash) {
                 flash.DeathFlash();
             }
-            var steer = GetComponent<SteeringController>();
-            if (steer)
-                steer.speed = 0;
+            else {
+                Debug.LogError("Cannot find Flash Component for death animation");
+            }
             var colliders = GetComponents<Collider2D>();
             if (colliders != null)
             {

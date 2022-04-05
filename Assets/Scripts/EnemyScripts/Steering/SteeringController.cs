@@ -32,6 +32,12 @@ namespace EnemyScripts
             _steeringBehaviours = transform.Find("SteeringBehaviours").GetComponents<SteeringBehaviour>();
         }
 
+        public void Stop()
+        {
+            speed = 0;
+            _rb.velocity = Vector2.zero;
+        }
+
         private void FixedUpdate()
         {
             if (speed < .1f && _rb.velocity.magnitude < .1f) {
