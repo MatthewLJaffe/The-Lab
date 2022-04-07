@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using CameraScripts;
 using EntityStatsScripts;
 using EntityStatsScripts.Effects;
 using General;

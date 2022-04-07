@@ -25,7 +25,7 @@ namespace EnemyScripts
             {
                 if (enemies.Contains(enemy)) continue;
                 enemies.Add(enemy);
-                enemy.EnemyKilled += IncrementDead;
+                enemy.enemyKilled += IncrementDead;
             }
         }
 
@@ -35,7 +35,7 @@ namespace EnemyScripts
             if (enemies != null)
             {
                 foreach (var enemy in enemies) {
-                    enemy.EnemyKilled -= IncrementDead;
+                    enemy.enemyKilled -= IncrementDead;
                 }
             }
         }

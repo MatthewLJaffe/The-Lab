@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace PlayerScripts
+namespace MiniMapScripts
 {
     [RequireComponent(typeof(Camera))]
     public class MiniMapCamera : MonoBehaviour

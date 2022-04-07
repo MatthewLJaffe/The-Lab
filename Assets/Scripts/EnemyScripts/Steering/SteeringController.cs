@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace EnemyScripts
 {
     public class SteeringController : MonoBehaviour
     {
+        [SerializeField] private Enemy enemy;
         [SerializeField] private int scanFrames;
         public float speed;
         public float acceleration;
@@ -22,6 +24,7 @@ namespace EnemyScripts
 
         private void Awake()
         {
+            enemy.enemyKilled += Stop;
             frameCount = scanFrames;
             _rb = GetComponent<Rigidbody2D>();
             _steeringWeights = new Dictionary<Vector2, float>();
@@ -32,10 +35,16 @@ namespace EnemyScripts
             _steeringBehaviours = transform.Find("SteeringBehaviours").GetComponents<SteeringBehaviour>();
         }
 
+        private void OnDestroy()
+        {
+            enemy.enemyKilled -= Stop;
+        }
+
         public void Stop()
         {
             speed = 0;
             _rb.velocity = Vector2.zero;
+            enabled = false;
         }
 
         private void FixedUpdate()

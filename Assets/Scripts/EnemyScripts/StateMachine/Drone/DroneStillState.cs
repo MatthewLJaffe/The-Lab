@@ -16,7 +16,7 @@ namespace EnemyScripts.Drone
             base.Awake();
             _enemy = GetComponentInParent<Enemy>();
             _steeringController = GetComponentInParent<SteeringController>();
-            GetComponentInParent<EntityHealth>().onTakeDamage += () => _takenDamage = true;
+            GetComponentInParent<EnemyHealth>().onTakeDamage += () => _takenDamage = true;
         }
         public override Type Tick()
         {

@@ -8,15 +8,14 @@ using UnityEngine.UI;
 
 namespace EntityStatsScripts
 {
-    public class EntityHealth : MonoBehaviour, IDamageable
+    public class EnemyHealth : MonoBehaviour, IDamageable
     {
         public Action onTakeDamage = delegate {  };
         [SerializeField] protected float maxHealth;
-        [Tooltip("Should be uninitialized for player")]
         [SerializeField] protected Slider slider;
         [SerializeField] protected GameObject numberPrefab;
         [SerializeField] protected Transform displayPoint;
-        [SerializeField] private Animator animator;
+        private Enemy _enemy;
         private TakeDamageFlash _takeDamageFlash;
         private float _currentHealth;
         private float _displayAmount;
@@ -26,10 +25,12 @@ namespace EntityStatsScripts
 
         protected virtual void Awake()
         {
+            
             _currentHealth = maxHealth;
             _damageNumberPool = new GameObjectPool(numberPrefab, displayPoint);
             _knockBack = GetComponent<KnockBack>();
             _takeDamageFlash = GetComponentInChildren<TakeDamageFlash>(true);
+            _enemy = GetComponent<Enemy>();
             if (slider != null)
             {
                 slider.maxValue = maxHealth;
@@ -46,14 +47,16 @@ namespace EntityStatsScripts
             _displayAmount += amount;
             _currentHealth -= amount;
             slider.value = _currentHealth;
-            TakeDamageFlash();
             if (_currentDisplay == null)
             {
                 var number = _damageNumberPool.GetFromPool();
                 _currentDisplay = StartCoroutine(DamageBuffer(dir, number.GetComponent<TextMeshProUGUI>()));
             }
-            if (_currentHealth <= 0)
+            if (_currentHealth > 0)
+                TakeDamageFlash();
+            else
                 Die();
+
         }
 
         protected void TakeDamageFlash()
@@ -65,8 +68,7 @@ namespace EntityStatsScripts
 
         protected virtual void Die()
         {
-            
-            animator.SetBool("Die", true);
+            _enemy.Death();
         }
 
         protected virtual void DestroyEntity()

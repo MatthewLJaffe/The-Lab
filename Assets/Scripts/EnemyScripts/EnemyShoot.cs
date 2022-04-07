@@ -34,6 +34,7 @@ namespace EnemyScripts
         private void Awake()
         {
             _enemy = GetComponentInParent<Enemy>();
+            _enemy.enemyKilled += delegate { enabled = false; };
             _bulletPool = new GameObjectPool(bulletPrefab);
         }
 

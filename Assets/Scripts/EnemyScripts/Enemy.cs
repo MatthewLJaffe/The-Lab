@@ -7,18 +7,19 @@ namespace EnemyScripts
 {
     public class Enemy : MonoBehaviour
     {
-        public Action EnemyKilled = delegate {  };
+        public Action enemyKilled = delegate {  };
         public BoxCollider2D spawnCollider;
         public Transform target;
         [SerializeField] private bool enteredRoom;
         [SerializeField] private Transform roomChild;
+        [SerializeField] private SpriteRenderer sr;
+        private Animator _animator;
         public bool EnteredRoom
         {
             get => enteredRoom;
             set => enteredRoom = value;
         }
         [SerializeField] private Vector3 spawnPos;
-
         public Vector3 SpawnPos
         {
             get => spawnPos;
@@ -29,34 +30,10 @@ namespace EnemyScripts
                     transform.position = spawnPos;
             }
         }
-
-        public void Death()
-        {
-            var flash = GetComponentInChildren<TakeDamageFlash>();
-            var steer = GetComponent<SteeringController>();
-            GetComponent<Animator>().enabled = false;
-            if (steer) {
-                steer.Stop();
-            }
-            else {
-                Debug.LogError("Cannot find steering controller for death animation");
-            }
-            if (flash) {
-                flash.DeathFlash();
-            }
-            else {
-                Debug.LogError("Cannot find Flash Component for death animation");
-            }
-            var colliders = GetComponents<Collider2D>();
-            if (colliders != null)
-            {
-                foreach (var c in colliders)
-                    c.enabled = false;
-            }
-        }
-
+        
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             spawnPos = transform.position;
             PlayerFind.onPlayerReset += go => target = go.transform;
             if (roomChild && roomChild.parent)
@@ -64,7 +41,7 @@ namespace EnemyScripts
                 var enemyHandler = roomChild.parent.GetComponentInChildren<EnemyHandler>();
                 if (enemyHandler && !enemyHandler.enemies.Contains(this)) {
                     enemyHandler.enemies.Add(this);
-                    EnemyKilled += enemyHandler.IncrementDead;
+                    enemyKilled += enemyHandler.IncrementDead;
                 }
             }
         }
@@ -77,9 +54,18 @@ namespace EnemyScripts
                 target = null;
         }
 
-        public void OnDestroy()
+        public void Death()
         {
-            EnemyKilled.Invoke();
+            var sprite = sr.sprite;
+            if (_animator)
+                _animator.enabled = false;
+            sr.sprite = sprite;
+            enemyKilled.Invoke();
+            var colliders = GetComponents<Collider2D>();
+            if (colliders == null) return;
+            foreach (var c in colliders)
+                c.enabled = false;
+            
         }
     }
 }

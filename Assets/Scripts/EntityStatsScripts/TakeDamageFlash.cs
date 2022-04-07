@@ -1,30 +1,40 @@
 ﻿using System;
 using System.Collections;
+using EnemyScripts;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace EntityStatsScripts
 {
     public class TakeDamageFlash : MonoBehaviour
     {
+        [SerializeField] private UnityEvent onPlayDeath;
         [SerializeField] private SpriteRenderer mainSr;
         [SerializeField] private AnimationCurve flashCurve;
-        [SerializeField] private AnimationCurve deathCurve;
+        [SerializeField] private AnimationCurve deathFlashCurve;
+        [SerializeField] private AnimationCurve deathScaleCurve;
         [SerializeField] private float flashTime;
         [SerializeField] private float deathTime;
+        [SerializeField] private Enemy enemy;
         private SpriteRenderer _flashSr;
         private Coroutine _flashRoutine;
-        private bool _syncronize;
-        private Sprite _deathSprite;
+        private bool _synchronize;
 
         private void Awake()
         {
             _flashSr = GetComponent<SpriteRenderer>();
+            enemy.enemyKilled += DeathFlash;
+        }
+
+        private void OnDestroy()
+        {
+            enemy.enemyKilled -= DeathFlash;
         }
 
         private void Update()
         {
-            if (_syncronize)
+            if (_synchronize)
             {
                 _flashSr.sprite = mainSr.sprite;
                 _flashSr.flipX = mainSr.flipX;
@@ -39,7 +49,7 @@ namespace EntityStatsScripts
 
         private IEnumerator PlayFlash()
         {
-            _syncronize = true;
+            _synchronize = true;
             var transparent = new Color(1f, 1f, 1f, 0f);
             for (float currTime = 0; currTime <= flashTime; currTime += Time.deltaTime)
             {
@@ -48,28 +58,33 @@ namespace EntityStatsScripts
                 yield return null;
             }
             _flashSr.color = new Color(1f,1f,1f,0);
-            _syncronize = false;
+            _synchronize = false;
             _flashRoutine = null;
         }
 
-        private IEnumerator PlayDeathFlash()
+        private IEnumerator PlayDeathEffect()
         {
+            onPlayDeath.Invoke();
             var transparent = new Color(1f, 1f, 1f, 0f);
             for (float t = 0; t <= deathTime; t += Time.deltaTime)
             {
-                transparent.a = deathCurve.Evaluate(t);
+                transparent.a = deathFlashCurve.Evaluate(t / deathTime);
+                var currSize = deathScaleCurve.Evaluate(t / deathTime);
+                var scale = new Vector3(currSize, currSize, 1f);
+                enemy.transform.localScale = scale;
                 _flashSr.color = transparent;
                 if (_flashSr.color.a > .99f) {
                     mainSr.color = new Color(1f, 1f, 1f, 0f);
                 }
                 yield return null;
             }
+            Destroy(enemy.gameObject);
         }
 
         public void DeathFlash()
         {
-            _syncronize = true;
-            StartCoroutine(PlayDeathFlash());
+            _synchronize = true;
+            StartCoroutine(PlayDeathEffect());
         }
     }
 }

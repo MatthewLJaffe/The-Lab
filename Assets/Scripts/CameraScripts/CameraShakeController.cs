@@ -1,10 +1,10 @@
 ﻿using System;
-using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-namespace PlayerScripts
+namespace CameraScripts
 {
     public class CameraShakeController : MonoBehaviour
     {

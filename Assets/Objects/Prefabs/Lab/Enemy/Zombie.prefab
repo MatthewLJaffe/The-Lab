@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03698f7f9cda492fbdde49cc960586e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 830701019}
   scanFrames: 4
   speed: 4
   acceleration: 4
@@ -408,7 +409,6 @@ MonoBehaviour:
   slider: {fileID: 6191364812716931123}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 1924229588570445455}
-  animator: {fileID: 5209044862565480562}
 --- !u!114 &330278179308232533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  sourceCollider: {fileID: 0}
+  sourceCollider: {fileID: 2591415159008789326}
   layers:
     serializedVersion: 2
     m_Bits: 512
@@ -442,6 +442,7 @@ MonoBehaviour:
   target: {fileID: 0}
   enteredRoom: 0
   roomChild: {fileID: 0}
+  sr: {fileID: 2591415159008789312}
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8505614241952147664
 MonoBehaviour:
@@ -457,6 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplier: 0.25
   maxKnockBack: 10
+  enemy: {fileID: 830701019}
 --- !u!1 &6191364811796021947
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,20 +967,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  deathCurve:
+  deathFlashCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 5.9988003
-      outSlope: 5.9988003
+      inSlope: 4
+      outSlope: 4
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.1667
+      time: 0.25
       value: 1
       inSlope: 2.9994001
       outSlope: Infinity
@@ -987,28 +989,52 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.417
+      time: 0.6
       value: 1
-      inSlope: Infinity
-      outSlope: -1.2
-      tangentMode: 65
+      inSlope: -0
+      outSlope: -1.5000001
+      tangentMode: 69
+      weightedMode: 2
+      inWeight: 0
+      outWeight: 0.34556034
+    - serializedVersion: 3
+      time: 1
+      value: 0.4
+      inSlope: -1.5000001
+      outSlope: -0.5145798
+      tangentMode: 5
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.059814233
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  deathScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: Infinity
+      tangentMode: 97
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.667
-      value: 0.7
-      inSlope: -1.2
-      outSlope: Infinity
-      tangentMode: 5
+      time: 0.6
+      value: 1
+      inSlope: -0.31250003
+      outSlope: -0.31250003
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.7
-      inSlope: 0
-      outSlope: 0
+      value: 0.75
+      inSlope: -0.62500006
+      outSlope: -0.62500006
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -1017,7 +1043,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   flashTime: 0.3
-  deathTime: 1
+  deathTime: 0.5
+  enemy: {fileID: 830701019}
 --- !u!1001 &4257605094370040472
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PlayerScripts
+namespace CameraScripts
 {
     public class CameraCoordinator : MonoBehaviour
     {
