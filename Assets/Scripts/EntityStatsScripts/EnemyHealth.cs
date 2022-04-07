@@ -16,7 +16,7 @@ namespace EntityStatsScripts
         [SerializeField] protected GameObject numberPrefab;
         [SerializeField] protected Transform displayPoint;
         private Enemy _enemy;
-        private TakeDamageFlash _takeDamageFlash;
+        private TakeDamageEffect _takeDamageEffect;
         private float _currentHealth;
         private float _displayAmount;
         private GameObjectPool _damageNumberPool;
@@ -29,7 +29,7 @@ namespace EntityStatsScripts
             _currentHealth = maxHealth;
             _damageNumberPool = new GameObjectPool(numberPrefab, displayPoint);
             _knockBack = GetComponent<KnockBack>();
-            _takeDamageFlash = GetComponentInChildren<TakeDamageFlash>(true);
+            _takeDamageEffect = GetComponentInChildren<TakeDamageEffect>(true);
             _enemy = GetComponent<Enemy>();
             if (slider != null)
             {
@@ -61,12 +61,12 @@ namespace EntityStatsScripts
 
         protected void TakeDamageFlash()
         {
-            if (_takeDamageFlash) {
-                _takeDamageFlash.Flash();
+            if (_takeDamageEffect) {
+                _takeDamageEffect.Flash();
             }
         }
 
-        protected virtual void Die()
+        protected virtual void Die ()
         {
             _enemy.Death();
         }
@@ -78,6 +78,8 @@ namespace EntityStatsScripts
 
         private IEnumerator DamageBuffer(Vector2 dir, TextMeshProUGUI tmNumber)
         {
+            //set immediately so it can be used by other effect scripts
+            _knockBack.knockBackDir = dir.normalized;
             yield return new WaitForSeconds(.1f);
             tmNumber.text = "" + _displayAmount;
             if (_knockBack)

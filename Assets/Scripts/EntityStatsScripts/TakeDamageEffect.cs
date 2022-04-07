@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace EntityStatsScripts
 {
-    public class TakeDamageFlash : MonoBehaviour
+    public class TakeDamageEffect : MonoBehaviour
     {
         [SerializeField] private UnityEvent onPlayDeath;
         [SerializeField] private SpriteRenderer mainSr;
@@ -19,12 +19,14 @@ namespace EntityStatsScripts
         [SerializeField] private Enemy enemy;
         private SpriteRenderer _flashSr;
         private Coroutine _flashRoutine;
+        private KnockBack _knockBack;
         private bool _synchronize;
 
         private void Awake()
         {
             _flashSr = GetComponent<SpriteRenderer>();
             enemy.enemyKilled += DeathFlash;
+            _knockBack = enemy.GetComponentInChildren<KnockBack>();
         }
 
         private void OnDestroy()
@@ -79,6 +81,12 @@ namespace EntityStatsScripts
                 yield return null;
             }
             Destroy(enemy.gameObject);
+        }
+
+        public void RotateWithKnockBack(GameObject rotate)
+        {
+            if (!_knockBack) return;
+            rotate.transform.right = _knockBack.knockBackDir;
         }
 
         public void DeathFlash()
