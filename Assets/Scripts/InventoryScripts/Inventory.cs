@@ -153,6 +153,11 @@ namespace InventoryScripts
                 _toggler.ToggleItems();
         }
 
+        public void EnableFire()
+        {
+            PlayerInputManager.instance.EnableInput(PlayerInputManager.PlayerInputName.Fire1);
+        }
+
         private void NumberInput(PlayerInputManager.PlayerInputName iName)
         {
             if (!iName.ToString().StartsWith("Alpha_")) return;

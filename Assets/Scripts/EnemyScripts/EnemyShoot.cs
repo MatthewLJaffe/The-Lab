@@ -2,12 +2,14 @@
 using System.CodeDom;
 using General;
 using UnityEngine;
+using UnityEngine.Events;
 using WeaponScripts;
 
 namespace EnemyScripts
 {
     public class EnemyShoot : MonoBehaviour, IFire
     {
+        public UnityEvent onShoot;
         [SerializeField] private Transform[] shootPoints;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private float timeBetweenShots;
@@ -59,6 +61,7 @@ namespace EnemyScripts
 
         public void Fire()
         {
+            onShoot.Invoke();
             foreach (var shootPoint in shootPoints)          
             {
                 var bulletGo = _bulletPool.GetFromPool();

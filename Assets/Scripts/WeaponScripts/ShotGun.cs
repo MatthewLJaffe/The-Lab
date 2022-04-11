@@ -15,6 +15,7 @@ namespace WeaponScripts
         protected override void ShootProjectile()
         {
             if (!mainCamera.gameObject.activeSelf) return;
+            shootSound.Play(fireSource);
             var spreadAngle = maxSpreadAngle * Mathf.Max(0, 1f - (gunStats.accuracy + additionalAccuracy) / 100f);
             for (var c = 0; c < bullets; c++)
             {

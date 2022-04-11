@@ -1,11 +1,13 @@
 ﻿using System;
 using EnemyScripts;
+using General;
 using UnityEngine;
 
 namespace LabCreationScripts
 {
     public class Door : MonoBehaviour
     {
+        [SerializeField] private SoundEffect closeDoorSound;
         public static Action<Room> onEnterRoom = delegate {  };
         private bool _enteredPreviously;
         public Direction doorDir;
@@ -43,6 +45,7 @@ namespace LabCreationScripts
             if (lockable)
                 _doorCollider.enabled = true;
             _doorAnimator.ShowDoorClosed();
+            closeDoorSound.Play(gameObject);
         }
         
         private void SetDoorTrigger(Room room)
@@ -63,7 +66,6 @@ namespace LabCreationScripts
                 onEnterRoom(myRoom);
                 if (!lockable)
                     EnemyHandler.onRoomClear(myRoom);
-                Debug.Log("Entered room " + myRoom.RoomId);
             }
         }
 

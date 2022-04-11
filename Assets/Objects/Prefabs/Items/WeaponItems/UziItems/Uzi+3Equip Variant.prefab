@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ed42e7b476c1aa444a28fd1780cd2784, type: 2}
     - target: {fileID: 7044309149272851686, guid: 4714f385d8278ab4a8052977ff9fc691, type: 3}
       propertyPath: m_Name
-      value: Uzi+3Equip
+      value: Uzi+3Equip Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8463362098392191075, guid: 4714f385d8278ab4a8052977ff9fc691, type: 3}
       propertyPath: m_LocalPosition.x

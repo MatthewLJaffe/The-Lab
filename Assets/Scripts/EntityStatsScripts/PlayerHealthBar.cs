@@ -5,6 +5,7 @@ using General;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using static Unity.Mathematics.Random;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,7 @@ namespace EntityStatsScripts
 {
     public class PlayerHealthBar : PlayerBar, IDamageable
     {
+        public UnityEvent onDamage;
         public float defense;
         public float dodgeChance;
         [SerializeField] private float damageCooldown;
@@ -69,6 +71,7 @@ namespace EntityStatsScripts
             }
             else
             {
+                onDamage.Invoke();
                 var damageAmount = amount / 2f / (defense * .25f + 1) + Mathf.Max(amount / 2 - defense / 2, 0);
                 var roundedDamage = Mathf.Round(damageAmount) >= 1 ? Mathf.Round(damageAmount) : 1;
                 BarValue -= roundedDamage;
@@ -116,7 +119,7 @@ namespace EntityStatsScripts
 
         private void KillPlayer(PlayerBarType barType)
         {
-            animator.SetTrigger("Kill");
+            PlayerFind.instance.DestroyPlayer();
         }
 
         public void DestroyPlayer()

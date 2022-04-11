@@ -49,22 +49,33 @@ namespace PlayerScripts
             }
         }
 
+        public void DisableInput(PlayerInputName iName)
+        {
+            inputs.First(i => i.inputName == iName).usable = false;
+        }
+        
+        public void EnableInput(PlayerInputName iName)
+        {
+            inputs.First(i => i.inputName == iName).usable = true;
+        }
+
         public bool GetInput(PlayerInputName iName)
         {
-            return inputs.Any(i => i.inputName == iName && i.Pressed);
+            return inputs.Any(i => i.inputName == iName && i.Pressed && i.usable);
         }
 
         [Serializable]
         private class PlayerInput
         {
             public PlayerInputName inputName;
+            public bool usable = true;
             private bool _pressed;
             public bool Pressed
             {
                 get => _pressed;
                 set
                 {
-                    if (value && value != _pressed)
+                    if (value && value != _pressed && usable)
                         OnInputDown.Invoke(inputName);
                     _pressed = value;
                 }

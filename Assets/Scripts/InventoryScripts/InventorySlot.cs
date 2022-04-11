@@ -1,4 +1,5 @@
 using System;
+using General;
 using InventoryScripts.ItemScripts;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace InventoryScripts
         private TextMeshProUGUI amountText;
         [SerializeField] private Transform moveParent;
         [SerializeField] private GameObject itemSlotPrefab;
+        [SerializeField] private SoundEffect selectSound;
         private static GameObject equippedItem = null;
         private Item myItem;
         private static Transform playerHand = null;
@@ -82,6 +84,7 @@ namespace InventoryScripts
         {
             GameObject prevHeldItem = null;
             bool pickedUpItem = false;
+            selectSound.Play(gameObject);
             if (transform.childCount != 0)
             {
                 //try to stack items

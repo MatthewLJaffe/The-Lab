@@ -6,6 +6,7 @@ using EntityStatsScripts.Effects;
 using General;
 using PlayerScripts;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace WeaponScripts
@@ -16,8 +17,12 @@ namespace WeaponScripts
         public static Action<float> broadcastReload = delegate { };
         public static Action<Gun> broadCastWeaponSwitch = delegate {  };
         [SerializeField] protected PlayerStats playerStats;
+        [SerializeField] protected SoundEffect shootSound;
+        [SerializeField] protected SoundEffect reloadSound;
         [SerializeField] protected GameObject bullet;
         [SerializeField] private float shake;
+        [SerializeField] protected AudioSource fireSource;
+        [SerializeField] protected AudioSource reloadSource;
         public GunStats gunStats;
         [SerializeField] protected Transform shootPoint;
         private bool _firstEquip = true;
@@ -37,7 +42,7 @@ namespace WeaponScripts
         protected bool reloading;
         protected bool firing;
         protected static float maxReloadTime = 3;
-        protected static float minReloadTime = .1f;
+        protected static float minReloadTime = .3f;
         protected GameObjectPool _bulletPool;
         protected float atkMult;
         protected float playerCritChance;
@@ -127,6 +132,7 @@ namespace WeaponScripts
         {
             if (!mainCamera.gameObject.activeSelf) return;
             var bulletInstance = _bulletPool.GetFromPool();
+            shootSound.Play(fireSource);
             bulletInstance.transform.position = shootPoint.position;
             var bulletComponent = bulletInstance.GetComponent<PooledBullet>();
             var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -142,12 +148,15 @@ namespace WeaponScripts
         
         protected IEnumerator Reload()
         {
-            if (reloading || firing || currentMagSize == gunStats.magSize)
+            if (reloading || currentMagSize == gunStats.magSize)
                 yield break;
+            if (firing)
+                yield return new WaitUntil(() => !firing);
             reloading = true;
             var reloadTime = ((minReloadTime - maxReloadTime) / 100 * gunStats.reloadSpeed + maxReloadTime) * reloadFactor;
             broadcastReload.Invoke(reloadTime);
-            yield return new WaitForSeconds(reloadTime);
+            reloadSound.PlayInTime(reloadTime, reloadSource);
+            yield return new WaitForSeconds(reloadTime);    
             currentMagSize = gunStats.magSize;
             broadcastShot(currentMagSize, gunStats.magSize);
             reloading = false;

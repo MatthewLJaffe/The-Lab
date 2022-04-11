@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f053992b2b4561a8cad6b5c5dcd308, type: 3}
+  m_Name: sfx_ShotGunReload
+  m_EditorClassIdentifier: 
+  playOrder: 0
+  clips:
+  - {fileID: 8300000, guid: 5de24ff3f94d2944690d32609d8d9952, type: 3}
+  - {fileID: 8300000, guid: 785fef22157a9db4ebb627acda12fc10, type: 3}
+  - {fileID: 8300000, guid: dbb2123c162137c48a38c36966ca0528, type: 3}
+  volumeRange: {x: 1, y: 1}
+  pitchRange: {x: 2.1346955, y: 2.1346955}

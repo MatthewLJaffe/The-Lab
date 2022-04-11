@@ -45,12 +45,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputs:
   - inputName: 0
+    usable: 1
   - inputName: 1
+    usable: 1
   - inputName: 2
+    usable: 1
   - inputName: 3
+    usable: 1
   - inputName: 4
+    usable: 1
   - inputName: 5
+    usable: 1
   - inputName: 6
+    usable: 1
   - inputName: 7
+    usable: 1
   - inputName: 8
+    usable: 1
   - inputName: 9
+    usable: 1

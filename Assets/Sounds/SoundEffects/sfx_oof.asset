@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f053992b2b4561a8cad6b5c5dcd308, type: 3}
+  m_Name: sfx_oof
+  m_EditorClassIdentifier: 
+  playOrder: 0
+  clips:
+  - {fileID: 8300000, guid: 64c55a654541cde46a474942d21b40b3, type: 3}
+  - {fileID: 8300000, guid: 1579557a929031944bf22a755b77b305, type: 3}
+  - {fileID: 8300000, guid: f0d6d6470ec09ec438a095f65a3492b4, type: 3}
+  - {fileID: 8300000, guid: 98721227bcec18048932bee67dfd70bd, type: 3}
+  volumeRange: {x: 0.7, y: 1}
+  pitchRange: {x: 0.8, y: 1}

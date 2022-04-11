@@ -1,10 +1,13 @@
 ﻿using System;
+using General;
 using UnityEngine;
 
 namespace LabCreationScripts
 {
     public class DoorAnimator : MonoBehaviour
     {
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private SoundEffect doorOpen;
         private Direction _doorDir;
         private Animator _animator;
         private bool _doorOpen;
@@ -25,10 +28,11 @@ namespace LabCreationScripts
                 PlayDoorAnimation(other.GetComponent<Rigidbody2D>());
             }
         }
-
+        
         private void PlayDoorAnimation(Rigidbody2D otherRb)
         {
             if (otherRb == null) return;
+            doorOpen.Play(audioSource);
             if (_doorDir == Direction.Left || _doorDir == Direction.Right)
             {
                 if (otherRb.velocity.x > 0)
