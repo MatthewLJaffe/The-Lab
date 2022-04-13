@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f053992b2b4561a8cad6b5c5dcd308, type: 3}
-  m_Name: sfx_Heal
+  m_Name: sfx_UziMediReload
   m_EditorClassIdentifier: 
   playOrder: 0
   clips:
-  - {fileID: 8300000, guid: db52c897c0cea5342acf8eb26002a97d, type: 3}
-  volumeRange: {x: 0.6, y: 0.5}
-  pitchRange: {x: 1, y: 1}
+  - {fileID: 8300000, guid: 9206b22361b2ddb47873e496f9f45ed2, type: 3}
+  volumeRange: {x: 0.5, y: 0.5}
+  pitchRange: {x: 0.66083336, y: 0.66083336}
