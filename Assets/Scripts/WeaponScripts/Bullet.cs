@@ -10,7 +10,6 @@ namespace WeaponScripts
 {
  public class Bullet : DamageSource
  { 
-     public static Action<Bullet> BulletDamage = delegate { };
      [SerializeField] protected Collider2D destructionCollider;
      public bool crit;
      public float accuracy;
@@ -53,7 +52,6 @@ namespace WeaponScripts
             if (sourceCollider.isTrigger && direction != Vector2.zero &&
                 layers == (layers | (1 << other.gameObject.layer)))
             {
-                BulletDamage.Invoke(this);
                 damageable?.TakeDamage(damage, Rb.velocity);
             }
             if (destructionCollider.IsTouching(other) || destroyOnDamage && damageable != null)
@@ -117,7 +115,7 @@ namespace WeaponScripts
         {
             yield return new WaitUntil(() => direction != Vector2.zero);
             if (crit)
-                damage *= 5;
+                damage *= 2.5f;
             BulletReturnRoutine = StartCoroutine(BulletLifetime());
             transform.rotation = GetRotation();
             Rb.velocity = transform.rotation * Vector2.up * speed;

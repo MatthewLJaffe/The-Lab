@@ -15,7 +15,7 @@ namespace EntityStatsScripts.Effects
         {
             base.OnEnable();
             _critChanceBonus = 0;
-            Bullet.BulletDamage += ApplyRifleScopeEffect;
+            PlayerBullet.bulletDamage += ApplyRifleScopeEffect;
         }
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
@@ -23,14 +23,13 @@ namespace EntityStatsScripts.Effects
             _critChanceBonus = Mathf.Min(1, critStep * newStack);
         }
 
-        private void ApplyRifleScopeEffect(Bullet b)
+        private void ApplyRifleScopeEffect(PlayerBullet b)
         {
             var distance =
                 Vector2.Distance(b.transform.position, PlayerFind.instance.playerInstance.transform.position);
             if (stack == 0 || b.crit || b.LayerInMask(LayerMask.NameToLayer("Player")) ||
                 distance < minEffectRange) return;
             if ( Random.Range(0f, 1f)< _critChanceBonus) {
-                Debug.Log("Scope Crit");
                 b.damage *= 2.5f;
                 b.crit = true;
             }

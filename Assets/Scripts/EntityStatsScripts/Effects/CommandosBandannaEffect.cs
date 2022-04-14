@@ -16,13 +16,12 @@ namespace EntityStatsScripts.Effects
         {
             base.OnEnable();
             _damageMult = 0;
-            Bullet.BulletDamage += ApplyCommandosBandannaEffect;
+            PlayerBullet.bulletDamage += ApplyCommandosBandannaEffect;
         }
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            _damageMult = maxDamageMult * (1 -  1 / (damageStep * newStack + 1));
-            Debug.Log("Stack: " + newStack + " damage mult" + _damageMult);
+            _damageMult = Mathf.Min(maxDamageMult, damageStep * newStack + 1f);
         }
 
         private void ApplyCommandosBandannaEffect(Bullet b)

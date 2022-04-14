@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f053992b2b4561a8cad6b5c5dcd308, type: 3}
-  m_Name: sfx_Explode
+  m_Name: sfx_UzMediReload
   m_EditorClassIdentifier: 
+  audioSourceGo: {fileID: 0}
   playOrder: 0
-  clips:
-  - {fileID: 8300000, guid: c199cbf2f838f2e4f80c169846ce0946, type: 3}
-  volumeRange: {x: 0.5, y: 0.6}
-  pitchRange: {x: 0.7, y: 1}
+  clips: []
+  volumeRange: {x: 0.5, y: 0.5}
+  pitchRange: {x: 1, y: 1}

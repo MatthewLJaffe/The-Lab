@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveParent: {fileID: 0}
   itemSlotPrefab: {fileID: 6606910695527847670, guid: 6aef5705589428446bb48d8ea773c983, type: 3}
-  selectSound: {fileID: 11400000, guid: efe6f8151d9b0dc42ab115725ae69711, type: 2}
+  selectSound: {fileID: 11400000, guid: 1f3eed341a934f342ae4ec628dfd980d, type: 2}
 --- !u!82 &8599914317328278831
 AudioSource:
   m_ObjectHideFlags: 0

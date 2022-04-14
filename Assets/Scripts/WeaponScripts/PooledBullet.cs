@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections;
-using EntityStatsScripts;
-using General;
-using PlayerScripts;
+﻿using General;
 using UnityEngine;
-using UnityEngine.Assertions;
-using Random = UnityEngine.Random;
+
 
 namespace WeaponScripts
 {

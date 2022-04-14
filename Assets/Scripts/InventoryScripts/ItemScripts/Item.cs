@@ -44,7 +44,7 @@ namespace InventoryScripts.ItemScripts
                 var consumable = _equip.GetComponent<Consumable>();
                 if (consumable)
                 {
-                     consumable.ItemConsumed += delegate
+                     consumable.itemConsumed += delegate
                      {
                          Inventory.Instance.DestroyItem(this);
                          if (_amount == 0)

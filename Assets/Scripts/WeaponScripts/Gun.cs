@@ -134,7 +134,7 @@ namespace WeaponScripts
             var bulletInstance = _bulletPool.GetFromPool();
             shootSound.Play(fireSource);
             bulletInstance.transform.position = shootPoint.position;
-            var bulletComponent = bulletInstance.GetComponent<PooledBullet>();
+            var bulletComponent = bulletInstance.GetComponent<PlayerBullet>();
             var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
             bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);

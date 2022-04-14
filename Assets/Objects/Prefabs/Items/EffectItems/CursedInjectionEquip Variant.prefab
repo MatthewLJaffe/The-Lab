@@ -108,16 +108,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5890c1e1d5b546c8a7e74f43884bf70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onConsume:
+  onUse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7421c8479961c7f41ad96d2956380599, type: 2}
+      - m_Target: {fileID: 11400000, guid: 1f3eed341a934f342ae4ec628dfd980d, type: 2}
         m_TargetAssemblyTypeName: General.SoundEffect, Assembly-CSharp
         m_MethodName: Play
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 7569552010881042820}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

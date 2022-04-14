@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using General;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ namespace InventoryScripts.ItemScripts
     public class ItemPickup : MonoBehaviour
     {
         [SerializeField] private ItemData itemData;
+        [SerializeField] private SoundEffect pickUpSound;
         public Item itemToDrop;
         public static Action<Item> pickup = delegate{ };
         private Rigidbody2D _rb;
@@ -41,6 +43,7 @@ namespace InventoryScripts.ItemScripts
             if (other.CompareTag("Player") && _canDrop)
             {
                 _canDrop = false;
+                pickUpSound.Play();
                 pickup.Invoke(itemToDrop);
                 gameObject.SetActive(false);
             }

@@ -15,7 +15,8 @@ namespace General
         public Vector2 volumeRange = new Vector2(.5f, .5f);
         public Vector2 pitchRange = new Vector2(1f, 1f);
         private int _playIdx;
-        
+        private static Type[] _audioPlayerComponents = {typeof(AudioSource)};
+
         [System.Serializable]
         private enum PlayOrder
         {
@@ -38,7 +39,7 @@ namespace General
         }
 
         [ContextMenu("Play")]
-        public async void PlayPreview()
+        private async void PlayPreview()
         {
             if (!_previewer)
                 _previewer = EditorUtility.CreateGameObjectWithHideFlags(
@@ -51,7 +52,7 @@ namespace General
         }
         
         [ContextMenu("Play10")]
-        public async void Play10()
+        private async void Play10()
         {
             if (!_previewer)
                 _previewer = EditorUtility.CreateGameObjectWithHideFlags(
@@ -68,7 +69,7 @@ namespace General
         }
         
         [ContextMenu("Stop")]
-        public void StopPreview()
+        private void StopPreview()
         {
             _shouldPlay = false;
             _previewer.Stop();
@@ -96,28 +97,35 @@ namespace General
             audioSource.clip = bestFit;
             audioSource.Play();
         }
-        
+
+        public async void Play()
+        {
+            var audioSource = new GameObject("AudioPlayer", _audioPlayerComponents).GetComponent<AudioSource>();
+            await Play(audioSource);
+            Destroy(audioSource.gameObject);
+        }
         
         public async void Play(GameObject sourceGo)
         {
             var source = sourceGo.GetComponent<AudioSource>();
-            if (!sourceGo)
+            if (!source)
                 Debug.LogError("No Audio Source found");
             await Play(source);
         }
 
-        public async Task Play(AudioSource audioSource)
+        public async Task Play(AudioSource audioSourceParam)
         {
             if (clips.Length == 0)
             {
                 Debug.LogError($"Missing clips for {name}");
                 return;
             }
-            audioSource.clip = GetClip();
-            audioSource.volume = Random.Range(volumeRange.x, volumeRange.y);
-            audioSource.pitch = Random.Range(pitchRange.x, pitchRange.y);
-            audioSource.Play();
-            await Task.Delay((int) (1000 * audioSource.clip.length / audioSource.pitch));
+            
+            audioSourceParam.clip = GetClip();
+            audioSourceParam.volume = Random.Range(volumeRange.x, volumeRange.y);
+            audioSourceParam.pitch = Random.Range(pitchRange.x, pitchRange.y);
+            audioSourceParam.Play();
+            await Task.Delay((int) (1000 * audioSourceParam.clip.length / audioSourceParam.pitch));
         }
 
         private AudioClip GetClip()

@@ -46,8 +46,9 @@ namespace InventoryScripts
         {
             if (inputName != PlayerInputManager.PlayerInputName.Fire1 || !gameObject.activeSelf) return;
             restoreItemUsed.Invoke(this);
+            onUse.Invoke();
             if (Random.Range(0f, 1f) > _dontConsumeChance)
-                ItemConsumed.Invoke();
+                itemConsumed.Invoke();
         }
     }
 }
