@@ -14,7 +14,12 @@ namespace EntityStatsScripts
         public static Action<PlayerBarType> BarDeplete = delegate { };
 
         public PlayerBarType barType;
+
         [Tooltip("Can be left uninitialized")]
+        [SerializeField] protected float barLowPercent;
+        [SerializeField] protected float barVeryLowPercent;
+        [SerializeField] protected float barHighPercent;
+        [SerializeField] protected float barVeryHighPercent;
         [SerializeField] protected GameObject statDisplay;
         [SerializeField] protected RectTransform bar;
         [SerializeField] protected TextMeshProUGUI amountText;
@@ -52,30 +57,30 @@ namespace EntityStatsScripts
                 var newPercentage = Mathf.Clamp(value / maxValue, 0, 1);
                 var oldPercentage = Mathf.Clamp(barValue / maxValue, 0, 1);
                 UpdateStatDisplay(newPercentage);
-                if (newPercentage >= .75f && oldPercentage < .75f)
+                if (newPercentage >= barVeryHighPercent && oldPercentage < barVeryHighPercent)
                 {
                     if (barHighEffect != null)
                         barHighEffect.Stack = 2;
                     if (barLowEffect != null)
                         barLowEffect.Stack = 0;
                 }
-                else if (newPercentage >= .5f && newPercentage < .75f && (oldPercentage >= .75f || oldPercentage < .5f))
+                else if (newPercentage >=  barHighPercent && newPercentage < barVeryHighPercent 
+                        && (oldPercentage >= barVeryHighPercent || oldPercentage < barHighPercent))
                 {
                     if (barHighEffect != null)
                         barHighEffect.Stack = 1;
                     if (barLowEffect != null)
                         barLowEffect.Stack = 0;
                 }
-                    
-                else if (newPercentage <= .25f && oldPercentage > .25f)
+                else if (newPercentage <= barVeryLowPercent && oldPercentage > barVeryLowPercent)
                 {
                     if (barLowEffect != null)
                         barLowEffect.Stack = 2;
                     if (barHighEffect != null)
                         barHighEffect.Stack = 0;
                 }
-                else if (newPercentage <= .5f && newPercentage > .25f &&
-                         (oldPercentage >= .5f || oldPercentage <= .25f))
+                else if (newPercentage <= barLowPercent && newPercentage > barVeryLowPercent &&
+                         (oldPercentage >= barLowPercent || oldPercentage <= barVeryLowPercent))
                 {
                     if (barLowEffect != null)
                         barLowEffect.Stack = 1;

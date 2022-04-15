@@ -63,7 +63,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   shootSound: {fileID: 11400000, guid: 61f505f7fed35644f853eea839e5fb5e, type: 2}
   reloadSound: {fileID: 11400000, guid: a69425d4c474ec448b45c00cfaf79ded, type: 2}
-  bullet: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
+  bullet: {fileID: 7617890687093575437, guid: 2cc13ad9b3567fb4abec5a6ffb5d0dc1, type: 3}
   shake: 0.75
   fireSource: {fileID: 1026250214545657183}
   reloadSource: {fileID: 3939374788617081633}

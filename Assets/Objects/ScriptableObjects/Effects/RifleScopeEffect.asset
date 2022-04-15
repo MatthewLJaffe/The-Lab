@@ -15,5 +15,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a4aa4d962c67481418831e65aacfeab5, type: 3}
   message: Increasesd crit chance when dealing damage from a distance
   stack: 0
-  critStep: 0.2
-  minEffectRange: 5
+  critStep: 0.3
+  minEffectRange: 4.5

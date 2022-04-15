@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 417701664277857460}
   - component: {fileID: 179554968125115779}
   m_Layer: 0
-  m_Name: ShotgunDrop
+  m_Name: ShottyDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 5b81b23f94460684b8336ef8b84a77e5, type: 2}
+  pickUpSound: {fileID: 11400000, guid: 1f3eed341a934f342ae4ec628dfd980d, type: 2}
 --- !u!212 &3350590045476490072
 SpriteRenderer:
   m_ObjectHideFlags: 0

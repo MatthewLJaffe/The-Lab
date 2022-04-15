@@ -1500,6 +1500,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barType: 1
+  barLowPercent: 0.3
+  barVeryLowPercent: 0.15
+  barHighPercent: 0.6
+  barVeryHighPercent: 0.8
   statDisplay: {fileID: 1962454735147975238}
   bar: {fileID: 6962420905143701548}
   amountText: {fileID: 1323164215452905356}
@@ -2060,6 +2064,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barType: 0
+  barLowPercent: 0.4
+  barVeryLowPercent: 0.2
+  barHighPercent: 0.6
+  barVeryHighPercent: 0.8
   statDisplay: {fileID: 7611573521598211545}
   bar: {fileID: 7611573521598211544}
   amountText: {fileID: 5641190872137300905}

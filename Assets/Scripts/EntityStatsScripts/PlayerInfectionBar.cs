@@ -20,12 +20,12 @@ namespace EntityStatsScripts
             set
             {
                 base.BarValue = value;
-                var precentage = barValue / maxValue;
+                var percentage = barValue / maxValue;
                 if (_diseaseToleranceRoutine != null)
                     StopCoroutine(_diseaseToleranceRoutine);
-                if (precentage <= .25f)
+                if (percentage <= barVeryLowPercent)
                     _diseaseToleranceRoutine= StartCoroutine(CountToDiseaseTolerance(2));
-                else if (precentage < .5f)
+                else if (percentage < barVeryLowPercent)
                     _diseaseToleranceRoutine = StartCoroutine(CountToDiseaseTolerance(1));
             }
         }

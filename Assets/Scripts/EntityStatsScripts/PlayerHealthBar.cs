@@ -38,9 +38,9 @@ namespace EntityStatsScripts
                 var precentage = barValue / maxValue;
                 if (_adrenalineRoutine != null)
                     StopCoroutine(_adrenalineRoutine);
-                if (precentage <= .25f)
+                if (precentage <= barVeryLowPercent)
                     _adrenalineRoutine = StartCoroutine(CountToAdrenaline(2));
-                else if (precentage < .5f)
+                else if (precentage < barLowPercent)
                     _adrenalineRoutine = StartCoroutine(CountToAdrenaline(1));
             }
         }

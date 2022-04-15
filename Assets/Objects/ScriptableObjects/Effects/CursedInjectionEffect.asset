@@ -16,4 +16,4 @@ MonoBehaviour:
   message: Grants HP regen until you use another HP restoring item
   stack: 0
   regenGainPerStack: 1
-  tickTime: 3
+  tickTime: 8
