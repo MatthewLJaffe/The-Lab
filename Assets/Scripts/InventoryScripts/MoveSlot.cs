@@ -8,6 +8,7 @@ namespace InventoryScripts
     {
         public bool followMouse = false;
         public Item movingItem;
+        public GameObject description;
 
         private void Awake()
         {
@@ -18,7 +19,7 @@ namespace InventoryScripts
         {
             Trash.TrashItem -= TrashSelectedItem;
         }
- 
+
         private void Update()
         {
             if (followMouse) {

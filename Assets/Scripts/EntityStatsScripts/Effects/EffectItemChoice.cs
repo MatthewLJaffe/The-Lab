@@ -42,8 +42,7 @@ namespace EntityStatsScripts.Effects
                     Debug.LogError("error removing " + dropPrefab.name);
                 var dropInstance = Instantiate(dropPrefab, trans);
                 dropInstance.transform.localPosition = Vector3.zero;
-                dropInstance.GetComponent<Rigidbody2D>().simulated= false;
-                dropInstance.GetComponent<Collider2D>().enabled = false;
+                dropInstance.layer = LayerMask.NameToLayer("Invincible");
             }
         }
 

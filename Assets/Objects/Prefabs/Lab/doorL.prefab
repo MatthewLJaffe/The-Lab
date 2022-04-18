@@ -19,6 +19,22 @@ PrefabInstance:
       propertyPath: doorDir
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3612743007185485310, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.14677656
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612743007185485310, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0013016462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612743007185485310, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Size.x
+      value: 4.3778152
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612743007185485310, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Size.y
+      value: 5.375545
+      objectReference: {fileID: 0}
     - target: {fileID: 3722828779926207775, guid: fb183a898ef2c894697e2335220fb026, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.5
@@ -133,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5918529200747419062, guid: fb183a898ef2c894697e2335220fb026, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0.49999994
       objectReference: {fileID: 0}
     - target: {fileID: 5918529200747419062, guid: fb183a898ef2c894697e2335220fb026, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

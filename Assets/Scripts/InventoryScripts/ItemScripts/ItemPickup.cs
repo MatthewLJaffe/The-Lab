@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using General;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,7 @@ namespace InventoryScripts.ItemScripts
     {
         [SerializeField] private ItemData itemData;
         [SerializeField] private SoundEffect pickUpSound;
+        [SerializeField] private TextMeshProUGUI tmp;
         public Item itemToDrop;
         public static Action<Item> pickup = delegate{ };
         private Rigidbody2D _rb;
@@ -21,6 +23,7 @@ namespace InventoryScripts.ItemScripts
             _rb = GetComponent<Rigidbody2D>();
             if (itemToDrop == null)
                 itemToDrop = new Item(itemData);
+            tmp.text = itemData.itemDescription;
         }
 
         private void OnEnable()

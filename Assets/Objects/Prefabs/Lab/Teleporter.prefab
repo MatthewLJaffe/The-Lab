@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4217426768475585430}
   - component: {fileID: 4217426768475585425}
   - component: {fileID: 4217426768475585424}
+  - component: {fileID: 8968469391959076663}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Untagged
@@ -47,7 +48,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04005003}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,7 +59,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 2.5801}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &4217426768475585425
 MonoBehaviour:
@@ -75,6 +76,7 @@ MonoBehaviour:
   interactColor: {r: 1, g: 0.9137255, b: 0.5058824, a: 1}
   sr: {fileID: 4217426769925477849}
   teleporterUi: {fileID: 4217426768696837951}
+  roomClear: 0
 --- !u!114 &4217426768475585424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +90,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportLocation: {fileID: 4217426769958964062}
+--- !u!61 &8968469391959076663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217426768475585428}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12543362, y: -0.06265974}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6229523, y: 1.3746805}
+  m_EdgeRadius: 0
 --- !u!1 &4217426768696837951
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +343,6 @@ GameObject:
   - component: {fileID: 4217426769925477855}
   - component: {fileID: 4217426769925477849}
   - component: {fileID: 1810273856631426064}
-  - component: {fileID: 4217426769925477854}
   m_Layer: 8
   m_Name: Teleporter
   m_TagString: Untagged
@@ -403,7 +430,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15139103, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -414,33 +441,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2305183, y: 2}
-  m_EdgeRadius: 0
---- !u!61 &4217426769925477854
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4217426769925477852}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.12112641, y: -0.0912987}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7518382, y: 1.5648911}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!1 &4217426769958964063
 GameObject:

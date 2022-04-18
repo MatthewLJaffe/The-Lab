@@ -22,7 +22,6 @@ namespace LabCreationScripts
         
         protected override bool SpawnClear(Vector3 pos, BoundsInt bounds)
         {
-            if (OverlapsDoor(pos, bounds)) return false;
             pos += (Vector3)boxCollider.offset;
             return !Physics2D.BoxCast(
                 pos, boxCollider.size, 0, 

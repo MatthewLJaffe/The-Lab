@@ -12,11 +12,7 @@ namespace LabCreationScripts.Spawners
         protected BoxCollider2D boxCollider;
         protected int targetSpawns;
         protected int currentSpawns;
-        protected const float VertDoorWidth = 2f;
-        protected const float VertDoorHeight = 1f;
-        protected const float HorizDoorWidth = 1f;
-        protected const float HorizDoorHeight = 2f;
-        
+
         public virtual void TrySpawn(BoundsInt spawnBounds, Tilemap tMap, GameObject roomGameObject, int minSpawnsPerRoom, int maxSpawnsPerRoom)
         {
             prefab = prefabs[Random.Range(0, prefabs.Length)];
@@ -46,17 +42,6 @@ namespace LabCreationScripts.Spawners
             return currentSpawns >= targetSpawns;
         }
 
-        protected bool OverlapsDoor(Vector3 pos, BoundsInt bounds)
-        {
-            var center = bounds.center;
-            var size = boxCollider.size;
-            pos += (Vector3)boxCollider.offset;
-            return Overlaps(pos, size, new Vector2Int((int)center.x, bounds.yMax), new Vector2(VertDoorWidth, VertDoorHeight)) ||
-                   Overlaps(pos, size, new Vector2Int((int)center.x, bounds.yMin), new Vector2(VertDoorWidth, VertDoorHeight)) ||
-                   Overlaps(pos, size, new Vector2Int(bounds.xMax, (int)center.y),new Vector2(HorizDoorWidth, HorizDoorHeight)) ||
-                   Overlaps(pos, size, new Vector2Int(bounds.xMin, (int)center.y), new Vector2(HorizDoorWidth, HorizDoorHeight));
-        }
-
         private bool Overlaps(Vector2 pos1, Vector2 size1, Vector2 pos2, Vector2 size2)
         {
             return !(pos1.y + size1.y/2 < pos2.y - size2.y/2) && !(pos2.y + size2.y/2 < pos1.y - size1.y/2) &&
@@ -65,8 +50,6 @@ namespace LabCreationScripts.Spawners
 
         protected virtual bool SpawnClear(Vector3 pos, BoundsInt bounds)
         {
-
-            if (OverlapsDoor(pos, bounds)) return false;
             pos += (Vector3)boxCollider.offset;
             return !Physics2D.BoxCast(
                 pos, boxCollider.size, 0, 

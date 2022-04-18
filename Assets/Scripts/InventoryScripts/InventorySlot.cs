@@ -8,76 +8,75 @@ using UnityEngine.UI;
 namespace InventoryScripts
 {
     public class InventorySlot : MonoBehaviour {
-        public static Action InventorySlotChanged = delegate {  };
-        private TextMeshProUGUI amountText;
+        public static Action inventorySlotChanged = delegate {  };
+        private TextMeshProUGUI _amountText;
         [SerializeField] private Transform moveParent;
         [SerializeField] private GameObject itemSlotPrefab;
         [SerializeField] private SoundEffect selectSound;
-        private static GameObject equippedItem = null;
-        private Item myItem;
-        private static Transform playerHand = null;
-        private static GameObject heldItem; //for moving items in inventory 
+        private static GameObject _equippedItem = null;
+        private Item _myItem;
+        private static Transform _playerHand = null;
+        private static GameObject _heldItem; //for moving items in inventory 
         public Item MyItem
         {
-            get => myItem;
+            get => _myItem;
             set
             {
-                if (myItem != null)
-                    myItem.ItemAmountUpdate -= UpdateAmountText;
-                myItem = value;
+                if (_myItem != null)
+                    _myItem.ItemAmountUpdate -= UpdateAmountText;
+                _myItem = value;
                 if (transform.childCount != 0)
                     DestroyImmediate(transform.GetChild(0).gameObject); //using DestroyImmediate because destroy doesnt work
                 if (value != null)
                 {
-                    myItem.ItemAmountUpdate += UpdateAmountText;
+                    _myItem.ItemAmountUpdate += UpdateAmountText;
                     GameObject itemSlot = Instantiate(itemSlotPrefab, transform);
-                    amountText = itemSlot.GetComponentInChildren<TextMeshProUGUI>();
-                    itemSlot.GetComponent<Image>().sprite = myItem.itemData.itemSprite;
+                    _amountText = itemSlot.GetComponentInChildren<TextMeshProUGUI>();
+                    itemSlot.GetComponent<Image>().sprite = _myItem.itemData.itemSprite;
                     if (value.Amount > 1)
-                        amountText.text = $"{value.Amount}";
+                        _amountText.text = $"{value.Amount}";
                 }
                 else
                 {
-                    if (amountText)
-                        amountText.text = null;
+                    if (_amountText)
+                        _amountText.text = null;
                 }
             }
         }
 
         private void Awake() {
-            if (amountText == null)
-                amountText = GetComponentInChildren<TextMeshProUGUI>();
-            if (!playerHand)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  playerHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
+            if (_amountText == null)
+                _amountText = GetComponentInChildren<TextMeshProUGUI>();
+            if (!_playerHand)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  _playerHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
         }
 
         public void EquipSlot()
         {
-            if (equippedItem)
-                equippedItem.SetActive(false);
-            if (myItem != null)
-                equippedItem = myItem.Equip(playerHand);
+            if (_equippedItem)
+                _equippedItem.SetActive(false);
+            if (_myItem != null)
+                _equippedItem = _myItem.Equip(_playerHand);
         }
 
         public void RemoveItem()
         {
-            Debug.Log("Removing item");
-            if (myItem == null) return;
-            myItem.Drop();                                                                  
+            if (_myItem == null) return;
+            _myItem.Drop();                                                                  
             MyItem = null;
         }
 
         public void DeleteItem()
         {
-            if (myItem == null) return;
-            myItem.Drop();
+            if (_myItem == null) return;
+            _myItem.Drop();
             MyItem = null;
         }
 
         private void UpdateAmountText(int newAmount)
         {
-            if (amountText)
-                amountText.text =  myItem.Amount > 1 ? $"{myItem.Amount}" : "" ;
+            if (_amountText)
+                _amountText.text =  _myItem.Amount > 1 ? $"{_myItem.Amount}" : "" ;
         }
 
         public void SelectItem()
@@ -85,15 +84,16 @@ namespace InventoryScripts
             GameObject prevHeldItem = null;
             bool pickedUpItem = false;
             selectSound.Play(gameObject);
+            
             if (transform.childCount != 0)
             {
                 //try to stack items
-                if (heldItem)
+                if (_heldItem)
                 {
-                    var movingItem = heldItem.GetComponent<MoveSlot>().movingItem;
-                    if (movingItem != null && myItem != null && movingItem.itemData == myItem.itemData) {
-                        myItem.Amount += movingItem.Amount;
-                        Destroy(heldItem);
+                    var movingItem = _heldItem.GetComponent<MoveSlot>().movingItem;
+                    if (movingItem != null && _myItem != null && movingItem.itemData == _myItem.itemData) {
+                        _myItem.Amount += movingItem.Amount;
+                        Destroy(_heldItem);
                         return;
                     }
                 }
@@ -101,15 +101,16 @@ namespace InventoryScripts
                 var itemSlot = transform.GetChild(0).gameObject;
                 itemSlot.transform.SetParent(moveParent, true);
                 var moveSlot = itemSlot.GetComponent<MoveSlot>();
+                moveSlot.description.SetActive(false);
                 moveSlot.followMouse = true;
-                moveSlot.movingItem = myItem;
-                prevHeldItem = heldItem;
-                heldItem = itemSlot.gameObject;
+                moveSlot.movingItem = _myItem;
+                prevHeldItem = _heldItem;
+                _heldItem = itemSlot.gameObject;
                 //update item to null now no items in this slot
-                myItem.ItemAmountUpdate -= UpdateAmountText;
-                myItem = null;
-                if (amountText)
-                    amountText = null;
+                _myItem.ItemAmountUpdate -= UpdateAmountText;
+                _myItem = null;
+                if (_amountText)
+                    _amountText = null;
                 pickedUpItem = true;
             }
             
@@ -118,9 +119,9 @@ namespace InventoryScripts
             if (prevHeldItem)
                 itemToPlace = prevHeldItem;
             //case 2: there was no pickup but a held item must be placed
-            else if (heldItem && !pickedUpItem) {
-                itemToPlace = heldItem;
-                heldItem = null;
+            else if (_heldItem && !pickedUpItem) {
+                itemToPlace = _heldItem;
+                _heldItem = null;
             }
             //place item in slot
             if (itemToPlace)
@@ -130,14 +131,32 @@ namespace InventoryScripts
                 var moveSlot = itemToPlace.GetComponent<MoveSlot>();
                 moveSlot.followMouse = false;
                 if (moveSlot.movingItem == null) return;
-                myItem = moveSlot.movingItem;
-                myItem.ItemAmountUpdate += UpdateAmountText;
-                amountText = itemToPlace.GetComponentInChildren<TextMeshProUGUI>();
-                if (myItem.Amount > 1) {
-                    amountText.text = $"{myItem.Amount}";
+                _myItem = moveSlot.movingItem;
+                _myItem.ItemAmountUpdate += UpdateAmountText;
+                _amountText = itemToPlace.GetComponentInChildren<TextMeshProUGUI>();
+                if (_myItem.Amount > 1) {
+                    _amountText.text = $"{_myItem.Amount}";
                 }
             }
-            InventorySlotChanged.Invoke();
+            inventorySlotChanged.Invoke();
+        }
+        
+        public void TryShowDescription()
+        {
+            if (!_heldItem && transform.childCount > 0 && _myItem != null)
+            {
+                var description = transform.GetChild(0).GetComponent<MoveSlot>().description;
+                description.GetComponentInChildren<TextMeshProUGUI>().text = _myItem.itemData.itemDescription;
+                description.SetActive(true);
+            }
+        }
+
+        public void TryHideDescription()
+        {
+            if (transform.childCount > 0 && _myItem != null)
+            {
+                transform.GetChild(0).GetComponent<MoveSlot>().description.SetActive(false);
+            }
         }
     }
 }

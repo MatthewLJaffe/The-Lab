@@ -2512,8 +2512,8 @@ RectTransform:
   - {fileID: 1345345113685798821}
   - {fileID: 1345345113600190209}
   - {fileID: 1345345113502638006}
-  - {fileID: 1345345114488625779}
   - {fileID: 1345345112649905685}
+  - {fileID: 1345345114488625779}
   - {fileID: 1345345114708182288}
   - {fileID: 4685233669270264869}
   - {fileID: 4160746425702548922}
@@ -6410,6 +6410,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 838fe58239cb41d4ea53d4e66d72599c, type: 3}
+    - target: {fileID: 3782352583851040538, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219741794126434037, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: moveParent
       value: 
@@ -6418,6 +6422,10 @@ PrefabInstance:
       propertyPath: itemSlotPrefab
       value: 
       objectReference: {fileID: 6606910695527847670, guid: 6aef5705589428446bb48d8ea773c983, type: 3}
+    - target: {fileID: 8113188842670783414, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8360717475314645348, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6916,7 +6924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8360717475314645348, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8360717475314645348, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7386,6 +7394,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 838fe58239cb41d4ea53d4e66d72599c, type: 3}
+    - target: {fileID: 3782352583851040538, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219741794126434037, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: moveParent
       value: 
@@ -7394,6 +7406,10 @@ PrefabInstance:
       propertyPath: itemSlotPrefab
       value: 
       objectReference: {fileID: 6606910695527847670, guid: 6aef5705589428446bb48d8ea773c983, type: 3}
+    - target: {fileID: 8113188842670783414, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8360717475314645348, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7931,7 +7947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8360717475314645348, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8360717475314645348, guid: 5bbabd58d9d749d4084afb93984af3d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

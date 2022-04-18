@@ -29,7 +29,7 @@ namespace InventoryScripts
             ItemPickup.pickup += AddItem;
             PlayerInputManager.OnInputDown += ToggleInventory;
             PlayerInputManager.OnInputDown += NumberInput;
-            InventorySlot.InventorySlotChanged += UpdateInventorySlots;
+            InventorySlot.inventorySlotChanged += UpdateInventorySlots;
             
             _toggler = GetComponent<Toggler>();
             _hotBar = new GameObject[hotBarSlotParent.childCount];
@@ -51,7 +51,7 @@ namespace InventoryScripts
         {
             PlayerInputManager.OnInputDown -= ToggleInventory;
             PlayerInputManager.OnInputDown -= NumberInput;
-            InventorySlot.InventorySlotChanged -= UpdateInventorySlots;
+            InventorySlot.inventorySlotChanged -= UpdateInventorySlots;
             ItemPickup.pickup -= AddItem;
 
             _hotBar.Initialize();
