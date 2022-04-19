@@ -9,7 +9,7 @@ namespace EntityStatsScripts.Effects
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            _playerStats.PlayerStatsDict[PlayerStats.StatType.DodgeChance].CurrentValue = (1 - 1f / (.15f * newStack + 1)) * 100;
+            _playerStats.playerStatsDict[PlayerStats.StatType.DodgeChance].CurrentValue = (1 - 1f / (.15f * newStack + 1)) * 100;
         }
     }
 }

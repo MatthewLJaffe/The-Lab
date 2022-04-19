@@ -9,14 +9,12 @@ namespace EntityStatsScripts.Effects
     public class CursedInjectionEffect : Effect
     {
         [SerializeField] private float regenGainPerStack;
-        [SerializeField] private float tickTime;
+        [SerializeField] private PlayerStats playerStats;
         private RegenStat _regen;
-        private float _regenPerTick;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            _regenPerTick = 0;
             RestoreConsumable.restoreItemUsed += TryRemoveCursedInjectionEffect;
         }
 
@@ -27,19 +25,8 @@ namespace EntityStatsScripts.Effects
         }
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            if (!_regen)
-                _regen = PlayerFind.instance.playerInstance.AddComponent<RegenStat>();
-
-            _regen.StopRegen();
-            if (newStack == 0) {
-                _regen.enabled = false;
-                return;
-            }
-
-            if (!_regen.enabled)
-                _regen.enabled = true;
-            _regenPerTick = newStack * regenGainPerStack;
-            _regen.StartIndefiniteRegen(PlayerBar.PlayerBarType.Health, _regenPerTick, tickTime);
+            playerStats.playerStatsDict[PlayerStats.StatType.RegenPerTick].CurrentValue +=
+                (newStack - oldStack) * regenGainPerStack;
         }
 
         private void TryRemoveCursedInjectionEffect(RestoreConsumable consumable)

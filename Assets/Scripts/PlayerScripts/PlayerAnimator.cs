@@ -1,117 +1,99 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace PlayerScripts
 {
     public class PlayerAnimator : MonoBehaviour
     {
         private Animator _anim;
+        private SpriteRenderer _sr;
         private Rigidbody2D _rb;
-        [SerializeField] private OrientationData[] orientationData;
         private Camera _mainCamera;
-
-
+        private bool _animate = true;
+        [SerializeField] private DirectionState[] directionStates;
+        private DirectionState _currState;
+        [System.Serializable]
+        private struct DirectionState
+        {
+            public Vector2 dir;
+            public string stateName;
+        }
+        
         private void Awake()
         {
             _anim = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
+            _sr = GetComponent<SpriteRenderer>();
             _mainCamera = Camera.main;
+            PlayerRoll.onRoll += RollHandler;
         }
-        [System.Serializable]
-        private struct OrientationData 
+
+        private void OnDestroy()
         {
-            public int direction;
-            public bool[] isForward;
+            PlayerRoll.onRoll -= RollHandler;
         }
 
-
-        private void Update() {
-            SetAnimation();
+        private void Update()
+        {
+            if (_animate)
+                SetAnimation();
         }
+
+        private void RollHandler(bool rolling, Vector2 dir)
+        {
+            _animate = !rolling;
+            if (rolling)
+            {
+                if (dir == Vector2.up)
+                {
+                    if ((_mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position).x < 0)
+                        _anim.Play("RollUpLeft");
+                    else
+                        _anim.Play("RollUpRight");
+                }
+                else if (dir == Vector2.down)
+                {
+                    if ((_mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position).x < 0)
+                        _anim.Play("RollDownLeft");
+                    else
+                        _anim.Play("RollDownRight");
+                }
+                else
+                {
+                    var theta = Vector2.SignedAngle(dir, Vector2.up);
+                    var rollState = "Roll" + GetDirectionState(theta).stateName;
+                    _anim.Play(rollState);
+                }
+
+            }
+        }
+        
         private void SetAnimation()
         {
-            var lookDir = CalculateLookDirection();
-            var animation = "IdleDown";
-            switch (lookDir)
+            _currState = 
+                GetDirectionState(Vector2.SignedAngle(_mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position, Vector2.up));
+            var currAnim = "Idle" + _currState.stateName;
+            if (_rb.velocity.magnitude > .1f)
             {
-                case 1:
-                    animation = "IdleUpRight";
-                    break;
-                case 3:
-                    animation = "IdleDownRight";
-                    break;
-                case 5:
-                    animation = "IdleDownLeft";
-                    break;
-                default:
-                    animation = "IdleUpLeft";
-                    break;
+                currAnim = currAnim.Replace("Idle", "Run");
+                if (Vector2.Dot(_currState.dir, _rb.velocity) < 0)
+                    currAnim = currAnim.Replace("Run", "Reverse");
             }
-            
-            if (_rb.velocity.magnitude > .1f) {
-                animation = animation.Replace("Idle", "Run");
-                foreach (var o in orientationData)
-                {
-                    if (o.direction != lookDir) continue;
-                    var dir = CalculateDirection();
-                    if (!o.isForward[dir])
-                        animation = animation.Replace("Run", "Reverse");
-                }
-            }
-
-            _anim.Play(animation);
+            _anim.Play(currAnim);
         }
 
-        private int CalculateLookDirection()
+        private DirectionState GetDirectionState (float theta)
         {
-            if (!_mainCamera.gameObject.activeSelf) return 1;
-            float theta = AngleFromPoints(_mainCamera.ScreenToWorldPoint(Input.mousePosition), transform.position);
             if (theta > 0 && theta <= 90)
-                return 1;
+                return directionStates[0];
             if (theta > 90 && theta <= 180)
-                return 3;
-            if (theta > 180 && theta <= 270)
-                return 5;
-            if (theta > 270 && theta <= 360)
-                return 7;
-            return 1;
+                return directionStates[1];
+            if (theta > -180 && theta <= -90)
+                return directionStates[2];
+            if (theta > -90 && theta <= 0)
+                return directionStates[3];
+            return directionStates[0];
         }
-
-        private int CalculateDirection()
-        {
-            float theta = AngleFromPoints(_rb.velocity, Vector2.zero);
-            if (theta < 0)
-                theta += 360;
-            if (theta > 22.5f && theta <= 67.5f)
-                return 1;
-            if (theta > 67.5 && theta <= 112.5f)
-                return 2;
-            if (theta > 112.5f && theta <= 157.5f)
-                return 3;
-            if (theta > 157.5 && theta <= 202.5f)
-                return 4;
-            if (theta > 202.5f && theta <= 247.5)
-                return 5;
-            if (theta > 247.5f && theta <= 292.5f)
-                return 6;
-            if (theta > 292.5 && theta <= 327.5f)
-                return 7;
-            return 0;
-        }
-
-        /// <summary>
-        /// returns point 1s angle from point 2 in positive degrees
-        /// </summary>
-        /// <param name="point1"></param>
-        /// <param name="point2"></param>
-        /// <returns></returns>
-        public static float AngleFromPoints(Vector2 point1, Vector2 point2)
-        {
-            var dir = point1 - point2;
-            float theta = Mathf.Rad2Deg * Mathf.Atan2(dir.x, dir.y);
-            if (theta < 0)
-                theta += 360;
-            return theta;
-
-        }
+        
     }
 }

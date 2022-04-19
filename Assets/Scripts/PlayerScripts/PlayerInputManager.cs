@@ -7,7 +7,7 @@ namespace PlayerScripts
 {
     public class PlayerInputManager : MonoBehaviour
     {
-        public static Action<PlayerInputName> OnInputDown = delegate {  };
+        public static Action<PlayerInputName> onInputDown = delegate {  };
         public static PlayerInputManager instance;
 
         private void Awake()
@@ -37,7 +37,8 @@ namespace PlayerScripts
             Alpha_3,
             Alpha_4,
             Alpha_5,
-            Alpha_6
+            Alpha_6,
+            Roll
         }
         [SerializeField] private PlayerInput[] inputs;
         
@@ -76,7 +77,7 @@ namespace PlayerScripts
                 set
                 {
                     if (value && value != _pressed && usable)
-                        OnInputDown.Invoke(inputName);
+                        onInputDown.Invoke(inputName);
                     _pressed = value;
                 }
             }

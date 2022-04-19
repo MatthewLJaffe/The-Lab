@@ -43,11 +43,11 @@ namespace EntityStatsScripts.Effects
             {
                 case BuffStatus.Neutral:
                     if (bulletsLeft >= bulletsInMag / 2) {
-                        playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
+                        playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
                         _status = BuffStatus.InBuff;
                     }
                     else {
-                        playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackPenalty;
+                        playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackPenalty;
                         _status = BuffStatus.InDebuff;
                     }
                     break;
@@ -55,7 +55,7 @@ namespace EntityStatsScripts.Effects
                 case BuffStatus.InBuff:
                     if (bulletsLeft < bulletsInMag / 2)
                     {
-                        playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue -=  _attackBonus + _attackPenalty;
+                        playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue -=  _attackBonus + _attackPenalty;
                         _status = BuffStatus.InDebuff;
                     }
                     break;
@@ -63,7 +63,7 @@ namespace EntityStatsScripts.Effects
                 case BuffStatus.InDebuff:
                     if (bulletsLeft >= bulletsInMag / 2)
                     {
-                        playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus + _attackPenalty;
+                        playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus + _attackPenalty;
                         _status = BuffStatus.InBuff;
                     }
                     break;

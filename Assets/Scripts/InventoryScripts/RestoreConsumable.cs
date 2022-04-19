@@ -19,14 +19,14 @@ namespace InventoryScripts
         protected override void Awake()
         {
             base.Awake();
-            restoreMultiplier = playerStats.PlayerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue;
-            _dontConsumeChance = playerStats.PlayerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue;
+            restoreMultiplier = playerStats.playerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue;
+            _dontConsumeChance = playerStats.playerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue;
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            PlayerStats.OnStatChange -= ChangeRestoreMultiplier;
+            PlayerStats.onStatChange -= ChangeRestoreMultiplier;
         }
 
         private void ChangeRestoreMultiplier(PlayerStats.StatType stat, float value)

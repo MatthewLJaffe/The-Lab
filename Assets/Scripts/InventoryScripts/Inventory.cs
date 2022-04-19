@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EntityStatsScripts;
 using General;
 using InventoryScripts.ItemScripts;
 using PlayerScripts;
@@ -27,9 +28,10 @@ namespace InventoryScripts
         private void Awake()
         {
             ItemPickup.pickup += AddItem;
-            PlayerInputManager.OnInputDown += ToggleInventory;
-            PlayerInputManager.OnInputDown += NumberInput;
+            PlayerInputManager.onInputDown += ToggleInventory;
+            PlayerInputManager.onInputDown += NumberInput;
             InventorySlot.inventorySlotChanged += UpdateInventorySlots;
+            PlayerRoll.onRoll += ToggleEquip;
             
             _toggler = GetComponent<Toggler>();
             _hotBar = new GameObject[hotBarSlotParent.childCount];
@@ -49,10 +51,11 @@ namespace InventoryScripts
 
         private void OnDestroy()
         {
-            PlayerInputManager.OnInputDown -= ToggleInventory;
-            PlayerInputManager.OnInputDown -= NumberInput;
+            PlayerInputManager.onInputDown -= ToggleInventory;
+            PlayerInputManager.onInputDown -= NumberInput;
             InventorySlot.inventorySlotChanged -= UpdateInventorySlots;
             ItemPickup.pickup -= AddItem;
+            PlayerRoll.onRoll -= ToggleEquip;
 
             _hotBar.Initialize();
             slotList.Clear();
@@ -166,6 +169,11 @@ namespace InventoryScripts
                 slotList[slotIndex].EquipSlot();
                 _currentlyEquipped = slotIndex;
                 SetColor(_hotBar[_currentlyEquipped], equipColor);
+        }
+
+        private void ToggleEquip(bool rolling, Vector2 dir)
+        {
+            InventorySlot.ToggleEquip(!rolling);
         }
 
         private void UpdateHotBar()

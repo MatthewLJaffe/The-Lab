@@ -7,17 +7,21 @@ namespace PlayerScripts
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 4.5f;
+        public static Action moveTick = delegate {  };
         private Rigidbody2D _rb;
         private Vector2 _dir;
+        private bool _walking = true;
+        private float _moveTick;
 
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();
-            PlayerStats.OnStatChange += ChangeSpeed;
+            PlayerStats.onStatChange += ChangeSpeed;
+            PlayerRoll.onRoll += (roll, d) => _walking = !roll;
         }
         
         private void OnDestroy()
         {
-            PlayerStats.OnStatChange -= ChangeSpeed;
+            PlayerStats.onStatChange -= ChangeSpeed;
         }
 
         private void ChangeSpeed(PlayerStats.StatType type, float newSpeed)
@@ -25,7 +29,7 @@ namespace PlayerScripts
             if (type == PlayerStats.StatType.Speed)
                 moveSpeed = newSpeed;
         }
-
+        
         private void Update()
         {
             _dir.x = Input.GetAxis("Horizontal");
@@ -40,7 +44,16 @@ namespace PlayerScripts
 
         private void FixedUpdate()
         {
-            _rb.velocity = new Vector2(_dir.x, _dir.y) * moveSpeed;
+            if (_walking)
+                _rb.velocity = new Vector2(_dir.x, _dir.y) * moveSpeed;
+            
+            if (_rb.velocity.magnitude <= .1f) return;
+            _moveTick += Time.fixedDeltaTime;
+            if (_moveTick > 1f)
+            {
+                _moveTick = 0f;
+                moveTick.Invoke();
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ namespace EntityStatsScripts.Effects
         [SerializeField] private float defBonus = 2.5f;
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Defense].CurrentValue += defBonus * (newStack - oldStack);
+            playerStats.playerStatsDict[PlayerStats.StatType.Defense].CurrentValue += defBonus * (newStack - oldStack);
         }
     }
 }

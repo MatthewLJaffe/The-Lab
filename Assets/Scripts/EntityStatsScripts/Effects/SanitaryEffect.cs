@@ -10,7 +10,7 @@ namespace EntityStatsScripts.Effects
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            playerStats.PlayerStatsDict[PlayerStats.StatType.MaxHealth].CurrentValue += healthBonus * (newStack - oldStack);
+            playerStats.playerStatsDict[PlayerStats.StatType.MaxHealth].CurrentValue += healthBonus * (newStack - oldStack);
 
         }
     }

@@ -12,12 +12,12 @@ namespace InventoryScripts
         
         protected virtual void Awake()
         {
-            PlayerInputManager.OnInputDown += Consume;
+            PlayerInputManager.onInputDown += Consume;
         }
 
         protected virtual void OnDestroy()
         {
-            PlayerInputManager.OnInputDown -= Consume;
+            PlayerInputManager.onInputDown -= Consume;
         }
 
         protected virtual void Consume(PlayerInputManager.PlayerInputName inputName)

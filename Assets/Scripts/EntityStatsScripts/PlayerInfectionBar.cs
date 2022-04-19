@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using EntityStatsScripts.Effects;
+using PlayerScripts;
 using UnityEngine;
 
 namespace EntityStatsScripts
@@ -9,7 +10,7 @@ namespace EntityStatsScripts
         [SerializeField] private float baseInfectionRate;
         [SerializeField] private float timeUntilDiseaseTolerance = 100;
         private float _currToleranceTime;
-        private float _diseasePerSec;
+        private float _diseasePerTick;
         private Coroutine _diseaseToleranceRoutine;
         [SerializeField] private DiseaseToleranceEffect diseaseToleranceEffect;
         private bool _ticking;
@@ -33,33 +34,26 @@ namespace EntityStatsScripts
         private void Awake()
         {
             diseaseToleranceEffect.OnDiseaseToleranceChange += ModifyInfectionRate;
-            _diseasePerSec = baseInfectionRate;
-            PlayerStats.OnStatChange += ChangeMaxDisease;
+            _diseasePerTick = baseInfectionRate;
+            PlayerStats.onStatChange += ChangeMaxDisease;
+            PlayerMove.moveTick += TickDisease;
         }
 
         private void OnDestroy()
         {
             diseaseToleranceEffect.OnDiseaseToleranceChange -= ModifyInfectionRate;
-            PlayerStats.OnStatChange -= ChangeMaxDisease;
+            PlayerStats.onStatChange -= ChangeMaxDisease;
+            PlayerMove.moveTick -= TickDisease;
         }
 
-        private void Update()
+        private void TickDisease()
         {
-            if (!_ticking)
-                StartCoroutine(TickInfection());
+            BarValue -= _diseasePerTick;
         }
 
         private void ModifyInfectionRate(float factor)
         {
-            _diseasePerSec = baseInfectionRate * factor;
-        }
-
-        private IEnumerator TickInfection()
-        {
-            _ticking = true;
-            yield return new WaitForSeconds(1);
-            BarValue -= _diseasePerSec;
-            _ticking = false;
+            _diseasePerTick = baseInfectionRate * factor;
         }
 
         private IEnumerator CountToDiseaseTolerance(float factor)

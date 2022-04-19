@@ -59,6 +59,11 @@ namespace InventoryScripts
                 _equippedItem = _myItem.Equip(_playerHand);
         }
 
+        public static void ToggleEquip(bool enable)
+        {
+            _equippedItem.SetActive(enable);
+        }
+
         public void RemoveItem()
         {
             if (_myItem == null) return;

@@ -31,7 +31,7 @@ namespace General
         private void Start()
         {
             _mapCamera =  PlayerFind.instance.playerInstance.GetComponentInChildren<CameraCoordinator>().miniMapCamera;
-            PlayerInputManager.OnInputDown += CheckButtonPress;
+            PlayerInputManager.onInputDown += CheckButtonPress;
         }
 
         private void SetPressable(bool canPress)

@@ -11,8 +11,8 @@ namespace EntityStatsScripts.Effects
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += attackBonus * (newStack - oldStack);
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += speedBonus * (newStack - oldStack);
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += attackBonus * (newStack - oldStack);
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += speedBonus * (newStack - oldStack);
         }
     }
 }

@@ -13,13 +13,13 @@ namespace InventoryScripts
         
         private void Awake()
         {
-            PlayerInputManager.OnInputDown += CheckForPress;
+            PlayerInputManager.onInputDown += CheckForPress;
             _rectTransform = transform as RectTransform;
         }
 
         private void OnDestroy()
         {
-            PlayerInputManager.OnInputDown -= CheckForPress;
+            PlayerInputManager.onInputDown -= CheckForPress;
         }
 
         private void CheckForPress(PlayerInputManager.PlayerInputName inputName)

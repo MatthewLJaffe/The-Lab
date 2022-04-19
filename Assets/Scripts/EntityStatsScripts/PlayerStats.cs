@@ -7,7 +7,7 @@ namespace EntityStatsScripts
     [CreateAssetMenu(fileName = "PlayerStats", menuName = "")]
     public class PlayerStats : ScriptableObject
     {
-        public static Action<StatType, float> OnStatChange = delegate { };
+        public static Action<StatType, float> onStatChange = delegate { };
         public enum StatType
         {
             MaxHealth,
@@ -21,7 +21,8 @@ namespace EntityStatsScripts
             FireRate,
             ReloadFactor,
             RestoreMultiplier,
-            DontConsumeChance
+            DontConsumeChance,
+            RegenPerTick
         }
         
         [Serializable]
@@ -36,7 +37,7 @@ namespace EntityStatsScripts
                 set
                 {
                     currentValue = value;
-                    OnStatChange.Invoke(type, value);
+                    onStatChange.Invoke(type, value);
                 }
             }
             public void Initialize()
@@ -47,20 +48,20 @@ namespace EntityStatsScripts
 
         [SerializeField] private float atkToDamageMultiplier;
         [SerializeField] private PlayerStat[] stats;
-        public Dictionary<StatType, PlayerStat> PlayerStatsDict;
+        public Dictionary<StatType, PlayerStat> playerStatsDict;
 
         public void Awake()
         {
-            PlayerStatsDict = new Dictionary<StatType, PlayerStat>();
+            playerStatsDict = new Dictionary<StatType, PlayerStat>();
             foreach (var stat in stats) {
-                PlayerStatsDict.Add(stat.type, stat);
+                playerStatsDict.Add(stat.type, stat);
                 stat.Initialize();
             }
         }
 
         public float GetAttackMultiplier()
         {
-            return 1f + atkToDamageMultiplier * PlayerStatsDict[StatType.Attack].CurrentValue;
+            return 1f + atkToDamageMultiplier * playerStatsDict[StatType.Attack].CurrentValue;
         }
     }
 }

@@ -21,13 +21,13 @@ namespace EntityStatsScripts
         [SerializeField] private Transform displayPoint;
         [SerializeField] private float timeUntilAdrenaline = 100;
         [SerializeField] private Effect adrenaline;
-        [SerializeField] private Animator animator;
         private float _currAddyCount;
         private bool _canBeDamaged = true;
         private Coroutine _currentDisplay;
         private GameObjectPool _damageNumberPool;
         private SpriteRenderer _sr;
         private Coroutine _adrenalineRoutine;
+        private float _regenPerTick;
 
         public override float BarValue
         {
@@ -51,13 +51,14 @@ namespace EntityStatsScripts
             _sr = GetComponentInParent<SpriteRenderer>();
             _damageNumberPool = new GameObjectPool(numberPrefab, displayPoint);
             BarDeplete += KillPlayer;
-            PlayerStats.OnStatChange += ChangeStats;
+            PlayerStats.onStatChange += ChangeStats;
+            PlayerMove.moveTick += TickRegen;
         }
 
         private void OnDestroy()
         {
             DamagePlayer.applyPlayerDamage -= TakeDamage;
-            PlayerStats.OnStatChange -= ChangeStats;
+            PlayerStats.onStatChange -= ChangeStats;
             BarDeplete -= KillPlayer;
         }
         
@@ -100,7 +101,7 @@ namespace EntityStatsScripts
             }
             gameObject.transform.root.gameObject.layer = LayerMask.NameToLayer("Player");
         }
-
+        
         private void ChangeStats(PlayerStats.StatType type, float newValue)
         {
             switch (type)
@@ -114,8 +115,17 @@ namespace EntityStatsScripts
                 case PlayerStats.StatType.DodgeChance:
                     dodgeChance = newValue;
                     break;
+                case PlayerStats.StatType.RegenPerTick:
+                    _regenPerTick = newValue;
+                    break;
             }
         }
+        
+        private void TickRegen()
+        {
+            BarValue += _regenPerTick;
+        }
+
 
         private void KillPlayer(PlayerBarType barType)
         {

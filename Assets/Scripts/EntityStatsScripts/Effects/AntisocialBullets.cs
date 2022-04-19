@@ -31,13 +31,13 @@ namespace EntityStatsScripts.Effects
         {
             if (_inEffect && bulletsLeft != 0)
             {
-                playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackBonus;
+                playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackBonus;
                 _inEffect = false;
             }
                 
             if (bulletsLeft != 0 || stack == 0 || _inEffect) return;
             _inEffect = true;
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
         }
 
         protected override void ChangeEffectStack(int newStack, int oldStack)

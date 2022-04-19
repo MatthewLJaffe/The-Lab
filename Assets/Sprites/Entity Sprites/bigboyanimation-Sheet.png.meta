@@ -182,6 +182,186 @@ TextureImporter:
   - first:
       213: -6364918599163006852
     second: bigboyanimation-Sheet_59
+  - first:
+      213: -932442163819178955
+    second: bigboyanimation-Sheet_0
+  - first:
+      213: -3350627499378277102
+    second: bigboyanimation-Sheet_1
+  - first:
+      213: 5962475382255450881
+    second: bigboyanimation-Sheet_2
+  - first:
+      213: -1800633325870849249
+    second: bigboyanimation-Sheet_3
+  - first:
+      213: -5106574978907544962
+    second: bigboyanimation-Sheet_4
+  - first:
+      213: 2981475312680448218
+    second: bigboyanimation-Sheet_5
+  - first:
+      213: -5253017379119074380
+    second: bigboyanimation-Sheet_6
+  - first:
+      213: -5633084532263242855
+    second: bigboyanimation-Sheet_7
+  - first:
+      213: 6769564563650602000
+    second: bigboyanimation-Sheet_8
+  - first:
+      213: -5816886736925933155
+    second: bigboyanimation-Sheet_9
+  - first:
+      213: -1484571503573176151
+    second: bigboyanimation-Sheet_10
+  - first:
+      213: 1634082117715548042
+    second: bigboyanimation-Sheet_11
+  - first:
+      213: 5932284567444933290
+    second: bigboyanimation-Sheet_12
+  - first:
+      213: 5115330842450859142
+    second: bigboyanimation-Sheet_13
+  - first:
+      213: -4327568925156013602
+    second: bigboyanimation-Sheet_14
+  - first:
+      213: -6581200698684208682
+    second: bigboyanimation-Sheet_15
+  - first:
+      213: 6146790778762569024
+    second: bigboyanimation-Sheet_16
+  - first:
+      213: -1071764589575465614
+    second: bigboyanimation-Sheet_17
+  - first:
+      213: -6566100742117263577
+    second: bigboyanimation-Sheet_18
+  - first:
+      213: 1786385696255494084
+    second: bigboyanimation-Sheet_19
+  - first:
+      213: -5757775943700405748
+    second: bigboyanimation-Sheet_20
+  - first:
+      213: 2604189614343771253
+    second: bigboyanimation-Sheet_21
+  - first:
+      213: -8347283425650638045
+    second: bigboyanimation-Sheet_22
+  - first:
+      213: -5729466451357636888
+    second: bigboyanimation-Sheet_23
+  - first:
+      213: 4417431063720421715
+    second: bigboyanimation-Sheet_24
+  - first:
+      213: 2698570560837964734
+    second: bigboyanimation-Sheet_25
+  - first:
+      213: -8483992445498424788
+    second: bigboyanimation-Sheet_26
+  - first:
+      213: -5128874592681450247
+    second: bigboyanimation-Sheet_27
+  - first:
+      213: -4874809435346112285
+    second: bigboyanimation-Sheet_28
+  - first:
+      213: -4151314046179647445
+    second: bigboyanimation-Sheet_29
+  - first:
+      213: 2137246588572268567
+    second: bigboyanimation-Sheet_30
+  - first:
+      213: 6831872325521480048
+    second: bigboyanimation-Sheet_31
+  - first:
+      213: 732888645803834432
+    second: bigboyanimation-Sheet_32
+  - first:
+      213: 9044355664698479158
+    second: bigboyanimation-Sheet_33
+  - first:
+      213: -801313294041065396
+    second: bigboyanimation-Sheet_34
+  - first:
+      213: 6295500034441986414
+    second: bigboyanimation-Sheet_35
+  - first:
+      213: -1653597086901157804
+    second: bigboyanimation-Sheet_36
+  - first:
+      213: -8630898982995836675
+    second: bigboyanimation-Sheet_37
+  - first:
+      213: -1152736593038771948
+    second: bigboyanimation-Sheet_38
+  - first:
+      213: -3142237717673479118
+    second: bigboyanimation-Sheet_39
+  - first:
+      213: -8849656936165300432
+    second: bigboyanimation-Sheet_40
+  - first:
+      213: -6887679309772727754
+    second: bigboyanimation-Sheet_41
+  - first:
+      213: 2481207644368805911
+    second: bigboyanimation-Sheet_42
+  - first:
+      213: -6080717799179761495
+    second: bigboyanimation-Sheet_43
+  - first:
+      213: 1585842257067256924
+    second: bigboyanimation-Sheet_44
+  - first:
+      213: -3563376473016192489
+    second: bigboyanimation-Sheet_45
+  - first:
+      213: 2008178021862210257
+    second: bigboyanimation-Sheet_46
+  - first:
+      213: -7373924483563566523
+    second: bigboyanimation-Sheet_47
+  - first:
+      213: -4361042794665843326
+    second: bigboyanimation-Sheet_48
+  - first:
+      213: 6893968832134739542
+    second: bigboyanimation-Sheet_49
+  - first:
+      213: 6224405283012544915
+    second: bigboyanimation-Sheet_50
+  - first:
+      213: -2935560849905529404
+    second: bigboyanimation-Sheet_51
+  - first:
+      213: -4120974014909304910
+    second: bigboyanimation-Sheet_52
+  - first:
+      213: 7862327295615131829
+    second: bigboyanimation-Sheet_53
+  - first:
+      213: 1916177314394669948
+    second: bigboyanimation-Sheet_54
+  - first:
+      213: 2618880476293476040
+    second: bigboyanimation-Sheet_55
+  - first:
+      213: 7783557259431075881
+    second: bigboyanimation-Sheet_56
+  - first:
+      213: -7234214500893402844
+    second: bigboyanimation-Sheet_57
+  - first:
+      213: 4694183557463902065
+    second: bigboyanimation-Sheet_58
+  - first:
+      213: -5420201176474121339
+    second: bigboyanimation-Sheet_59
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -320,19 +500,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 13
-        height: 18
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaf94232cd3b0eb30800000000000000
-      internalID: 4314646201084714922
+      spriteID: 53416f3dacc4f03f0800000000000000
+      internalID: -932442163819178955
       vertices: []
       indices: 
       edges: []
@@ -341,19 +521,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_1
       rect:
         serializedVersion: 2
-        x: 43
-        y: 1
-        width: 12
-        height: 18
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f91fe1aa532d78870800000000000000
-      internalID: 8685141534336545183
+      spriteID: 21507ecaa0e2081d0800000000000000
+      internalID: -3350627499378277102
       vertices: []
       indices: 
       edges: []
@@ -362,19 +542,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_2
       rect:
         serializedVersion: 2
-        x: 75
-        y: 1
-        width: 10
-        height: 18
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfcbb9cc0d3aa5370800000000000000
-      internalID: 8312136179446955260
+      spriteID: 10bf85505c7feb250800000000000000
+      internalID: 5962475382255450881
       vertices: []
       indices: 
       edges: []
@@ -383,19 +563,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_3
       rect:
         serializedVersion: 2
-        x: 107
-        y: 1
-        width: 12
-        height: 18
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef5f5a46f839e5de0800000000000000
-      internalID: -1342473394831624706
+      spriteID: f13ecb0c78dd207e0800000000000000
+      internalID: -1800633325870849249
       vertices: []
       indices: 
       edges: []
@@ -404,19 +584,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_4
       rect:
         serializedVersion: 2
-        x: 138
-        y: 1
-        width: 13
-        height: 18
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d436906fb5a12070800000000000000
-      internalID: 8079921447857173720
+      spriteID: e72615bcc1dc129b0800000000000000
+      internalID: -5106574978907544962
       vertices: []
       indices: 
       edges: []
@@ -425,19 +605,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_5
       rect:
         serializedVersion: 2
-        x: 169
-        y: 1
-        width: 12
-        height: 18
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5637241111b8e8290800000000000000
-      internalID: -7886212992058887323
+      spriteID: ad03ae61004506920800000000000000
+      internalID: 2981475312680448218
       vertices: []
       indices: 
       edges: []
@@ -446,19 +626,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_6
       rect:
         serializedVersion: 2
-        x: 204
-        y: 1
-        width: 10
-        height: 18
+        x: 192
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6560970440a2f350800000000000000
-      internalID: 6049073463557121386
+      spriteID: 4b377ae76888917b0800000000000000
+      internalID: -5253017379119074380
       vertices: []
       indices: 
       edges: []
@@ -467,19 +647,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_7
       rect:
         serializedVersion: 2
-        x: 234
-        y: 1
-        width: 12
-        height: 18
+        x: 224
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5414811047f1dd90800000000000000
-      internalID: -7074601685078502308
+      spriteID: 993b3b8967343d1b0800000000000000
+      internalID: -5633084532263242855
       vertices: []
       indices: 
       edges: []
@@ -488,19 +668,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_8
       rect:
         serializedVersion: 2
-        x: 265
-        y: 1
-        width: 13
-        height: 18
+        x: 256
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e56a836bafa4ddb0800000000000000
-      internalID: -4767992954834229792
+      spriteID: 014677c9a1352fd50800000000000000
+      internalID: 6769564563650602000
       vertices: []
       indices: 
       edges: []
@@ -509,19 +689,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_9
       rect:
         serializedVersion: 2
-        x: 297
-        y: 2
-        width: 13
-        height: 18
+        x: 288
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de92f292c47631f20800000000000000
-      internalID: 3392168521146247661
+      spriteID: d9149daf454464fa0800000000000000
+      internalID: -5816886736925933155
       vertices: []
       indices: 
       edges: []
@@ -530,19 +710,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_10
       rect:
         serializedVersion: 2
-        x: 329
-        y: 2
-        width: 13
-        height: 18
+        x: 320
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1cc0b6b086e7e7d0800000000000000
-      internalID: -2889087195439641569
+      spriteID: 9a07ad5451eb56be0800000000000000
+      internalID: -1484571503573176151
       vertices: []
       indices: 
       edges: []
@@ -551,19 +731,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_11
       rect:
         serializedVersion: 2
-        x: 361
-        y: 1
-        width: 13
-        height: 18
+        x: 352
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 325f346140a957040800000000000000
-      internalID: 4644787933046633763
+      spriteID: a87d040470d6da610800000000000000
+      internalID: 1634082117715548042
       vertices: []
       indices: 
       edges: []
@@ -572,19 +752,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_12
       rect:
         serializedVersion: 2
-        x: 393
-        y: 2
-        width: 13
-        height: 18
+        x: 384
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dfdbb1a2fa2bbd20800000000000000
-      internalID: 3295274773935546329
+      spriteID: aaa461d2265b35250800000000000000
+      internalID: 5932284567444933290
       vertices: []
       indices: 
       edges: []
@@ -593,19 +773,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_13
       rect:
         serializedVersion: 2
-        x: 425
-        y: 2
-        width: 13
-        height: 18
+        x: 416
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc98d02d299beb950800000000000000
-      internalID: 6466810155191077323
+      spriteID: 68412ec8c4e4df640800000000000000
+      internalID: 5115330842450859142
       vertices: []
       indices: 
       edges: []
@@ -614,19 +794,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_14
       rect:
         serializedVersion: 2
-        x: 459
-        y: 3
-        width: 12
-        height: 17
+        x: 448
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade97a3f1e90a52c0800000000000000
-      internalID: -4442227216387432742
+      spriteID: ed98e03bdf261f3c0800000000000000
+      internalID: -4327568925156013602
       vertices: []
       indices: 
       edges: []
@@ -635,19 +815,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_15
       rect:
         serializedVersion: 2
-        x: 491
-        y: 3
-        width: 12
-        height: 16
+        x: 480
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b56d7079d26b4800800000000000000
-      internalID: 597680061591414197
+      spriteID: 6d9006f45d0eaa4a0800000000000000
+      internalID: -6581200698684208682
       vertices: []
       indices: 
       edges: []
@@ -656,19 +836,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_16
       rect:
         serializedVersion: 2
-        x: 523
-        y: 1
-        width: 12
-        height: 18
+        x: 512
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e134c3e89878db880800000000000000
-      internalID: -8593563489086455010
+      spriteID: 0452acc65a9cd4550800000000000000
+      internalID: 6146790778762569024
       vertices: []
       indices: 
       edges: []
@@ -677,19 +857,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_17
       rect:
         serializedVersion: 2
-        x: 555
-        y: 3
-        width: 12
-        height: 17
+        x: 544
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f2857510ad5bb960800000000000000
-      internalID: 7618786136763499249
+      spriteID: 2751383c8c35021f0800000000000000
+      internalID: -1071764589575465614
       vertices: []
       indices: 
       edges: []
@@ -698,19 +878,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_18
       rect:
         serializedVersion: 2
-        x: 587
-        y: 3
-        width: 12
-        height: 16
+        x: 576
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07495fe75d55a54b0800000000000000
-      internalID: -5450950023532145552
+      spriteID: 727fbaae92680e4a0800000000000000
+      internalID: -6566100742117263577
       vertices: []
       indices: 
       edges: []
@@ -719,19 +899,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_19
       rect:
         serializedVersion: 2
-        x: 619
-        y: 1
-        width: 12
-        height: 18
+        x: 608
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 190a976e38d36b770800000000000000
-      internalID: 8626149772991504529
+      spriteID: 4c7c52973548ac810800000000000000
+      internalID: 1786385696255494084
       vertices: []
       indices: 
       edges: []
@@ -740,19 +920,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_20
       rect:
         serializedVersion: 2
-        x: 651
-        y: 1
-        width: 10
-        height: 18
+        x: 640
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 295afd565c39959f0800000000000000
-      internalID: -479189409311251054
+      spriteID: c02a27309454810b0800000000000000
+      internalID: -5757775943700405748
       vertices: []
       indices: 
       edges: []
@@ -761,19 +941,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_21
       rect:
         serializedVersion: 2
-        x: 683
-        y: 2
-        width: 10
-        height: 18
+        x: 672
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab12b3a59a6368a0800000000000000
-      internalID: -6313085061714273372
+      spriteID: 574d8ba18a0f32420800000000000000
+      internalID: 2604189614343771253
       vertices: []
       indices: 
       edges: []
@@ -782,19 +962,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_22
       rect:
         serializedVersion: 2
-        x: 715
-        y: 2
-        width: 10
-        height: 17
+        x: 704
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b849977613224f7d0800000000000000
-      internalID: -2885643865652882293
+      spriteID: 323869e33fd782c80800000000000000
+      internalID: -8347283425650638045
       vertices: []
       indices: 
       edges: []
@@ -803,19 +983,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_23
       rect:
         serializedVersion: 2
-        x: 747
-        y: 1
-        width: 10
-        height: 18
+        x: 736
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 053aaf0aedb63ae20800000000000000
-      internalID: 3360648350876214096
+      spriteID: 8e66f465e98dc70b0800000000000000
+      internalID: -5729466451357636888
       vertices: []
       indices: 
       edges: []
@@ -824,19 +1004,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_24
       rect:
         serializedVersion: 2
-        x: 779
-        y: 1
-        width: 10
-        height: 18
+        x: 768
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c198c7ce14d55dbd0800000000000000
-      internalID: -2606074271642121956
+      spriteID: 359e4dcd52edd4d30800000000000000
+      internalID: 4417431063720421715
       vertices: []
       indices: 
       edges: []
@@ -845,19 +1025,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_25
       rect:
         serializedVersion: 2
-        x: 811
-        y: 2
-        width: 10
-        height: 18
+        x: 800
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dacd401cfb1d797f0800000000000000
-      internalID: -605785003350762323
+      spriteID: eb3d210a0af337520800000000000000
+      internalID: 2698570560837964734
       vertices: []
       indices: 
       edges: []
@@ -866,19 +1046,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_26
       rect:
         serializedVersion: 2
-        x: 843
-        y: 2
-        width: 10
-        height: 17
+        x: 832
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad7f3e53b42df27b0800000000000000
-      internalID: -5246743820394825766
+      spriteID: c2208f822ddc24a80800000000000000
+      internalID: -8483992445498424788
       vertices: []
       indices: 
       edges: []
@@ -887,19 +1067,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_27
       rect:
         serializedVersion: 2
-        x: 875
-        y: 1
-        width: 10
-        height: 18
+        x: 864
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3badb9feeab2e2b40800000000000000
-      internalID: 5417315432117557939
+      spriteID: 9f422bd5bb392d8b0800000000000000
+      internalID: -5128874592681450247
       vertices: []
       indices: 
       edges: []
@@ -908,19 +1088,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_28
       rect:
         serializedVersion: 2
-        x: 907
-        y: 1
-        width: 12
-        height: 18
+        x: 896
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4389bca1dbe34b900800000000000000
-      internalID: 699252824068560948
+      spriteID: 3e0f87a75a2395cb0800000000000000
+      internalID: -4874809435346112285
       vertices: []
       indices: 
       edges: []
@@ -929,19 +1109,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_29
       rect:
         serializedVersion: 2
-        x: 939
-        y: 2
-        width: 12
-        height: 18
+        x: 928
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a70db349a8dfb2250800000000000000
-      internalID: 5921104906742911098
+      spriteID: b206f5e9ed19366c0800000000000000
+      internalID: -4151314046179647445
       vertices: []
       indices: 
       edges: []
@@ -950,19 +1130,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_30
       rect:
         serializedVersion: 2
-        x: 971
-        y: 2
-        width: 12
-        height: 17
+        x: 960
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 942713dc874805bd0800000000000000
-      internalID: -2643467326892969399
+      spriteID: 718f34dd27609ad10800000000000000
+      internalID: 2137246588572268567
       vertices: []
       indices: 
       edges: []
@@ -971,19 +1151,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_31
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 1
-        width: 12
-        height: 18
+        x: 992
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f711559a1e76ae0d0800000000000000
-      internalID: -3392785150364020353
+      spriteID: 0799789eeafafce50800000000000000
+      internalID: 6831872325521480048
       vertices: []
       indices: 
       edges: []
@@ -992,19 +1172,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_32
       rect:
         serializedVersion: 2
-        x: 1036
-        y: 1
-        width: 11
-        height: 19
+        x: 1024
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fd6d7030fd1533a0800000000000000
-      internalID: -6686405154318750216
+      spriteID: 04cfd01275ebb2a00800000000000000
+      internalID: 732888645803834432
       vertices: []
       indices: 
       edges: []
@@ -1013,19 +1193,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_33
       rect:
         serializedVersion: 2
-        x: 1068
-        y: 1
-        width: 11
-        height: 18
+        x: 1056
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40ddfbcc09037bfd0800000000000000
-      internalID: -2326337284045021948
+      spriteID: 63215a8de81048d70800000000000000
+      internalID: 9044355664698479158
       vertices: []
       indices: 
       edges: []
@@ -1034,19 +1214,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_34
       rect:
         serializedVersion: 2
-        x: 1098
-        y: 1
-        width: 13
-        height: 18
+        x: 1088
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b505b7e29b8d42120800000000000000
-      internalID: 2388271992273588315
+      spriteID: c4852eafdc921e4f0800000000000000
+      internalID: -801313294041065396
       vertices: []
       indices: 
       edges: []
@@ -1055,19 +1235,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_35
       rect:
         serializedVersion: 2
-        x: 1130
-        y: 1
-        width: 13
-        height: 19
+        x: 1120
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 972f3c4803286f700800000000000000
-      internalID: 573789147433792121
+      spriteID: e61cf542deb1e5750800000000000000
+      internalID: 6295500034441986414
       vertices: []
       indices: 
       edges: []
@@ -1076,19 +1256,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_36
       rect:
         serializedVersion: 2
-        x: 1162
-        y: 1
-        width: 13
-        height: 18
+        x: 1152
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59f49ffcdaf216d20800000000000000
-      internalID: 3269947228012760981
+      spriteID: 450c2a9e53e3d09e0800000000000000
+      internalID: -1653597086901157804
       vertices: []
       indices: 
       edges: []
@@ -1097,19 +1277,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_37
       rect:
         serializedVersion: 2
-        x: 1194
-        y: 1
-        width: 13
-        height: 18
+        x: 1184
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 061216b2057062bc0800000000000000
-      internalID: -3808348393988611744
+      spriteID: df0c04a7a13e83880800000000000000
+      internalID: -8630898982995836675
       vertices: []
       indices: 
       edges: []
@@ -1118,19 +1298,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_38
       rect:
         serializedVersion: 2
-        x: 1226
-        y: 1
-        width: 13
-        height: 19
+        x: 1216
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e4dc1468fd682b50800000000000000
-      internalID: 6568620970118796517
+      spriteID: 41974541d28a000f0800000000000000
+      internalID: -1152736593038771948
       vertices: []
       indices: 
       edges: []
@@ -1139,19 +1319,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_39
       rect:
         serializedVersion: 2
-        x: 1258
-        y: 1
-        width: 13
-        height: 18
+        x: 1248
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81ad2cfec71230d30800000000000000
-      internalID: 4396394481725921816
+      spriteID: 234fc3ea1778464d0800000000000000
+      internalID: -3142237717673479118
       vertices: []
       indices: 
       edges: []
@@ -1160,19 +1340,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_40
       rect:
         serializedVersion: 2
-        x: 1289
-        y: 1
-        width: 12
-        height: 18
+        x: 1280
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa3711e940c444650800000000000000
-      internalID: 6216176968393651119
+      spriteID: 037abcf67e3bf2580800000000000000
+      internalID: -8849656936165300432
       vertices: []
       indices: 
       edges: []
@@ -1181,19 +1361,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_41
       rect:
         serializedVersion: 2
-        x: 1321
-        y: 2
-        width: 12
-        height: 18
+        x: 1312
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cb1b50c5232c80b0800000000000000
-      internalID: -5725162381246784570
+      spriteID: 63a5036092c0a60a0800000000000000
+      internalID: -6887679309772727754
       vertices: []
       indices: 
       edges: []
@@ -1202,19 +1382,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_42
       rect:
         serializedVersion: 2
-        x: 1353
-        y: 2
-        width: 12
-        height: 17
+        x: 1344
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 190bee0917c76a380800000000000000
-      internalID: -8960337581402312559
+      spriteID: 7102690e4350f6220800000000000000
+      internalID: 2481207644368805911
       vertices: []
       indices: 
       edges: []
@@ -1223,19 +1403,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_43
       rect:
         serializedVersion: 2
-        x: 1385
-        y: 1
-        width: 13
-        height: 18
+        x: 1376
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186bf82fae37e7e40800000000000000
-      internalID: 5656085634952967809
+      spriteID: 9a8ce70f063fc9ba0800000000000000
+      internalID: -6080717799179761495
       vertices: []
       indices: 
       edges: []
@@ -1244,19 +1424,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_44
       rect:
         serializedVersion: 2
-        x: 1417
-        y: 1
-        width: 11
-        height: 19
+        x: 1408
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a3198a05bb409890800000000000000
-      internalID: -7453374142360251482
+      spriteID: c5c2c42712b020610800000000000000
+      internalID: 1585842257067256924
       vertices: []
       indices: 
       edges: []
@@ -1265,19 +1445,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_45
       rect:
         serializedVersion: 2
-        x: 1449
-        y: 1
-        width: 11
-        height: 18
+        x: 1440
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcca0781a5e2e2210800000000000000
-      internalID: 1310035506103364813
+      spriteID: 712b2e43af75c8ec0800000000000000
+      internalID: -3563376473016192489
       vertices: []
       indices: 
       edges: []
@@ -1286,19 +1466,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_46
       rect:
         serializedVersion: 2
-        x: 1483
-        y: 1
-        width: 10
-        height: 18
+        x: 1472
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45c4086eae5f7f2c0800000000000000
-      internalID: -4397776121865679788
+      spriteID: 1daf7d6654b7edb10800000000000000
+      internalID: 2008178021862210257
       vertices: []
       indices: 
       edges: []
@@ -1307,19 +1487,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_47
       rect:
         serializedVersion: 2
-        x: 1515
-        y: 2
-        width: 10
-        height: 18
+        x: 1504
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 927481fc3610c1b80800000000000000
-      internalID: -8422855674901805271
+      spriteID: 54a43ac30ce8aa990800000000000000
+      internalID: -7373924483563566523
       vertices: []
       indices: 
       edges: []
@@ -1328,19 +1508,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_48
       rect:
         serializedVersion: 2
-        x: 1547
-        y: 2
-        width: 10
-        height: 17
+        x: 1536
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c65e97dc4f1385100800000000000000
-      internalID: 96882319477564780
+      spriteID: 2856aad1fa67a73c0800000000000000
+      internalID: -4361042794665843326
       vertices: []
       indices: 
       edges: []
@@ -1349,19 +1529,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_49
       rect:
         serializedVersion: 2
-        x: 1579
-        y: 1
-        width: 10
-        height: 18
+        x: 1568
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0575a7886a175e710800000000000000
-      internalID: 1721907392607311696
+      spriteID: 6567104802c4caf50800000000000000
+      internalID: 6893968832134739542
       vertices: []
       indices: 
       edges: []
@@ -1370,19 +1550,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_50
       rect:
         serializedVersion: 2
-        x: 1611
-        y: 1
-        width: 10
-        height: 18
+        x: 1600
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98230d826efe75620800000000000000
-      internalID: 2762940668221338249
+      spriteID: 399070860a7816650800000000000000
+      internalID: 6224405283012544915
       vertices: []
       indices: 
       edges: []
@@ -1391,19 +1571,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_51
       rect:
         serializedVersion: 2
-        x: 1643
-        y: 2
-        width: 10
-        height: 18
+        x: 1632
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5da633f39a1e910800000000000000
-      internalID: 1864957809618769388
+      spriteID: 4cd46d4d5fac247d0800000000000000
+      internalID: -2935560849905529404
       vertices: []
       indices: 
       edges: []
@@ -1412,19 +1592,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_52
       rect:
         serializedVersion: 2
-        x: 1675
-        y: 2
-        width: 10
-        height: 17
+        x: 1664
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60870fc8bfc93330800000000000000
-      internalID: 3691209762261139566
+      spriteID: 2bf27b0a7fb5fc6c0800000000000000
+      internalID: -4120974014909304910
       vertices: []
       indices: 
       edges: []
@@ -1433,19 +1613,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_53
       rect:
         serializedVersion: 2
-        x: 1707
-        y: 1
-        width: 10
-        height: 18
+        x: 1696
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a81ab6ac88c080520800000000000000
-      internalID: 2668396560868155786
+      spriteID: 5b06ffad4099c1d60800000000000000
+      internalID: 7862327295615131829
       vertices: []
       indices: 
       edges: []
@@ -1454,19 +1634,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_54
       rect:
         serializedVersion: 2
-        x: 1737
-        y: 3
-        width: 12
-        height: 17
+        x: 1728
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2450bb040b1cbbf0800000000000000
-      internalID: -307340970378111954
+      spriteID: c7308277d11a79a10800000000000000
+      internalID: 1916177314394669948
       vertices: []
       indices: 
       edges: []
@@ -1475,19 +1655,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_55
       rect:
         serializedVersion: 2
-        x: 1769
-        y: 3
-        width: 12
-        height: 16
+        x: 1760
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 276c799c977d0cc20800000000000000
-      internalID: 3224814251270456946
+      spriteID: 8ceada2fae1285420800000000000000
+      internalID: 2618880476293476040
       vertices: []
       indices: 
       edges: []
@@ -1496,19 +1676,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_56
       rect:
         serializedVersion: 2
-        x: 1801
-        y: 1
-        width: 12
-        height: 18
+        x: 1792
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a231cad84a3ddfa0800000000000000
-      internalID: -5774395062636957017
+      spriteID: 9206d41a610c40c60800000000000000
+      internalID: 7783557259431075881
       vertices: []
       indices: 
       edges: []
@@ -1517,19 +1697,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_57
       rect:
         serializedVersion: 2
-        x: 1833
-        y: 3
-        width: 12
-        height: 17
+        x: 1824
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a663f589bc82a58e0800000000000000
-      internalID: -1704004654106462614
+      spriteID: 429d44d6d38ea9b90800000000000000
+      internalID: -7234214500893402844
       vertices: []
       indices: 
       edges: []
@@ -1538,19 +1718,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_58
       rect:
         serializedVersion: 2
-        x: 1865
-        y: 3
-        width: 12
-        height: 16
+        x: 1856
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 437bddacf5744b980800000000000000
-      internalID: -8524109717954513100
+      spriteID: 1778d1d1317152140800000000000000
+      internalID: 4694183557463902065
       vertices: []
       indices: 
       edges: []
@@ -1559,19 +1739,19 @@ TextureImporter:
       name: bigboyanimation-Sheet_59
       rect:
         serializedVersion: 2
-        x: 1897
-        y: 1
-        width: 12
-        height: 18
+        x: 1888
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c70bc90c1444ba7a0800000000000000
-      internalID: -6364918599163006852
+      spriteID: 58b0b195fb397c4b0800000000000000
+      internalID: -5420201176474121339
       vertices: []
       indices: 
       edges: []

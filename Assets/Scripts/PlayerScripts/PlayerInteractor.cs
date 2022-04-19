@@ -11,12 +11,12 @@ namespace PlayerScripts
         private void Awake()
         {
             _interactables = new Dictionary<GameObject, IInteractable>();
-            PlayerInputManager.OnInputDown += InteractWithObjects;
+            PlayerInputManager.onInputDown += InteractWithObjects;
         }
 
         private void OnDestroy()
         {
-            PlayerInputManager.OnInputDown -= InteractWithObjects;
+            PlayerInputManager.onInputDown -= InteractWithObjects;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

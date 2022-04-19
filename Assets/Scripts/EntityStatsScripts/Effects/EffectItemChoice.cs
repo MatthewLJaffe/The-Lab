@@ -34,7 +34,7 @@ namespace EntityStatsScripts.Effects
 
         private void Awake()
         {
-            PlayerInputManager.OnInputDown += SelectEffectItem;
+            PlayerInputManager.onInputDown += SelectEffectItem;
             foreach (var trans in dropPositions)
             {
                 var dropPrefab = effectItems[Random.Range(0, effectItems.Count)];
@@ -48,7 +48,7 @@ namespace EntityStatsScripts.Effects
 
         private void OnDestroy()
         {
-            PlayerInputManager.OnInputDown -= SelectEffectItem;
+            PlayerInputManager.onInputDown -= SelectEffectItem;
         }
 
         private void SelectEffectItem(PlayerInputManager.PlayerInputName iName)

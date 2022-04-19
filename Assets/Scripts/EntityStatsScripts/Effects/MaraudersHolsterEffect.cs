@@ -37,11 +37,11 @@ namespace EntityStatsScripts.Effects
         {
             if (_inSwitchCooldown || stack == 0) return;
             StartSwitchWeaponCooldown();
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
             var startTime = Time.time;
             while (startTime + damageBuffTime > Time.time)
                 await Task.Yield();
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackBonus;
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackBonus;
         }
 
         private async void StartSwitchWeaponCooldown()

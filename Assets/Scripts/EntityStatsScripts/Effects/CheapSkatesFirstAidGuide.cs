@@ -23,22 +23,22 @@ namespace EntityStatsScripts.Effects
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            if (_dontConsumeChance > .01f && playerStats.PlayerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue > .01f)
+            if (_dontConsumeChance > .01f && playerStats.playerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue > .01f)
             {
-                playerStats.PlayerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue /= _dontConsumeChance;
+                playerStats.playerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue /= _dontConsumeChance;
                 _dontConsumeChance = 1 - 1 / (1 + newStack * dontConsumeStep);
-                playerStats.PlayerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue *= _dontConsumeChance;
+                playerStats.playerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue *= _dontConsumeChance;
             }
             else
             {
                 _dontConsumeChance = 1 - 1 / (1 + newStack * dontConsumeStep);
-                playerStats.PlayerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue = _dontConsumeChance;
+                playerStats.playerStatsDict[PlayerStats.StatType.DontConsumeChance].CurrentValue = _dontConsumeChance;
             }
 
             
-            playerStats.PlayerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue /= _restoreConsumableMult;
+            playerStats.playerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue /= _restoreConsumableMult;
             _restoreConsumableMult = minRestoreMult + (1 - minRestoreMult) * 1 / (1 + newStack * restoreMultStep);
-            playerStats.PlayerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue *= _restoreConsumableMult;
+            playerStats.playerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue *= _restoreConsumableMult;
         }
     }
 }

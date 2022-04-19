@@ -50,3 +50,6 @@ MonoBehaviour:
   - type: 11
     currentValue: 0
     defaultValue: 0
+  - type: 12
+    currentValue: 0
+    defaultValue: 0

@@ -18,9 +18,9 @@ namespace EntityStatsScripts.Effects
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            playerStats.PlayerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue /= _restoreConsumableMult;
+            playerStats.playerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue /= _restoreConsumableMult;
             _restoreConsumableMult = maxRestoreMult * (1 - 1 / (1 + newStack * restoreMultStep));
-            playerStats.PlayerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue *= _restoreConsumableMult;
+            playerStats.playerStatsDict[PlayerStats.StatType.RestoreMultiplier].CurrentValue *= _restoreConsumableMult;
         }
     }
 }

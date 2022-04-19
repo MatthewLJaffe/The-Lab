@@ -33,11 +33,11 @@ namespace EntityStatsScripts.Effects
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
             //undo effect of old stack
-            playerStats.PlayerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue /=
+            playerStats.playerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue /=
                 minReloadFactor + (1f - minReloadFactor) / (reloadStep + oldStack);
 
             //apply effect of new stack
-            playerStats.PlayerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue *=
+            playerStats.playerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue *=
                 minReloadFactor +  (1f - minReloadFactor) / (reloadStep + newStack);
             _attackBonus = attackStep * newStack;
             _damage = newStack * damagePerStack;
@@ -51,11 +51,11 @@ namespace EntityStatsScripts.Effects
                 DamagePlayer.applyPlayerDamage(_damage, Vector2.zero);
             }
 
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;
             var end = Time.time + damageBuffTime + reloadTime;
             while (end > Time.time)
                 await Task.Yield();
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackBonus;
+            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue -= _attackBonus;
         }
     }
 }

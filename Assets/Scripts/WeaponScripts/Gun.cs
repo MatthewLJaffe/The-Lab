@@ -59,11 +59,11 @@ namespace WeaponScripts
             _bulletPool = new GameObjectPool(bullet);
             playerTrans = PlayerFind.instance.playerInstance.transform;
             atkMult = playerStats.GetAttackMultiplier();
-            playerCritChance = playerStats.PlayerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
-            additionalAccuracy = playerStats.PlayerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;
-            additionalFireRate = playerStats.PlayerStatsDict[PlayerStats.StatType.FireRate].CurrentValue;
-            reloadFactor = playerStats.PlayerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue;
-            PlayerStats.OnStatChange += delegate(PlayerStats.StatType type, float newValue) 
+            playerCritChance = playerStats.playerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
+            additionalAccuracy = playerStats.playerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;
+            additionalFireRate = playerStats.playerStatsDict[PlayerStats.StatType.FireRate].CurrentValue;
+            reloadFactor = playerStats.playerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue;
+            PlayerStats.onStatChange += delegate(PlayerStats.StatType type, float newValue) 
             {
                 switch (type)
                 {
@@ -90,7 +90,7 @@ namespace WeaponScripts
         protected void OnEnable() {
             if (!_firstEquip)
                 broadcastShot(currentMagSize, gunStats.magSize);
-            PlayerInputManager.OnInputDown += StartReload;
+            PlayerInputManager.onInputDown += StartReload;
             broadCastWeaponSwitch.Invoke(this);
         }
         
@@ -98,7 +98,7 @@ namespace WeaponScripts
         {
             reloading = false;
             firing = false;
-            PlayerInputManager.OnInputDown -= StartReload;
+            PlayerInputManager.onInputDown -= StartReload;
         }
 
         protected void StartReload(PlayerInputManager.PlayerInputName iName)

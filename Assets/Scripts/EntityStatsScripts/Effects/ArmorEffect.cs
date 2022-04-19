@@ -9,7 +9,7 @@ namespace EntityStatsScripts.Effects
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
-            playerStats.PlayerStatsDict[PlayerStats.StatType.Defense].CurrentValue += newStack - oldStack;
+            playerStats.playerStatsDict[PlayerStats.StatType.Defense].CurrentValue += newStack - oldStack;
         }
     }
 }
