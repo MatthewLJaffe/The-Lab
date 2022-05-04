@@ -167,9 +167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   sourceCollider: {fileID: 5587561943361001395}
+  damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 2101504
   destructionCollider: {fileID: -4192527064366142167}
   crit: 0
   accuracy: 0

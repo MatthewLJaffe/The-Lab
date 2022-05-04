@@ -58,7 +58,7 @@ namespace EnemyScripts
             Vector2 dashDir = Quaternion.Euler(0, 0, direction * _strafeSteering.AngleFromPlayer) *
                               (_enemy.target.position - transform.position).normalized;
             var hits = Physics2D.RaycastAll(transform.position, dashDir, strafeTime * speed, 
-                LayerMask.GetMask("Default", "Enemy", "Block"));
+                LayerMask.GetMask("Default", "Enemy", "Block", "Spikes"));
             return hits.Length <= 1;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EntityStatsScripts;
 using LabCreationScripts.Spawners;
@@ -14,68 +15,36 @@ namespace General
         [SerializeField] private Collider2D forwardCollider;
         [SerializeField] private Collider2D backwardCollider;
         [SerializeField] private StretcherSpawner.StretcherDirection dir;
-        private bool _damagedOnCollision;
-        
-        protected Rigidbody2D rb;
+        private Rigidbody2D _rb;
+        private List<GameObject> _enteredObjects;
 
         protected override void Awake()
         {
             base.Awake();
-            rb = GetComponentInParent<Rigidbody2D>();
+            _rb = GetComponentInParent<Rigidbody2D>();
+            _enteredObjects = new List<GameObject>();
         }
-
+        
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
+            if (LayerInMask(collision.gameObject.layer) && !_enteredObjects.Contains(collision.gameObject))
+                _enteredObjects.Add(collision.gameObject);
         }
 
-        protected override void OnCollisionEnter2D(Collision2D other)
+        protected override void OnCollisionEnter2D(Collision2D other) { }
+
+        protected void OnTriggerStay2D(Collider2D other)
         {
-            if (dir == StretcherSpawner.StretcherDirection.Vertical)
-            {
-                if (rb.velocity.y > 0 && !other.collider.IsTouching(forwardCollider)) return;
-                if (rb.velocity.y < 0 && !other.collider.IsTouching(backwardCollider)) return;
-            }
-            if (dir == StretcherSpawner.StretcherDirection.Horizontal)
-            {
-                if (rb.velocity.x > 0 && !other.collider.IsTouching(forwardCollider)) return;
-                if (rb.velocity.x < 0 && !other.collider.IsTouching(backwardCollider)) return;
-            }
-            if (other.gameObject.CompareTag("Player")) return;
+            if (!enabled) return;
+            if (!_enteredObjects.Remove(other.gameObject)) return;
             damage = ComputeDamage();
-            _damagedOnCollision = true;
-            base.OnCollisionEnter2D(other);
+            base.OnTriggerEnter2D(other);
         }
-
-        protected void OnCollisionStay2D(Collision2D other)
-        {
-            if (_damagedOnCollision) return;
-            if (dir == StretcherSpawner.StretcherDirection.Vertical)
-            {
-                if (rb.velocity.y > 0 && !other.collider.IsTouching(forwardCollider)) return;
-                if (rb.velocity.y < 0 && !other.collider.IsTouching(backwardCollider)) return;
-            }
-            if (dir == StretcherSpawner.StretcherDirection.Horizontal)
-            {
-                if (rb.velocity.x > 0 && !other.collider.IsTouching(forwardCollider)) return;
-                if (rb.velocity.x < 0 && !other.collider.IsTouching(backwardCollider)) return;
-            }
-            if (other.gameObject.CompareTag("Player")) return;
-            damage = ComputeDamage();
-            _damagedOnCollision = true;
-            base.OnCollisionEnter2D(other);
-        }
-
-        protected void OnCollisionExit2D(Collision2D other)
-        {
-            _damagedOnCollision = false;
-        }
-
+        
         private float ComputeDamage()
         {
-            var d = Mathf.Round(Mathf.Clamp(rb.velocity.magnitude / maxSpeed * maxDamage, 0, maxDamage));
-            if (d < minDamage)
-                return 0;
-            return d;
+            return minDamage + 
+                   Mathf.Round(Mathf.Clamp(_rb.velocity.magnitude / maxSpeed * (maxDamage - minDamage), 0, (maxDamage - minDamage)));
         }
     }
 }

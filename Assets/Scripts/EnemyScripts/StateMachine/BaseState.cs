@@ -12,7 +12,7 @@ namespace EnemyScripts
         
         protected virtual void Awake()
         {
-            transform.GetComponentInParent<StateMachine>().OnStateChange += SwitchState;
+            transform.GetComponentInParent<StateMachine>().onStateChange += SwitchState;
             _steeringController = GetComponentInParent<SteeringController>();
         }
         public abstract Type Tick();

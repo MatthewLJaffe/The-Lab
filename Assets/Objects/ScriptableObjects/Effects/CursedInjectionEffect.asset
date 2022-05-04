@@ -15,5 +15,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 64e2f81b75143d8419078abc8ba298ec, type: 3}
   message: Grants HP regen until you use another HP restoring item
   stack: 0
-  regenGainPerStack: 1
-  tickTime: 8
+  regenGainPerStack: 0.125
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}

@@ -16,15 +16,17 @@ namespace LabCreationScripts.Spawners
             Vertical
         }
         
-        protected override bool SpawnClear(Vector3 pos, BoundsInt bounds)
+        protected override bool SpawnClear(Vector3 pos)
         {
-            var fits = base.SpawnClear(pos, bounds);
+            var fits = base.SpawnClear(pos);
             if (!fits) return false;
-            pos += (Vector3)boxCollider.offset;
+            pos += (Vector3)spawnCollider.offset;
             var boxCastDir = direction == StretcherDirection.Horizontal ? Vector2.right : Vector2.up;
             //the stretcher must have at least spaceClear distance to roll either forwards or backwards
-            return !Physics2D.BoxCast(pos, boxCollider.size, 0, boxCastDir, spaceClear, LayerMask.GetMask("Block")) ||
-                   !Physics2D.BoxCast(pos, boxCollider.size, 0, -boxCastDir, spaceClear, LayerMask.GetMask("Block"));
+            return !Physics2D.BoxCast(pos, spawnCollider.size, 0, boxCastDir, spaceClear, 
+                       LayerMask.GetMask("Block", "Spawn", "Default", "BlockObjects")) ||
+                   !Physics2D.BoxCast(pos, spawnCollider.size, 0, -boxCastDir, spaceClear, 
+                       LayerMask.GetMask("Block", "Spawn", "Default", "BlockObjects"));
         }
     }
 }

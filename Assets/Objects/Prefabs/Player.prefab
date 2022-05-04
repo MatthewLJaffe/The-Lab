@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1231718617841199932}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ItemHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231718617841199935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: -0.57, z: 0}
+  m_LocalPosition: {x: 0.31, y: -0.178, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1231718618511274945}
@@ -562,7 +562,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5557182829963270792
 CapsuleCollider2D:
@@ -573,12 +573,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1231718618511274956}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 45e28b96b97515349b8a66d3a322fbff, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005705327, y: -0.3804837}
-  m_Size: {x: 0.6385893, y: 0.9717151}
+  m_Offset: {x: 0.005705327, y: -0.2}
+  m_Size: {x: 0.6385893, y: 0.66942465}
   m_Direction: 0
 --- !u!95 &1231718618511274950
 Animator:
@@ -772,8 +772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aec35a7247c944eae7da18293b205a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 0.25
-  maxRollSpeed: 6
+  cooldownTime: 0.2
+  maxRollSpeed: 8
   rollCurve:
     serializedVersion: 2
     m_Curve:
@@ -796,19 +796,19 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.75
+      time: 0.6
       value: 1
-      inSlope: -0.5
-      outSlope: -0.5
+      inSlope: -1.125
+      outSlope: -1.125
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.75
-      inSlope: -1
-      outSlope: -1
+      value: 0.1
+      inSlope: -2.25
+      outSlope: -2.25
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -890,7 +890,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 459063
+    m_Bits: 7799095
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2166,7 +2166,6 @@ MonoBehaviour:
   displayPoint: {fileID: 1231718618447735178}
   timeUntilAdrenaline: 100
   adrenaline: {fileID: 11400000, guid: df32f39f77d426d4d9309f7ea050caf5, type: 2}
-  animator: {fileID: 1231718618511274950}
 --- !u!1001 &1084560150381033928
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -41,8 +41,9 @@ namespace PlayerScripts
         }
         private void ResetPlayer(Scene scene, LoadSceneMode mode)
         {
-            if (playerInstance != null) {
-                playerInstance.transform.position = Vector3.zero;
+            if (playerInstance != null)
+            {
+                playerInstance.transform.position = transform.position;
             }
             else
             {

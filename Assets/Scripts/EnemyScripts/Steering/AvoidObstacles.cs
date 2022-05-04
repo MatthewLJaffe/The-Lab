@@ -10,11 +10,28 @@ namespace EnemyScripts
         [SerializeField] private float nonHitMultiplier = .5f;
         [SerializeField] private float raycastDistance;
         [SerializeField] private bool debug;
+        [SerializeField] private LayerWeight[] layerWeights;
+        private LayerMask _avoidLayers;
+        private Dictionary<string, float> _layerWeightDict;
         private RaycastHit2D[] _raycastResults;
+        
+        [System.Serializable]
+        private struct LayerWeight
+        {
+            public string layer;
+            public float weight;
+        }
 
         private void Awake()
         {
+            var layers = new string[layerWeights.Length];
             _raycastResults = new RaycastHit2D[10];
+            _layerWeightDict = new Dictionary<string, float>();
+            for (int i = 0; i < layerWeights.Length; i++) {
+                layers[i] = layerWeights[i].layer;
+                _layerWeightDict.Add(layerWeights[i].layer, layerWeights[i].weight);
+            }
+            _avoidLayers = LayerMask.GetMask(layers);
         }
 
         public override void AdjustWeights(Dictionary<Vector2, float> steeringWeights)
@@ -27,7 +44,8 @@ namespace EnemyScripts
                 steeringDirections.Remove(hit.Key);
                 var hitDistance = (hit.Value.point - (Vector2) transform.position).magnitude;
                 var distanceWeight =  1f - hitDistance / raycastDistance;
-                var addedWeight = Mathf.Clamp(weight * distanceWeight * -avoidMultiplier, -1 ,1);
+                var layerMultiplier = _layerWeightDict[LayerMask.LayerToName(hit.Value.collider.gameObject.layer)];
+                var addedWeight = Mathf.Clamp(weight * distanceWeight * -avoidMultiplier * layerMultiplier, -1 ,1);
                 steeringWeights[hit.Key] += addedWeight;
             }
             //assign weights to all other directions
@@ -42,7 +60,8 @@ namespace EnemyScripts
                     else
                         dot *= nonHitMultiplier;
                     var distanceWeight = 1f - hitDir.magnitude / raycastDistance;
-                    var addedWeight = Mathf.Clamp(-dot * (1f / raycastHits.Count) * distanceWeight, -1, 1);
+                    var layerMultiplier = _layerWeightDict[LayerMask.LayerToName(hit.collider.gameObject.layer)];
+                    var addedWeight = Mathf.Clamp(-dot * (1f / raycastHits.Count) * distanceWeight * layerMultiplier, -1, 1);
                     steeringWeights[dir] += addedWeight;
                 }
             }
@@ -54,7 +73,8 @@ namespace EnemyScripts
             for (var theta = 0f; theta < 360f; theta += 360f / numCasts)
             {
                 var dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * theta), Mathf.Sin(Mathf.Deg2Rad * theta)).normalized;
-                var size = Physics2D.RaycastNonAlloc((Vector2)transform.position, dir, _raycastResults, raycastDistance, LayerMask.GetMask("Default", "Enemy", "Block"));
+                var size = Physics2D.RaycastNonAlloc((Vector2)transform.position, dir, 
+                    _raycastResults, raycastDistance, _avoidLayers);
                 if (debug)
                     Debug.DrawRay((Vector2)transform.position, 
                     dir.normalized * raycastDistance, Color.magenta, Time.fixedDeltaTime);

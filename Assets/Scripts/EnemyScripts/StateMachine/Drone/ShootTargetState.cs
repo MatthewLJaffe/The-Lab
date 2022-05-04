@@ -28,7 +28,7 @@ namespace EnemyScripts.Drone
                 return distanceBasedState;
             Vector2 position = transform.position;
             var hit = Physics2D.Raycast(position, (Vector2)enemy.target.position - position,
-                farRange, Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Enemy Bullet")));
+                100, LayerMask.GetMask(LayerMask.LayerToName(enemy.target.gameObject.layer)));
             if (lineRenderer) {
                 lineRenderer.SetPosition(0, aimPoint.position);
                 lineRenderer.SetPosition(1, enemy.target.position);

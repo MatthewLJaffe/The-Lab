@@ -30,13 +30,13 @@ namespace LabCreationScripts.Spawners
         protected override bool Spawn(BoundsInt bounds, Tilemap tMap, Transform roomTransform)
         {
             var orientationToSpawn = orientations[Random.Range(0, orientations.Length)];
-            var size = new Vector2(Mathf.Round(boxCollider.size.x), Mathf.Round(boxCollider.size.y));
+            var size = new Vector2(Mathf.Round(spawnCollider.size.x), Mathf.Round(spawnCollider.size.y));
             Vector3 spawnPos;
             switch (orientationToSpawn.corner)
             {
                 case Corner.TopRight:
                     spawnPos = bounds.max - (Vector3)size / 2;
-                    while (!SpawnClear(spawnPos, bounds))
+                    while (!SpawnClear(spawnPos))
                     {
                         if (!stackAcross)
                             return false;
@@ -46,7 +46,7 @@ namespace LabCreationScripts.Spawners
                     break;
                 case Corner.TopLeft:
                     spawnPos = new Vector3(bounds.xMin, bounds.yMax, 0) + new Vector3(size.x/2, -size.y /2, 0);
-                    while (!SpawnClear(spawnPos, bounds))
+                    while (!SpawnClear(spawnPos))
                     {
                         if (!stackAcross)
                             return false;
@@ -56,7 +56,7 @@ namespace LabCreationScripts.Spawners
                     break;
                 case Corner.BottomRight:
                     spawnPos = new Vector3(bounds.xMax, bounds.yMin, 0) + new Vector3(-size.x/2, size.y /2, 0);
-                    while (!SpawnClear(spawnPos, bounds))
+                    while (!SpawnClear(spawnPos))
                     {
                         if (!stackAcross)
                             return false;
@@ -66,7 +66,7 @@ namespace LabCreationScripts.Spawners
                     break;
                 case Corner.BottomLeft:
                     spawnPos = new Vector3(bounds.xMin, bounds.yMin, 0) + new Vector3(size.x/2, size.y /2, 0);
-                    while (!SpawnClear(spawnPos, bounds))
+                    while (!SpawnClear(spawnPos))
                     {
                         if (!stackAcross)
                             return false;

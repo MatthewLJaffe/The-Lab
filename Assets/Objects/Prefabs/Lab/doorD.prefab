@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: doorDir
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3612743007185485310, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612743007185485310, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3722828779926207775, guid: fb183a898ef2c894697e2335220fb026, type: 3}
       propertyPath: m_Offset.y
       value: 0.5

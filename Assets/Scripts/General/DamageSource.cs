@@ -1,4 +1,5 @@
-﻿using EntityStatsScripts;
+﻿using System;
+using EntityStatsScripts;
 using UnityEngine;
 
 namespace General
@@ -7,6 +8,8 @@ namespace General
     {
         public float damage;
         [SerializeField] protected Collider2D sourceCollider;
+
+        [SerializeField] private SoundEffect damageSfx;
         public LayerMask layers;
 
         protected virtual void Awake()
@@ -19,14 +22,22 @@ namespace General
         {
             //check if layer is in layer mask
             if ( !LayerInMask(collision.gameObject.layer)) return;
-            collision.GetComponentInChildren<IDamageable>()?.TakeDamage(damage, Vector2.zero);
+            var damageable = collision.GetComponentInChildren<IDamageable>();
+            if (damageable == null) return;
+            damageable.TakeDamage(damage, Vector2.zero);
+            if (damageSfx)
+                damageSfx.Play();
         }
 
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
             //check if layer is in layer mask
             if ( !LayerInMask(other.gameObject.layer)) return;
-            other.gameObject.GetComponentInChildren<IDamageable>()?.TakeDamage(damage, Vector2.zero);
+            var damageable = other.gameObject.GetComponentInChildren<IDamageable>();
+            if (damageable == null) return;
+            damageable.TakeDamage(damage, Vector2.zero);
+            if (damageSfx)
+                damageSfx.Play();
         }
 
         public bool LayerInMask(int layer)

@@ -7,7 +7,7 @@ namespace EnemyScripts
 {
     public class StateMachine: MonoBehaviour
     {
-        public Action<BaseState> OnStateChange = delegate {  };
+        public Action<BaseState> onStateChange = delegate {  };
         private Dictionary<Type, BaseState> _availableStates;
         [SerializeField] private bool debug;
         public BaseState CurrentState { get; private set; }
@@ -20,7 +20,7 @@ namespace EnemyScripts
 
         private void Start()
         {
-            OnStateChange(CurrentState);
+            onStateChange(CurrentState);
         }
 
         private void SetStates()
@@ -46,7 +46,7 @@ namespace EnemyScripts
         private void SwitchStates(Type state)
         {
             CurrentState = _availableStates[state];
-            OnStateChange(CurrentState);
+            onStateChange(CurrentState);
         }
     }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 6339940592702608969, guid: 7035d76b7a7564146aa22ff8d7ebfbb6, type: 3}
-  spaceAround: {x: 1, y: 1}
+  spaceAround: {x: 0, y: 0}

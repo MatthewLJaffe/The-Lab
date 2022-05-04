@@ -14,8 +14,24 @@ namespace LabCreationScripts.ProceduralRooms
         public Vector2Int maxSize;
         [SerializeField] protected SpawnerData[] spawners;
         [SerializeField] protected bool lockRoom = true;
+        
+        [Serializable]
+        public enum HorizontalConstraints
+        {
+            None,
+            LeftHalf,
+            RightHalf
+        }
+        
+        [Serializable]
+        public enum VerticalConstraints
+        {
+            None,
+            TopHalf,
+            BottomHalf
+        }
 
-        [System.Serializable]
+        [Serializable]
         public struct SpawnerData
         {
             public InteriorSpawner spawner;
@@ -23,6 +39,8 @@ namespace LabCreationScripts.ProceduralRooms
             public int maxSpawns;
             public float spawnChance;
             public int spawnOrder;
+            public VerticalConstraints vertConstraints;
+            public HorizontalConstraints horizConstraints;
         }
 
         public virtual void FillRoom(Room room, Tilemap tmap, GameObject roomGameObject)
@@ -35,7 +53,16 @@ namespace LabCreationScripts.ProceduralRooms
             {
                 if (Random.Range(0f, 1f) <= spawnData.spawnChance)
                 {
-                    var spawnBounds = Room.RoomBoundsToFloorBounds(room.RoomBounds);
+                    var roomBounds = Room.RoomBoundsToFloorBounds(room.RoomBounds);
+                    var spawnBounds = new BoundsInt(roomBounds.position, roomBounds.size);
+                    if (spawnData.vertConstraints == VerticalConstraints.TopHalf)
+                        spawnBounds.yMin += spawnBounds.size.y / 2;
+                    if (spawnData.vertConstraints == VerticalConstraints.BottomHalf)
+                        spawnBounds.yMax = spawnBounds.yMin + spawnBounds.size.y / 2;
+                    if (spawnData.horizConstraints == HorizontalConstraints.LeftHalf)
+                        spawnBounds.xMax = spawnBounds.xMin + spawnBounds.size.x / 2;
+                    if (spawnData.horizConstraints == HorizontalConstraints.RightHalf)
+                        spawnBounds.xMin += spawnBounds.size.x / 2;
                     spawnData.spawner.TrySpawn(spawnBounds, tmap, roomGameObject, spawnData.minSpawns, spawnData.maxSpawns);
                 }
             }
