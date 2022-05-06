@@ -19,7 +19,7 @@ namespace EnemyScripts.Drone
 
         public override Type Tick()
         {
-            if (!_enemy.EnteredRoom || !_enemy.target || 
+            if (!_enemy.target || 
                 Vector2.Distance(_enemy.target.position, transform.position) >= aggroRange)
                 return null;
             return typeof(DroneChaseState);

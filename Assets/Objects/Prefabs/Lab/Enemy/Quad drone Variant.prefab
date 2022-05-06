@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: timeBetweenShots
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 3344773479546192025, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1155766359675120178, guid: 2242538e955fb19419c9d5830ae10b1b, type: 3}
     - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Name
       value: Quad drone Variant

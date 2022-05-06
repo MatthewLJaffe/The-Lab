@@ -189,6 +189,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 3816396577628812517, guid: 05c5814e7f0dd914688012a6bb47d7d7, type: 3}
+    - target: {fileID: 3344773479546192025, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -656426634409159738, guid: 5e16edb616b9c8d4ba354b450e43b1df, type: 3}
     - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Name
       value: 6 shot Variant

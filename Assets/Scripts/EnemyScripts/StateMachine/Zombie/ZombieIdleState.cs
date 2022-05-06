@@ -19,7 +19,7 @@ namespace EnemyScripts
 
         public override Type Tick()
         {
-            if (!_enemy.target || Vector2.Distance(_enemy.target.position, transform.position) >= aggroRange || !_enemy.EnteredRoom)
+            if (!_enemy.target || Vector2.Distance(_enemy.target.position, transform.position) >= aggroRange)
                 return null;
             return aggroState.GetType();
         }

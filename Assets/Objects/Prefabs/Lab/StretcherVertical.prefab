@@ -103,11 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 1
-  moveSpeed: 2.5
   maxSpeed: 14
   rollTime: 0.4
-  rollMass: 15
-  moveMass: 3
   animationCurve:
     serializedVersion: 2
     m_Curve:
@@ -150,12 +147,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   highlightColor: {r: 1, g: 1, b: 0, a: 1}
   rollSound: {fileID: 11400000, guid: d2071056067107c408d5051100dbb87b, type: 2}
   sr: {fileID: 4631908601665803378}
   rb: {fileID: 1004095023885592682}
-  boxCollider: {fileID: 5405052321691699611}
 --- !u!1 &6525251393856164963
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +248,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 8
-  m_LinearDrag: 10
+  m_Mass: 5
+  m_LinearDrag: 40
   m_AngularDrag: 0.2
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: c438d7163be6d2244b1dee6ebf92f3d8, type: 2}

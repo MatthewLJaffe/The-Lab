@@ -142,9 +142,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8287159820035578686, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
       propertyPath: m_Name
-      value: UpsidedownTObsticle
+      value: UpsidedownTObsticle Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7663163215949886857, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
 --- !u!1 &4203769350095784157 stripped
 GameObject:

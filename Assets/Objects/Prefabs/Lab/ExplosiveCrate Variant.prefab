@@ -9839,7 +9839,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.5
 --- !u!114 &2596925157425777591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9854,7 +9854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   sourceCollider: {fileID: 8865873838467174007}
-  damageSfx: {fileID: 11400000, guid: 70615fecad20794428986ae651ef24a1, type: 2}
+  damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
     m_Bits: 2101760
@@ -14922,7 +14922,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5436477647316537631, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
+    - {fileID: 4712396696229891030, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
 --- !u!1 &8041476855894250717 stripped
 GameObject:

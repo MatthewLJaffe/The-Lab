@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using EntityStatsScripts;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,47 +7,24 @@ namespace LabCreationScripts
 {
     public class CrateDamaged : MonoBehaviour, IDamageable
     {
-        [SerializeField] private Sprite damagedSprite;
-        [SerializeField] private SpriteRenderer sr;
-        public UnityEvent onTakeDamage;
-        [SerializeField] private CircleCollider2D damageCollider;
-        [SerializeField] private float explosionTime;
-        [SerializeField] private float explosionHitBoxDelay;
-        [HideInInspector] public bool destroyed;
+        [SerializeField] private Sprite[] crateSprites;
+        private int _timesDamaged;
+        private SpriteRenderer _sr;
+        public UnityEvent onDestroyed;
 
         private void Awake()
         {
-            damageCollider.enabled = false;
+            _sr = GetComponent<SpriteRenderer>();
         }
-        
+
         public void TakeDamage(float amount, Vector2 dir)
         {
-            onTakeDamage.Invoke();
-            sr.sprite = damagedSprite;
-            destroyed = true;
-            StartCoroutine(DamageHitbox());
-        }
-
-        private void CheckForOtherCrates()
-        {
-            var hits = Physics2D.CircleCastAll(transform.position, damageCollider.radius, Vector2.zero,
-                0f, LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer)));
-            foreach (var hit in hits)
-            {
-                var crate = hit.transform.GetComponent<CrateDamaged>();
-                if (crate && !crate.destroyed)
-                    crate.TakeDamage(0f, Vector2.zero);
+            _timesDamaged++;
+            if (_timesDamaged < crateSprites.Length) {
+                _sr.sprite = crateSprites[_timesDamaged];
             }
-            
-        }
-
-        private IEnumerator DamageHitbox()
-        {
-            yield return new WaitForSeconds(explosionHitBoxDelay);
-            CheckForOtherCrates();
-            damageCollider.enabled = true;
-            yield return new WaitForSeconds(explosionTime);
-            damageCollider.enabled = false;
+            if (_timesDamaged == crateSprites.Length -1)
+                onDestroyed.Invoke();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace EntityStatsScripts
         [SerializeField] private UnityEvent onPlayDeath;
         [SerializeField] private SpriteRenderer mainSr;
         [SerializeField] private AnimationCurve flashCurve;
+        [SerializeField] private AnimationCurve spawnInFlashCurve;
         [SerializeField] private AnimationCurve deathFlashCurve;
         [SerializeField] private AnimationCurve deathScaleCurve;
         [SerializeField] private float flashTime;
@@ -47,6 +48,23 @@ namespace EntityStatsScripts
         {
             if (_flashRoutine == null)
                 _flashRoutine = StartCoroutine(PlayFlash());
+        }
+
+        public void SpawnIn(float time)
+        {
+            StartCoroutine(PlaySpawnIn(time));
+        }
+
+        private IEnumerator PlaySpawnIn(float time)
+        {
+            var fixedUpdate = new WaitForFixedUpdate();
+            var transparent = new Color(1f, 1f, 1f, 0f);
+            for (var t = 0f; t <= time; t += Time.fixedDeltaTime) {
+                yield return fixedUpdate;
+                transparent.a  = spawnInFlashCurve.Evaluate(t);
+                _flashSr.color = transparent;
+            }
+            _flashSr.color = new Color(1f, 1f, 1f, 0f);
         }
 
         private IEnumerator PlayFlash()

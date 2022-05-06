@@ -33,5 +33,7 @@ namespace InventoryScripts.ItemScripts
             restoreText.GetComponent<TextMeshProUGUI>().text = "+" + finalRestoreAmount;
             base.Consume(inputName);
         }
+        
+        
     }
 }

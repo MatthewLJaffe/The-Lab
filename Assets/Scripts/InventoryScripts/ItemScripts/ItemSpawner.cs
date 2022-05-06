@@ -45,7 +45,7 @@ namespace InventoryScripts.ItemScripts
             public GameObject drop;
         }
 
-        private void DetermineLoot()
+        public void DetermineLoot()
         {
             if (_looted) return;
             var probValue = Random.Range(0f, 100f);
@@ -63,11 +63,12 @@ namespace InventoryScripts.ItemScripts
 
         private void SpawnItem(GameObject drop)
         {
+            _looted = true;
+            if (!drop)  return;
             var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
             StartCoroutine(dropInstance.GetComponent<ItemPickup>().DropItem());
             onItemSpawn.Invoke();
             _sr.color = Color.white;
-            _looted = true;
         }
     }
 }

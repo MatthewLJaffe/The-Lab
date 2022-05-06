@@ -63,5 +63,6 @@ namespace EntityStatsScripts
         {
             return 1f + atkToDamageMultiplier * playerStatsDict[StatType.Attack].CurrentValue;
         }
+        
     }
 }
