@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713561912496562456, guid: 843aa0d6e5b814a43ae8c1b40ddb1c30, type: 3}
       propertyPath: m_Size.x
-      value: 3
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 713561912496562456, guid: 843aa0d6e5b814a43ae8c1b40ddb1c30, type: 3}
       propertyPath: m_Offset.y
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713561912496562456, guid: 843aa0d6e5b814a43ae8c1b40ddb1c30, type: 3}
       propertyPath: m_Size.y
-      value: 4
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 713561912496562457, guid: 843aa0d6e5b814a43ae8c1b40ddb1c30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713561912496562459, guid: 843aa0d6e5b814a43ae8c1b40ddb1c30, type: 3}
       propertyPath: m_Name
-      value: BottomZombieTrapChunk Variant
+      value: BRZombieTrapChunk Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6632449547508056802, guid: 843aa0d6e5b814a43ae8c1b40ddb1c30, type: 3}
       propertyPath: m_AnchorMax.x

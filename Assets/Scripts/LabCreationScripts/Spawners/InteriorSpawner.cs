@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -9,42 +10,47 @@ namespace LabCreationScripts.Spawners
     public class InteriorSpawner : ScriptableObject
     {
         [SerializeField] protected GameObject[] prefabs;
+        [SerializeField] protected bool removeSpawnCollider;
         protected GameObject prefab;
         protected BoxCollider2D spawnCollider;
         protected int targetSpawns;
         protected int currentSpawns;
 
-        public virtual void TrySpawn(BoundsInt spawnBounds, Tilemap tMap, GameObject roomGameObject, int minSpawnsPerRoom, int maxSpawnsPerRoom)
+        public virtual void SpawnObjects(BoundsInt spawnBounds, Tilemap tMap, GameObject roomGameObject, int minSpawnsPerRoom, int maxSpawnsPerRoom)
         {
             prefab = prefabs[Random.Range(0, prefabs.Length)];
             targetSpawns = Random.Range(minSpawnsPerRoom, maxSpawnsPerRoom + 1);
             currentSpawns = 0;
-            spawnCollider = FindSpawnCollider();
-            for (int i = 0; i < 1000; i++)
-            {
-                if (Spawn(spawnBounds, tMap, roomGameObject.transform))
-                    return;
-                prefab = prefabs[Random.Range(0, prefabs.Length)];
-                spawnCollider = FindSpawnCollider();
-            }
-            Debug.LogError("Failed to spawn " + prefab.name + " in" + roomGameObject.name);
+            spawnCollider = FindSpawnCollider(prefab);
+            if (!TryToSpawn(spawnBounds, tMap, roomGameObject.transform)) 
+                Debug.LogError("Failed to spawn " + prefab.name + " in" + roomGameObject.name);
         }
 
-        protected virtual bool Spawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
+        protected virtual bool TryToSpawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
         {
             var size = spawnCollider.size;
             var offset = spawnCollider.offset;
             spawnBounds.position -= new Vector3Int(Mathf.RoundToInt(offset.x), Mathf.RoundToInt(offset.y), 0);
-            var spawnPos = new Vector3Int(
-                Random.Range(spawnBounds.xMin + Mathf.RoundToInt(size.x / 2), spawnBounds.xMax + 1 - Mathf.RoundToInt(size.x / 2)), 
-                Random.Range(spawnBounds.yMin + Mathf.RoundToInt(size.y / 2), spawnBounds.yMax + 1 - Mathf.RoundToInt(size.y / 2)), 
-                0);
-            if (SpawnClear(spawnPos))
+            var availableCoords = new List<Vector2Int>();
+            for (var x = spawnBounds.xMin + Mathf.RoundToInt(size.x/2); x <= spawnBounds.xMax - Mathf.RoundToInt(size.x/2); x++)
+                for (var y = spawnBounds.yMin + Mathf.RoundToInt(size.y/2); y <= spawnBounds.yMax - Mathf.RoundToInt(size.y/2); y++)
+                    availableCoords.Add(new Vector2Int(x, y));
+            while (availableCoords.Count > 0 && currentSpawns < targetSpawns)
             {
-                currentSpawns++;
-                Instantiate(prefab, spawnPos, Quaternion.identity, roomTransform);
+                var spawnPos = availableCoords[Random.Range(0, availableCoords.Count)];
+                availableCoords.Remove(spawnPos);
+                if (SpawnClear(new Vector3(spawnPos.x, spawnPos.y, 0)))
+                    Spawn(new Vector3(spawnPos.x, spawnPos.y, 0), roomTransform);
             }
             return currentSpawns >= targetSpawns;
+        }
+
+        protected void Spawn(Vector3 spawnPos, Transform roomTransform)
+        {
+            currentSpawns++;
+            var instance = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity, roomTransform);
+            if (removeSpawnCollider)
+                FindSpawnCollider(instance).enabled = false;
         }
 
         protected virtual bool SpawnClear(Vector3 pos)
@@ -56,13 +62,18 @@ namespace LabCreationScripts.Spawners
             return !hit;
         }
 
-        protected BoxCollider2D FindSpawnCollider()
+        protected BoxCollider2D FindSpawnCollider(GameObject go)
         {
-            var collider =  prefab.GetComponentsInChildren<BoxCollider2D>()
-                .FirstOrDefault(bc => bc.gameObject.layer == LayerMask.NameToLayer("Spawn") || bc.gameObject.layer == LayerMask.NameToLayer("BlockObjects"));
+            var parentCollider = go.GetComponent<BoxCollider2D>();
+            if (parentCollider && (parentCollider.gameObject.layer == LayerMask.NameToLayer("Spawn") ||
+                parentCollider.gameObject.layer == LayerMask.NameToLayer("BlockObjects")))
+                return parentCollider;
+            var collider =  go.GetComponentsInChildren<BoxCollider2D>()
+                .FirstOrDefault(bc => 
+                    bc.gameObject.layer == LayerMask.NameToLayer("Spawn") || bc.gameObject.layer == LayerMask.NameToLayer("BlockObjects"));
             if (collider)
                 return collider;
-            return prefab.GetComponent<BoxCollider2D>();
+            return go.GetComponent<BoxCollider2D>();
         }
     }
 }

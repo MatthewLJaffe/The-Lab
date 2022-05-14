@@ -9,6 +9,7 @@ namespace InventoryScripts.ItemScripts
     public class ItemSpawner : MonoBehaviour, IInteractable
     {
         public UnityEvent onItemSpawn;
+        [SerializeField] private Vector2 dropDir = Vector2.down;
         [SerializeField] private ItemTableEntry[] itemTable;
         private SpriteRenderer _sr;
         [SerializeField] private Color highlightColor;
@@ -66,7 +67,7 @@ namespace InventoryScripts.ItemScripts
             _looted = true;
             if (!drop)  return;
             var dropInstance = Instantiate(drop, transform.position, Quaternion.identity);
-            StartCoroutine(dropInstance.GetComponent<ItemPickup>().DropItem());
+            StartCoroutine(dropInstance.GetComponent<ItemPickup>().DropItem(dropDir));
             onItemSpawn.Invoke();
             _sr.color = Color.white;
         }

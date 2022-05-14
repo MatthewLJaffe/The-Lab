@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace LabCreationScripts.Spawners
@@ -8,25 +9,46 @@ namespace LabCreationScripts.Spawners
     {
         public bool centerY = true;
         public bool centerX = true;
-        protected override bool Spawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
+        protected override bool TryToSpawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
         {
-            if (centerX && centerY)
+            var size = spawnCollider.size;
+            var offset = spawnCollider.offset;
+            spawnBounds.position -= new Vector3Int(Mathf.RoundToInt(offset.x), Mathf.RoundToInt(offset.y), 0);
+            var availableCoords = new List<Vector2Int>();
+            for (var c = 0; c < targetSpawns; c++)
             {
-                var spawnPos = new Vector3(Random.Range(spawnBounds.xMin, spawnBounds.xMax), Random.Range(spawnBounds.yMin, spawnBounds.yMax), 0);
-                if (SpawnClear(spawnPos))
+                if (centerX && centerY)
                 {
-                    currentSpawns++;
-                    Instantiate(prefab, spawnPos, Quaternion.identity, roomTransform);
+                    var spawnPos = spawnBounds.center;
+                    if (SpawnClear(spawnBounds.center))
+                        Spawn(new Vector3((int)spawnPos.x, (int)spawnPos.y, 0), roomTransform);
+                }
+                else if (centerX || centerY)
+                {
+                    if (centerX)
+                        for (var y = spawnBounds.yMin + Mathf.RoundToInt(size.y/2); y <= spawnBounds.yMax - Mathf.RoundToInt(size.y/2); y++)
+                            availableCoords.Add(new Vector2Int((int)spawnBounds.center.x, y));
+                    else if (centerY)
+                        for (var x = spawnBounds.xMin + Mathf.RoundToInt(size.x/2); x <= spawnBounds.xMax - Mathf.RoundToInt(size.x/2); x++)
+                            availableCoords.Add(new Vector2Int(x, (int)spawnBounds.center.y));
+                    while (availableCoords.Count > 0 && currentSpawns < targetSpawns)
+                    {
+                        var tryIndex = Random.Range(0, availableCoords.Count);
+                        var spawnPos = new Vector3(availableCoords[tryIndex].x, availableCoords[tryIndex].y, 0);
+                        availableCoords.RemoveAt(tryIndex);
+                        if (SpawnClear(spawnPos)) {
+                            Spawn(new Vector3(spawnPos.x, spawnPos.y, 0), roomTransform);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    spawnBounds.position += new Vector3Int(Mathf.RoundToInt(offset.x), Mathf.RoundToInt(offset.y), 0);
+                    return base.TryToSpawn(spawnBounds, tMap, roomTransform);
                 }
             }
-            else if (centerX)
-            {
-                
-            }
-            var xPos = centerX ? spawnBounds.center.x : Random.Range(spawnBounds.xMin, spawnBounds.xMax + 1);
-            var yPos = centerY ? spawnBounds.center.y : Random.Range(spawnBounds.yMin, spawnBounds.yMax + 1);
-
-            return currentSpawns >= targetSpawns;
+            return currentSpawns == targetSpawns;
         }
     }
 }

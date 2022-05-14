@@ -19,7 +19,7 @@ namespace LabCreationScripts.Spawners
             Vertical
         }
         
-        public override void TrySpawn(BoundsInt spawnBounds, Tilemap tMap, GameObject roomGameObject, int minSpawnsPerRoom,
+        public override void SpawnObjects(BoundsInt spawnBounds, Tilemap tMap, GameObject roomGameObject, int minSpawnsPerRoom,
             int maxSpawnsPerRoom)
         {
             prefab = prefabs[Random.Range(0, prefabs.Length)];
@@ -27,13 +27,13 @@ namespace LabCreationScripts.Spawners
             currentSpawns = 0;
             for (int i = 0; i < 1000; i++)
             {
-                if (Spawn(spawnBounds, tMap, roomGameObject.transform))
+                if (TryToSpawn(spawnBounds, tMap, roomGameObject.transform))
                     return;
             }
             Debug.LogError("Failed to spawn " + prefab.name + " in" + roomGameObject.name);
         }
 
-        protected override bool Spawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
+        protected override bool TryToSpawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
         {
             BoundsInt lineBounds;
             if (lineDirection == LineDirection.Horizontal)

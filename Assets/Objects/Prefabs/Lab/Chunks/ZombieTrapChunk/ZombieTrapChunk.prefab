@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2682409074037477819, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2682409074037477819, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5913216749073095039, guid: f59a4a06e64df404eb4e86a3dc257b06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5913216749073095039, guid: f59a4a06e64df404eb4e86a3dc257b06, type: 3}
       propertyPath: m_LocalRotation.x
@@ -214,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188725109942584536, guid: f54b1f90c96e56d42b6f3a3a85c57650, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188725109942584536, guid: f54b1f90c96e56d42b6f3a3a85c57650, type: 3}
       propertyPath: m_LocalRotation.x
@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: enteredRoom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2591415159008789313, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: m_Mass
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2591415159008789317, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_Name
       value: Zombie (1)
@@ -280,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2591415159008789327, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2591415159008789327, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -346,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2682409074037477819, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2682409074037477819, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -416,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188725109942584536, guid: f54b1f90c96e56d42b6f3a3a85c57650, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188725109942584536, guid: f54b1f90c96e56d42b6f3a3a85c57650, type: 3}
       propertyPath: m_LocalRotation.x
@@ -464,6 +468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7158783023340144014}
     m_Modifications:
+    - target: {fileID: 2591415159008789313, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: m_Mass
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2591415159008789317, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -478,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2591415159008789327, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2591415159008789327, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -548,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5913216749073095039, guid: f59a4a06e64df404eb4e86a3dc257b06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 84.589615
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5913216749073095039, guid: f59a4a06e64df404eb4e86a3dc257b06, type: 3}
       propertyPath: m_LocalRotation.x

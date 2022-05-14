@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13729b9c4aa34111bee2d99404848db8, type: 3}
+  m_Name: ZombieTrappedCornerSpawner
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 7636300393135228397, guid: 58351a1cc487b9243806b5e12571c0c0, type: 3}
+  removeSpawnCollider: 0
+  orientations:
+  - prefab: {fileID: 3255137763380023254, guid: 884b4dbc81d3a49438e59190cff05870, type: 3}
+    corner: 1
+  - prefab: {fileID: 7636300393135228397, guid: 58351a1cc487b9243806b5e12571c0c0, type: 3}
+    corner: 0
+  - prefab: {fileID: 592763247050738107, guid: e3b409afbd149ba429b7d62d33ff3d30, type: 3}
+    corner: 2
+  - prefab: {fileID: 7287082962950534820, guid: a478577c07ed61949a22322d60a8b8cd, type: 3}
+    corner: 3
+  stackAcross: 0

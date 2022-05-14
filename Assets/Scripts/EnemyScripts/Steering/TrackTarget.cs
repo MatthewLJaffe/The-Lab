@@ -17,8 +17,10 @@ namespace EnemyScripts
         public override void AdjustWeights(Dictionary<Vector2, float> steeringWeights)
         {
             if (_enemy.target == null) return;
-            foreach (var dir in steeringWeights.Keys.ToList()) {
-                steeringWeights[dir] += weight * Vector2.Dot((_enemy.target.position - transform.position).normalized, dir);
+            foreach (var dir in steeringWeights.Keys.ToList())
+            {
+                var dot = Vector2.Dot(((Vector2)_enemy.target.position - (Vector2)transform.position).normalized, dir);
+                steeringWeights[dir] += weight * dot;
             }
         }
     }

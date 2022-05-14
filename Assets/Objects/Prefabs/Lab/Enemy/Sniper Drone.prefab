@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190985, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Offset.x
       value: 0

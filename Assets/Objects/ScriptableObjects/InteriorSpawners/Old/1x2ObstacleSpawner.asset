@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb655ef10cc4302b7471c780a0606cb, type: 3}
+  m_Name: 1x2ObstacleSpawner
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1106862784845380648, guid: e72564e4fcf5860469debb79dacb942c, type: 3}
+  removeSpawnCollider: 0
+  spaceAround: {x: 0, y: 0}

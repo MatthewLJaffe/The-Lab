@@ -8,7 +8,7 @@ namespace LabCreationScripts.Spawners
     {
         [SerializeField] private Vector2 spaceAround;
 
-        protected override bool Spawn(BoundsInt bounds, Tilemap tMap, Transform roomTransform)
+        protected override bool TryToSpawn(BoundsInt bounds, Tilemap tMap, Transform roomTransform)
         {
             var size = spawnCollider.size;
             var xSpace = (int)(size.x / 2 + spaceAround.x);

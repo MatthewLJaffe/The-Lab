@@ -73,17 +73,24 @@ namespace EnemyScripts
             for (var theta = 0f; theta < 360f; theta += 360f / numCasts)
             {
                 var dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * theta), Mathf.Sin(Mathf.Deg2Rad * theta)).normalized;
-                var size = Physics2D.RaycastNonAlloc((Vector2)transform.position, dir, 
-                    _raycastResults, raycastDistance, _avoidLayers);
+                if (Physics2D.RaycastNonAlloc((Vector2) transform.position, dir,
+                    _raycastResults, raycastDistance, _avoidLayers) == 0) continue;
+
                 if (debug)
                     Debug.DrawRay((Vector2)transform.position, 
                     dir.normalized * raycastDistance, Color.magenta, Time.fixedDeltaTime);
-                for (int i = 0; i < size; i++)
+
+                var closest = new RaycastHit2D();
+                foreach (var hit in _raycastResults)
                 {
-                    if (_raycastResults[i].transform.gameObject == transform.parent.gameObject) continue;
-                    raycastHits.Add(dir, _raycastResults[i]);
-                    break;
+                    if (!hit.transform) break;
+                    if (hit.transform.gameObject == transform.parent.gameObject) continue;
+                    if (!closest.transform || Vector2.Distance(closest.transform.position, transform.position) >
+                        Vector2.Distance(hit.transform.position, transform.position))
+                        closest = hit;
                 }
+                if (closest.transform)
+                    raycastHits.Add(dir, closest);
             }
             return raycastHits;
         }

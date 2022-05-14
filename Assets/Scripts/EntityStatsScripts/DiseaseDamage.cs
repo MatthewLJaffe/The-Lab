@@ -16,6 +16,7 @@ namespace EntityStatsScripts
         public UnityEvent onGasStart;
         private Coroutine _damageRoutine;
         private ParticleSystem _particleSystem;
+        private static bool _damagingPlayer;
 
         private void Awake()
         {
@@ -24,25 +25,26 @@ namespace EntityStatsScripts
 
         private void Start()
         {
-            StartCoroutine(BeginRoutine());
-        }
+            StartCoroutine(BeginRoutine());        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
-                _damageRoutine = StartCoroutine(DamageRoutine());
+            if (other.gameObject.CompareTag("Player") && !_damagingPlayer)
+            {
+                _damagingPlayer = true;
+                StartCoroutine(DamageRoutine());
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (_damageRoutine != null)
-                StopCoroutine(_damageRoutine);
-            _damageRoutine = null;
+            if (other.gameObject.CompareTag("Player") && _damagingPlayer)
+                _damagingPlayer = false;
         }
 
         private IEnumerator BeginRoutine()
         {
-            yield return new WaitForSeconds(Random.Range(timeRangeBetweenBursts.x, timeRangeBetweenBursts.y));
+            yield return new WaitForSeconds(Random.Range(startDelayTimeRange.x, startDelayTimeRange.y));
             StartCoroutine(ActiveRoutine());
         }
 
@@ -66,7 +68,7 @@ namespace EntityStatsScripts
         private IEnumerator DamageRoutine()
         {
             var waitForFixed = new WaitForFixedUpdate();
-            while (true)
+            while (_damagingPlayer)
             {
                 yield return waitForFixed;
                 PlayerBarsManager.Instance.ModifyPlayerStat(PlayerBar.PlayerBarType.Infection, -dps * Time.fixedDeltaTime);

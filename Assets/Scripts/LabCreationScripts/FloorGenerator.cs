@@ -100,7 +100,7 @@ namespace LabCreationScripts
                         var roomToSpawn = spawnableRooms[Random.Range(0, spawnableRooms.Count)];
                         spawnableRooms.Remove(roomToSpawn);
                         var spawnBounds = Room.RoomBoundsToFloorBounds(roomToSpawn.RoomBounds);
-                        preSpawn.spawner.TrySpawn(spawnBounds, _tMap, roomToSpawn.roomGameObject, preSpawn.minSpawnsPerRoom, preSpawn.maxSpawnsPerRoom);
+                        preSpawn.spawner.SpawnObjects(spawnBounds, _tMap, roomToSpawn.roomGameObject, preSpawn.minSpawnsPerRoom, preSpawn.maxSpawnsPerRoom);
                     }
                 }
             }

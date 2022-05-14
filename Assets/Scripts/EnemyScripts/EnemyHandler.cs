@@ -18,7 +18,20 @@ namespace EnemyScripts
         private void Awake()
         {
             Door.onEnterRoom += TrySpawnEnemies;
-            if (enemies == null)
+            
+        }
+
+        private void Start()
+        {
+            var enemyArr = transform.parent.GetComponentsInChildren<Enemy>();
+            if (enemyArr != null)
+            {
+                enemies = enemyArr.ToList();
+                foreach (var enemy in enemies) {
+                    enemy.gameObject.SetActive(false);
+                }
+            }
+            else
                 enemies = new List<Enemy>();
         }
 

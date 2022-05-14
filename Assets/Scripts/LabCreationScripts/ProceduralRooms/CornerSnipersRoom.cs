@@ -8,6 +8,7 @@ namespace LabCreationScripts.ProceduralRooms
     [CreateAssetMenu(fileName = "CornerSnipersRoom", menuName = "ProceduralRooms/CornerSnipersRoom")]
     public class CornerSnipersRoom : EnemyRoom
     {
+        /*
         [SerializeField] private InteriorSpawner wallSpawner;
 
 
@@ -52,5 +53,6 @@ namespace LabCreationScripts.ProceduralRooms
             Debug.LogError("quadNum out of bounds");
             return new BoundsInt();
         }
+        */
     }
 }

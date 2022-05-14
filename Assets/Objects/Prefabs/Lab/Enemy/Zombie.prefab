@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.37}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1943321958
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784954193653946009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2591415159008789327}
@@ -115,7 +115,7 @@ MonoBehaviour:
     weight: 0
   speed: 2
   acceleration: 2
-  aggroRange: 10
+  aggroRange: 12
   aggroState: {fileID: 5864641038399318974}
 --- !u!114 &5864641038399318974
 MonoBehaviour:
@@ -139,7 +139,7 @@ MonoBehaviour:
   - behaviour: {fileID: 6759166687119103119}
     weight: 0
   speed: 3.5
-  acceleration: 3
+  acceleration: 2
   farState: {fileID: 3072911514739938053}
   farRange: 15
   closeState: {fileID: 3907632242827498771}
@@ -168,8 +168,8 @@ MonoBehaviour:
     weight: 0
   - behaviour: {fileID: 6759166687119103119}
     weight: 0.75
-  speed: 9
-  acceleration: 2
+  speed: 8
+  acceleration: 0.5
   strafeTime: 0.6
 --- !u!114 &3907632242827498771
 MonoBehaviour:
@@ -193,7 +193,7 @@ MonoBehaviour:
   - behaviour: {fileID: 6759166687119103119}
     weight: 0
   speed: 5
-  acceleration: 1.5
+  acceleration: 1
   attackRange: 2.5
 --- !u!1 &2591415159008789317
 GameObject:
@@ -251,7 +251,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2591415159008789317}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 45e28b96b97515349b8a66d3a322fbff, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -340,11 +340,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 45e28b96b97515349b8a66d3a322fbff, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
@@ -367,7 +367,7 @@ MonoBehaviour:
   acceleration: 4
   scanDirections: 16
   changeDirThreshold: 0.25
-  debug: 0
+  debug: 1
   frameCount: 0
 --- !u!114 &7487640216157173530
 MonoBehaviour:
@@ -442,7 +442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCollider: {fileID: 3806519815638980653}
   target: {fileID: 0}
-  enteredRoom: 0
   roomChild: {fileID: 0}
   sr: {fileID: 2591415159008789312}
   spawnInTime: 1
@@ -5765,7 +5764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8135384662560698018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2591415159008789327}
@@ -5805,7 +5804,7 @@ MonoBehaviour:
   avoidThreshold: 0.8
   nonHitMultiplier: 0.5
   raycastDistance: 2.5
-  debug: 0
+  debug: 1
   layerWeights:
   - layer: Spikes
     weight: 3

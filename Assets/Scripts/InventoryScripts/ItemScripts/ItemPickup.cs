@@ -62,9 +62,9 @@ namespace InventoryScripts.ItemScripts
             gameObject.SetActive(false);
         }
 
-        public IEnumerator DropItem()
+        public IEnumerator DropItem(Vector2 spawnDir)
         {
-            _rb.AddForce(new Vector2(Random.Range(-.8f,.8f), Random.Range(-.2f,-1f)).normalized * 250f);
+            _rb.AddForce((spawnDir.normalized + new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized * .2f) * 250f);
             _canDrop = false;
             yield return new WaitForSeconds(.5f);
             _canDrop = true;

@@ -120,12 +120,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7811948875387752687, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Name
-      value: MovingCabinet
+      value: MovingCabinet Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8886061935761359573, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2452979307651219834, guid: 872e93af6d3f19c419ed0cfecfead0dc, type: 3}
+    - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0329777
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8137467
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0015630722
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7472744
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1254469594, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}

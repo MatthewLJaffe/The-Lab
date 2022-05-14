@@ -12,7 +12,7 @@ namespace LabCreationScripts.ProceduralRooms
     {
         public Vector2Int minSize;
         public Vector2Int maxSize;
-        [SerializeField] protected SpawnerData[] spawners;
+        [SerializeField] protected SpawnData[] spawners;
         [SerializeField] protected bool lockRoom = true;
         
         [Serializable]
@@ -32,15 +32,22 @@ namespace LabCreationScripts.ProceduralRooms
         }
 
         [Serializable]
-        public struct SpawnerData
+        public struct SpawnData
         {
-            public InteriorSpawner spawner;
-            public int minSpawns;
-            public int maxSpawns;
+            public PotentialSpawners[] potentialSpawns;
             public float spawnChance;
             public int spawnOrder;
             public VerticalConstraints vertConstraints;
             public HorizontalConstraints horizConstraints;
+        }
+
+        [Serializable]
+        public struct PotentialSpawners
+        {
+            public InteriorSpawner spawner;
+            public float spawnChance;
+            public int minSpawns;
+            public int maxSpawns;
         }
 
         public virtual void FillRoom(Room room, Tilemap tmap, GameObject roomGameObject)
@@ -49,21 +56,29 @@ namespace LabCreationScripts.ProceduralRooms
                 door.lockable = lockRoom;
             }
             var sortedSpawners = spawners.OrderBy(s => s.spawnOrder);
-            foreach (var spawnData in sortedSpawners.ToArray()) 
+            foreach (var spawnData in sortedSpawners.ToArray())
             {
-                if (Random.Range(0f, 1f) <= spawnData.spawnChance)
+                if (Random.Range(0f, 1f) > spawnData.spawnChance) continue;
+                var roomBounds = Room.RoomBoundsToFloorBounds(room.RoomBounds);
+                var spawnBounds = new BoundsInt(roomBounds.position, roomBounds.size);
+                
+                if (spawnData.vertConstraints == VerticalConstraints.TopHalf)
+                    spawnBounds.yMin += spawnBounds.size.y / 2;
+                if (spawnData.vertConstraints == VerticalConstraints.BottomHalf)
+                    spawnBounds.yMax = spawnBounds.yMin + spawnBounds.size.y / 2;
+                if (spawnData.horizConstraints == HorizontalConstraints.LeftHalf)
+                    spawnBounds.xMax = spawnBounds.xMin + spawnBounds.size.x / 2;
+                if (spawnData.horizConstraints == HorizontalConstraints.RightHalf)
+                    spawnBounds.xMin += spawnBounds.size.x / 2;
+                
+                var rand = Random.Range(0f, 1f);
+                foreach (var potential in spawnData.potentialSpawns)
                 {
-                    var roomBounds = Room.RoomBoundsToFloorBounds(room.RoomBounds);
-                    var spawnBounds = new BoundsInt(roomBounds.position, roomBounds.size);
-                    if (spawnData.vertConstraints == VerticalConstraints.TopHalf)
-                        spawnBounds.yMin += spawnBounds.size.y / 2;
-                    if (spawnData.vertConstraints == VerticalConstraints.BottomHalf)
-                        spawnBounds.yMax = spawnBounds.yMin + spawnBounds.size.y / 2;
-                    if (spawnData.horizConstraints == HorizontalConstraints.LeftHalf)
-                        spawnBounds.xMax = spawnBounds.xMin + spawnBounds.size.x / 2;
-                    if (spawnData.horizConstraints == HorizontalConstraints.RightHalf)
-                        spawnBounds.xMin += spawnBounds.size.x / 2;
-                    spawnData.spawner.TrySpawn(spawnBounds, tmap, roomGameObject, spawnData.minSpawns, spawnData.maxSpawns);
+                    if (potential.spawnChance > rand) {
+                        potential.spawner.SpawnObjects(spawnBounds, tmap, roomGameObject, potential.minSpawns, potential.maxSpawns);
+                        break;
+                    }
+                    rand -= potential.spawnChance;
                 }
             }
         }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd58e1a678446e44a93696e6f9f7feea, type: 3}
+  m_Name: NewLockerSpawner
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 2832293141363338219, guid: 3990cd0597085f440a50b1ba50b54c28, type: 3}
+  removeSpawnCollider: 0
+  sides:
+  - side: 1
+    prefab: {fileID: 8479585581050095406, guid: 0f9aeb9580b4fbd4399693f27271b6c4, type: 3}
+  - side: 0
+    prefab: {fileID: 3813088847117423056, guid: aeb99f73797e5ed4bbf777344f0bcf53, type: 3}
+  - side: 2
+    prefab: {fileID: 1049033749790389497, guid: 230c29c9629612c449eeae85dbc1832f, type: 3}

@@ -9839,7 +9839,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 2.4
 --- !u!114 &2596925157425777591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9857,13 +9857,15 @@ MonoBehaviour:
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 2101760
+    m_Bits: 2102016
   layerDamages:
   - layer: Player
     damage: 10
   - layer: Drone
     damage: 40
   - layer: Enemy
+    damage: 40
+  - layer: Block
     damage: 40
 --- !u!1 &1703875093
 GameObject:
@@ -14913,6 +14915,10 @@ PrefabInstance:
     - target: {fileID: 2682409074037477821, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682409074037477821, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
+      propertyPath: m_SleepingMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2682409074037477823, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_Name
