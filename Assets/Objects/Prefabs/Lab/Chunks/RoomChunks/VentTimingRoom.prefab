@@ -10254,6 +10254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DronePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190990, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.058274
@@ -10300,11 +10304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
@@ -10720,6 +10724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DronePrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190990, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.1068377
@@ -10766,11 +10774,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0946d074e20bb094093b767701eeebc6, type: 3}

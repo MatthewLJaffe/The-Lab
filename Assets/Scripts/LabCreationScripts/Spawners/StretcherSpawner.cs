@@ -4,7 +4,7 @@ using UnityEngine;
 namespace LabCreationScripts.Spawners
 {
     [CreateAssetMenu(fileName = "StretcherSpawner", menuName = "InteriorSpawners/StretcherSpawner")]
-    public class StretcherSpawner : ObstacleSpawner
+    public class StretcherSpawner : InteriorSpawner
     {
         [SerializeField] private StretcherDirection direction;
         [SerializeField] private float spaceClear;

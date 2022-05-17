@@ -21,7 +21,7 @@ namespace LabCreationScripts.Spawners
                 {
                     var spawnPos = spawnBounds.center;
                     if (SpawnClear(spawnBounds.center))
-                        Spawn(new Vector3((int)spawnPos.x, (int)spawnPos.y, 0), roomTransform);
+                        Spawn(new Vector3((Mathf.Floor(spawnPos.x)), Mathf.Floor(spawnPos.y), 0f), roomTransform);
                 }
                 else if (centerX || centerY)
                 {

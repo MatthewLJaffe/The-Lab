@@ -25,6 +25,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
       propertyPath: onItemSpawn.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: EntityStatsScripts.ModifyStat, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -71,6 +75,38 @@ PrefabInstance:
     - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
       propertyPath: onItemSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[6].prob
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[6].drop
+      value: 
+      objectReference: {fileID: 3923383155845885380, guid: 85a72eab7d151f74ebddb7f957f7d28c, type: 3}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[5].prob
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[4].prob
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[3].prob
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[2].prob
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[1].prob
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
+      propertyPath: itemTable.Array.data[0].prob
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 2894738920910407002, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
       propertyPath: m_LocalPosition.x

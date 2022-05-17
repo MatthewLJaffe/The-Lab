@@ -995,8 +995,6 @@ MonoBehaviour:
   raycastDistance: 2
   debug: 0
   layerWeights:
-  - layer: Spikes
-    weight: 3
   - layer: Default
     weight: 1
   - layer: Enemy

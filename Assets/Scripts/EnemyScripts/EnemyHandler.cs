@@ -23,11 +23,13 @@ namespace EnemyScripts
 
         private void Start()
         {
-            var enemyArr = transform.parent.GetComponentsInChildren<Enemy>();
+            var enemyArr = transform.parent.GetComponentsInChildren<Enemy>(true);
             if (enemyArr != null)
             {
                 enemies = enemyArr.ToList();
-                foreach (var enemy in enemies) {
+                foreach (var enemy in enemies)
+                {
+                    enemy.enemyKilled += IncrementDead;
                     enemy.gameObject.SetActive(false);
                 }
             }

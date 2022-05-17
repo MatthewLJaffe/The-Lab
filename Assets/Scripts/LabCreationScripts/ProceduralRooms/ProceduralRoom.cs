@@ -75,7 +75,8 @@ namespace LabCreationScripts.ProceduralRooms
                 foreach (var potential in spawnData.potentialSpawns)
                 {
                     if (potential.spawnChance > rand) {
-                        potential.spawner.SpawnObjects(spawnBounds, tmap, roomGameObject, potential.minSpawns, potential.maxSpawns);
+                        if (potential.spawner)
+                            potential.spawner.SpawnObjects(spawnBounds, tmap, roomGameObject, potential.minSpawns, potential.maxSpawns);
                         break;
                     }
                     rand -= potential.spawnChance;

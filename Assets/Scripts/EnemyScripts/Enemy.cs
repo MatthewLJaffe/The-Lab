@@ -61,7 +61,7 @@ namespace EnemyScripts
                 var enemyHandler = roomChild.parent.GetComponentInChildren<EnemyHandler>();
                 if (enemyHandler && !enemyHandler.enemies.Contains(this)) {
                     enemyHandler.enemies.Add(this);
-                    enemyKilled += enemyHandler.IncrementDead;
+                    //enemyKilled += enemyHandler.IncrementDead;
                     gameObject.SetActive(false);
                 }
             }

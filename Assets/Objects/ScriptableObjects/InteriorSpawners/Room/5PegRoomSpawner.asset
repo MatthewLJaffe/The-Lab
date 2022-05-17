@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbc9228326449f6822319df6a7cbe03, type: 3}
-  m_Name: HorizStretcherSpawner
+  m_Script: {fileID: 11500000, guid: c72bd9179d904875bc29efb35e348498, type: 3}
+  m_Name: 5PegRoomSpawner
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 3075103135525053292, guid: 6ee707a1b6cf72840adcafc4cb4964cf, type: 3}
-  removeSpawnCollider: 0
-  spaceAround: {x: 1, y: 0}
-  direction: 0
-  spaceClear: 4
+  - {fileID: 6768714360951109899, guid: 1e634bbcceec9f14ab43ca098abbed1e, type: 3}
+  removeSpawnCollider: 1
+  centerY: 1
+  centerX: 1

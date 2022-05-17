@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2177422470410068693}
   - component: {fileID: 5915787174994873836}
   m_Layer: 16
-  m_Name: DroneSpikeChunk1
+  m_Name: DroneSpikeRoom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14, y: 15}
+  m_Size: {x: 10, y: 15}
   m_EdgeRadius: 0
 --- !u!1001 &2177422469171856764
 PrefabInstance:
@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190980, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: enteredRoom
@@ -358,11 +358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
@@ -630,15 +630,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4373314044812756942, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4373314044897802386, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4373314044897802386, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190977, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976869190980, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: enteredRoom
@@ -778,11 +778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3572731976951603741, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
@@ -2238,15 +2238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4373314044812756942, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4373314044897802386, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4373314044897802386, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b90ce74c99cb0d42a38866cfaebebeb, type: 3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2154729736421080858}
   - component: {fileID: 2154729736421080859}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CornerSniperRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.5, y: -6.5}
+  m_Offset: {x: 7, y: -7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -67,7 +67,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 13}
+  m_Size: {x: 11, y: 9}
   m_EdgeRadius: 0
 --- !u!1001 &2154729734642677859
 PrefabInstance:
@@ -138,13 +138,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2154729736421080858}
     m_Modifications:
-    - target: {fileID: 175715230907951956, guid: add5dc6cc6dd54a4599c6caee678b8f1, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 175715230690726920, guid: add5dc6cc6dd54a4599c6caee678b8f1, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 175715230907951956, guid: add5dc6cc6dd54a4599c6caee678b8f1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 175715230907951956, guid: add5dc6cc6dd54a4599c6caee678b8f1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4841289427382280932, guid: add5dc6cc6dd54a4599c6caee678b8f1, type: 3}
       propertyPath: m_Name
@@ -258,10 +262,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7621757134790566380, guid: a8d5bdf7d13ebe445bf03a765832f159, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7621757134790566380, guid: a8d5bdf7d13ebe445bf03a765832f159, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621757134839684784, guid: a8d5bdf7d13ebe445bf03a765832f159, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -464,13 +472,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2154729736421080858}
     m_Modifications:
-    - target: {fileID: 3470224267865137540, guid: 5c2b2ce73e9256540869a9b76eda2468, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 3470224267782397656, guid: 5c2b2ce73e9256540869a9b76eda2468, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3470224267865137540, guid: 5c2b2ce73e9256540869a9b76eda2468, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470224267865137540, guid: 5c2b2ce73e9256540869a9b76eda2468, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8176080146002691682, guid: 5c2b2ce73e9256540869a9b76eda2468, type: 3}
       propertyPath: m_Name
@@ -722,10 +734,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4127633470467327389, guid: 7811e0bd41e5e854f9955aad396a4d94, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4127633470467327389, guid: 7811e0bd41e5e854f9955aad396a4d94, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127633470683970241, guid: 7811e0bd41e5e854f9955aad396a4d94, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8653596051117659226, guid: 7811e0bd41e5e854f9955aad396a4d94, type: 3}

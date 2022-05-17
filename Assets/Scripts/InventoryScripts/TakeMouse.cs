@@ -9,13 +9,11 @@ namespace InventoryScripts
     {
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log("Mouse Entered " + gameObject.name);
             PlayerInputManager.instance.DisableInput(PlayerInputManager.PlayerInputName.Fire1);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log("Mouse Exited " + gameObject.name);
             PlayerInputManager.instance.EnableInput(PlayerInputManager.PlayerInputName.Fire1);
         }
     }

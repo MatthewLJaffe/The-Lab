@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbc9228326449f6822319df6a7cbe03, type: 3}
-  m_Name: VertStretcherSpawner
+  m_Script: {fileID: 11500000, guid: c72bd9179d904875bc29efb35e348498, type: 3}
+  m_Name: BigZombieRoomSpawner
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6525251393856164963, guid: 197df541860065d44bb9e56ae736a246, type: 3}
-  removeSpawnCollider: 0
-  spaceAround: {x: 0, y: 1}
-  direction: 1
-  spaceClear: 4
+  - {fileID: 5471633699724681198, guid: d7d4a62b9a05fe94d931c575ad280091, type: 3}
+  removeSpawnCollider: 1
+  centerY: 1
+  centerX: 1
