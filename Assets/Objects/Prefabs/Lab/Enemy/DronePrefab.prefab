@@ -1154,9 +1154,9 @@ MonoBehaviour:
   - behaviour: {fileID: 3572731977379662794}
     weight: 0
   - behaviour: {fileID: 3572731977379662789}
-    weight: 0.4
+    weight: 0.3
   - behaviour: {fileID: 3572731977379662788}
-    weight: 0.1
+    weight: 0.2
   - behaviour: {fileID: 3572731977379662791}
     weight: 0.5
   - behaviour: {fileID: 3572731977379662790}

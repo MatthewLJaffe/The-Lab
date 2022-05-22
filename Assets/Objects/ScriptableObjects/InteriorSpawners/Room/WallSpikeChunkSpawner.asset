@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c72bd9179d904875bc29efb35e348498, type: 3}
-  m_Name: GunCrate
+  m_Name: WallSpikeChunkSpawner
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 3192202201164496080, guid: fcc4beef3716d4f49a3bc3d75ed214d8, type: 3}
-  removeSpawnCollider: 0
+  - {fileID: 7992795472433991765, guid: 68f5489ed74845e4db5a52882b313799, type: 3}
+  removeSpawnCollider: 1
   centerY: 1
   centerX: 1

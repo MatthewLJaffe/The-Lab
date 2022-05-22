@@ -43,10 +43,10 @@ MonoBehaviour:
       minSpawns: 1
       maxSpawns: 1
     - spawner: {fileID: 11400000, guid: b2fd01c88c295e94db2f78e15162258a, type: 2}
-      spawnChance: 1
+      spawnChance: 0.34
       minSpawns: 1
       maxSpawns: 1
-    spawnChance: 0.34
+    spawnChance: 0.2
     spawnOrder: 2
     vertConstraints: 0
     horizConstraints: 0

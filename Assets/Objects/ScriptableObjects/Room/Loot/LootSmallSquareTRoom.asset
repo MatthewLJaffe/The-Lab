@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf86f8d38bbb4a75a488108d487d9ab9, type: 3}
-  m_Name: SideSpikeRoom
+  m_Name: LootSmallSquareTRoom
   m_EditorClassIdentifier: 
-  minSize: {x: 16, y: 16}
-  maxSize: {x: 19, y: 19}
+  minSize: {x: 15, y: 14}
+  maxSize: {x: 15, y: 14}
   spawners:
   - potentialSpawns:
     - spawner: {fileID: 11400000, guid: 95d7769a303adc1449af17b0d5c42c5a, type: 2}
@@ -22,6 +22,19 @@ MonoBehaviour:
       maxSpawns: 1
     spawnChance: 1
     spawnOrder: 0
+    vertConstraints: 0
+    horizConstraints: 0
+  - potentialSpawns:
+    - spawner: {fileID: 11400000, guid: 20a7f5523f558884db46cc4db9f93758, type: 2}
+      spawnChance: 0.5
+      minSpawns: 1
+      maxSpawns: 1
+    - spawner: {fileID: 11400000, guid: 1bc9d8a3d76007245a50a8082b19fd74, type: 2}
+      spawnChance: 0.5
+      minSpawns: 2
+      maxSpawns: 4
+    spawnChance: 1
+    spawnOrder: 1
     vertConstraints: 0
     horizConstraints: 0
   - potentialSpawns:

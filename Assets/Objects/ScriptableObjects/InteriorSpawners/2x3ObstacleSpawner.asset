@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72bd9179d904875bc29efb35e348498, type: 3}
-  m_Name: SideSpikesRoomSpawner
+  m_Script: {fileID: 11500000, guid: bdb655ef10cc4302b7471c780a0606cb, type: 3}
+  m_Name: 2x3ObstacleSpawner
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 3758821772851609418, guid: 03f312b655a3c71468cfa19d495e1d95, type: 3}
-  removeSpawnCollider: 1
-  centerY: 1
-  centerX: 1
+  - {fileID: 6339940592702608969, guid: 7035d76b7a7564146aa22ff8d7ebfbb6, type: 3}
+  spaceAround: {x: 0, y: 0}

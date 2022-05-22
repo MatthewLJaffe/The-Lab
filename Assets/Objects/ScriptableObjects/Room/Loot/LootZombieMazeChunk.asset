@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf86f8d38bbb4a75a488108d487d9ab9, type: 3}
+  m_Name: LootZombieMazeChunk
+  m_EditorClassIdentifier: 
+  minSize: {x: 18, y: 18}
+  maxSize: {x: 21, y: 20}
+  spawners:
+  - potentialSpawns:
+    - spawner: {fileID: 11400000, guid: 60e8d0350a041c54282db27f52d60f9b, type: 2}
+      spawnChance: 1
+      minSpawns: 1
+      maxSpawns: 1
+    spawnChance: 1
+    spawnOrder: 0
+    vertConstraints: 0
+    horizConstraints: 0
+  - potentialSpawns:
+    - spawner: {fileID: 11400000, guid: 20a7f5523f558884db46cc4db9f93758, type: 2}
+      spawnChance: 0.5
+      minSpawns: 1
+      maxSpawns: 1
+    - spawner: {fileID: 11400000, guid: 4f2ec3f4cc71e2b4a8525b19a905ce25, type: 2}
+      spawnChance: 0.5
+      minSpawns: 1
+      maxSpawns: 1
+    spawnChance: 1
+    spawnOrder: 1
+    vertConstraints: 0
+    horizConstraints: 0
+  - potentialSpawns:
+    - spawner: {fileID: 11400000, guid: 33d8c095326c253438d51014c6f0adb5, type: 2}
+      spawnChance: 0.4
+      minSpawns: 1
+      maxSpawns: 1
+    - spawner: {fileID: 11400000, guid: 8262ca234945d9547b16fa0a60e0485b, type: 2}
+      spawnChance: 0.1
+      minSpawns: 1
+      maxSpawns: 1
+    - spawner: {fileID: 11400000, guid: b2fd01c88c295e94db2f78e15162258a, type: 2}
+      spawnChance: 0.5
+      minSpawns: 1
+      maxSpawns: 1
+    spawnChance: 0.1
+    spawnOrder: 1
+    vertConstraints: 0
+    horizConstraints: 0
+  lockRoom: 1
+  enemyHandlerPrefab: {fileID: 670961924503685843, guid: 708bdb9bc8e7daf43874880b4dc13c1e, type: 3}

@@ -63,7 +63,7 @@ MonoBehaviour:
       spawnChance: 0.34
       minSpawns: 1
       maxSpawns: 1
-    spawnChance: 0.33
+    spawnChance: 0.2
     spawnOrder: 1
     vertConstraints: 0
     horizConstraints: 0

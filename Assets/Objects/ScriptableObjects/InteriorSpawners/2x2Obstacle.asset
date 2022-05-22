@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f720c4ee9f2bc439e73629c7a5b003, type: 3}
+  m_Name: 2x2Obstacle
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7757308150583092114, guid: 41e93b9b19226284f945e9719c24b796, type: 3}
+  minSpawns: 0
+  maxSpawns: 0
+  width: 4
+  height: 4
+  minSpawnsPerRoom: 4
+  maxSpawnsPerRoom: 8

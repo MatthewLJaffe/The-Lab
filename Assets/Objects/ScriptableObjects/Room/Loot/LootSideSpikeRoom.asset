@@ -16,7 +16,7 @@ MonoBehaviour:
   maxSize: {x: 19, y: 19}
   spawners:
   - potentialSpawns:
-    - spawner: {fileID: 11400000, guid: 95d7769a303adc1449af17b0d5c42c5a, type: 2}
+    - spawner: {fileID: 11400000, guid: e84b78a99454a86488b0d707e15f7937, type: 2}
       spawnChance: 1
       minSpawns: 1
       maxSpawns: 1
@@ -63,10 +63,6 @@ MonoBehaviour:
       spawnChance: 0.1
       minSpawns: 1
       maxSpawns: 1
-    - spawner: {fileID: 0}
-      spawnChance: 0.5
-      minSpawns: 1
-      maxSpawns: 1
     - spawner: {fileID: 11400000, guid: a04c76661d91fe746a6bbe702aff42f3, type: 2}
       spawnChance: 0.1
       minSpawns: 1
@@ -75,7 +71,7 @@ MonoBehaviour:
       spawnChance: 0.1
       minSpawns: 1
       maxSpawns: 1
-    spawnChance: 1
+    spawnChance: 0.3
     spawnOrder: 2
     vertConstraints: 0
     horizConstraints: 0

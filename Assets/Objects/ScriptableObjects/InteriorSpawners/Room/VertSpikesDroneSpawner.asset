@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72bd9179d904875bc29efb35e348498, type: 3}
+  m_Name: VertSpikesDroneSpawner
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1392802619202726477, guid: b65627b5c0934c1438a5bbc1373d5ec8, type: 3}
+  removeSpawnCollider: 1
+  centerY: 1
+  centerX: 1
