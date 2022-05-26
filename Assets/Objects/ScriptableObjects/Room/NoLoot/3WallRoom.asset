@@ -38,7 +38,7 @@ MonoBehaviour:
       spawnChance: 0.2
       minSpawns: 1
       maxSpawns: 1
-    - spawner: {fileID: 0}
+    - spawner: {fileID: 11400000, guid: 33d8c095326c253438d51014c6f0adb5, type: 2}
       spawnChance: 0.5
       minSpawns: 1
       maxSpawns: 1

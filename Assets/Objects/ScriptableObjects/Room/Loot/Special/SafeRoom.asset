@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38d5407f6c094d609bf6bdc456b00f03, type: 3}
-  m_Name: GunRoom
+  m_Name: SafeRoom
   m_EditorClassIdentifier: 
-  minSize: {x: 12, y: 12}
-  maxSize: {x: 15, y: 15}
+  minSize: {x: 14, y: 14}
+  maxSize: {x: 14, y: 14}
   spawners:
   - potentialSpawns:
-    - spawner: {fileID: 11400000, guid: 45e3765c48afcd94990c3d44f9e79f0b, type: 2}
+    - spawner: {fileID: 11400000, guid: 039c4bd2296c66047aa0f25d45766942, type: 2}
       spawnChance: 1
       minSpawns: 1
       maxSpawns: 1
-    spawnChance: 1
-    spawnOrder: 0
-    vertConstraints: 0
-    horizConstraints: 0
-  - potentialSpawns:
     - spawner: {fileID: 11400000, guid: c6ef6657b78c06a4c829bab5b4ac25c6, type: 2}
       spawnChance: 1
       minSpawns: 1

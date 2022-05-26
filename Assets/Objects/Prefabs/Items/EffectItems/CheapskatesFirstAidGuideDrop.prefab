@@ -19,6 +19,22 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.05705726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6821132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.023178041
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5650405
+      objectReference: {fileID: 0}
     - target: {fileID: 6360399525277755224, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06425921
@@ -65,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782271987652095420, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Name
-      value: CheapskatesFirstAidGuide Variant
+      value: CheapskatesFirstAidGuideDrop
       objectReference: {fileID: 0}
     - target: {fileID: 8666975617360736990, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_Color.r

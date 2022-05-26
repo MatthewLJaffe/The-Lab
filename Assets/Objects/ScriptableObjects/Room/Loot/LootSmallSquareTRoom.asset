@@ -47,7 +47,7 @@ MonoBehaviour:
     vertConstraints: 0
     horizConstraints: 0
   - potentialSpawns:
-    - spawner: {fileID: 11400000, guid: 60e46fc31ad395d4f81f109a8959533d, type: 2}
+    - spawner: {fileID: 11400000, guid: 33d8c095326c253438d51014c6f0adb5, type: 2}
       spawnChance: 0.1
       minSpawns: 1
       maxSpawns: 1

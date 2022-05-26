@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 3947772664480029758, guid: b81d2a54a810c2c40b897c6af34d36b3, type: 3}
+  removeSpawnCollider: 0
+  sides:
+  - side: 1
+    prefab: {fileID: 3947772664480029758, guid: b81d2a54a810c2c40b897c6af34d36b3, type: 3}

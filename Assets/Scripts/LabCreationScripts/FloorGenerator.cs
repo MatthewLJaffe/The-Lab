@@ -25,7 +25,7 @@ namespace LabCreationScripts
         [SerializeField] private Transform uDoor;
         [SerializeField] private Transform dDoor;
         public Transform floorParent;
-        private readonly Room[] _rooms = new Room[25];
+        private readonly Room[] _rooms = new Room[20];
         private Tilemap _tMap;
         private bool _floorFinished;
         
@@ -79,8 +79,8 @@ namespace LabCreationScripts
             var startRoom = new Room(roomData, lDoorPos, rDoorPos, uDoorPos, dDoorPos, floorParent);
             firstRoom.myRoom = startRoom;
             
-           //startRoom.ConnectedRooms.Add(Direction.Right, new Room(roomData, lDoorPos, Direction.Right, startRoom));
-           //startRoom.ConnectedRooms.Add(Direction.Left, new Room(roomData, lDoorPos, Direction.Left, startRoom));
+           startRoom.ConnectedRooms.Add(Direction.Right, new Room(roomData, lDoorPos, Direction.Right, startRoom));
+           startRoom.ConnectedRooms.Add(Direction.Left, new Room(roomData, lDoorPos, Direction.Left, startRoom));
            startRoom.ConnectedRooms.Add(Direction.Up, new Room(roomData, uDoorPos, Direction.Up, startRoom));
         }
 

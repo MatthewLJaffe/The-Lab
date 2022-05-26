@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd58e1a678446e44a93696e6f9f7feea, type: 3}
   m_Name: LockerSpawner
   m_EditorClassIdentifier: 
-  prefabs: []
+  prefabs:
+  - {fileID: 2832293141363338219, guid: 3990cd0597085f440a50b1ba50b54c28, type: 3}
   removeSpawnCollider: 0
   sides:
   - side: 1
-    prefab: {fileID: 2832293141363338219, guid: 3990cd0597085f440a50b1ba50b54c28, type: 3}
+    prefab: {fileID: 8479585581050095406, guid: 0f9aeb9580b4fbd4399693f27271b6c4, type: 3}
   - side: 0
-    prefab: {fileID: 0}
-  - side: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 3813088847117423056, guid: aeb99f73797e5ed4bbf777344f0bcf53, type: 3}
+  - side: 2
+    prefab: {fileID: 1049033749790389497, guid: 230c29c9629612c449eeae85dbc1832f, type: 3}

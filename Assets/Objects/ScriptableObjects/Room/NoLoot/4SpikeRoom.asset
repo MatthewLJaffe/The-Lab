@@ -35,11 +35,11 @@ MonoBehaviour:
     horizConstraints: 0
   - potentialSpawns:
     - spawner: {fileID: 11400000, guid: 8262ca234945d9547b16fa0a60e0485b, type: 2}
-      spawnChance: 0.1
+      spawnChance: 0.3
       minSpawns: 1
       maxSpawns: 1
-    - spawner: {fileID: 0}
-      spawnChance: 0.6
+    - spawner: {fileID: 11400000, guid: 33d8c095326c253438d51014c6f0adb5, type: 2}
+      spawnChance: 0.4
       minSpawns: 1
       maxSpawns: 1
     - spawner: {fileID: 11400000, guid: a04c76661d91fe746a6bbe702aff42f3, type: 2}
