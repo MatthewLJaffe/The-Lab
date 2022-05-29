@@ -39,7 +39,7 @@ namespace LabCreationScripts
         }
 
         [Serializable]
-        public struct PreRoomFillSpawner
+        public struct PostRoomFillSpawner
         {
             public InteriorSpawner spawner;
             public int amountToCreate;
@@ -53,7 +53,7 @@ namespace LabCreationScripts
             public CategoryName categoryName;
             public int amountToCreate;
             public List<RoomWeight> roomTypes;
-            public PreRoomFillSpawner[] preSpawns;
+            public PostRoomFillSpawner[] postSpawns;
             public List<Room> roomInstances;
             public float totalProb = 1f;
             public bool dontRepeat;
@@ -90,25 +90,27 @@ namespace LabCreationScripts
             if(_floorFinished)
                 return;
             _floorFinished = true;
-
-            foreach (var cat in categories)
-            {
-                foreach (var preSpawn in cat.preSpawns)
-                {
-                    var spawnableRooms = new List<Room>(cat.roomInstances);
-                    for (int c = 0; c < preSpawn.amountToCreate; c++)
-                    {
-                        var roomToSpawn = spawnableRooms[Random.Range(0, spawnableRooms.Count)];
-                        spawnableRooms.Remove(roomToSpawn);
-                        var spawnBounds = Room.RoomBoundsToFloorBounds(roomToSpawn.RoomBounds);
-                        preSpawn.spawner.SpawnObjects(spawnBounds, _tMap, roomToSpawn.roomGameObject, preSpawn.minSpawnsPerRoom, preSpawn.maxSpawnsPerRoom);
-                    }
-                }
-            }
             foreach (var room in _rooms)
             {
                 if (room.roomType)
                     room.roomType.FillRoom(room, _tMap, room.roomGameObject);
+            }
+            foreach (var cat in categories)
+            {
+                foreach (var postSpawn in cat.postSpawns)
+                {
+                    var spawnableRooms = new List<Room>(cat.roomInstances);
+                    var amountSpawned = 0;
+                    while (amountSpawned < postSpawn.amountToCreate && spawnableRooms.Count > 0)
+                    {
+                        var roomToSpawn = spawnableRooms[Random.Range(0, spawnableRooms.Count)];
+                        spawnableRooms.Remove(roomToSpawn);
+                        var spawnBounds = Room.RoomBoundsToFloorBounds(roomToSpawn.RoomBounds);
+                        if (postSpawn.spawner.CheckSpawnObjects
+                        (spawnBounds, _tMap, roomToSpawn.roomGameObject, postSpawn.minSpawnsPerRoom, postSpawn.maxSpawnsPerRoom))
+                            amountSpawned++;
+                    }
+                }
             }
             ConnectPreviousRooms();
             onFloorFinished.Invoke();
