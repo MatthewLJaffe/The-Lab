@@ -337,22 +337,29 @@ namespace LabCreationScripts
                     }
                     randValue -= weight;
                 }
+                if (category.categoryName == FloorGenerator.CategoryName.End)
+                    category = roomCategories.First(rc => rc.amountToCreate >= 1);
             }
-            //if there is only one room left to create maxe it the exit room
+            //if there is only one room left to create make it the exit room
             else
                 category = roomCategories.First(rc => rc.categoryName == FloorGenerator.CategoryName.End);
-            
-            var roomTypes = category.roomTypes;
-            var lastRoomType =  roomTypes[roomTypes.Length - 1].proceduralRoom;
-            randValue = Random.Range(0, 1f);
-            foreach (var rt in roomTypes)
+            randValue = Random.Range(0, category.totalProb);
+            var returnRoom = category.roomTypes[0];
+            foreach (var rt in category.roomTypes)
             {
                 if (rt.weight >= randValue) {
-                    return rt.proceduralRoom;
+                    returnRoom = rt;
+                    break;
                 }
                 randValue -= rt.weight;
             }
-            return lastRoomType;
+
+            if (category.dontRepeat)
+            {
+                category.totalProb -= returnRoom.weight;
+                category.roomTypes.Remove(returnRoom);
+            }
+            return returnRoom.proceduralRoom;
         }
     }
 }

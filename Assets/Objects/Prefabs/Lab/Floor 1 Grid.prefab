@@ -2492,61 +2492,71 @@ MonoBehaviour:
   - categoryName: 0
     amountToCreate: 11
     roomTypes:
-    - proceduralRoom: {fileID: 11400000, guid: 972b6f35d2da36e4aadc3bc71648582e, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.23
-    - proceduralRoom: {fileID: 11400000, guid: de7a293e69faef04fbbbf2e8c4122db8, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.15
-    - proceduralRoom: {fileID: 11400000, guid: b1c1dbdf8b28cae4e95fc8572ce9a457, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.2
-    - proceduralRoom: {fileID: 11400000, guid: 3b15a57f19a5c4d4d80160d46b1d97a9, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.15
-    - proceduralRoom: {fileID: 11400000, guid: 9a0b4946a94c2e847a393b7a647895e9, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.15
-    - proceduralRoom: {fileID: 11400000, guid: cd0d218dea9a2a44cadcd1fc7ce3e54b, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.12
     preSpawns: []
+    totalProb: 1
+    dontRepeat: 1
   - categoryName: 1
     amountToCreate: 9
     roomTypes:
-    - proceduralRoom: {fileID: 11400000, guid: 972b6f35d2da36e4aadc3bc71648582e, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.15
-    - proceduralRoom: {fileID: 11400000, guid: de7a293e69faef04fbbbf2e8c4122db8, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.3
-    - proceduralRoom: {fileID: 11400000, guid: b1c1dbdf8b28cae4e95fc8572ce9a457, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.25
-    - proceduralRoom: {fileID: 11400000, guid: 3b15a57f19a5c4d4d80160d46b1d97a9, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.15
-    - proceduralRoom: {fileID: 11400000, guid: 9a0b4946a94c2e847a393b7a647895e9, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.15
     preSpawns:
-    - spawner: {fileID: 11400000, guid: 334bd81a72aa1ae44badca7e21d78c0e, type: 2}
+    - spawner: {fileID: 0}
       amountToCreate: 7
       minSpawnsPerRoom: 3
       maxSpawnsPerRoom: 5
+    totalProb: 1
+    dontRepeat: 1
   - categoryName: 2
     amountToCreate: 3
     roomTypes:
     - proceduralRoom: {fileID: 11400000, guid: 294da05583cd3ad44bfa9adf22d5daf0, type: 2}
       weight: 0.5
-    - proceduralRoom: {fileID: 11400000, guid: d094ea207dc6f114fb8bb28914eb6c2b, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 0.5
     preSpawns:
-    - spawner: {fileID: 11400000, guid: b88208c2947a8764e90dd1e0f4bc40aa, type: 2}
+    - spawner: {fileID: 0}
       amountToCreate: 2
       minSpawnsPerRoom: 1
       maxSpawnsPerRoom: 1
+    totalProb: 1
+    dontRepeat: 0
   - categoryName: 3
     amountToCreate: 1
     roomTypes:
     - proceduralRoom: {fileID: 11400000, guid: 48bd89bfd3900e149ac6c9e305e8fb90, type: 2}
       weight: 1
     preSpawns: []
+    totalProb: 1
+    dontRepeat: 0
   - categoryName: 4
     amountToCreate: 1
     roomTypes:
-    - proceduralRoom: {fileID: 11400000, guid: 9731879b96bc861479c5b258afa6f43c, type: 2}
+    - proceduralRoom: {fileID: 0}
       weight: 1
     preSpawns: []
+    totalProb: 1
+    dontRepeat: 0
   dimensions:
     minHallway: 8
     maxHallway: 12

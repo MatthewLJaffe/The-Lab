@@ -32,7 +32,7 @@ namespace LabCreationScripts
         public enum CategoryName
         {
             NoLoot,
-            Locker,
+            Loot,
             Chest,
             Gun,
             End
@@ -52,10 +52,11 @@ namespace LabCreationScripts
         {
             public CategoryName categoryName;
             public int amountToCreate;
-            public RoomWeight[] roomTypes;
+            public List<RoomWeight> roomTypes;
             public PreRoomFillSpawner[] preSpawns;
             public List<Room> roomInstances;
-
+            public float totalProb = 1f;
+            public bool dontRepeat;
             [Serializable]
             public struct RoomWeight
             {
