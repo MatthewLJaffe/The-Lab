@@ -25,6 +25,15 @@ namespace LabCreationScripts.Spawners
             if (!TryToSpawn(spawnBounds, tMap, roomGameObject.transform)) 
                 Debug.LogError("Failed to spawn " + prefab.name + " in" + roomGameObject.name);
         }
+        
+        public virtual bool CheckSpawnObjects(BoundsInt spawnBounds, Tilemap tMap, GameObject roomGameObject, int minSpawnsPerRoom, int maxSpawnsPerRoom)
+        {
+            prefab = prefabs[Random.Range(0, prefabs.Length)];
+            targetSpawns = Random.Range(minSpawnsPerRoom, maxSpawnsPerRoom + 1);
+            currentSpawns = 0;
+            spawnCollider = FindSpawnCollider(prefab);
+            return TryToSpawn(spawnBounds, tMap, roomGameObject.transform);
+        }
 
         protected virtual bool TryToSpawn(BoundsInt spawnBounds, Tilemap tMap, Transform roomTransform)
         {
