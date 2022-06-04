@@ -367,7 +367,7 @@ MonoBehaviour:
   acceleration: 4
   scanDirections: 16
   changeDirThreshold: 0.25
-  debug: 1
+  debug: 0
   frameCount: 0
 --- !u!114 &7487640216157173530
 MonoBehaviour:
@@ -427,7 +427,7 @@ MonoBehaviour:
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 16896
 --- !u!114 &830701019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5804,7 +5804,7 @@ MonoBehaviour:
   avoidThreshold: 0.8
   nonHitMultiplier: 0.5
   raycastDistance: 2.5
-  debug: 1
+  debug: 0
   layerWeights:
   - layer: Spikes
     weight: 3

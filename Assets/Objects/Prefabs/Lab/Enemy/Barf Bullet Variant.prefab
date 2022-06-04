@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   sourceCollider: {fileID: 3655696096654168031}
+  damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 16896
+  destructionCollider: {fileID: 4242816469578167621}
   crit: 0
   accuracy: 100
   direction: {x: 0, y: 0}
@@ -24,7 +26,7 @@ MonoBehaviour:
   liveTime: 3
   maxAngle: 0
   destroyOnDamage: 0
-  destructionCollider: {fileID: 4242816469578167621}
+  colorPickOffset: 0
 --- !u!1001 &2520849193575063614
 PrefabInstance:
   m_ObjectHideFlags: 0

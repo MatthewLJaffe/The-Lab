@@ -32,8 +32,8 @@ namespace General
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
             //check if layer is in layer mask
-            if ( !LayerInMask(other.gameObject.layer)) return;
-            var damageable = other.gameObject.GetComponentInChildren<IDamageable>();
+            if ( !LayerInMask(other.collider.gameObject.layer)) return;
+            var damageable = other.collider.gameObject.GetComponentInChildren<IDamageable>();
             if (damageable == null) return;
             damageable.TakeDamage(damage, Vector2.zero);
             if (damageSfx)

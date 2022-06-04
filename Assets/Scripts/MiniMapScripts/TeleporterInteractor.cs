@@ -21,13 +21,25 @@ namespace MiniMapScripts
             var roomInstance = GetComponentInParent<RoomInstance>();
             if (roomInstance != null) {
                 _myRoom = roomInstance.myRoom;
+                if (_myRoom.roomType.lockRoom) {
+                    EnemyHandler.onRoomClear += EnableTeleporter;
+                }
+                else {
+                    Door.onEnterRoom += EnableTeleporter;
+                }
             }
-            EnemyHandler.onRoomClear += EnableTeleporter;
+            //beginning teleporter
+            else
+            {
+                roomClear = true;
+                teleporterUi.SetActive(true);
+            }
         }
 
         private void OnDestroy()
         {
             EnemyHandler.onRoomClear -= EnableTeleporter;
+            Door.onEnterRoom -= EnableTeleporter;
         }
 
         private void EnableTeleporter(Room room)

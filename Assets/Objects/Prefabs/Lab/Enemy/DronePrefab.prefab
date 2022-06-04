@@ -535,7 +535,7 @@ MonoBehaviour:
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 16896
 --- !u!114 &3572731976869190980
 MonoBehaviour:
   m_ObjectHideFlags: 0

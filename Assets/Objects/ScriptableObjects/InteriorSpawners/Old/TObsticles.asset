@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0617f575b35dd2947b28c6f44822c26c, type: 3}
+  m_Name: TObsticles
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 7623767343595326078, guid: 41b921aa29532e44c8f7413c92155ac3, type: 3}
+  - {fileID: 3479434014525703407, guid: 458f446904bf24b4d9cc46e9bcbcd98c, type: 3}
+  - {fileID: 6430814465553074983, guid: 01d722054faba2744a63f72a9202e932, type: 3}
+  - {fileID: 4009512851588876156, guid: db66de286d376d64daad82146a8cbc58, type: 3}
+  - {fileID: 4203769350095784157, guid: 4dfd74ad96a518545af07d73947db7e6, type: 3}
+  - {fileID: 9175971689484482373, guid: 1efb7b94fca98cf418965c15615d165b, type: 3}
+  removeSpawnCollider: 0

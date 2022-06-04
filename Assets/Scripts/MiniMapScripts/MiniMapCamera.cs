@@ -13,14 +13,12 @@ namespace MiniMapScripts
         [SerializeField] private float panSpeed;
         private bool _cameraMovementEnabled;
         private Camera _camera;
-        private Camera _mainCamera;
         private Vector3 _moveVector;
         private Vector3 _initialPosition;
 
         private void Awake()
         {
             _camera = GetComponent<Camera>();
-            _mainCamera = Camera.main;
             _moveVector = Vector3.zero;
             _initialPosition = transform.position;
             ZoomIn();
@@ -29,7 +27,6 @@ namespace MiniMapScripts
         public void ZoomIn()
         {
             transform.localPosition = _initialPosition;
-            _mainCamera.gameObject.SetActive(true);
             _camera.orthographicSize = zoomInSize;
             _camera.targetTexture = miniMapRenderTexture;
             _cameraMovementEnabled = false;
@@ -37,7 +34,6 @@ namespace MiniMapScripts
 
         public void ZoomOut()
         {
-            _mainCamera.gameObject.SetActive(false);
             _camera.orthographicSize = zoomOutSize;
             _camera.targetTexture = null;
             _cameraMovementEnabled = true;

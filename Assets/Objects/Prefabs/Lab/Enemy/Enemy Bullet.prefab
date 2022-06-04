@@ -167,7 +167,7 @@ MonoBehaviour:
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 17152
   destructionCollider: {fileID: 1736799449864017275}
   crit: 0
   accuracy: 100

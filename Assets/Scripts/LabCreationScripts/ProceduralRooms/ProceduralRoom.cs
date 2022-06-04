@@ -13,7 +13,7 @@ namespace LabCreationScripts.ProceduralRooms
         public Vector2Int minSize;
         public Vector2Int maxSize;
         [SerializeField] protected SpawnData[] spawners;
-        [SerializeField] protected bool lockRoom = true;
+        public bool lockRoom = true;
         
         [Serializable]
         public enum HorizontalConstraints
