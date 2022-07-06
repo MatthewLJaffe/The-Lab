@@ -6,7 +6,6 @@ using EntityStatsScripts.Effects;
 using General;
 using PlayerScripts;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace WeaponScripts
@@ -23,6 +22,7 @@ namespace WeaponScripts
         [SerializeField] private float shake;
         [SerializeField] protected AudioSource fireSource;
         [SerializeField] protected AudioSource reloadSource;
+        [SerializeField] protected GlitchyMagEffect glichyMagEffect;
         public GunStats gunStats;
         [SerializeField] protected Transform shootPoint;
         private bool _firstEquip = true;
@@ -48,6 +48,7 @@ namespace WeaponScripts
         protected float playerCritChance;
         protected float additionalAccuracy;
         protected float additionalFireRate;
+        protected float critMultiplier;
         protected float reloadFactor;
         
         protected void Start() 
@@ -62,6 +63,7 @@ namespace WeaponScripts
             playerCritChance = playerStats.playerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
             additionalAccuracy = playerStats.playerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;
             additionalFireRate = playerStats.playerStatsDict[PlayerStats.StatType.FireRate].CurrentValue;
+            critMultiplier = playerStats.playerStatsDict[PlayerStats.StatType.CritMultiplier].CurrentValue;
             reloadFactor = playerStats.playerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue;
             PlayerStats.onStatChange += delegate(PlayerStats.StatType type, float newValue) 
             {
@@ -75,7 +77,6 @@ namespace WeaponScripts
                         break;
                     case  PlayerStats.StatType.Accuracy:
                         additionalAccuracy = newValue;
-                        Debug.Log("ADDITIONAL ACCURACY UPDATED " + additionalAccuracy);
                         break;
                     case PlayerStats.StatType.FireRate:
                         additionalFireRate = newValue;
@@ -131,13 +132,27 @@ namespace WeaponScripts
         protected virtual void ShootProjectile()
         {
             if (!mainCamera.gameObject.activeSelf) return;
-            var bulletInstance = _bulletPool.GetFromPool();
+            GameObject bulletInstance;
+            var glitching = glichyMagEffect.IsGlitch();
+            if (glichyMagEffect.Stack > 0 && glitching)
+                bulletInstance = Instantiate(glichyMagEffect.glitchyBulletPrefab);
+            else
+                bulletInstance = _bulletPool.GetFromPool();
             shootSound.Play(fireSource);
             bulletInstance.transform.position = shootPoint.position;
             var bulletComponent = bulletInstance.GetComponent<PlayerBullet>();
+            bulletComponent.firedBy = PlayerFind.instance.playerInstance;
             var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
-            bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
+            if (glitching) {
+                bulletComponent.damage = glichyMagEffect.DetermineDamage(Mathf.Max(1f, gunStats.damage * atkMult));
+                bulletComponent.crit = false;
+            }
+            else {
+                bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
+                bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
+                if (bulletComponent.crit)
+                    bulletComponent.damage *= critMultiplier;
+            }
             bulletComponent.accuracy = Mathf.Clamp(gunStats.accuracy + additionalAccuracy, 0f, 100f);
             bulletComponent.speed = bulletComponent.accuracy / 10f + 2;
             if (Vector2.Distance(mousePos, playerTrans.position) > 1)

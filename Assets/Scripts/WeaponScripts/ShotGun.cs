@@ -21,13 +21,23 @@ namespace WeaponScripts
             {
                 var angle = -spreadAngle / 2 + c * spreadAngle / (bullets - 1);
                 
-                var bulletInstance = _bulletPool.GetFromPool();
+                GameObject bulletInstance;
+                var glitching = glichyMagEffect.IsGlitch();
+                if (glichyMagEffect.Stack > 0 && glitching)
+                    bulletInstance = Instantiate(glichyMagEffect.glitchyBulletPrefab);
+                else
+                    bulletInstance = _bulletPool.GetFromPool();
                 bulletInstance.transform.position = shootPoint.position;
                 var bulletComponent = bulletInstance.GetComponent<PooledBullet>();
                 var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
-                bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
-
+                if (glitching) {
+                    bulletComponent.damage = glichyMagEffect.DetermineDamage(Mathf.Max(1f, gunStats.damage * atkMult));
+                    bulletComponent.crit = false;
+                }
+                else {
+                    bulletComponent.damage = Mathf.Max(1f, gunStats.damage * atkMult);
+                    bulletComponent.crit = gunStats.critChance + playerCritChance > Random.Range(0f, 100f);
+                }
                 //altering direction and leaving accuracy at 100
                 bulletComponent.accuracy = 100f;
                 bulletComponent.speed = gunStats.accuracy / 8f + 4;

@@ -6,6 +6,7 @@ using PlayerScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using WeaponScripts;
 using static Unity.Mathematics.Random;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,7 @@ namespace EntityStatsScripts
     public class PlayerHealthBar : PlayerBar, IDamageable
     {
         public UnityEvent onDamage;
+        public UnityEvent onReverseUno;
         public float defense;
         public float dodgeChance;
         [SerializeField] private float damageCooldown;
@@ -21,6 +23,7 @@ namespace EntityStatsScripts
         [SerializeField] private Transform displayPoint;
         [SerializeField] private float timeUntilAdrenaline = 100;
         [SerializeField] private Effect adrenaline;
+        [SerializeField] private ReverseUnoCardEffect reverseUno;
         private float _currAddyCount;
         private bool _canBeDamaged = true;
         private Coroutine _currentDisplay;
@@ -35,12 +38,11 @@ namespace EntityStatsScripts
             set
             {
                 base.BarValue = value;
-                var precentage = barValue / maxValue;
                 if (_adrenalineRoutine != null)
                     StopCoroutine(_adrenalineRoutine);
-                if (precentage <= barVeryLowPercent)
+                if (barValue <= barVeryLowValue)
                     _adrenalineRoutine = StartCoroutine(CountToAdrenaline(2));
-                else if (precentage < barLowPercent)
+                else if (barValue < barLowValue)
                     _adrenalineRoutine = StartCoroutine(CountToAdrenaline(1));
             }
         }
@@ -62,10 +64,23 @@ namespace EntityStatsScripts
             BarDeplete -= KillPlayer;
         }
         
-        public void TakeDamage(float amount, Vector2 dir)
+        public void TakeDamage(float amount, Vector2 dir, DamageSource source,  bool crit = false)
         {
             if (!_canBeDamaged) return;
-            if (Random.Range(0, 100) < dodgeChance)
+            if (reverseUno.RollReverse())
+            {
+                if (source)
+                {
+                    source.GetComponentInChildren<IDamageable>()?.TakeDamage(amount, dir);
+                    var bullet = source.gameObject.GetComponent<Bullet>();
+                    if (bullet)
+                        bullet.firedBy.GetComponentInChildren<IDamageable>()?.TakeDamage(amount, dir);
+                }
+                onReverseUno.Invoke();
+                StartCoroutine(WaitDamageCooldown());
+                StartCoroutine(TakeDamageEffect(_damageNumberPool.GetFromPool().GetComponent<TextMeshProUGUI>(), ""));
+            }
+            else if (Random.Range(0, 100) < dodgeChance)
             {
                 StartCoroutine(WaitDamageCooldown());
                 StartCoroutine(TakeDamageEffect(_damageNumberPool.GetFromPool().GetComponent<TextMeshProUGUI>(), "Dodged"));

@@ -48,7 +48,7 @@ namespace EntityStatsScripts.Effects
             if (stack == 0) return;
             
             if (Random.Range(0, 1f) < damageChance) {
-                DamagePlayer.applyPlayerDamage(_damage, Vector2.zero);
+                DamagePlayer.applyPlayerDamage(_damage, Vector2.zero, null, false);
             }
 
             playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += _attackBonus;

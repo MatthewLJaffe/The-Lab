@@ -34,14 +34,13 @@ namespace PlayerScripts
         {
             _dir.x = Input.GetAxis("Horizontal");
             _dir.y = Input.GetAxis("Vertical");
-            _dir.Normalize();
+            _dir = _dir.normalized;
         }
 
         private void OnDisable()
         {
             _rb.velocity = Vector2.zero;
         }
-
         private void FixedUpdate()
         {
             if (_walking)

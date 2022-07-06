@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce4b23a81db4504950ba148dbb2f182, type: 3}
+  m_Name: HardhatEffect
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 350f33c231fb7ec499573ea96e30c181, type: 3}
+  message: Environmental kills have a chance to increase Def
+  stack: 0
+  cone: {fileID: 8289071559091184421, guid: 1e2bc418b4dd4d84f9011bbcc00d9c14, type: 3}
+  effectSound: {fileID: 11400000, guid: 18c36093ff6f775458ecc22677b70e46, type: 2}
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  defenseProbStep: 0.75
+  healthBonuses: 0a0000000a0000000a0000000f0000000f00000014000000
+  effectDelay: 0.3

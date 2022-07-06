@@ -124,6 +124,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  steroidEffect: {fileID: 11400000, guid: 7e7df7f7835474648a74adb1822fee4b, type: 2}
+  phdEffect: {fileID: 11400000, guid: 104971984c2199144b161be3c05bdb7f, type: 2}
   restoreType: 0
   restoreAmount: 75
   restoreTextPrefab: {fileID: 2471566140574944050, guid: b9790703cfa0e704099631f5334eda95, type: 3}

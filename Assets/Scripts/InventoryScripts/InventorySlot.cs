@@ -61,7 +61,8 @@ namespace InventoryScripts
 
         public static void ToggleEquip(bool enable)
         {
-            _equippedItem.SetActive(enable);
+            if (_equippedItem)
+                _equippedItem.SetActive(enable);
         }
 
         public void RemoveItem()

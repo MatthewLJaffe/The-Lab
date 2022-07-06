@@ -84,6 +84,7 @@ namespace EntityStatsScripts
 
         private IEnumerator PlayDeathEffect()
         {
+            yield return new WaitForSeconds(.15f);
             onPlayDeath.Invoke();
             var transparent = new Color(1f, 1f, 1f, 0f);
             for (float t = 0; t <= deathTime; t += Time.deltaTime)

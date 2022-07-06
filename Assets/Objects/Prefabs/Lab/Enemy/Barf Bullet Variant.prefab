@@ -12,12 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f856623b90f4dc9b30a606f1a4941a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 10
   sourceCollider: {fileID: 3655696096654168031}
+  isHazard: 0
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
     m_Bits: 16896
+  onDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6731801466449821168}
+        m_TargetAssemblyTypeName: General.TimedAction, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   destructionCollider: {fileID: 4242816469578167621}
   crit: 0
   accuracy: 100
@@ -27,6 +43,50 @@ MonoBehaviour:
   maxAngle: 0
   destroyOnDamage: 0
   colorPickOffset: 0
+  firedBy: {fileID: 0}
+--- !u!114 &5576431022929634363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242816469578167626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4587b3e5b45849e6b11c96cd3db2675f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeAmount: 0
+  statType: 1
+--- !u!114 &6731801466449821168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242816469578167626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a194580a79e0450cb3512161d97544db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginOnStart: 0
+  time: 0.2
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5576431022929634363}
+        m_TargetAssemblyTypeName: EntityStatsScripts.ModifyStat, Assembly-CSharp
+        m_MethodName: ChangeStat
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2520849193575063614
 PrefabInstance:
   m_ObjectHideFlags: 0

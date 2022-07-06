@@ -55,7 +55,7 @@ namespace InventoryScripts.ItemScripts
         {
             if (textPrefab)
                 _textPool = new GameObjectPool(textPrefab, _displayPoint);
-            var restorePerSec = Mathf.Round(amount / duration);
+            var restorePerSec = amount / duration;
             float amountRestored = 0;
             var wait = new WaitForSeconds(1);
             for (; amountRestored < amount; amountRestored += restorePerSec)
@@ -63,7 +63,7 @@ namespace InventoryScripts.ItemScripts
                 PlayerBarsManager.Instance.ModifyPlayerStat(type, restorePerSec);
                 if (_textPool != null) {
                     var restoreText = _textPool.GetFromPool();
-                    restoreText.GetComponent<TextMeshProUGUI>().text = "+" + restorePerSec;
+                    restoreText.GetComponent<TextMeshProUGUI>().text = "+" + Mathf.Round(restorePerSec);
                 }
                 yield return wait;
             }

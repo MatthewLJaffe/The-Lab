@@ -85,8 +85,8 @@ namespace EnemyScripts
                 {
                     if (!hit.transform) break;
                     if (hit.transform.gameObject == transform.parent.gameObject) continue;
-                    if (!closest.transform || Vector2.Distance(closest.transform.position, transform.position) >
-                        Vector2.Distance(hit.transform.position, transform.position))
+                    if (!closest.transform || Vector2.Distance(closest.point, transform.position) >
+                        Vector2.Distance(hit.point, transform.position))
                         closest = hit;
                 }
                 if (closest.transform)

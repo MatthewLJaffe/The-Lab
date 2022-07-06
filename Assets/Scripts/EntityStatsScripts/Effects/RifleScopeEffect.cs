@@ -18,13 +18,21 @@ namespace EntityStatsScripts.Effects
             PlayerBullet.bulletDamage += ApplyRifleScopeEffect;
         }
 
+        protected override void OnDisable()
+        {
+            PlayerBullet.bulletDamage -= ApplyRifleScopeEffect;
+            base.OnDisable();
+
+        }
+
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
             _critChanceBonus = Mathf.Min(1, critStep * newStack);
         }
 
-        private void ApplyRifleScopeEffect(PlayerBullet b)
+        private void ApplyRifleScopeEffect(PlayerBullet b, bool damage)
         {
+            if (!damage) return;
             var distance =
                 Vector2.Distance(b.transform.position, PlayerFind.instance.playerInstance.transform.position);
             if (stack == 0 || b.crit || b.LayerInMask(LayerMask.NameToLayer("Player")) ||

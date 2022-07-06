@@ -6,6 +6,7 @@ namespace InventoryScripts
     [CreateAssetMenu(fileName = "CraftingRecipe", menuName = "")]
     public class CraftingRecipe : ScriptableObject
     {
+        public bool useAnyIngredient;
         public CraftType craftWith;
         public ItemAmountPair[] ingredients;
         public ItemAmountPair result;
@@ -13,7 +14,8 @@ namespace InventoryScripts
         public enum CraftType
         {
             Hands,
-            WorkBench
+            WorkBench,
+            Duplicator
         }
         [System.Serializable]
         public struct ItemAmountPair

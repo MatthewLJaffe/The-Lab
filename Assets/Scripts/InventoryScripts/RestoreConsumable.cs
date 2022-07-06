@@ -12,6 +12,8 @@ namespace InventoryScripts
         protected float restoreMultiplier;
         private float _dontConsumeChance;
         [SerializeField] protected PlayerStats playerStats;
+        [SerializeField] protected SteroidEffect steroidEffect;
+        [SerializeField] private PHDEffect phdEffect;
         public PlayerBar.PlayerBarType restoreType;
         public static Action<RestoreConsumable> restoreItemUsed = delegate {  };
 
@@ -49,6 +51,12 @@ namespace InventoryScripts
             onUse.Invoke();
             if (Random.Range(0f, 1f) > _dontConsumeChance)
                 itemConsumed.Invoke();
+            if (steroidEffect.Stack > 0)
+            {
+                steroidEffect.ApplySteroidEffect();
+            }
+            if (phdEffect && phdEffect.Stack > 0)
+                phdEffect.ApplyPHDEffect();
         }
     }
 }

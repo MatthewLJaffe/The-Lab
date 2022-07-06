@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968c7a64e514c1ab1803a8374952965, type: 3}
+  m_Name: AssasinsHandbookEffect
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 80c6cffd6dcc87a458fb0d95f3ae85e1, type: 3}
+  message: Your speed scales with your overall accuracy
+  stack: 1
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  accuracySpeeds:
+  - accuracy: 1
+    speed: 3
+  - accuracy: 0.9
+    speed: 2
+  - accuracy: 0.85
+    speed: 1.5
+  - accuracy: 0.75
+    speed: 1
+  - accuracy: 0.6
+    speed: 0.5
+  - accuracy: 0.5
+    speed: 0
+  - accuracy: 0
+    speed: -0.5
+  overallAccuracy: 0.6

@@ -27,10 +27,16 @@ namespace LabCreationScripts
                 roomData.finish.Invoke();
                 return;
             }
-            roomType = PickRoomType(roomData.roomCategories, roomData.rooms.Count(r => r == null), out var roomCategory);
+            var roomWeight = PickRoomType(roomData.roomCategories, roomData.rooms.Count(r => r == null), out var roomCategory);
+            roomType = roomWeight.proceduralRoom;
             roomGameObject = DrawRoom(roomData, doorPos, dir, roomType, prevRoom);
             if (!roomGameObject) return;
             roomCategory.amountToCreate--;
+            if (roomCategory.dontRepeat)
+            {
+                roomCategory.totalProb -= roomWeight.weight;
+                roomCategory.roomTypes.Remove(roomWeight);
+            }
             roomCategory.roomInstances.Add(this);
             AddRoom(roomData.rooms);
             roomGameObject.name = $"Room {RoomId}";
@@ -322,7 +328,7 @@ namespace LabCreationScripts
             }
         }
 
-        private ProceduralRoom PickRoomType(FloorGenerator.RoomCategory[] roomCategories, int numRooms, out FloorGenerator.RoomCategory category)
+        private FloorGenerator.RoomCategory.RoomWeight PickRoomType(FloorGenerator.RoomCategory[] roomCategories, int numRooms, out FloorGenerator.RoomCategory category)
         {
             var randValue = Random.Range(0, 1f);
             if (numRooms > 1) 
@@ -344,7 +350,7 @@ namespace LabCreationScripts
             else
                 category = roomCategories.First(rc => rc.categoryName == FloorGenerator.CategoryName.End);
             randValue = Random.Range(0, category.totalProb);
-            var returnRoom = category.roomTypes[0];
+            var returnRoom = category.roomTypes[0]; //Sometimes causes out of range
             foreach (var rt in category.roomTypes)
             {
                 if (rt.weight >= randValue) {
@@ -353,13 +359,7 @@ namespace LabCreationScripts
                 }
                 randValue -= rt.weight;
             }
-
-            if (category.dontRepeat)
-            {
-                category.totalProb -= returnRoom.weight;
-                category.roomTypes.Remove(returnRoom);
-            }
-            return returnRoom.proceduralRoom;
+            return returnRoom;
         }
     }
 }

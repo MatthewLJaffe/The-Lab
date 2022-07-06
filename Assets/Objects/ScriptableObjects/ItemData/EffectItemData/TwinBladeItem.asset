@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: TwinBladeItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 6160974490411238224, guid: 3b23c78057865d24894601a746a4dc02, type: 3}
+  itemName: Twinblade
+  itemDescription: Not very balanced
+  dropPrefab: {fileID: 91282552342100759, guid: cd27f2d9309b5c64fb18a12488031d38, type: 3}
+  equipPrefab: {fileID: 1411528683912498255, guid: 5a747eaa18a9d5049be3504f14d50c00, type: 3}
+  maxStack: 1

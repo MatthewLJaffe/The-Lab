@@ -18,7 +18,8 @@ namespace WeaponScripts
                 Particle.Stop();
                 Particle.time = 0;
             }
-            MyPool.ReturnToPool(gameObject);        }
+            MyPool.ReturnToPool(gameObject);       
+        }
 
         //called by BulletDestroy Animation Event
         public override void RemoveBullet()

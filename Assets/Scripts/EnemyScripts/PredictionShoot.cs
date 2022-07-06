@@ -8,6 +8,7 @@ namespace EnemyScripts
 {
     public class PredictionShoot : MonoBehaviour, IFire
     {
+        [SerializeField] private float damage;
         [SerializeField] private Enemy enemy;
         [SerializeField] private GameObject projectile;
         [SerializeField] private float shootDelay;
@@ -47,7 +48,15 @@ namespace EnemyScripts
         {
             var projInstance = Instantiate(projectile, shootPoint.transform.position, quaternion.identity);
             projInstance.transform.up = ShootDir;
-            projInstance.GetComponent<Bullet>().direction = ShootDir;
+            var bulletComponent = projInstance.GetComponent<Bullet>();
+            bulletComponent.direction = ShootDir;
+            bulletComponent.firedBy = enemy.gameObject;
+            bulletComponent.damage = damage;
+        }
+
+        public void ScaleDamage(float scalar)
+        {
+            damage *= scalar;
         }
 
     }

@@ -26,6 +26,7 @@ namespace General
         private void OnDestroy()
         {
             TeleporterInteractor.teleportInteract -= SetPressable;
+            PlayerInputManager.onInputDown -= CheckButtonPress;
         }
         
         private void Start()

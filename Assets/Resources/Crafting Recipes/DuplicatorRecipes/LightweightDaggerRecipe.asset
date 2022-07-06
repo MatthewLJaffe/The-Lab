@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ef0bdfdc624b89be9ba6b065f52631, type: 3}
+  m_Name: LightweightDaggerRecipe
+  m_EditorClassIdentifier: 
+  useAnyIngredient: 0
+  craftWith: 2
+  ingredients:
+  - itemData: {fileID: 11400000, guid: da8c50f8948821841a45c562776e2118, type: 2}
+    amount: 1
+  - itemData: {fileID: 11400000, guid: 49f4d9fd57248f24f8340bec67d4c49e, type: 2}
+    amount: 1
+  result:
+    itemData: {fileID: 11400000, guid: 49f4d9fd57248f24f8340bec67d4c49e, type: 2}
+    amount: 2

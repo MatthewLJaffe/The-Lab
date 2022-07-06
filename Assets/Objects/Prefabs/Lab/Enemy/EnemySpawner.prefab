@@ -44,8 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5b56098cc3408aa3bbb50c546d2e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   roomChild: {fileID: 6246482570115954757}
-  enemyWeights: []
+  enemyWeightsFloor1: []
+  enemyWeightsFloor2: []
+  enemyWeightsFloor3: []
 --- !u!61 &1825619168518770482
 BoxCollider2D:
   m_ObjectHideFlags: 0

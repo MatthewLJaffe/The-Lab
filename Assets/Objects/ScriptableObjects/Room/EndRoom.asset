@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d5407f6c094d609bf6bdc456b00f03, type: 3}
   m_Name: EndRoom
   m_EditorClassIdentifier: 
-  minSize: {x: 12, y: 12}
-  maxSize: {x: 15, y: 15}
+  minSize: {x: 17, y: 17}
+  maxSize: {x: 17, y: 17}
   spawners:
   - potentialSpawns:
     - spawner: {fileID: 11400000, guid: 1427574dee8737b41bc607fa23c5444b, type: 2}
@@ -21,7 +21,7 @@ MonoBehaviour:
       minSpawns: 1
       maxSpawns: 1
     spawnChance: 1
-    spawnOrder: 0
+    spawnOrder: 1
     vertConstraints: 0
     horizConstraints: 0
   - potentialSpawns:
@@ -30,7 +30,7 @@ MonoBehaviour:
       minSpawns: 1
       maxSpawns: 1
     spawnChance: 1
-    spawnOrder: 0
+    spawnOrder: 1
     vertConstraints: 0
     horizConstraints: 0
   - potentialSpawns:
@@ -39,7 +39,7 @@ MonoBehaviour:
       minSpawns: 1
       maxSpawns: 1
     spawnChance: 1
-    spawnOrder: 1
+    spawnOrder: 2
     vertConstraints: 0
     horizConstraints: 0
   - potentialSpawns:
@@ -48,7 +48,7 @@ MonoBehaviour:
       minSpawns: 1
       maxSpawns: 1
     spawnChance: 1
-    spawnOrder: 1
+    spawnOrder: 0
     vertConstraints: 0
     horizConstraints: 0
   lockRoom: 0

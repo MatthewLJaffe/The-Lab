@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
       propertyPath: m_Name
-      value: PlayerBulletNoParticle
+      value: PlayerBulletNoParticle Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7214407401972202885, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}

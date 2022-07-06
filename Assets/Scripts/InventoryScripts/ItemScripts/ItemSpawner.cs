@@ -14,6 +14,7 @@ namespace InventoryScripts.ItemScripts
         private SpriteRenderer _sr;
         [SerializeField] private Color highlightColor;
         private bool _looted;
+        [SerializeField] private bool weightEvenly;
         public bool CanInteract
         {
             set
@@ -37,6 +38,12 @@ namespace InventoryScripts.ItemScripts
             float probSum = itemTable.Sum(ie => ie.prob);
             for (int i = 0; i < itemTable.Length; i++)
                 itemTable[i].prob = (itemTable[i].prob / probSum) * 100;
+            if (weightEvenly)
+            {
+                for (int i = 0; i < itemTable.Length; i++) {
+                    itemTable[i].prob = (1f / itemTable.Length) * 100;
+                }
+            }
         }
 
         [System.Serializable]

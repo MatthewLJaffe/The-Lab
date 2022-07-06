@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: PHDItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: 7c5435fa92f3cb1419d66782616d3b76, type: 3}
+  itemName: PhD
+  itemDescription: +DEF everytime a kit is used
+  dropPrefab: {fileID: 5565309241961239201, guid: 3bbb632410508444fa9c83064eaa2a8d, type: 3}
+  equipPrefab: {fileID: 4610781398929484576, guid: 25c0b16580c29fa4aa867e8b8e6c8438, type: 3}
+  maxStack: 1

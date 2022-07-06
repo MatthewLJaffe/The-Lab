@@ -114,7 +114,7 @@ MonoBehaviour:
   speed: 0
   acceleration: 0
   farState: {fileID: 4373314044111187761}
-  farRange: 12
+  farRange: 15
   closeState: {fileID: 4373314044111187767}
   closeRange: 5
   lineRenderer: {fileID: 6977686751505362703}
@@ -146,7 +146,7 @@ MonoBehaviour:
   speed: 3
   acceleration: 2
   farState: {fileID: 4373314044111187761}
-  farRange: 12
+  farRange: 15
   closeState: {fileID: 4373314044111187767}
   closeRange: 5
   targetAcquiredState: {fileID: 5850037729623278010}
@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 6662395242404636901}
     - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: idleDistance
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: closeDistance

@@ -30,6 +30,7 @@ namespace CameraScripts
 
         private async void ShakeScreen(float intensity)
         {
+            if (!cam) return;
             _shakeDisp = Mathf.Max(intensity * shakeFactor, _shakeDisp);
             if (_shaking) return;
             _shaking = true;

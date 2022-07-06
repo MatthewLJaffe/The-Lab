@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 1325152548166316600}
   - component: {fileID: 2323751424381468474}
   - component: {fileID: 6478424435297954885}
+  - component: {fileID: 2459501869623921262}
   m_Layer: 12
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -377,6 +378,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 3618909337027261324}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2459501869623921262}
+        m_TargetAssemblyTypeName: InventoryScripts.ItemScripts.ItemSpawner, Assembly-CSharp
+        m_MethodName: DetermineLoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -536,6 +549,29 @@ MonoBehaviour:
   flashTime: 0.3
   deathTime: 0.5
   enemy: {fileID: 1283099854520831250}
+--- !u!114 &2459501869623921262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879980776276211673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808633bbb68991c42b694db9cf47bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onItemSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  dropDir: {x: 0, y: -1}
+  itemTable:
+  - prob: 0.05
+    drop: {fileID: 8282957206258976948, guid: 0625afa1fa2b1e641897f681a54e5641, type: 3}
+  - prob: 0.95
+    drop: {fileID: 0}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  weightEvenly: 0
 --- !u!1 &3618909337027261324
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,10 +590,13 @@ GameObject:
   - component: {fileID: 8513788600480466899}
   - component: {fileID: 1283099855493205383}
   - component: {fileID: 1538857525429432220}
+  - component: {fileID: 4684409857011638712}
+  - component: {fileID: 6810477945630928028}
   - component: {fileID: 1283099854520831250}
   - component: {fileID: 7477241553121777689}
   - component: {fileID: 3618909337027261317}
   - component: {fileID: 7991086171518227509}
+  - component: {fileID: 1745706374209124355}
   m_Layer: 12
   m_Name: BarfZombie
   m_TagString: Untagged
@@ -688,7 +727,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 45e28b96b97515349b8a66d3a322fbff, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -756,6 +795,7 @@ MonoBehaviour:
   slider: {fileID: 4909585479454345466}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 827043955892495942}
+  critColor: {r: 0.9137255, g: 0.52156866, b: 0.52156866, a: 1}
 --- !u!114 &1538857525429432220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,12 +808,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f97e86e1dfe4cb19efef9f8275b9174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 5
   sourceCollider: {fileID: 3618909337027261319}
+  isHazard: 0
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
     m_Bits: 16896
+  onDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4684409857011638712}
+        m_TargetAssemblyTypeName: General.TimedAction, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4684409857011638712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618909337027261324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a194580a79e0450cb3512161d97544db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginOnStart: 0
+  time: 0.2
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6810477945630928028}
+        m_TargetAssemblyTypeName: EntityStatsScripts.ModifyStat, Assembly-CSharp
+        m_MethodName: ChangeStat
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6810477945630928028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618909337027261324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4587b3e5b45849e6b11c96cd3db2675f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeAmount: 0
+  statType: 1
 --- !u!114 &1283099854520831250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40345efcef954999abd5d0584a94d8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   enemy: {fileID: 1283099854520831250}
   projectile: {fileID: 4242816469578167626, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
   shootDelay: 0.7
@@ -1023,6 +1123,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1745706374209124355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618909337027261324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaf11c540f6494468192efd4d2c1d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  onFloor1:
+    m_PersistentCalls:
+      m_Calls: []
+  onFloor2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1283099855493205383}
+        m_TargetAssemblyTypeName: EntityStatsScripts.EnemyHealth, Assembly-CSharp
+        m_MethodName: ScaleHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFloor3:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4909585478499840626
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0617f575b35dd2947b28c6f44822c26c, type: 3}
+  m_Name: DuplicatorSpawner
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 7865093570551016987, guid: 1b291b0c1f8a7da4bad96b75c6a5fa90, type: 3}
+  removeSpawnCollider: 0

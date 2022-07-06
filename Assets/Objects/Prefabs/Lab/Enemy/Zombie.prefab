@@ -147,6 +147,7 @@ MonoBehaviour:
   minDashDistance: 4
   strafeCooldown: 1.2
   strafeChancePerSecond: 0.5
+  strafe: 1
 --- !u!114 &4171775084204444757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,9 +214,12 @@ GameObject:
   - component: {fileID: 3135082565573071551}
   - component: {fileID: 194362702}
   - component: {fileID: 330278179308232533}
+  - component: {fileID: 3393449882575349383}
+  - component: {fileID: 2489124553638767234}
   - component: {fileID: 830701019}
   - component: {fileID: 8505614241952147664}
   - component: {fileID: 5345668627222781459}
+  - component: {fileID: 6138324307212626362}
   m_Layer: 12
   m_Name: Zombie
   m_TagString: Untagged
@@ -345,7 +349,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 45e28b96b97515349b8a66d3a322fbff, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -410,6 +414,7 @@ MonoBehaviour:
   slider: {fileID: 6191364812716931123}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 1924229588570445455}
+  critColor: {r: 0.9137255, g: 0.52156866, b: 0.52156866, a: 1}
 --- !u!114 &330278179308232533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,12 +427,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f97e86e1dfe4cb19efef9f8275b9174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 10
   sourceCollider: {fileID: 2591415159008789326}
+  isHazard: 0
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
     m_Bits: 16896
+  onDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2489124553638767234}
+        m_TargetAssemblyTypeName: General.TimedAction, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3393449882575349383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591415159008789317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4587b3e5b45849e6b11c96cd3db2675f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeAmount: -5
+  statType: 1
+--- !u!114 &2489124553638767234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591415159008789317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a194580a79e0450cb3512161d97544db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginOnStart: 0
+  time: 0.2
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3393449882575349383}
+        m_TargetAssemblyTypeName: EntityStatsScripts.ModifyStat, Assembly-CSharp
+        m_MethodName: ChangeStat
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &830701019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +712,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6138324307212626362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591415159008789317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaf11c540f6494468192efd4d2c1d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  onFloor1:
+    m_PersistentCalls:
+      m_Calls: []
+  onFloor2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194362702}
+        m_TargetAssemblyTypeName: EntityStatsScripts.EnemyHealth, Assembly-CSharp
+        m_MethodName: ScaleHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFloor3:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6087940590089918342
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,6 +5914,8 @@ MonoBehaviour:
     weight: 1
   - layer: Drone
     weight: 1
+  - layer: Shoot Through
+    weight: 1
 --- !u!114 &1060088679900300028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5857,6 +5957,7 @@ GameObject:
   - component: {fileID: 744472396366196997}
   - component: {fileID: 7214403746886769398}
   - component: {fileID: 7682709330699917925}
+  - component: {fileID: 3965131180745275581}
   m_Layer: 12
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -5976,6 +6077,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 2591415159008789317}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3965131180745275581}
+        m_TargetAssemblyTypeName: InventoryScripts.ItemScripts.ItemSpawner, Assembly-CSharp
+        m_MethodName: DetermineLoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6135,6 +6248,29 @@ MonoBehaviour:
   flashTime: 0.3
   deathTime: 0.75
   enemy: {fileID: 830701019}
+--- !u!114 &3965131180745275581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052067729364343376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808633bbb68991c42b694db9cf47bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onItemSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  dropDir: {x: 0, y: 0}
+  itemTable:
+  - prob: 0.95
+    drop: {fileID: 0}
+  - prob: 0.05
+    drop: {fileID: 8282957206258976948, guid: 0625afa1fa2b1e641897f681a54e5641, type: 3}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  weightEvenly: 0
 --- !u!1001 &4257605094370040472
 PrefabInstance:
   m_ObjectHideFlags: 0

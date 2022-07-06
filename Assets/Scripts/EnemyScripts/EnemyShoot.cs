@@ -67,10 +67,16 @@ namespace EnemyScripts
                 var bulletGo = _bulletPool.GetFromPool();
                 bulletGo.transform.position = shootPoint.position;
                 var bulletComponent = bulletGo.GetComponent<PooledBullet>();
+                bulletComponent.firedBy = _enemy.gameObject;
                 bulletComponent.direction =  shootPoint.localRotation * -transform.up;
                 bulletComponent.speed = bulletSpeed;
                 bulletComponent.damage = damage;
             }
+        }
+
+        public void ScaleDamage(float scalar)
+        {
+            damage *= scalar;
         }
     }
 }

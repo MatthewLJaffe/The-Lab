@@ -7,11 +7,17 @@ namespace EntityStatsScripts
 {
     public class ModifyStat : MonoBehaviour
     {
+        [SerializeField] private float changeAmount;
         [SerializeField] private PlayerBar.PlayerBarType statType;
 
         public void ChangeStat(float amount)
         {
-            PlayerBarsManager.Instance.ModifyPlayerStat(statType, amount);
+            PlayerBarsManager.Instance.ModifyAndDisplayStat(statType, amount);
+        }
+
+        public void ChangeStat()
+        {
+            PlayerBarsManager.Instance.ModifyAndDisplayStat(statType, changeAmount);
         }
     }
 }

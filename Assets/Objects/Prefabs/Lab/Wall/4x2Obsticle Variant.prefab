@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor2.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: -1273097725737075720, guid: 30aae90c58302924f963bed058140259, type: 3}
     - target: {fileID: 6439465675820584193, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -125,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8287159820035578686, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
       propertyPath: m_Name
-      value: 4x2Obsticle
+      value: 4x2Obsticle Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc59e8f37295e6340a21da24043d8524, type: 3}

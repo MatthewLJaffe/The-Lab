@@ -9854,7 +9854,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   sourceCollider: {fileID: 8865873838467174007}
+  isHazard: 1
   damageSfx: {fileID: 0}
+  hazard: 1
   layers:
     serializedVersion: 2
     m_Bits: 2102016

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5129120294250123008}
   - component: {fileID: 7025089274364120025}
   - component: {fileID: 1026250214545657183}
-  - component: {fileID: 3939374788617081633}
+  - component: {fileID: 7089709440552892853}
   m_Layer: 10
   m_Name: AK Equip
   m_TagString: Untagged
@@ -66,7 +66,8 @@ MonoBehaviour:
   bullet: {fileID: 7617890687093575437, guid: 2cc13ad9b3567fb4abec5a6ffb5d0dc1, type: 3}
   shake: 0.75
   fireSource: {fileID: 1026250214545657183}
-  reloadSource: {fileID: 3939374788617081633}
+  reloadSource: {fileID: 7089709440552892853}
+  glichyMagEffect: {fileID: 11400000, guid: 566d4a3e4c34a32469c23e54644cc52d, type: 2}
   gunStats: {fileID: 11400000, guid: c02cee6be15f1164da0f235fdbaded86, type: 2}
   shootPoint: {fileID: 1001071318741463094}
 --- !u!212 &7025089274364120025
@@ -216,7 +217,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &3939374788617081633
+--- !u!82 &7089709440552892853
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +228,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

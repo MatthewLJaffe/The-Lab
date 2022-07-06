@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using EntityStatsScripts;
+using General;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,7 +22,7 @@ namespace LabCreationScripts
             damageCollider.enabled = false;
         }
         
-        public void TakeDamage(float amount, Vector2 dir)
+        public void TakeDamage(float amount, Vector2 dir, DamageSource source = null, bool crit = false)
         {
             onTakeDamage.Invoke();
             sr.sprite = damagedSprite;

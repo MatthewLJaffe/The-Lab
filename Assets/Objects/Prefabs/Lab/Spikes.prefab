@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   sourceCollider: {fileID: 5913216749073095037}
+  isHazard: 1
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2

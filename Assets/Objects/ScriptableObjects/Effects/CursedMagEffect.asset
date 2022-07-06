@@ -16,7 +16,7 @@ MonoBehaviour:
   message: Increased reload speed. Increased damage after reloading. Reloading may
     cause damage.
   stack: 0
-  damageChance: 0.4
+  damageChance: 0.666
   damageBuffTime: 4
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   minReloadFactor: 0.2

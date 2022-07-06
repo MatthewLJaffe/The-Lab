@@ -16,10 +16,10 @@ namespace EntityStatsScripts
         public PlayerBarType barType;
 
         [Tooltip("Can be left uninitialized")]
-        [SerializeField] protected float barLowPercent;
-        [SerializeField] protected float barVeryLowPercent;
-        [SerializeField] protected float barHighPercent;
-        [SerializeField] protected float barVeryHighPercent;
+        [SerializeField] protected float barLowValue;
+        [SerializeField] protected float barVeryLowValue;
+        [SerializeField] protected float barHighValue;
+        [SerializeField] protected float barVeryHighValue;
         [SerializeField] protected GameObject statDisplay;
         [SerializeField] protected RectTransform bar;
         [SerializeField] protected TextMeshProUGUI amountText;
@@ -27,21 +27,20 @@ namespace EntityStatsScripts
         [SerializeField] protected float maxValue;
         [SerializeField] protected Effect barHighEffect;
         [SerializeField] protected Effect barLowEffect;
+        [SerializeField] protected float maxBarWidth;
 
         protected float MaxValue
-        {
+        { 
             get => maxValue;
             set
             {
                 float oldWidth = bar.sizeDelta.x;
-                bar.sizeDelta = new Vector2(oldWidth * value / maxValue, bar.sizeDelta.y);
+                bar.sizeDelta = new Vector2(Mathf.Min(oldWidth * value / maxValue, maxBarWidth), bar.sizeDelta.y);
                 bar.localPosition += Vector3.right * (bar.sizeDelta.x - oldWidth) / 2;
                 var healthDiff = value - MaxValue;
                 maxValue = value;
                 if (healthDiff + barValue <= 0)
                     BarValue = 1;
-                else
-                    BarValue += healthDiff;
             }
         }
         
@@ -54,40 +53,40 @@ namespace EntityStatsScripts
             get => barValue;
             set
             {
-                var newPercentage = Mathf.Clamp(value / maxValue, 0, 1);
-                var oldPercentage = Mathf.Clamp(barValue / maxValue, 0, 1);
-                UpdateStatDisplay(newPercentage);
-                if (newPercentage >= barVeryHighPercent && oldPercentage < barVeryHighPercent)
+                var newValue = Mathf.Clamp(value, minValue, maxValue);
+                var oldValue = Mathf.Clamp(barValue, minValue, maxValue);
+                UpdateStatDisplay(newValue / maxValue);
+                if (newValue >= barVeryHighValue && oldValue < barVeryHighValue)
                 {
                     if (barHighEffect != null)
                         barHighEffect.Stack = 2;
                     if (barLowEffect != null)
                         barLowEffect.Stack = 0;
                 }
-                else if (newPercentage >=  barHighPercent && newPercentage < barVeryHighPercent 
-                        && (oldPercentage >= barVeryHighPercent || oldPercentage < barHighPercent))
+                else if (newValue >=  barHighValue && newValue < barVeryHighValue 
+                        && (oldValue >= barVeryHighValue || oldValue < barHighValue))
                 {
                     if (barHighEffect != null)
                         barHighEffect.Stack = 1;
                     if (barLowEffect != null)
                         barLowEffect.Stack = 0;
                 }
-                else if (newPercentage <= barVeryLowPercent && oldPercentage > barVeryLowPercent)
+                else if (newValue <= barVeryLowValue && oldValue > barVeryLowValue)
                 {
                     if (barLowEffect != null)
                         barLowEffect.Stack = 2;
                     if (barHighEffect != null)
                         barHighEffect.Stack = 0;
                 }
-                else if (newPercentage <= barLowPercent && newPercentage > barVeryLowPercent &&
-                         (oldPercentage >= barLowPercent || oldPercentage <= barVeryLowPercent))
+                else if (newValue <= barLowValue && newValue > barVeryLowValue &&
+                         (oldValue >= barLowValue || oldValue <= barVeryLowValue))
                 {
                     if (barLowEffect != null)
                         barLowEffect.Stack = 1;
                     if (barHighEffect != null)
                         barHighEffect.Stack = 0;
                 }
-                else if (newPercentage == 0)
+                else if (newValue == 0)
                     BarDeplete.Invoke(barType);
                 barValue = Mathf.Clamp(value, minValue, maxValue);
                 amountText.text = $"{Mathf.Round(barValue)}/{maxValue}";

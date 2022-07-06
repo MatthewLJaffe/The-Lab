@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d218e701d8042dd4d9d178c92e871acb, type: 3}
   m_Name: SniperRifle+3
   m_EditorClassIdentifier: 
-  damage: 45
+  damage: 70
   fireRate: 55
   accuracy: 100
-  critChance: 35
-  reloadSpeed: 55
+  critChance: 22
+  reloadSpeed: 35
   magSize: 4

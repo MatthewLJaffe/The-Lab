@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d0ec12480a4f27aec5a913d641adda, type: 3}
+  m_Name: HoardersSeason3
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 95d35fa410486f94191976814ca6f345, type: 3}
+  message: ATK scales with number of items in inventory
+  stack: 1
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  atkPerItem: 0.25

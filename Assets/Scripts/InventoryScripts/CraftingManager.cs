@@ -23,7 +23,7 @@ namespace InventoryScripts
         {
             _craftableType = CraftingRecipe.CraftType.Hands;
             Inventory.OnInventoryUpdated += UpdateRecipes;
-            WeaponUpgrade.craftTypeChange += UpdateCraftType;
+            CraftingStation.craftTypeChange += UpdateCraftType;
             _ingredientSlotItems = new List<Item>();
             var craftingObjects = Resources.LoadAll("Crafting Recipes");
             craftingRecipes = new CraftingRecipe[craftingObjects.Length];
@@ -36,7 +36,7 @@ namespace InventoryScripts
 
         private void OnDestroy() {
             Inventory.OnInventoryUpdated -= UpdateRecipes;
-            WeaponUpgrade.craftTypeChange -= UpdateCraftType;
+            CraftingStation.craftTypeChange -= UpdateCraftType;
         }
 
         private void OnEnable() 
@@ -50,7 +50,6 @@ namespace InventoryScripts
             foreach (var slot in ingredientsSlots) 
                 ClearIngredientsSlot(slot);
             
-            
             _crafting = craftableSlots[index].myRecipe;
             if (_crafting == null) return;
             //Show result
@@ -62,26 +61,45 @@ namespace InventoryScripts
             {
                 if (i >= ingredients.Length) {
                     ClearIngredientsSlot(ingredientsSlots[i]);
-                    continue;
                 }
-                var currIngredient = Inventory.Instance.itemList.Find(item => 
-                    item.itemData == ingredients[i].itemData && item.Amount >= ingredients[i].amount);
-                //Case1: we have just the right amount of the ingredient move the item from inventory to crafting slot
-                if (currIngredient.Amount == ingredients[i].amount)
+            }
+            if (_crafting.useAnyIngredient)
+            {
+                foreach (var ingredient in _crafting.ingredients)
                 {
-                    var invSlot = Inventory.Instance.GetSlotFromItem(currIngredient);
-                    var craftSlot = ingredientsSlots[i].GetComponent<InventorySlot>();
-                    var tempItem = invSlot.MyItem;
-                    invSlot.MyItem = craftSlot.MyItem;
-                    craftSlot.MyItem = tempItem;
+                    if (Inventory.Instance.itemList.Any(item => 
+                        item.Amount >= ingredient.amount && item.itemData == ingredient.itemData)) {
+                        ShowIngredient(ingredient, 1);
+                        break;
+                    }
                 }
-                //Case2: we have a surplus of the ingredient move the amount we need to the crafting slot
-                else
-                {
-                    currIngredient.Amount -= ingredients[i].amount;
-                    var splitItem = new Item(currIngredient.itemData, ingredients[i].amount);
-                    ingredientsSlots[i].GetComponent<InventorySlot>().MyItem = splitItem;
-                }
+            }
+            else
+            {
+                for (int i = 0; i < ingredients.Length; i++)
+                    ShowIngredient(ingredients[i], i);
+            }
+        }
+
+        private void ShowIngredient(CraftingRecipe.ItemAmountPair ingredient, int slotNumber)
+        {
+            var currIngredient = Inventory.Instance.itemList.Find(item => 
+                item.itemData == ingredient.itemData && item.Amount >= ingredient.amount);
+            //Case1: we have just the right amount of the ingredient move the item from inventory to crafting slot
+            if (currIngredient.Amount == ingredient.amount)
+            {
+                var invSlot = Inventory.Instance.GetSlotFromItem(currIngredient);
+                var craftSlot = ingredientsSlots[slotNumber].GetComponent<InventorySlot>();
+                var tempItem = invSlot.MyItem;
+                invSlot.MyItem = craftSlot.MyItem;
+                craftSlot.MyItem = tempItem;
+            }
+            //Case2: we have a surplus of the ingredient move the amount we need to the crafting slot
+            else
+            {
+                currIngredient.Amount -= ingredient.amount;
+                var splitItem = new Item(currIngredient.itemData, ingredient.amount);
+                ingredientsSlots[slotNumber].GetComponent<InventorySlot>().MyItem = splitItem;
             }
         }
 
@@ -129,6 +147,17 @@ namespace InventoryScripts
         private bool RecipeCraftable(CraftingRecipe cr, List<Item> itemList)
         {
             if (cr.craftWith != _craftableType) return false;
+            if (cr.useAnyIngredient)
+            {
+                foreach (var ingredient in cr.ingredients)
+                {
+                    if (itemList.Any(item => 
+                        item.Amount >= ingredient.amount && item.itemData == ingredient.itemData)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
             foreach (var ingredient in cr.ingredients)
             {
                 if (!itemList.Any(item => 

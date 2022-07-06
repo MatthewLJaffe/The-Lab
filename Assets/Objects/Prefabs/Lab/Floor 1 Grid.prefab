@@ -2483,6 +2483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9f6464f15c08c47bb5f35422a69964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  floorNumber: 1
   roomPrefab: {fileID: 4349472371054269264, guid: 2546c5b92d234f54f89260022ac69dc3, type: 3}
   miniMap: {fileID: 0}
   miniMapRoomPrefab: {fileID: 2918062087459720433, guid: 5bcf8db8d9fce684db90a7fb578eb51d, type: 3}
@@ -2516,7 +2518,7 @@ MonoBehaviour:
       weight: 0.1
     - proceduralRoom: {fileID: 11400000, guid: 2a4c0c930321fa041878997ca10c8fd9, type: 2}
       weight: 0.1
-    - proceduralRoom: {fileID: 11400000, guid: 1f8fb09395fa91f4e8cc53fd83a6aefd, type: 2}
+    - proceduralRoom: {fileID: 11400000, guid: 323cec0f44491bb4f81d497d67cdec1d, type: 2}
       weight: 0.1
     - proceduralRoom: {fileID: 11400000, guid: 5a9e0c7741832594a97d174071597c14, type: 2}
       weight: 0.1
@@ -2554,11 +2556,19 @@ MonoBehaviour:
       weight: 0.1
     - proceduralRoom: {fileID: 11400000, guid: 1319447c2ba08d3429e079175f72cb97, type: 2}
       weight: 0.1
-    - proceduralRoom: {fileID: 11400000, guid: 369da19eb8017994693a45a33db6bcf9, type: 2}
+    - proceduralRoom: {fileID: 11400000, guid: 8923b487c17116b41bca1ea7615003ca, type: 2}
       weight: 0.1
     - proceduralRoom: {fileID: 11400000, guid: 8b4067161dd724e478d03e0b12bcce97, type: 2}
       weight: 0.1
-    postSpawns: []
+    postSpawns:
+    - spawner: {fileID: 11400000, guid: f35cc14235d57cf42b8a71ba22ce88ee, type: 2}
+      amountToCreate: 1
+      minSpawnsPerRoom: 1
+      maxSpawnsPerRoom: 1
+    - spawner: {fileID: 11400000, guid: eb66394a1a29cc345866b0618d7c89a7, type: 2}
+      amountToCreate: 1
+      minSpawnsPerRoom: 1
+      maxSpawnsPerRoom: 1
     totalProb: 1
     dontRepeat: 1
   - categoryName: 2

@@ -241,6 +241,7 @@ MonoBehaviour:
   shake: 1
   fireSource: {fileID: -1975678993667712907}
   reloadSource: {fileID: 1165171899602275576}
+  glichyMagEffect: {fileID: 11400000, guid: 566d4a3e4c34a32469c23e54644cc52d, type: 2}
   gunStats: {fileID: 11400000, guid: cdc60d578f179cc438709b69b6fa3e2f, type: 2}
   shootPoint: {fileID: 1962365716}
 --- !u!114 &1919950419

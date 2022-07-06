@@ -26,6 +26,7 @@ namespace WeaponScripts
      protected ParticleSystem Particle;
      protected ParticleSystem.MainModule settings;
      private Camera _mainCamera;
+     public GameObject firedBy;
         
 
         protected override void Awake()
@@ -34,7 +35,8 @@ namespace WeaponScripts
             Rb = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
             Particle = GetComponent<ParticleSystem>();
-            settings = GetComponent<ParticleSystem>().main;
+            if (Particle)
+                settings = GetComponent<ParticleSystem>().main;
             _mainCamera = Camera.main;
         }
 
@@ -52,14 +54,24 @@ namespace WeaponScripts
             if (sourceCollider.isTrigger && direction != Vector2.zero &&
                 layers == (layers | (1 << other.gameObject.layer)))
             {
-                damageable?.TakeDamage(damage, Rb.velocity);
+                damageable?.TakeDamage(damage, Rb.velocity, this, crit);
+                if (damageable != null)
+                    onDamage.Invoke();
             }
             if (destructionCollider.IsTouching(other) || destroyOnDamage && damageable != null)
             {
                 if (Particle) {
                     StartCoroutine(PlayParticle());
                 }
+                if (damageSfx)
+                    damageSfx.Play();
+                var hit = Physics2D.Raycast((Vector2) transform.position - Rb.velocity.normalized * .1f, Rb.velocity, 10f,
+                    Physics2D.GetLayerCollisionMask(gameObject.layer));
+                transform.up = -hit.normal; 
                 StartBulletDestruction();
+                foreach (var coll in gameObject.GetComponentsInChildren<Collider2D>()) {
+                    coll.enabled = false;
+                }
             }
         }
 
@@ -113,9 +125,10 @@ namespace WeaponScripts
 
         protected IEnumerator InitializeBullet()
         {
+            foreach (var coll in gameObject.GetComponentsInChildren<Collider2D>()) {
+                coll.enabled = true;
+            }
             yield return new WaitUntil(() => direction != Vector2.zero);
-            if (crit)
-                damage *= 2.5f;
             BulletReturnRoutine = StartCoroutine(BulletLifetime());
             transform.rotation = GetRotation();
             Rb.velocity = transform.rotation * Vector2.up * speed;

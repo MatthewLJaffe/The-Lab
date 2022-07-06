@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using EntityStatsScripts;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +8,7 @@ namespace EnemyScripts
 {
     public class Enemy : MonoBehaviour
     {
+        public static Action broadcastDeath = delegate {  };
         public Action enemyKilled = delegate {  };
         public BoxCollider2D spawnCollider;
         public Transform target;
@@ -42,14 +42,6 @@ namespace EnemyScripts
             StartCoroutine(SpawnIn());
         }
 
-        private IEnumerator SpawnIn()
-        {
-            spawnInBegin.Invoke(spawnInTime);
-            _animator.Play("SpawnIn");
-            yield return new WaitForSeconds(spawnInTime);
-            spawnInComplete.Invoke();
-        }
-
         private void Start()
         {
             if (PlayerFind.instance.playerInstance)
@@ -66,6 +58,14 @@ namespace EnemyScripts
                 }
             }
         }
+        
+        private IEnumerator SpawnIn()
+        {
+            spawnInBegin.Invoke(spawnInTime);
+            _animator.Play("SpawnIn");
+            yield return new WaitForSeconds(spawnInTime);
+            spawnInComplete.Invoke();
+        }
 
         public void Death()
         {
@@ -74,6 +74,7 @@ namespace EnemyScripts
                 _animator.enabled = false;
             sr.sprite = sprite;
             enemyKilled.Invoke();
+            broadcastDeath.Invoke();
             var colliders = GetComponents<Collider2D>();
             if (colliders == null) return;
             foreach (var c in colliders)

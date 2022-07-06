@@ -22,7 +22,9 @@ namespace EntityStatsScripts
             ReloadFactor,
             RestoreMultiplier,
             DontConsumeChance,
-            RegenPerTick
+            RegenPerTick,
+            CritMultiplier,
+            CurrentFloor
         }
         
         [Serializable]

@@ -24,8 +24,9 @@ namespace EntityStatsScripts.Effects
             _damageMult = Mathf.Min(maxDamageMult, damageStep * newStack + 1f);
         }
 
-        private void ApplyCommandosBandannaEffect(Bullet b)
+        private void ApplyCommandosBandannaEffect(Bullet b, bool damage)
         {
+            if (!damage) return;
             var distance =
                 Vector2.Distance(b.transform.position, PlayerFind.instance.playerInstance.transform.position);
             if (stack == 0 || b.LayerInMask(LayerMask.NameToLayer("Player")) ||

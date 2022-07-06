@@ -15,6 +15,6 @@ MonoBehaviour:
   damage: 6
   fireRate: 350
   accuracy: 75
-  critChance: 8
-  reloadSpeed: 45
+  critChance: 3
+  reloadSpeed: 35
   magSize: 40

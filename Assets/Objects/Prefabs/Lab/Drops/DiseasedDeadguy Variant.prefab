@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
       propertyPath: onItemSpawn.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 269369992005396184, guid: 48b4168298bdab7448b4257bc08b7f96, type: 3}
       propertyPath: onItemSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Target

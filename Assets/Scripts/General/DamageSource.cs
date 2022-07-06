@@ -1,6 +1,6 @@
-﻿using System;
-using EntityStatsScripts;
+﻿using EntityStatsScripts;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace General
 {
@@ -8,10 +8,10 @@ namespace General
     {
         public float damage;
         [SerializeField] protected Collider2D sourceCollider;
-
-        [SerializeField] private SoundEffect damageSfx;
+        public bool isHazard;
+        [SerializeField] protected SoundEffect damageSfx;
         public LayerMask layers;
-
+        public UnityEvent onDamage;
         protected virtual void Awake()
         {
             if (!sourceCollider)
@@ -24,7 +24,8 @@ namespace General
             if ( !LayerInMask(collision.gameObject.layer)) return;
             var damageable = collision.GetComponentInChildren<IDamageable>();
             if (damageable == null) return;
-            damageable.TakeDamage(damage, Vector2.zero);
+            damageable.TakeDamage(damage, Vector2.zero, this);
+            onDamage.Invoke();
             if (damageSfx)
                 damageSfx.Play();
         }
@@ -35,7 +36,8 @@ namespace General
             if ( !LayerInMask(other.collider.gameObject.layer)) return;
             var damageable = other.collider.gameObject.GetComponentInChildren<IDamageable>();
             if (damageable == null) return;
-            damageable.TakeDamage(damage, Vector2.zero);
+            damageable.TakeDamage(damage, Vector2.zero, this);
+            onDamage.Invoke();
             if (damageSfx)
                 damageSfx.Play();
         }
@@ -43,6 +45,11 @@ namespace General
         public bool LayerInMask(int layer)
         {
             return layers == (layers | (1 << layer));
+        }
+
+        public void ScaleDamage(float scalar)
+        {
+            damage *= scalar;
         }
     }
 }

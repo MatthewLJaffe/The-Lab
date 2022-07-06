@@ -1,5 +1,6 @@
 ﻿using System;
 using EntityStatsScripts;
+using General;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,7 +18,7 @@ namespace LabCreationScripts
             _sr = GetComponent<SpriteRenderer>();
         }
 
-        public void TakeDamage(float amount, Vector2 dir)
+        public void TakeDamage(float amount, Vector2 dir, DamageSource source = null, bool crit = false)
         {
             _timesDamaged++;
             if (_timesDamaged < crateSprites.Length) {

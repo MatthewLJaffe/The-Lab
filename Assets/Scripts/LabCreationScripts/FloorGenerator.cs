@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EntityStatsScripts;
 using LabCreationScripts.ProceduralRooms;
 using LabCreationScripts.Spawners;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace LabCreationScripts
 {
     public class FloorGenerator : MonoBehaviour
     {
+        [SerializeField] private PlayerStats playerStats;
+        public float floorNumber;
         public static Action onFloorFinished = delegate {  };
         [SerializeField] private GameObject roomPrefab;
         [SerializeField] private GameObject miniMap;
@@ -89,6 +92,7 @@ namespace LabCreationScripts
         {
             if(_floorFinished)
                 return;
+            playerStats.playerStatsDict[PlayerStats.StatType.CurrentFloor].CurrentValue = floorNumber;
             _floorFinished = true;
             foreach (var room in _rooms)
             {

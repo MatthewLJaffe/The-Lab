@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d218e701d8042dd4d9d178c92e871acb, type: 3}
   m_Name: Pistol+3Stats
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 31
   fireRate: 145
-  accuracy: 95
-  critChance: 18
-  reloadSpeed: 90
+  accuracy: 82
+  critChance: 9
+  reloadSpeed: 60
   magSize: 12

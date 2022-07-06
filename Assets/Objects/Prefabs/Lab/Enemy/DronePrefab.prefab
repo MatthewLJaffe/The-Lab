@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 3572731976869190988}
   - component: {fileID: 3630796956081265334}
   - component: {fileID: 4213923982510619092}
+  - component: {fileID: 6452270792020844503}
   m_Layer: 21
   m_Name: DronePrefab
   m_TagString: Untagged
@@ -532,10 +533,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   sourceCollider: {fileID: 0}
+  isHazard: 0
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
     m_Bits: 16896
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3572731976869190980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,10 +701,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a534b205a436f54dad29daaee695bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 40
   slider: {fileID: 3572731976077140348}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 3572731976050256767}
+  critColor: {r: 0.9137255, g: 0.52156866, b: 0.52156866, a: 1}
 --- !u!114 &3572731976869190991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +774,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6452270792020844503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572731976869190977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaf11c540f6494468192efd4d2c1d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  onFloor1:
+    m_PersistentCalls:
+      m_Calls: []
+  onFloor2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3572731976869190986}
+        m_TargetAssemblyTypeName: EntityStatsScripts.EnemyHealth, Assembly-CSharp
+        m_MethodName: ScaleHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFloor3:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3572731976951603740
 GameObject:
   m_ObjectHideFlags: 0
@@ -6133,6 +6173,7 @@ GameObject:
   - component: {fileID: 3344773479546192025}
   - component: {fileID: 5255461643715190287}
   - component: {fileID: 2739068299038118370}
+  - component: {fileID: 61958328123847429}
   m_Layer: 10
   m_Name: TakeDamage
   m_TagString: Untagged
@@ -6278,6 +6319,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 3572731976869190977}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 61958328123847429}
+        m_TargetAssemblyTypeName: InventoryScripts.ItemScripts.ItemSpawner, Assembly-CSharp
+        m_MethodName: DetermineLoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6450,6 +6503,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultShake: 2
+--- !u!114 &61958328123847429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488360264980313138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808633bbb68991c42b694db9cf47bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onItemSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  dropDir: {x: 0, y: 0}
+  itemTable:
+  - prob: 0.95
+    drop: {fileID: 0}
+  - prob: 0.05
+    drop: {fileID: 3923383155845885380, guid: 85a72eab7d151f74ebddb7f957f7d28c, type: 3}
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  weightEvenly: 0
 --- !u!1 &6935530306956367594
 GameObject:
   m_ObjectHideFlags: 0

@@ -124,9 +124,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  steroidEffect: {fileID: 11400000, guid: 7e7df7f7835474648a74adb1822fee4b, type: 2}
+  phdEffect: {fileID: 0}
   restoreType: 1
-  restoreAmount: 30
-  restoreDuration: 15
+  restoreAmount: 20
+  restoreDuration: 30
   restoreTextPrefab: {fileID: 6773606373898106743, guid: d6ae17eee84f34a48b988f4d557d31bd, type: 3}
 --- !u!1001 &3355090724899353435
 PrefabInstance:

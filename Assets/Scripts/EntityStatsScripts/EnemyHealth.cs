@@ -10,11 +10,13 @@ namespace EntityStatsScripts
 {
     public class EnemyHealth : MonoBehaviour, IDamageable
     {
+        public static Action<Vector3> killedByHazard = delegate {  };
         public Action onTakeDamage = delegate {  };
         [SerializeField] protected float maxHealth;
         [SerializeField] protected Slider slider;
         [SerializeField] protected GameObject numberPrefab;
         [SerializeField] protected Transform displayPoint;
+        [SerializeField] private Color critColor;
         private Enemy _enemy;
         private TakeDamageEffect _takeDamageEffect;
         private float _currentHealth;
@@ -37,8 +39,18 @@ namespace EntityStatsScripts
                 slider.value = maxHealth;
             }
         }
+
+        public void ScaleHealth(float scalar)
+        {
+            maxHealth *= scalar;
+            if (slider != null)
+            {
+                slider.maxValue = maxHealth;
+                slider.value = maxHealth;
+            }
+        }
         
-        public virtual void TakeDamage(float amount, Vector2 dir)
+        public virtual void TakeDamage(float amount, Vector2 dir, DamageSource source, bool crit = false)
         {
             if (Mathf.Abs(amount) < .1f)
                 return;
@@ -50,12 +62,12 @@ namespace EntityStatsScripts
             if (_currentDisplay == null)
             {
                 var number = _damageNumberPool.GetFromPool();
-                _currentDisplay = StartCoroutine(DamageBuffer(dir, number.GetComponent<TextMeshProUGUI>()));
+                _currentDisplay = StartCoroutine(DamageBuffer(dir, number.GetComponent<TextMeshProUGUI>(), crit));
             }
             if (_currentHealth > 0)
                 TakeDamageFlash();
             else
-                Die();
+                Die(source.isHazard);
 
         }
 
@@ -66,8 +78,10 @@ namespace EntityStatsScripts
             }
         }
 
-        protected virtual void Die ()
+        protected virtual void Die (bool hazardKill)
         {
+            if (hazardKill)
+                killedByHazard.Invoke(transform.position);
             _enemy.Death();
         }
 
@@ -76,12 +90,13 @@ namespace EntityStatsScripts
             Destroy(gameObject);
         }
 
-        private IEnumerator DamageBuffer(Vector2 dir, TextMeshProUGUI tmNumber)
+        private IEnumerator DamageBuffer(Vector2 dir, TextMeshProUGUI tmNumber, bool crit)
         {
             //set immediately so it can be used by other effect scripts
             _knockBack.knockBackDir = dir.normalized;
             yield return new WaitForSeconds(.1f);
             tmNumber.text = "" + _displayAmount;
+            tmNumber.color = crit ? critColor : Color.white;
             if (_knockBack)
                 _knockBack.ApplyKnockBack(_displayAmount, dir);
             _displayAmount = 0;

@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 6065734606790233161}
   - component: {fileID: 5796680649226967771}
   - component: {fileID: 2815134764359117384}
+  - component: {fileID: 3053064271452938234}
   m_Layer: 0
   m_Name: 3x3Obsitcle
   m_TagString: Untagged
@@ -167,3 +168,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &3053064271452938234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635310567547573136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaf11c540f6494468192efd4d2c1d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
+  onFloor1:
+    m_PersistentCalls:
+      m_Calls: []
+  onFloor2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5796680649226967771}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4450583608255878539, guid: 30aae90c58302924f963bed058140259, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFloor3:
+    m_PersistentCalls:
+      m_Calls: []

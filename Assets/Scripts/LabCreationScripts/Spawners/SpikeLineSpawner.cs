@@ -1,5 +1,4 @@
-﻿using UnityEditor.Searcher;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace LabCreationScripts.Spawners

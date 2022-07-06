@@ -5,6 +5,6 @@ namespace EntityStatsScripts
 {
     public interface IDamageable
     {
-        void TakeDamage(float amount, Vector2 dir);
+        void TakeDamage(float amount, Vector2 dir, DamageSource source = null, bool crit = false);
     }
 }

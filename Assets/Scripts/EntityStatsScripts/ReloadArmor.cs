@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using EntityStatsScripts.Effects;
+using General;
 using UnityEngine;
 using WeaponScripts;
 
@@ -32,7 +33,7 @@ namespace EntityStatsScripts
         
         }
 
-        public void TakeDamage(float amount, Vector2 dir)
+        public void TakeDamage(float amount, Vector2 dir, DamageSource source = null, bool crit = false)
         {
             _armorHealth -= amount;
             if (_armorHealth <= 0) {

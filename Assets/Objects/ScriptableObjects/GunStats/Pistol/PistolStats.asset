@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   fireRate: 145
-  accuracy: 80
-  critChance: 8
-  reloadSpeed: 55
+  accuracy: 82
+  critChance: 9
+  reloadSpeed: 60
   magSize: 12

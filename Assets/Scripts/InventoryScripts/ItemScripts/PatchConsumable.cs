@@ -17,7 +17,7 @@ namespace InventoryScripts.ItemScripts
         {
             if (inputName != PlayerInputManager.PlayerInputName.Fire1 || !gameObject.activeSelf) return;
             var regen = transform.parent.parent.gameObject.AddComponent<RegenStat>();
-            regen.StartRegen(restoreType, Mathf.Round(restoreAmount * restoreMultiplier), restoreDuration, restoreTextPrefab);
+            regen.StartRegen(restoreType, restoreAmount * restoreMultiplier, restoreDuration, restoreTextPrefab);
             base.Consume(inputName);
         }
     }

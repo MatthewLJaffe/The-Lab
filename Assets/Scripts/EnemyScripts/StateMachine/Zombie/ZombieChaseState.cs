@@ -10,6 +10,7 @@ namespace EnemyScripts.Zombie
         [SerializeField] private float strafeCooldown;
         private float _currentStrafeCooldown;
         [SerializeField] private float strafeChancePerSecond;
+        [SerializeField] private bool strafe = true;
         private float _strafeChancePerFrame;
 
         protected override void Awake()
@@ -31,7 +32,7 @@ namespace EnemyScripts.Zombie
                 return distanceType;
             
             if (_currentStrafeCooldown <= 0 && Random.Range(0f, 1f) <= _strafeChancePerFrame
-                && Vector2.Distance(enemy.target.position, transform.position) > minDashDistance)
+                && Vector2.Distance(enemy.target.position, transform.position) > minDashDistance && strafe)
             {
                 _currentStrafeCooldown = strafeCooldown;
                 return typeof(ZombieStrafeState);

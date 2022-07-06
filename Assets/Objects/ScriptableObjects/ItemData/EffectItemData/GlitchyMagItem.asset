@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7907ae04be062c49b4116b1d5a1c4cf, type: 3}
+  m_Name: GlitchyMagItem
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: 3a754a38d96c2684ca63a4dffddef923, type: 3}
+  itemName: Glitchy Mag
+  itemDescription: "ChANcE t\u262F FiRe GliTChY B\u2668LLet\u262D"
+  dropPrefab: {fileID: 253578392454685725, guid: aa9594464082e0247ae6d277e0189fed, type: 3}
+  equipPrefab: {fileID: 4764403169524521833, guid: 510882709ae4da74d8152b22acc83193, type: 3}
+  maxStack: 1
