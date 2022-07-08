@@ -1,5 +1,4 @@
-﻿using System;
-using CameraScripts;
+﻿using CameraScripts;
 using MiniMapScripts;
 using PlayerScripts;
 using UnityEngine;

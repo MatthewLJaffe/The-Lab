@@ -41,6 +41,8 @@ namespace EntityStatsScripts
                 maxValue = value;
                 if (healthDiff + barValue <= 0)
                     BarValue = 1;
+                BarValue = Mathf.Min(barValue, maxValue);
+                amountText.text = $"{Mathf.Round(barValue)}/{Mathf.Round(maxValue)}";
             }
         }
         
@@ -89,7 +91,7 @@ namespace EntityStatsScripts
                 else if (newValue == 0)
                     BarDeplete.Invoke(barType);
                 barValue = Mathf.Clamp(value, minValue, maxValue);
-                amountText.text = $"{Mathf.Round(barValue)}/{maxValue}";
+                amountText.text = $"{Mathf.Round(barValue)}/{Mathf.Round(maxValue)}";
             }
         }
 

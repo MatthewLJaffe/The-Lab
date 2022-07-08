@@ -1455,7 +1455,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &7398460359357975083
 MonoBehaviour:
@@ -1830,6 +1830,7 @@ MonoBehaviour:
   equipColor: {r: 1, g: 0.8584905, b: 0.6462264, a: 1}
   defaultColor: {r: 0.7843138, g: 0.57254905, b: 0.25490198, a: 1}
   hotBarSlotParent: {fileID: 7842710502661909248}
+  itemParent: {fileID: 0}
 --- !u!114 &2853201719095584698
 MonoBehaviour:
   m_ObjectHideFlags: 0

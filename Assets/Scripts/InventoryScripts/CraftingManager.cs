@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using InventoryScripts.ItemScripts;
-using PlayerScripts;
 using UnityEngine;
 
 namespace InventoryScripts
@@ -47,22 +47,15 @@ namespace InventoryScripts
         
         public void ShowRecipe(int index)
         {
+            if (craftableSlots[index].myRecipe == null || _crafting ==  craftableSlots[index].myRecipe) return;
             foreach (var slot in ingredientsSlots) 
                 ClearIngredientsSlot(slot);
-            
             _crafting = craftableSlots[index].myRecipe;
-            if (_crafting == null) return;
             //Show result
             resultSlot.GetComponent<InventorySlot>().MyItem =
                 new Item(_crafting.result.itemData, _crafting.result.amount);
             //Show ingredients
             var ingredients = _crafting.ingredients;
-            for (int i = 0; i < ingredientsSlots.Length; i++)
-            {
-                if (i >= ingredients.Length) {
-                    ClearIngredientsSlot(ingredientsSlots[i]);
-                }
-            }
             if (_crafting.useAnyIngredient)
             {
                 foreach (var ingredient in _crafting.ingredients)
@@ -93,6 +86,11 @@ namespace InventoryScripts
                 var tempItem = invSlot.MyItem;
                 invSlot.MyItem = craftSlot.MyItem;
                 craftSlot.MyItem = tempItem;
+                /*
+                Inventory.Instance.itemList.Remove(currIngredient);
+                if (craftSlot.MyItem != null)
+                    Inventory.Instance.itemList.Add(craftSlot.MyItem);
+                */
             }
             //Case2: we have a surplus of the ingredient move the amount we need to the crafting slot
             else
@@ -116,7 +114,16 @@ namespace InventoryScripts
             if (existingItemStack != null)
                 existingItemStack.Amount += iSlot.MyItem.Amount;
             else
+            {
+                var emptySlot = Inventory.Instance.slotList.FirstOrDefault(slot => slot.MyItem == null);
+                if (emptySlot) 
+                    emptySlot.MyItem = iSlot.MyItem;
+                iSlot.MyItem = null;
+            }
+            /*
+            else
                 Inventory.Instance.AddItem(iSlot.MyItem);
+            */
             iSlot.MyItem = null;
         }
 
@@ -199,8 +206,7 @@ namespace InventoryScripts
                 if (slotItem != null)
                     _ingredientSlotItems.Add(slotItem);
             }
-            var recipe = _craftable.Find(cr => RecipeCraftable(cr, _ingredientSlotItems) 
-                                               && cr.ingredients.Length == _ingredientSlotItems.Count);
+            var recipe = craftingRecipes.FirstOrDefault(cr => RecipeCraftable(cr, _ingredientSlotItems));
             if (recipe != null)
             {
                 _crafting = recipe;

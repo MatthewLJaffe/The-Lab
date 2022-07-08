@@ -380,6 +380,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
+      propertyPath: categories.Array.data[0].postSpawns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
       propertyPath: floorParent
       value: 
       objectReference: {fileID: 939623462}
@@ -595,6 +599,22 @@ PrefabInstance:
       propertyPath: categories.Array.data[1].roomTypes.Array.data[13].proceduralRoom
       value: 
       objectReference: {fileID: 11400000, guid: 16e615dba613fa14eaf18a119e99aa21, type: 2}
+    - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
+      propertyPath: categories.Array.data[0].postSpawns.Array.data[1].spawner
+      value: 
+      objectReference: {fileID: 11400000, guid: eb66394a1a29cc345866b0618d7c89a7, type: 2}
+    - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
+      propertyPath: categories.Array.data[0].postSpawns.Array.data[1].amountToCreate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
+      propertyPath: categories.Array.data[0].postSpawns.Array.data[1].minSpawnsPerRoom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
+      propertyPath: categories.Array.data[0].postSpawns.Array.data[1].maxSpawnsPerRoom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5910116453363745411, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
       propertyPath: m_TileAssetArray.Array.size
       value: 9

@@ -2508,7 +2508,7 @@ MonoBehaviour:
       weight: 0.06
     - proceduralRoom: {fileID: 11400000, guid: 337fe7294cf264644b61b1ca66c24b38, type: 2}
       weight: 0.06
-    - proceduralRoom: {fileID: 11400000, guid: a13a26401e9ff7f4fa9b778a9fe85e9f, type: 2}
+    - proceduralRoom: {fileID: 11400000, guid: a351cd851fe1d1d49ac109a6c45175c6, type: 2}
       weight: 0.06
     - proceduralRoom: {fileID: 11400000, guid: 4e1e86b79d8e6f34f904102aec6aece2, type: 2}
       weight: 0.06
@@ -2562,10 +2562,6 @@ MonoBehaviour:
       weight: 0.1
     postSpawns:
     - spawner: {fileID: 11400000, guid: f35cc14235d57cf42b8a71ba22ce88ee, type: 2}
-      amountToCreate: 1
-      minSpawnsPerRoom: 1
-      maxSpawnsPerRoom: 1
-    - spawner: {fileID: 11400000, guid: eb66394a1a29cc345866b0618d7c89a7, type: 2}
       amountToCreate: 1
       minSpawnsPerRoom: 1
       maxSpawnsPerRoom: 1

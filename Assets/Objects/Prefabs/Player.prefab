@@ -3421,6 +3421,10 @@ PrefabInstance:
       propertyPath: equipColor.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7398460359752861964, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+      propertyPath: itemParent
+      value: 
+      objectReference: {fileID: 2628776729204059909}
     - target: {fileID: 7398460359916395536, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 96.5
@@ -3735,11 +3739,6 @@ PrefabInstance:
       objectReference: {fileID: 4207194329683613808, guid: 09884ce5c207a8f478ae76eeb896bb5c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
---- !u!1 &7611573522146931685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7398460359357975085, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
-  m_PrefabInstance: {fileID: 1084560150381033928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7611573522319630640 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7398460359530518776, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
@@ -3751,6 +3750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1239c79c89beb7d47ab69cdca15fa6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2628776729204059909 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3131808462082938573, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1323164215452905356 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2112737302791149124, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
@@ -3765,21 +3769,6 @@ MonoBehaviour:
 --- !u!224 &6962420905143701548 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8039590923234535908, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
-  m_PrefabInstance: {fileID: 1084560150381033928}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &7611573522146931681 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7398460359357975081, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
-  m_PrefabInstance: {fileID: 1084560150381033928}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7611573521598211545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7398460359916395537, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
-  m_PrefabInstance: {fileID: 1084560150381033928}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &7611573521598211544 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7398460359916395536, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
   m_PrefabInstance: {fileID: 1084560150381033928}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962454735147975238 stripped
@@ -3798,6 +3787,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &7611573521598211544 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7398460359916395536, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7611573522146931681 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7398460359357975081, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7611573521598211545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7398460359916395537, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7611573522146931685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7398460359357975085, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7611573522587177552 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7398460359798074264, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}

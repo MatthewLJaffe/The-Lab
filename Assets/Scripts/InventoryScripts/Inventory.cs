@@ -22,6 +22,7 @@ namespace InventoryScripts
         [SerializeField] private Color equipColor;
         [SerializeField] private Color defaultColor;
         [SerializeField] private Transform hotBarSlotParent;
+        [SerializeField] private Transform itemParent;
         public static Inventory Instance;
         private Toggler _toggler;
 
@@ -133,7 +134,7 @@ namespace InventoryScripts
         {
             slotList.Clear();
             itemList.Clear();
-            var slots = transform.GetChild(0).GetComponentsInChildren<InventorySlot>();
+            var slots = itemParent.GetComponentsInChildren<InventorySlot>();
             foreach (var slot in slots)
             {
                 slotList.Add(slot);
