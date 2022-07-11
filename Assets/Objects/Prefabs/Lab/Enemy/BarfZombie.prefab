@@ -581,7 +581,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3618909337027261318}
-  - component: {fileID: 3618909337027261319}
   - component: {fileID: 3618909337027261321}
   - component: {fileID: 6450353345023133883}
   - component: {fileID: 3618909337027261320}
@@ -597,6 +596,7 @@ GameObject:
   - component: {fileID: 3618909337027261317}
   - component: {fileID: 7991086171518227509}
   - component: {fileID: 1745706374209124355}
+  - component: {fileID: 6065678654688319934}
   m_Layer: 12
   m_Name: BarfZombie
   m_TagString: Untagged
@@ -624,22 +624,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &3618909337027261319
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3618909337027261324}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0048124194, y: -0.5019362}
-  m_Size: {x: 0.70106065, y: 0.73769426}
-  m_Direction: 0
 --- !u!212 &3618909337027261321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -809,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  sourceCollider: {fileID: 3618909337027261319}
+  sourceCollider: {fileID: 6065678654688319934}
   isHazard: 0
   damageSfx: {fileID: 0}
   layers:
@@ -893,7 +877,7 @@ MonoBehaviour:
   spawnInBegin:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3618909337027261319}
+      - m_Target: {fileID: 6065678654688319934}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -944,7 +928,7 @@ MonoBehaviour:
   spawnInComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3618909337027261319}
+      - m_Target: {fileID: 6065678654688319934}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -1157,6 +1141,22 @@ MonoBehaviour:
   onFloor3:
     m_PersistentCalls:
       m_Calls: []
+--- !u!58 &6065678654688319934
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618909337027261324}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028699458, y: -0.55102634}
+  serializedVersion: 2
+  m_Radius: 0.32269686
 --- !u!1 &4909585478499840626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1496,8 @@ MonoBehaviour:
   avoidThreshold: 0.8
   nonHitMultiplier: 0.5
   raycastDistance: 2.5
-  debug: 0
+  debug: 1
+  collider: {fileID: 6065678654688319934}
   layerWeights:
   - layer: Spikes
     weight: 3

@@ -10,11 +10,13 @@ namespace EnemyScripts
         [SerializeField] private float nonHitMultiplier = .5f;
         [SerializeField] private float raycastDistance;
         [SerializeField] private bool debug;
+        [SerializeField] private CircleCollider2D collider;
         [SerializeField] private LayerWeight[] layerWeights;
         private LayerMask _avoidLayers;
         private Dictionary<string, float> _layerWeightDict;
         private RaycastHit2D[] _raycastResults;
-        
+        private Vector2 _colliderOffset;
+
         [System.Serializable]
         private struct LayerWeight
         {
@@ -24,6 +26,7 @@ namespace EnemyScripts
 
         private void Awake()
         {
+            _colliderOffset = collider.offset;
             var layers = new string[layerWeights.Length];
             _raycastResults = new RaycastHit2D[10];
             _layerWeightDict = new Dictionary<string, float>();
@@ -49,6 +52,7 @@ namespace EnemyScripts
                 steeringWeights[hit.Key] += addedWeight;
             }
             //assign weights to all other directions
+            //TODO create ahead component
             foreach (var dir in steeringDirections)
             {
                 foreach (var hit in raycastHits.Values)
@@ -61,7 +65,7 @@ namespace EnemyScripts
                         dot *= nonHitMultiplier;
                     var distanceWeight = 1f - hitDir.magnitude / raycastDistance;
                     var layerMultiplier = _layerWeightDict[LayerMask.LayerToName(hit.collider.gameObject.layer)];
-                    var addedWeight = Mathf.Clamp(-dot * (1f / raycastHits.Count) * distanceWeight * layerMultiplier, -1, 1);
+                    var addedWeight = Mathf.Clamp(-dot * (1f / steeringWeights.Count) * distanceWeight * layerMultiplier, -1, 1);
                     steeringWeights[dir] += addedWeight;
                 }
             }
@@ -73,24 +77,14 @@ namespace EnemyScripts
             for (var theta = 0f; theta < 360f; theta += 360f / numCasts)
             {
                 var dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * theta), Mathf.Sin(Mathf.Deg2Rad * theta)).normalized;
-                if (Physics2D.RaycastNonAlloc((Vector2) transform.position, dir,
-                    _raycastResults, raycastDistance, _avoidLayers) == 0) continue;
-
+                var hit = Physics2D.Raycast(
+                    (Vector2) collider.gameObject.transform.position + collider.offset + dir.normalized * (collider.radius + .1f), dir,
+                    raycastDistance, _avoidLayers);
+                if (hit)
+                    raycastHits.Add(dir, hit);
                 if (debug)
-                    Debug.DrawRay((Vector2)transform.position, 
+                    Debug.DrawRay((Vector2) collider.gameObject.transform.position + collider.offset + dir.normalized * (collider.radius + .1f), 
                     dir.normalized * raycastDistance, Color.magenta, Time.fixedDeltaTime);
-
-                var closest = new RaycastHit2D();
-                foreach (var hit in _raycastResults)
-                {
-                    if (!hit.transform) break;
-                    if (hit.transform.gameObject == transform.parent.gameObject) continue;
-                    if (!closest.transform || Vector2.Distance(closest.point, transform.position) >
-                        Vector2.Distance(hit.point, transform.position))
-                        closest = hit;
-                }
-                if (closest.transform)
-                    raycastHits.Add(dir, closest);
             }
             return raycastHits;
         }

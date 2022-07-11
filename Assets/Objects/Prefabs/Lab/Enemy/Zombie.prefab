@@ -205,10 +205,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2591415159008789327}
-  - component: {fileID: 2591415159008789326}
   - component: {fileID: 2591415159008789312}
   - component: {fileID: 5209044862565480562}
   - component: {fileID: 2591415159008789313}
+  - component: {fileID: 3472780962244704743}
   - component: {fileID: 2591415159008789315}
   - component: {fileID: 7487640216157173530}
   - component: {fileID: 3135082565573071551}
@@ -246,22 +246,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &2591415159008789326
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2591415159008789317}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0048124194, y: -0.6721543}
-  m_Size: {x: 0.70106065, y: 0.7010615}
-  m_Direction: 0
 --- !u!212 &2591415159008789312
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -353,6 +337,22 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &3472780962244704743
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591415159008789317}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 45e28b96b97515349b8a66d3a322fbff, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.68042517}
+  serializedVersion: 2
+  m_Radius: 0.31957483
 --- !u!114 &2591415159008789315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  sourceCollider: {fileID: 2591415159008789326}
+  sourceCollider: {fileID: 3472780962244704743}
   isHazard: 0
   damageSfx: {fileID: 0}
   layers:
@@ -512,7 +512,7 @@ MonoBehaviour:
   spawnInBegin:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2591415159008789326}
+      - m_Target: {fileID: 3472780962244704743}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -563,7 +563,7 @@ MonoBehaviour:
   spawnInComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2591415159008789326}
+      - m_Target: {fileID: 3472780962244704743}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -5898,11 +5898,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 0.5
-  avoidMultiplier: 2
-  avoidThreshold: 0.8
+  avoidMultiplier: 3.5
+  avoidThreshold: 0.9
   nonHitMultiplier: 0.5
-  raycastDistance: 2.5
+  raycastDistance: 1.25
   debug: 0
+  collider: {fileID: 3472780962244704743}
   layerWeights:
   - layer: Spikes
     weight: 3

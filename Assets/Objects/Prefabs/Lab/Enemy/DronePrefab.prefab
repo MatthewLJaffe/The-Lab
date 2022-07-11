@@ -373,9 +373,9 @@ GameObject:
   - component: {fileID: 3572731976869190986}
   - component: {fileID: 3572731976869190991}
   - component: {fileID: 3572731976869190988}
-  - component: {fileID: 3630796956081265334}
   - component: {fileID: 4213923982510619092}
   - component: {fileID: 6452270792020844503}
+  - component: {fileID: 4738851576364355316}
   m_Layer: 21
   m_Name: DronePrefab
   m_TagString: Untagged
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  sourceCollider: {fileID: 0}
+  sourceCollider: {fileID: 4738851576364355316}
   isHazard: 0
   damageSfx: {fileID: 0}
   layers:
@@ -573,7 +573,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3630796956081265334}
+      - m_Target: {fileID: 4738851576364355316}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -624,7 +624,7 @@ MonoBehaviour:
   spawnInComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3630796956081265334}
+      - m_Target: {fileID: 4738851576364355316}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -739,22 +739,6 @@ MonoBehaviour:
   changeDirThreshold: 0.2
   debug: 0
   frameCount: 0
---- !u!70 &3630796956081265334
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3572731976869190977}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 1
 --- !u!95 &4213923982510619092
 Animator:
   serializedVersion: 3
@@ -808,6 +792,22 @@ MonoBehaviour:
   onFloor3:
     m_PersistentCalls:
       m_Calls: []
+--- !u!58 &4738851576364355316
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572731976869190977}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.08889389}
+  serializedVersion: 2
+  m_Radius: 0.4111061
 --- !u!1 &3572731976951603740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1034,7 @@ MonoBehaviour:
   nonHitMultiplier: 0.5
   raycastDistance: 2
   debug: 0
+  collider: {fileID: 4738851576364355316}
   layerWeights:
   - layer: Default
     weight: 1
