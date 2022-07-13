@@ -139,14 +139,14 @@ MonoBehaviour:
   - behaviour: {fileID: 6759166687119103119}
     weight: 0
   speed: 3.5
-  acceleration: 2
+  acceleration: 2.5
   farState: {fileID: 3072911514739938053}
   farRange: 15
   closeState: {fileID: 3907632242827498771}
   closeRange: 2.5
   minDashDistance: 4
   strafeCooldown: 1.2
-  strafeChancePerSecond: 0.5
+  strafeChancePerSecond: 0.7
   strafe: 1
 --- !u!114 &4171775084204444757
 MonoBehaviour:
@@ -164,13 +164,13 @@ MonoBehaviour:
   - behaviour: {fileID: 7784353941748089447}
     weight: 0
   - behaviour: {fileID: 2745616192424505485}
-    weight: 0.25
+    weight: 0
   - behaviour: {fileID: 1060088679900300028}
     weight: 0
   - behaviour: {fileID: 6759166687119103119}
-    weight: 0.75
+    weight: 1
   speed: 8
-  acceleration: 0.5
+  acceleration: 5
   strafeTime: 0.6
 --- !u!114 &3907632242827498771
 MonoBehaviour:
@@ -188,13 +188,13 @@ MonoBehaviour:
   - behaviour: {fileID: 7784353941748089447}
     weight: 0
   - behaviour: {fileID: 2745616192424505485}
-    weight: 0.4
+    weight: 0.3
   - behaviour: {fileID: 1060088679900300028}
-    weight: 0.6
+    weight: 0.7
   - behaviour: {fileID: 6759166687119103119}
     weight: 0
   speed: 5
-  acceleration: 1
+  acceleration: 2
   attackRange: 2.5
 --- !u!1 &2591415159008789317
 GameObject:
@@ -5901,7 +5901,8 @@ MonoBehaviour:
   avoidMultiplier: 3.5
   avoidThreshold: 0.9
   nonHitMultiplier: 0.5
-  raycastDistance: 1.25
+  raycastDistance: 1.75
+  aheadComponent: 0.6
   debug: 0
   collider: {fileID: 3472780962244704743}
   layerWeights:
@@ -5946,7 +5947,7 @@ MonoBehaviour:
   weight: 0
   avoidMultiplier: 1
   direction: 0
-  angleFromPlayer: 60
+  angleFromPlayer: 50
 --- !u!1 &9052067729364343376
 GameObject:
   m_ObjectHideFlags: 0

@@ -1033,6 +1033,7 @@ MonoBehaviour:
   avoidThreshold: 1
   nonHitMultiplier: 0.5
   raycastDistance: 2
+  aheadComponent: 0
   debug: 0
   collider: {fileID: 4738851576364355316}
   layerWeights:
@@ -1099,10 +1100,9 @@ GameObject:
   - component: {fileID: 3572731977704699322}
   - component: {fileID: 3572731977704699327}
   - component: {fileID: 3572731977704699326}
-  - component: {fileID: 3572731977704699321}
   - component: {fileID: 3572731977704699320}
-  - component: {fileID: 4297876872365974705}
-  - component: {fileID: 3572731977704699323}
+  - component: {fileID: 7982235577623037804}
+  - component: {fileID: 7214901782448862880}
   m_Layer: 22
   m_Name: States
   m_TagString: Untagged
@@ -1149,6 +1149,9 @@ MonoBehaviour:
     weight: 0
   speed: 1
   acceleration: 1
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
   aggroRange: 10
 --- !u!114 &3572731977704699326
 MonoBehaviour:
@@ -1173,39 +1176,15 @@ MonoBehaviour:
     weight: 0
   - behaviour: {fileID: 3572731977379662790}
     weight: 0
-  speed: 2
+  speed: 2.5
   acceleration: 2
-  closeDistance: 5
-  idleDistance: 10
-  closeState: {fileID: 3572731977704699321}
-  canShoot: 1
---- !u!114 &3572731977704699321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3572731977704699317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a321315fccf498095508e41855f8b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behaviourWeights:
-  - behaviour: {fileID: 3572731977379662794}
-    weight: 0
-  - behaviour: {fileID: 3572731977379662789}
-    weight: 0.3
-  - behaviour: {fileID: 3572731977379662788}
-    weight: 0.2
-  - behaviour: {fileID: 3572731977379662791}
-    weight: 0.5
-  - behaviour: {fileID: 3572731977379662790}
-    weight: 0
-  speed: 2
-  acceleration: 2
-  avoidDistance: 2.5
-  chaseDistance: 7.5
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
+  closeDistance: 7
+  idleDistance: 15
+  closeState: {fileID: 7982235577623037804}
+  canShoot: 0
 --- !u!114 &3572731977704699320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,18 +1201,21 @@ MonoBehaviour:
   - behaviour: {fileID: 3572731977379662794}
     weight: 0
   - behaviour: {fileID: 3572731977379662789}
-    weight: 0.4
+    weight: 0.6
   - behaviour: {fileID: 3572731977379662788}
     weight: 0
   - behaviour: {fileID: 3572731977379662791}
-    weight: 0.1
+    weight: 0
   - behaviour: {fileID: 3572731977379662790}
-    weight: 0.5
-  speed: 2
+    weight: 0.4
+  speed: 2.5
   acceleration: 2
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
   farRange: 5
-  farState: {fileID: 3572731977704699321}
---- !u!114 &4297876872365974705
+  farState: {fileID: 7982235577623037804}
+--- !u!114 &7982235577623037804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1242,30 +1224,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 3572731977704699317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6430324652774689946a1184dd38f71e, type: 3}
+  m_Script: {fileID: 11500000, guid: e3b58f5da3f4449db3caecfdf3ec75b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourWeights: []
-  speed: 0
+  behaviourWeights:
+  - behaviour: {fileID: 3572731977379662794}
+    weight: 0
+  - behaviour: {fileID: 3572731977379662789}
+    weight: 0.5
+  - behaviour: {fileID: 3572731977379662788}
+    weight: 0.15
+  - behaviour: {fileID: 3572731977379662791}
+    weight: 0.35
+  - behaviour: {fileID: 3572731977379662790}
+    weight: 0
+  speed: 2.5
   acceleration: 2
-  avoidDistance: 4.75
-  chaseDistance: 5.25
---- !u!58 &3572731977704699323
-CircleCollider2D:
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
+  farState: {fileID: 3572731977704699326}
+  farRange: 9
+  closeState: {fileID: 3572731977704699320}
+  closeRange: 3
+  targetAcquiredState: {fileID: 7214901782448862880}
+  targetLostState: {fileID: 0}
+  shootPoint: {fileID: 3572731977049451827}
+--- !u!114 &7214901782448862880
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3572731977704699317}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.75
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4a5d233b5d47b78fa86334cd2014a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourWeights: []
+  speed: 0
+  acceleration: 0
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
+  farState: {fileID: 3572731977704699326}
+  farRange: 9
+  closeState: {fileID: 3572731977704699320}
+  closeRange: 3
+  lineRenderer: {fileID: 0}
+  aimPoint: {fileID: 3572731977049451827}
+  targetLostState: {fileID: 7982235577623037804}
+  health: {fileID: 3572731976869190986}
+  enragedWeights:
+  - behaviour: {fileID: 3572731977379662794}
+    weight: 0
+  - behaviour: {fileID: 3572731977379662789}
+    weight: 0.6
+  - behaviour: {fileID: 3572731977379662788}
+    weight: 0.1
+  - behaviour: {fileID: 3572731977379662791}
+    weight: 0.3
+  - behaviour: {fileID: 3572731977379662790}
+    weight: 0
+  enragedAcc: 2.5
+  enragedSpeed: 2
+  enrageDuration: 15
 --- !u!1 &3644947845110122987
 GameObject:
   m_ObjectHideFlags: 0

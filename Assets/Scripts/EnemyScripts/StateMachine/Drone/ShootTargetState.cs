@@ -8,7 +8,6 @@ namespace EnemyScripts.Drone
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private Transform aimPoint;
         [SerializeField] private BaseState targetLostState;
-        private RaycastHit2D[] _hits = new RaycastHit2D[5]; 
 
         protected override void Awake()
         {
@@ -28,7 +27,8 @@ namespace EnemyScripts.Drone
             if (distanceBasedState != null)
                 return distanceBasedState;
             Vector2 position = transform.position;
-            var mask = LayerMask.GetMask(LayerMask.LayerToName(enemy.target.gameObject.layer));
+            var mask = Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Enemy Bullet"));
+            mask |= LayerMask.GetMask(LayerMask.LayerToName(enemy.target.gameObject.layer));
             var hit = Physics2D.Raycast(position, (Vector2)enemy.target.position - position, farRange,
                 mask);
             if (lineRenderer) {
@@ -45,12 +45,8 @@ namespace EnemyScripts.Drone
         {
             base.SwitchState(state);
             if (!lineRenderer) return;
-            lineRenderer.enabled = state.GetType() == GetType();
-            if (!lineRenderer.enabled)
-            {
-                lineRenderer.SetPosition(0, Vector3.zero);
-                lineRenderer.SetPosition(1, Vector3.zero);
-            }
+            lineRenderer.SetPosition(0, new Vector3(999, 999, 999));
+            lineRenderer.SetPosition(1, new Vector3(999, 999, 999));
         }
     }
 }

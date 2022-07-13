@@ -8,6 +8,7 @@ namespace EnemyScripts
     {
         [SerializeField] protected BaseState targetAcquiredState;
         [SerializeField] protected BaseState targetLostState;
+        [SerializeField] protected Transform shootPoint;
         
         public override Type Tick()
         {
@@ -15,9 +16,10 @@ namespace EnemyScripts
             if (distanceType != null) {
                 return distanceType;
             }
-            Vector2 position = transform.position;
-            var hit = Physics2D.BoxCast(position, new Vector2(.15f, 1f),
-                0, (Vector2) enemy.target.position - position, farRange, Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Enemy Bullet")));
+            Vector2 position = shootPoint.position;
+            var mask = Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Enemy Bullet"));
+            mask |= LayerMask.GetMask(LayerMask.LayerToName(enemy.target.gameObject.layer));
+            var hit = Physics2D.Raycast(position, (Vector2) enemy.target.position - position, farRange, mask);
             if (hit.transform == enemy.target) {
                 return TargetAcquired();
             }
@@ -27,7 +29,7 @@ namespace EnemyScripts
         /// <summary>
         /// Returned by Tick when there is a clear shot on the target
         /// </summary>
-        /// <returns>The next state in the state machine</returns>
+        /// <returns>The next state in the state masachine</returns>
         protected virtual Type TargetAcquired()
         {
             return targetAcquiredState.GetType();

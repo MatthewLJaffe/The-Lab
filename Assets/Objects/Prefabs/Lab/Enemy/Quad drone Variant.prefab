@@ -123,7 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 3816396577628812517, guid: 05c5814e7f0dd914688012a6bb47d7d7, type: 3}
     - target: {fileID: 2711861484907968520, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: timeBetweenShots
-      value: 1.25
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711861484907968520, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: bulletSpeed
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3344773479546192025, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Sprite
@@ -221,14 +225,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -20
       objectReference: {fileID: 0}
-    - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
-      propertyPath: farState
-      value: 
-      objectReference: {fileID: 1893506615898939782}
-    - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
-      propertyPath: farRange
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699321, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: avoidDistance
       value: 2
@@ -257,14 +253,6 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
-      propertyPath: closeState
-      value: 
-      objectReference: {fileID: 1893506615898939782}
-    - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
-      propertyPath: closeDistance
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4069358636461010350, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Controller
       value: 
@@ -287,11 +275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8982901080976200860, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8982901080976200860, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9007817413806816361, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Sprite
@@ -299,17 +287,6 @@ PrefabInstance:
       objectReference: {fileID: -593408854877048684, guid: 6431d6f684ba43d4181f978164f583ad, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
---- !u!114 &1893506615898939782 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4297876872365974705, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
-  m_PrefabInstance: {fileID: 2441573333112685879}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6430324652774689946a1184dd38f71e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6722637233979953579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8982901080976200860, guid: 0946d074e20bb094093b767701eeebc6, type: 3}

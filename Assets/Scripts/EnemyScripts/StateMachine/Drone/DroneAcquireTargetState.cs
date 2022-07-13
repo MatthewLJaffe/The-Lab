@@ -1,4 +1,5 @@
 ﻿using System;
+using EntityStatsScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,6 +10,7 @@ namespace EnemyScripts.Drone
         private Strafe _strafeSteering;
         private IFire enemyShoot;
 
+
         protected override void Awake()
         {
             base.Awake();
@@ -16,17 +18,11 @@ namespace EnemyScripts.Drone
             _strafeSteering = parent.GetComponentInChildren<Strafe>();
             enemyShoot = parent.GetComponentInChildren<IFire>();
         }
-        
+
+
         private void PickDirection()
         {
             _strafeSteering.direction = Random.Range(0, 2) > 0 ? 1 : -1;
-        }
-        
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject != transform.parent.gameObject) {
-                _strafeSteering.direction *= -1;
-            }
         }
 
         protected override Type TargetAcquired()
@@ -38,10 +34,13 @@ namespace EnemyScripts.Drone
         protected override void SwitchState(BaseState state)
         {
             base.SwitchState(state);
-            if (state.GetType() != targetAcquiredState.GetType())
-                enemyShoot.CanShoot = false;
             if (state.GetType() == GetType())
+            {
+                enemyShoot.CanShoot = false;
                 PickDirection();
+            }
+            else
+                enemyShoot.CanShoot = true;
         }
     }
 }

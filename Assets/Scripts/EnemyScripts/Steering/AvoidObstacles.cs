@@ -9,6 +9,7 @@ namespace EnemyScripts
         [SerializeField] private float avoidThreshold = 1f;
         [SerializeField] private float nonHitMultiplier = .5f;
         [SerializeField] private float raycastDistance;
+        [SerializeField] private float aheadComponent;
         [SerializeField] private bool debug;
         [SerializeField] private CircleCollider2D collider;
         [SerializeField] private LayerWeight[] layerWeights;
@@ -39,7 +40,7 @@ namespace EnemyScripts
 
         public override void AdjustWeights(Dictionary<Vector2, float> steeringWeights)
         {
-            var raycastHits = RaycastHits(steeringWeights.Keys.Count);
+            var raycastHits = RaycastHits(steeringWeights.Keys.Count, collider.transform.position);
             var steeringDirections = steeringWeights.Keys.ToList();
             //assign weights to directions with a direct hit
             foreach (var hit in raycastHits)
@@ -52,7 +53,6 @@ namespace EnemyScripts
                 steeringWeights[hit.Key] += addedWeight;
             }
             //assign weights to all other directions
-            //TODO create ahead component
             foreach (var dir in steeringDirections)
             {
                 foreach (var hit in raycastHits.Values)
@@ -65,25 +65,32 @@ namespace EnemyScripts
                         dot *= nonHitMultiplier;
                     var distanceWeight = 1f - hitDir.magnitude / raycastDistance;
                     var layerMultiplier = _layerWeightDict[LayerMask.LayerToName(hit.collider.gameObject.layer)];
-                    var addedWeight = Mathf.Clamp(-dot * (1f / steeringWeights.Count) * distanceWeight * layerMultiplier, -1, 1);
+                    var addedWeight = Mathf.Clamp(-dot * (1f / steeringWeights.Count) * distanceWeight * layerMultiplier * (1 - aheadComponent), -1, 1);
                     steeringWeights[dir] += addedWeight;
                 }
+                //TODO create ahead component
+                var aheadHits = RaycastHits(steeringWeights.Keys.Count, 
+                    transform.position + (Vector3)dir.normalized * raycastDistance);
+                var aheadWeight = (1f + -2f * aheadHits.Count / (float)steeringWeights.Keys.Count) * aheadComponent * weight;
+                steeringWeights[dir] += aheadWeight;
+
             }
+
         }
 
-        private Dictionary<Vector2, RaycastHit2D> RaycastHits(int numCasts)
+        private Dictionary<Vector2, RaycastHit2D> RaycastHits(int numCasts, Vector3 pos)
         {
             var raycastHits = new Dictionary<Vector2, RaycastHit2D>();
             for (var theta = 0f; theta < 360f; theta += 360f / numCasts)
             {
                 var dir = new Vector2(Mathf.Cos(Mathf.Deg2Rad * theta), Mathf.Sin(Mathf.Deg2Rad * theta)).normalized;
                 var hit = Physics2D.Raycast(
-                    (Vector2) collider.gameObject.transform.position + collider.offset + dir.normalized * (collider.radius + .1f), dir,
+                    (Vector2) pos + collider.offset + dir.normalized * (collider.radius + .1f), dir,
                     raycastDistance, _avoidLayers);
                 if (hit)
                     raycastHits.Add(dir, hit);
                 if (debug)
-                    Debug.DrawRay((Vector2) collider.gameObject.transform.position + collider.offset + dir.normalized * (collider.radius + .1f), 
+                    Debug.DrawRay((Vector2)pos + collider.offset + dir.normalized * (collider.radius + .1f), 
                     dir.normalized * raycastDistance, Color.magenta, Time.fixedDeltaTime);
             }
             return raycastHits;

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace EnemyScripts
 {
@@ -9,6 +10,7 @@ namespace EnemyScripts
         [SerializeField] protected float speed;
         [SerializeField] protected float acceleration;
         protected SteeringController _steeringController;
+        public UnityEvent onSwitchTo;
         
         protected virtual void Awake()
         {
@@ -24,6 +26,7 @@ namespace EnemyScripts
                 bw.behaviour.weight = bw.weight;
             _steeringController.acceleration = acceleration;
             _steeringController.speed = speed;
+            onSwitchTo.Invoke();
         }
 
         [Serializable]
