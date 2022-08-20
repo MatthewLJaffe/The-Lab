@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using General;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,7 +26,8 @@ namespace EntityStatsScripts
 
         private void Start()
         {
-            StartCoroutine(BeginRoutine());        }
+            StartCoroutine(BeginRoutine());        
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 72c450f0b7e943842a6043b78e2affc7, type: 3}
   message: Chance to heal for portion of damage dealt, -Max Health
-  stack: 1
+  stack: 0
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   hpReductions:
-  - -25
+  - -30
   - -40
   - -50
+  - -55
   - -60
-  - -70
   healRange: {x: 1, y: 10}
-  probRange: {x: 0.05, y: 0.6}
-  damageRange: {x: 3, y: 100}
+  probRange: {x: 0.05, y: 0.35}
+  damageRange: {x: 3, y: 150}

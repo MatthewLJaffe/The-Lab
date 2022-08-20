@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   shootSound: {fileID: 11400000, guid: 8d2713df4fd654b46b8571215522157e, type: 2}
+  playSquashStretch: 1
   reloadSound: {fileID: 11400000, guid: 10b4e3289d82eb34f9ab5f3d6dff5029, type: 2}
   bullet: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
   shake: 3
@@ -100,7 +101,7 @@ MonoBehaviour:
   glichyMagEffect: {fileID: 11400000, guid: 566d4a3e4c34a32469c23e54644cc52d, type: 2}
   gunStats: {fileID: 11400000, guid: 672242254303157449493a257c2f80c3, type: 2}
   shootPoint: {fileID: 306972051473257132}
-  maxSpreadAngle: 45
+  maxSpreadAngle: 37.5
   bullets: 5
 --- !u!212 &5879574059853150900
 SpriteRenderer:

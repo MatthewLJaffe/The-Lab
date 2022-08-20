@@ -20,5 +20,10 @@ namespace General
             else
                 Debug.LogError("Trying to load out of bounds scene");
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

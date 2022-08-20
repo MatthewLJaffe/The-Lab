@@ -17,6 +17,7 @@ namespace WeaponScripts
         public static Action<Gun> broadCastWeaponSwitch = delegate {  };
         [SerializeField] protected PlayerStats playerStats;
         [SerializeField] protected SoundEffect shootSound;
+        [SerializeField] private bool playSquashStretch;
         [SerializeField] protected SoundEffect reloadSound;
         [SerializeField] protected GameObject bullet;
         [SerializeField] private float shake;
@@ -28,6 +29,7 @@ namespace WeaponScripts
         private bool _firstEquip = true;
         protected Transform playerTrans;
         protected Camera mainCamera;
+        protected SquashStretch squashStretch;
 
         public int CurrentMagSize
         {
@@ -59,6 +61,7 @@ namespace WeaponScripts
             _firstEquip = false;
             _bulletPool = new GameObjectPool(bullet);
             playerTrans = PlayerFind.instance.playerInstance.transform;
+            squashStretch = playerTrans.GetComponent<SquashStretch>();
             atkMult = playerStats.GetAttackMultiplier();
             playerCritChance = playerStats.playerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
             additionalAccuracy = playerStats.playerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;
@@ -121,6 +124,8 @@ namespace WeaponScripts
             currentMagSize--;
             CameraShakeController.invokeShake(shake);
             broadcastShot(currentMagSize, gunStats.magSize);
+            if (squashStretch && playSquashStretch)
+                squashStretch.PlayAnimation();
             ShootProjectile();
             if (currentMagSize == 0)
                 StartCoroutine(Reload());

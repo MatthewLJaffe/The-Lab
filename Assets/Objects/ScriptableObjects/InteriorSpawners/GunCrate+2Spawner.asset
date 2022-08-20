@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0617f575b35dd2947b28c6f44822c26c, type: 3}
+  m_Name: GunCrate+2Spawner
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 2536681689171939751, guid: 6c8b36e8a84a5d845b301ed9836969eb, type: 3}
+  removeSpawnCollider: 0

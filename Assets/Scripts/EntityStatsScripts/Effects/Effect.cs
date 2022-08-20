@@ -27,11 +27,13 @@ namespace EntityStatsScripts.Effects
         {
             stack = 0;
             PlayerFind.playerDestroy += ResetStat;
+            PlayerFind.playerInit += ResetStat;
         }
 
         protected virtual void OnDisable()
         {
             PlayerFind.playerDestroy -= ResetStat;
+            PlayerFind.playerInit -= ResetStat;
         }
 
         protected abstract void ChangeEffectStack(int newStack, int oldStack);

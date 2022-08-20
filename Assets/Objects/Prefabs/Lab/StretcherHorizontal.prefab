@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
-  maxSpeed: 14
+  maxSpeed: 16
   rollTime: 0.5
   animationCurve:
     serializedVersion: 2
@@ -71,10 +71,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.4
+      time: 0.5
       value: 1
-      inSlope: -0.8333333
-      outSlope: -0.8333333
+      inSlope: -1
+      outSlope: -1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -82,8 +82,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.6666666
-      outSlope: -1.6666666
+      inSlope: -2
+      outSlope: -2
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7341349097267921325, guid: 7fa5b4f55887fe4429ced893e7f8d79a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

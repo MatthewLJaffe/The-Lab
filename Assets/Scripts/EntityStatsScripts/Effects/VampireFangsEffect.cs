@@ -24,7 +24,7 @@ namespace EntityStatsScripts.Effects
             var lerpPoint = (damage - damageRange.x) / (damageRange.y - damageRange.x);
             var prob = Mathf.Lerp(probRange.x, probRange.y, lerpPoint) * stack;
             if (Random.Range(0f, 1f) > prob) return;
-            var heal = Mathf.Lerp(healRange.x, healRange.y, lerpPoint) * stack;
+            var heal = Mathf.Lerp(healRange.x + stack, healRange.y + 2*stack, lerpPoint);
             PlayerBarsManager.Instance.ModifyAndDisplayStat(PlayerBar.PlayerBarType.Health, heal);
         }
         protected override void ChangeEffectStack(int newStack, int oldStack)

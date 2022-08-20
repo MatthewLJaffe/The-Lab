@@ -34,7 +34,7 @@ namespace EnemyScripts
 
         private void FixedUpdate()
         {
-            var nextState = CurrentState.Tick();
+            var nextState = CurrentState.GetState();
             if (nextState != null && nextState != CurrentState.GetType())
             {
                 if (debug)

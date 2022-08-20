@@ -9,6 +9,7 @@ namespace EnemyScripts
         [SerializeField] protected BehaviourWeight[] behaviourWeights;
         [SerializeField] protected float speed;
         [SerializeField] protected float acceleration;
+        [HideInInspector] public BaseState OverrideState;
         protected SteeringController _steeringController;
         public UnityEvent onSwitchTo;
         
@@ -16,6 +17,16 @@ namespace EnemyScripts
         {
             transform.GetComponentInParent<StateMachine>().onStateChange += SwitchState;
             _steeringController = GetComponentInParent<SteeringController>();
+        }
+
+        public virtual Type GetState()
+        {
+            if (OverrideState != null) {
+                var state = OverrideState.GetType();
+                OverrideState = null;
+                return state;
+            }
+            return Tick();
         }
         public abstract Type Tick();
 

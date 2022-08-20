@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2043697340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8910705932403483670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15713bc886546de9bc2028e86a1ca27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionToFire: 5
+  tutorialManager: {fileID: 11400000, guid: 79d599eef1ed10d4a9df430df9950f0d, type: 2}
+  onActionReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3837725514818122637}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &7449096679438706235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2074380569358909997, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_Name
+      value: TutorialDoorU
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806133361584185632, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089370247190837623, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 3837725514818122637}
+    m_RemovedComponents:
+    - {fileID: 2135684308936602039, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+--- !u!1 &8910705932403483670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2074380569358909997, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+  m_PrefabInstance: {fileID: 7449096679438706235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &3837725514818122637 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5918529200747419062, guid: fb183a898ef2c894697e2335220fb026, type: 3}
+  m_PrefabInstance: {fileID: 7449096679438706235}
+  m_PrefabAsset: {fileID: 0}

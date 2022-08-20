@@ -11,9 +11,8 @@ namespace EnemyScripts
         [SerializeField] private float damage;
         [SerializeField] private Enemy enemy;
         [SerializeField] private GameObject projectile;
-        [SerializeField] private float shootDelay;
         [SerializeField] private Transform shootPoint;
-        [SerializeField] private int predictionFrames= 5;
+        [SerializeField] private float predictionTime;
         public Vector2 ShootDir { get; private set; }
 
         public bool CanShoot { get; set; }
@@ -34,14 +33,13 @@ namespace EnemyScripts
             var targetRb = enemy.target.GetComponent<Rigidbody2D>();
             var velocity = targetRb.velocity;
             var velInitial = new Vector2(velocity.x, velocity.y);
-            yield return new WaitForSeconds(Time.fixedDeltaTime * predictionFrames);
-            var acc = (velocity - velInitial) / predictionFrames;
+            yield return new WaitForSeconds(predictionTime);
+            var acc = (velocity- velInitial) / predictionTime;
             var projectileSpeed = projectile.GetComponent<Bullet>().speed;
             var travelTime = Vector2.Distance(targetRb.transform.position, transform.position) / projectileSpeed;
-            var targetDest = (Vector2) enemy.target.transform.position + velocity * (shootDelay + travelTime) +
-                             .5f * Mathf.Pow((shootDelay + travelTime), 2) * acc;
+            var targetDest = (Vector2) enemy.target.transform.position + targetRb.velocity * travelTime +
+                             .5f * Mathf.Pow(travelTime, 2) * acc;
             ShootDir = targetDest - (Vector2)transform.position;
-
         }
 
         public void Fire()

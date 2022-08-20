@@ -93,7 +93,8 @@ namespace EntityStatsScripts
         private IEnumerator DamageBuffer(Vector2 dir, TextMeshProUGUI tmNumber, bool crit)
         {
             //set immediately so it can be used by other effect scripts
-            _knockBack.knockBackDir = dir.normalized;
+            if (_knockBack)
+                _knockBack.knockBackDir = dir.normalized;
             yield return new WaitForSeconds(.1f);
             tmNumber.text = "" + _displayAmount;
             tmNumber.color = crit ? critColor : Color.white;

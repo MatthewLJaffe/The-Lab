@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: raycastDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: maxAheadDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3072911514739938053, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: behaviourWeights.Array.size
       value: 3
@@ -102,6 +106,14 @@ PrefabInstance:
     - target: {fileID: 3229058140594630011, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472780962244704743, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.113292694
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472780962244704743, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: m_Radius
+      value: 0.35967445
       objectReference: {fileID: 0}
     - target: {fileID: 3907632242827498771, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: behaviourWeights.Array.size
@@ -167,6 +179,38 @@ PrefabInstance:
       propertyPath: onFloor2.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4345504282560287175}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EntityStatsScripts.EnemyHealth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ScaleHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138324307212626362, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6191364811796021946, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -191,3 +235,14 @@ PrefabInstance:
     - {fileID: 4171775084204444757, guid: 68add1b867e157a42a102d672a75516d, type: 3}
     - {fileID: 6759166687119103119, guid: 68add1b867e157a42a102d672a75516d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+--- !u!114 &4345504282560287175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 194362702, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+  m_PrefabInstance: {fileID: 4345504282366471305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a534b205a436f54dad29daaee695bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

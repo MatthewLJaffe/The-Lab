@@ -29,9 +29,9 @@ TagManager:
   - Spikes
   - Drone
   - BlockObjects
-  - 
-  - 
-  - 
+  - DetectBullet
+  - Flask
+  - Neutral Bullet
   - 
   - 
   - 

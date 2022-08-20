@@ -11,18 +11,20 @@ namespace LabCreationScripts
         private Direction _doorDir;
         private Animator _animator;
         private bool _doorOpen;
-        private BoxCollider2D _doorCollider;
+        [SerializeField] private BoxCollider2D doorCollider;
         
         private void Awake()
         {
             _animator = GetComponentInParent<Animator>();
-            _doorDir = GetComponentInParent<Door>().doorDir;
-            _doorCollider = transform.parent.GetComponent<BoxCollider2D>();
+            if (GetComponentInParent<Door>())
+                _doorDir = GetComponentInParent<Door>().doorDir;
+            if (doorCollider == null)
+                doorCollider = transform.parent.GetComponent<BoxCollider2D>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player") && !_doorOpen && !_doorCollider.enabled)
+            if (other.gameObject.CompareTag("Player") && !_doorOpen && !doorCollider.enabled)
             {
                 _doorOpen = true;
                 PlayDoorAnimation(other.GetComponent<Rigidbody2D>());
@@ -32,6 +34,7 @@ namespace LabCreationScripts
         private void PlayDoorAnimation(Rigidbody2D otherRb)
         {
             if (otherRb == null) return;
+            
             doorOpen.Play(audioSource);
             if (_doorDir == Direction.Left || _doorDir == Direction.Right)
             {
@@ -52,7 +55,7 @@ namespace LabCreationScripts
         public void ShowDoorClosed()
         {
             _animator.Rebind();
-             _animator.Update(0f);
+            _animator.Update(0f);
             _doorOpen = false;
         }
     }

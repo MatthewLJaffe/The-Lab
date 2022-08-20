@@ -113,6 +113,7 @@ MonoBehaviour:
   behaviourWeights: []
   speed: 0
   acceleration: 0
+  OverrideState: {fileID: 0}
   onSwitchTo:
     m_PersistentCalls:
       m_Calls:
@@ -141,7 +142,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   farState: {fileID: 4373314044111187761}
-  farRange: 15
+  farRange: 17
   closeState: {fileID: 4373314044111187767}
   closeRange: 4
   lineRenderer: {fileID: 6977686751505362703}
@@ -156,11 +157,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2711861484907968520, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: bulletSpeed
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2711861484907968520, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: damage
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2711861484907968520, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: timeBetweenShots
@@ -287,6 +288,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977379662789, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: avoidMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572731977379662789, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: raycastDistance
       value: 2.5
       objectReference: {fileID: 0}
@@ -296,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: farRange
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: behaviourWeights.Array.data[3].weight
@@ -304,11 +309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: behaviourWeights.Array.data[1].weight
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: behaviourWeights.Array.data[4].weight
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699320, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -368,11 +373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: idleDistance
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: closeDistance
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699326, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -424,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572731977704699327, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: aggroRange
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4069358636461010350, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: m_Controller
@@ -444,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: targetAcquiredState
@@ -464,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: farRange
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -488,6 +493,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
       propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: bulledWidth
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EnemyScripts.EnemyShoot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2920499254558302855}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_CanShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982235577623037804, guid: 0946d074e20bb094093b767701eeebc6, type: 3}
+      propertyPath: onSwitchTo.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9007817413806816361, guid: 0946d074e20bb094093b767701eeebc6, type: 3}

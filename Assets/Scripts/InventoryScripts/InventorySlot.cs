@@ -15,6 +15,7 @@ namespace InventoryScripts
         [SerializeField] private SoundEffect selectSound;
         private static GameObject _equippedItem = null;
         private Item _myItem;
+        
         private static Transform _playerHand = null;
         private static GameObject _heldItem; //for moving items in inventory 
         public Item MyItem
@@ -48,7 +49,7 @@ namespace InventoryScripts
             if (_amountText == null)
                 _amountText = GetComponentInChildren<TextMeshProUGUI>();
             if (!_playerHand)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  _playerHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
+                _playerHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
         }
 
         public void EquipSlot()

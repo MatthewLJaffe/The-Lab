@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: destructionCollider
       value: 
       objectReference: {fileID: 3816396577628812522}
+    - target: {fileID: 1736799449864017273, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
+      propertyPath: normalAlignmentPriority
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1736799449864017279, guid: 9191213211dc3b140ae342c8da5a792b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.319

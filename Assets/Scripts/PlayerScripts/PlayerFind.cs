@@ -10,16 +10,26 @@ namespace PlayerScripts
         [SerializeField] private GameObject playerPrefab;
         public static PlayerFind instance;
         public static Action<GameObject> onPlayerReset = delegate { };
+        public static Action playerInit = delegate {  };
         public static Action playerDestroy = delegate {  };
+        [SerializeField] private bool tutorial;
         [HideInInspector] public GameObject playerInstance;
 
         private void Awake()
         {
+            if (tutorial)
+            {
+                playerInstance = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+                instance = this;
+                playerInit.Invoke();
+                return;
+            }
             if (instance == null)
             {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
                 playerInstance = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+                instance = this;
+                playerInit.Invoke();
+                DontDestroyOnLoad(gameObject);
                 DontDestroyOnLoad(playerInstance);
                 SceneManager.sceneLoaded += ResetPlayer;
             }
@@ -30,6 +40,7 @@ namespace PlayerScripts
         private void OnDestroy()
         {
             SceneManager.sceneLoaded -= ResetPlayer;
+            instance = null;
         }
 
         public void DestroyPlayer()
@@ -37,7 +48,10 @@ namespace PlayerScripts
             Destroy(playerInstance);
             playerDestroy.Invoke();
             playerInstance = null;
-            SceneManager.LoadScene(0);
+            if (tutorial)
+                SceneManager.LoadScene(1);
+            else
+                SceneManager.LoadScene(2);
         }
         private void ResetPlayer(Scene scene, LoadSceneMode mode)
         {

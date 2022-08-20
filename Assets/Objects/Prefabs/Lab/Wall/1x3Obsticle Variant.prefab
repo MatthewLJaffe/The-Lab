@@ -40,9 +40,41 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
       propertyPath: onFloor2.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: -3619994341066005457, guid: 30aae90c58302924f963bed058140259, type: 3}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7901020560590409091}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.SpriteRenderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Sprite, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508340347783070282, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+      propertyPath: onFloor3.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: -8033818001185185746, guid: 0153aec7fc1b92b45a7ad08fecea519a, type: 3}
     - target: {fileID: 6439465675820584193, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -129,3 +161,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+--- !u!212 &7901020560590409091 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5440185008084010074, guid: fc59e8f37295e6340a21da24043d8524, type: 3}
+  m_PrefabInstance: {fileID: 2799404053544323545}
+  m_PrefabAsset: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d8e5b562754b2eaa384b00930d6b90, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  atkToDamageMultiplier: 0.15
+  atkToDamageMultiplier: 0.125
   stats:
   - type: 0
     currentValue: 100
@@ -57,5 +57,5 @@ MonoBehaviour:
     currentValue: 2.5
     defaultValue: 2.5
   - type: 14
-    currentValue: 2
-    defaultValue: 2
+    currentValue: 3
+    defaultValue: 1

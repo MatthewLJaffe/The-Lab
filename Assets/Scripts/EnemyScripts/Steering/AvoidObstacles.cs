@@ -7,9 +7,9 @@ namespace EnemyScripts
     public class AvoidObstacles : SteeringBehaviour
     {
         [SerializeField] private float avoidThreshold = 1f;
-        [SerializeField] private float nonHitMultiplier = .5f;
         [SerializeField] private float raycastDistance;
         [SerializeField] private float aheadComponent;
+        [SerializeField] private float maxAheadDistance;
         [SerializeField] private bool debug;
         [SerializeField] private CircleCollider2D collider;
         [SerializeField] private LayerWeight[] layerWeights;
@@ -46,7 +46,7 @@ namespace EnemyScripts
             foreach (var hit in raycastHits)
             {
                 steeringDirections.Remove(hit.Key);
-                var hitDistance = (hit.Value.point - (Vector2) transform.position).magnitude;
+                var hitDistance = Vector2.Distance(hit.Value.point, transform.position);
                 var distanceWeight =  1f - hitDistance / raycastDistance;
                 var layerMultiplier = _layerWeightDict[LayerMask.LayerToName(hit.Value.collider.gameObject.layer)];
                 var addedWeight = Mathf.Clamp(weight * distanceWeight * -avoidMultiplier * layerMultiplier, -1 ,1);
@@ -55,24 +55,32 @@ namespace EnemyScripts
             //assign weights to all other directions
             foreach (var dir in steeringDirections)
             {
+                var inAvoidThreshold = false;
+                //check for hits within avoid threshold
                 foreach (var hit in raycastHits.Values)
                 {
                     var hitDir = hit.point - (Vector2) transform.position;
                     var dot = Vector2.Dot(dir.normalized, hitDir.normalized);
-                    if (dot > avoidThreshold)
-                        dot *= avoidMultiplier;
-                    else
-                        dot *= nonHitMultiplier;
+                    if (dot < avoidThreshold) continue;
+                    inAvoidThreshold = true;
+                    dot *= avoidMultiplier;
                     var distanceWeight = 1f - hitDir.magnitude / raycastDistance;
                     var layerMultiplier = _layerWeightDict[LayerMask.LayerToName(hit.collider.gameObject.layer)];
-                    var addedWeight = Mathf.Clamp(-dot * (1f / steeringWeights.Count) * distanceWeight * layerMultiplier * (1 - aheadComponent), -1, 1);
+                    var addedWeight = Mathf.Clamp(weight * -dot * distanceWeight * layerMultiplier, -1, 1);
                     steeringWeights[dir] += addedWeight;
                 }
-                //TODO create ahead component
-                var aheadHits = RaycastHits(steeringWeights.Keys.Count, 
-                    transform.position + (Vector3)dir.normalized * raycastDistance);
-                var aheadWeight = (1f + -2f * aheadHits.Count / (float)steeringWeights.Keys.Count) * aheadComponent * weight;
-                steeringWeights[dir] += aheadWeight;
+                if (inAvoidThreshold) continue;
+                //See how far direction is from hit
+                var aheadHit = Physics2D.Raycast((Vector2)collider.transform.position + collider.offset + dir.normalized * (collider.radius + .1f), dir,
+                    maxAheadDistance, _avoidLayers);
+                if (aheadHit)
+                {
+                    var aheadRange = maxAheadDistance - raycastDistance;
+                    var adjustedAheadDist = Vector2.Distance(aheadHit.point, transform.position) - raycastDistance;
+                    steeringWeights[dir] += (adjustedAheadDist - aheadRange / 2) / (aheadRange / 2) * aheadComponent;
+                }
+                else
+                    steeringWeights[dir] += aheadComponent;
 
             }
 

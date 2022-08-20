@@ -18,7 +18,7 @@ namespace WeaponScripts
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject == gameObject || ! sourceCollider.enabled) return;
+            if (other.gameObject == gameObject || ! sourceCollider.enabled || other.isTrigger) return;
             var damageable = false;
             if (sourceCollider.isTrigger && direction != Vector2.zero &&
                 layers == (layers | (1 << other.gameObject.layer)))

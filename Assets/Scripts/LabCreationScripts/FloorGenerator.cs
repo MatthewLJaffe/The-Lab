@@ -15,6 +15,7 @@ namespace LabCreationScripts
         [SerializeField] private PlayerStats playerStats;
         public float floorNumber;
         public static Action onFloorFinished = delegate {  };
+        [SerializeField] private int numRooms = 20;
         [SerializeField] private GameObject roomPrefab;
         [SerializeField] private GameObject miniMap;
         [SerializeField] private GameObject miniMapRoomPrefab;
@@ -28,7 +29,7 @@ namespace LabCreationScripts
         [SerializeField] private Transform uDoor;
         [SerializeField] private Transform dDoor;
         public Transform floorParent;
-        private readonly Room[] _rooms = new Room[20];
+        private Room[] _rooms;
         private Tilemap _tMap;
         private bool _floorFinished;
         
@@ -67,7 +68,12 @@ namespace LabCreationScripts
                 public float weight;
             }
         }
-        
+
+        private void Awake()
+        {
+            _rooms = new Room[numRooms];
+        }
+
         private void Start()
         {
             _tMap = GetComponent<Tilemap>();

@@ -18,6 +18,8 @@ namespace EnemyScripts
         [SerializeField] private float spawnInTime;
         public UnityEvent<float> spawnInBegin;
         public UnityEvent spawnInComplete;
+        //used for tutorial
+        public UnityEvent onDeath;
         [SerializeField] private Vector3 spawnPos;
         public Vector3 SpawnPos
         {
@@ -75,6 +77,7 @@ namespace EnemyScripts
             sr.sprite = sprite;
             enemyKilled.Invoke();
             broadcastDeath.Invoke();
+            onDeath.Invoke();
             var colliders = GetComponents<Collider2D>();
             if (colliders == null) return;
             foreach (var c in colliders)

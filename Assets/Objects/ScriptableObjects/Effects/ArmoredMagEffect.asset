@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 812888b70bc8c3241b74d6bc4d45da92, type: 3}
   message: Gain protective barrier while reloading, -Reload Speed
-  stack: 0
+  stack: 1
   reloadIncreasePerStack: 0.2
-  armorHealth: 0
+  armorHealth: 15
   armorHealthPerStack: 15
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}

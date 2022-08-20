@@ -76,7 +76,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.125
-    functionName: ReturnToMyPool
+    functionName: RemoveBullet
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

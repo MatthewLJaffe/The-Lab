@@ -12,6 +12,7 @@ namespace PlayerScripts
         [SerializeField] private float maxRollSpeed;
         [SerializeField] private AnimationCurve rollCurve;
         [SerializeField] private float rollTime;
+        [SerializeField] private float invincibleTime;
         [SerializeField] private Vector2[] rollDirections;
         private Rigidbody2D _rb;
         private bool _inCooldown;
@@ -23,6 +24,11 @@ namespace PlayerScripts
         {
             PlayerInputManager.onInputDown += Roll;
             _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnDestroy()
+        {
+            PlayerInputManager.onInputDown -= Roll;
         }
 
         //Called by animation event
@@ -40,7 +46,7 @@ namespace PlayerScripts
             var inputDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
             Vector2 rollDir = GetRollDir(inputDir).normalized;
             onRoll.Invoke(true, rollDir);
-            StartCoroutine(ApplyRollVelocity(rollDir));
+            StartCoroutine(ApplyRoll(rollDir));
         }
 
         private Vector2 GetRollDir(Vector2 inputDir)
@@ -66,13 +72,15 @@ namespace PlayerScripts
             _inCooldown = false;
         }
 
-        private IEnumerator ApplyRollVelocity(Vector2 dir)
+        private IEnumerator ApplyRoll(Vector2 dir)
         {
             var peaked = false;
             var fixedUpdate = new WaitForFixedUpdate();
             gameObject.layer = LayerMask.NameToLayer("Invincible");
             for (var t = 0f; t < rollTime; t += Time.fixedDeltaTime)
             {
+                if (t > invincibleTime)
+                    gameObject.layer = LayerMask.NameToLayer("Player");
                 var rollSpeed = rollCurve.Evaluate(t / rollTime) * maxRollSpeed;
                 //if roll speed is quicker use that
                 if (rollSpeed > _rb.velocity.magnitude)
@@ -92,5 +100,6 @@ namespace PlayerScripts
             }
             gameObject.layer = LayerMask.NameToLayer("Player");
         }
+        
     }
 }

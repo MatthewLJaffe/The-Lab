@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d218e701d8042dd4d9d178c92e871acb, type: 3}
   m_Name: HuntingRifle+3Stats
   m_EditorClassIdentifier: 
-  damage: 44
+  damage: 26
   fireRate: 75
   accuracy: 90
-  critChance: 14
+  critChance: 15
   reloadSpeed: 25
   magSize: 14

@@ -11,7 +11,8 @@ namespace PlayerScripts
 
         private void Start()
         {
-            Instantiate(startWeapons[Random.Range(0, startWeapons.Length)]).GetComponent<ItemPickup>().TryPickupItem();
+            Instantiate(startWeapons[Random.Range(0, startWeapons.Length)]).
+                GetComponent<ItemPickup>().TryPickupItem();
         }
     }
 }

@@ -30,14 +30,16 @@ namespace EnemyScripts.Drone
         
         private void Enrage()
         {
+            if (enragedWeights == null || enragedWeights.Length == 0) return;
             _currEnragedDuration = enrageDuration;
             if (_enrageRoutine == null) 
                 _enrageRoutine = StartCoroutine(EnrageForDuration());
         }
-
+        
         protected override void SwitchState(BaseState state)
         {
-            if (_enrageRoutine == null)
+            if (state != this) return;
+            if (_enrageRoutine == null || enragedWeights == null || enragedWeights.Length == 0)
                 base.SwitchState(state);
             else
             {
@@ -50,6 +52,7 @@ namespace EnemyScripts.Drone
 
         private IEnumerator EnrageForDuration()
         {
+            if (enragedWeights == null || enragedWeights.Length == 0) yield break;
             foreach (var ew in enragedWeights)
                 ew.behaviour.weight = ew.weight;
             _steeringController.acceleration = enragedAcc;

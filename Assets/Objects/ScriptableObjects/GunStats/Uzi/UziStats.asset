@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: UziStats
   m_EditorClassIdentifier: 
   damage: 3
-  fireRate: 600
-  accuracy: 55
-  critChance: 0.5
+  fireRate: 650
+  accuracy: 60
+  critChance: 1
   reloadSpeed: 90
   magSize: 25

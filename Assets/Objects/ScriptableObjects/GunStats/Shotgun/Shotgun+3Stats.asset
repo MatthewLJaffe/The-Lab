@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d218e701d8042dd4d9d178c92e871acb, type: 3}
   m_Name: Shotgun+3Stats
   m_EditorClassIdentifier: 
-  damage: 26
+  damage: 14
   fireRate: 50
   accuracy: 25
-  critChance: 6
+  critChance: 4
   reloadSpeed: 30
   magSize: 5

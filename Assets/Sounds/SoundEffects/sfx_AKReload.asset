@@ -15,5 +15,5 @@ MonoBehaviour:
   playOrder: 0
   clips:
   - {fileID: 8300000, guid: 3a8dbda50db5f9745b7ec977e0ce4871, type: 3}
-  volumeRange: {x: 0.7, y: 0.9}
+  volumeRange: {x: 0.5, y: 0.6}
   pitchRange: {x: 1.101008, y: 1.101008}

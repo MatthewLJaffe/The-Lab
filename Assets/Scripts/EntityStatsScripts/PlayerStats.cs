@@ -65,6 +65,16 @@ namespace EntityStatsScripts
         {
             return 1f + atkToDamageMultiplier * playerStatsDict[StatType.Attack].CurrentValue;
         }
+
+        public void IncrementAttack()
+        {
+            playerStatsDict[StatType.Attack].CurrentValue++;
+        }
+
+        public void IncrementDef()
+        {
+            playerStatsDict[StatType.Defense].CurrentValue++;
+        }
         
     }
 }

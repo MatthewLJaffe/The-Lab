@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 13b6c7e3e5fa59645b1be4c9a59b35ce, type: 3}
   message: You feel the infection surging through you +Spd +Atk
-  stack: 1
+  stack: 0
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
-  attackBonus: 1
-  speedBonus: 2
+  attackBonus: 2
+  speedBonus: 1

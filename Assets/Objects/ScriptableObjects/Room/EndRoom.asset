@@ -14,25 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSize: {x: 17, y: 17}
   maxSize: {x: 17, y: 17}
+  presetSpawners: {fileID: 0}
   spawners:
-  - potentialSpawns:
-    - spawner: {fileID: 11400000, guid: 1427574dee8737b41bc607fa23c5444b, type: 2}
-      spawnChance: 1
-      minSpawns: 1
-      maxSpawns: 1
-    spawnChance: 1
-    spawnOrder: 1
-    vertConstraints: 0
-    horizConstraints: 0
-  - potentialSpawns:
-    - spawner: {fileID: 11400000, guid: 9169832111dc1ce4498f1a397b438a3c, type: 2}
-      spawnChance: 1
-      minSpawns: 1
-      maxSpawns: 1
-    spawnChance: 1
-    spawnOrder: 1
-    vertConstraints: 0
-    horizConstraints: 0
   - potentialSpawns:
     - spawner: {fileID: 11400000, guid: c6ef6657b78c06a4c829bab5b4ac25c6, type: 2}
       spawnChance: 1

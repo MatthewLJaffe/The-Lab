@@ -115,6 +115,10 @@ MonoBehaviour:
     weight: 0
   speed: 2
   acceleration: 2
+  OverrideState: {fileID: 0}
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
   aggroRange: 12
   aggroState: {fileID: 5864641038399318974}
 --- !u!114 &5864641038399318974
@@ -140,6 +144,10 @@ MonoBehaviour:
     weight: 0
   speed: 3.5
   acceleration: 2.5
+  OverrideState: {fileID: 0}
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
   farState: {fileID: 3072911514739938053}
   farRange: 15
   closeState: {fileID: 3907632242827498771}
@@ -171,6 +179,10 @@ MonoBehaviour:
     weight: 1
   speed: 8
   acceleration: 5
+  OverrideState: {fileID: 0}
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
   strafeTime: 0.6
 --- !u!114 &3907632242827498771
 MonoBehaviour:
@@ -195,6 +207,10 @@ MonoBehaviour:
     weight: 0
   speed: 5
   acceleration: 2
+  OverrideState: {fileID: 0}
+  onSwitchTo:
+    m_PersistentCalls:
+      m_Calls: []
   attackRange: 2.5
 --- !u!1 &2591415159008789317
 GameObject:
@@ -285,7 +301,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 8122612962960986689, guid: 73150efa47599a34e90692b11ff74a1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -739,13 +755,25 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1.5
+          m_FloatArgument: 1.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onFloor3:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 194362702}
+        m_TargetAssemblyTypeName: EntityStatsScripts.EnemyHealth, Assembly-CSharp
+        m_MethodName: ScaleHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6087940590089918342
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,16 +5928,16 @@ MonoBehaviour:
   weight: 0.5
   avoidMultiplier: 3.5
   avoidThreshold: 0.9
-  nonHitMultiplier: 0.5
   raycastDistance: 1.75
-  aheadComponent: 0.6
+  aheadComponent: 0.5
+  maxAheadDistance: 7
   debug: 0
   collider: {fileID: 3472780962244704743}
   layerWeights:
   - layer: Spikes
     weight: 3
   - layer: Block
-    weight: 1
+    weight: 0.4
   - layer: Enemy
     weight: 1
   - layer: Default

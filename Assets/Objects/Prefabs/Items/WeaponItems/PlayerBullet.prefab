@@ -172,6 +172,9 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 2101504
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
   destructionCollider: {fileID: -4192527064366142167}
   crit: 0
   accuracy: 0
@@ -181,6 +184,7 @@ MonoBehaviour:
   maxAngle: 30
   destroyOnDamage: 1
   colorPickOffset: 0.4
+  normalAlignmentPriority: 0.7
   firedBy: {fileID: 0}
   critSound: {fileID: 11400000, guid: 59992a3c495e0a04b81d5d7474c6c0be, type: 2}
   lightWeightDaggerEffect: {fileID: 11400000, guid: e529144e345ebeb4da71e9b59b8cebb8, type: 2}

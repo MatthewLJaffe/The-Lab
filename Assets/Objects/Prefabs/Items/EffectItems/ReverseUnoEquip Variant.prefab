@@ -27,6 +27,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 79d599eef1ed10d4a9df430df9950f0d, type: 2}
+        m_TargetAssemblyTypeName: Tutorial.TutorialManager, Assembly-CSharp
+        m_MethodName: IncrementActionsCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   effect: {fileID: 11400000, guid: da3193785da606c498f302d980306007, type: 2}
 --- !u!1001 &7895515495024421329
 PrefabInstance:
@@ -81,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1915694963791358054, guid: 3f641b12b0479bb47831547017251f80, type: 3}
       propertyPath: m_Name
-      value: ReverseUnoEquip
+      value: ReverseUnoEquip Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5323280771758378026, guid: 3f641b12b0479bb47831547017251f80, type: 3}
       propertyPath: m_Sprite

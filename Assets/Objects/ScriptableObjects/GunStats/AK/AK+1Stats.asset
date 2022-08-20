@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d218e701d8042dd4d9d178c92e871acb, type: 3}
   m_Name: AK+1Stats
   m_EditorClassIdentifier: 
-  damage: 6
+  damage: 5
   fireRate: 350
   accuracy: 75
   critChance: 3

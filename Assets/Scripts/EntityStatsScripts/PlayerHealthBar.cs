@@ -7,7 +7,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using WeaponScripts;
-using static Unity.Mathematics.Random;
 using Random = UnityEngine.Random;
 
 namespace EntityStatsScripts
@@ -62,6 +61,7 @@ namespace EntityStatsScripts
             DamagePlayer.applyPlayerDamage -= TakeDamage;
             PlayerStats.onStatChange -= ChangeStats;
             BarDeplete -= KillPlayer;
+            PlayerMove.moveTick -= TickRegen;
         }
         
         public void TakeDamage(float amount, Vector2 dir, DamageSource source,  bool crit = false)

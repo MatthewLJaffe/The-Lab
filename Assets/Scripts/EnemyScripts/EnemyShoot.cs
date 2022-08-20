@@ -1,6 +1,4 @@
-﻿using System;
-using System.CodeDom;
-using General;
+﻿using General;
 using UnityEngine;
 using UnityEngine.Events;
 using WeaponScripts;
@@ -10,7 +8,7 @@ namespace EnemyScripts
     public class EnemyShoot : MonoBehaviour, IFire
     {
         public UnityEvent onShoot;
-        [SerializeField] private Transform[] shootPoints;
+        public Transform[] shootPoints;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private float timeBetweenShots;
         [SerializeField] private float damage;
@@ -42,12 +40,6 @@ namespace EnemyScripts
 
         private void FixedUpdate()
         {
-            if (_enemy.target)
-            {
-                var trans = transform;
-                trans.up = trans.position - _enemy.target.position;
-            }
-            
             if (!_canShoot) return;
             if (_shootCooldown >= timeBetweenShots)
             {
@@ -59,7 +51,7 @@ namespace EnemyScripts
             }
         }
 
-        public void Fire()
+        public virtual void Fire()
         {
             onShoot.Invoke();
             foreach (var shootPoint in shootPoints)          

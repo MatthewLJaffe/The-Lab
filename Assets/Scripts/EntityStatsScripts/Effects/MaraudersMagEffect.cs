@@ -49,7 +49,7 @@ namespace EntityStatsScripts.Effects
 
         public async void ApplyMaraudersMagEffect(float reloadTime)
         {
-            if (!_canProcEffect) return;
+            if (!_canProcEffect || stack == 0) return;
             _startTime = Time.time;
             if (_effectActive) return;
             _effectActive = true;

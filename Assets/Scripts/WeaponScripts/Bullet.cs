@@ -20,6 +20,7 @@ namespace WeaponScripts
      [SerializeField] protected float maxAngle;
      [SerializeField] protected bool destroyOnDamage;
      [SerializeField] private float colorPickOffset;
+     [SerializeField] private float normalAlignmentPriority = .75f;
      protected Animator Animator;
      protected Coroutine BulletReturnRoutine;
      protected Rigidbody2D Rb;
@@ -58,24 +59,30 @@ namespace WeaponScripts
                 if (damageable != null)
                     onDamage.Invoke();
             }
-            if (destructionCollider.IsTouching(other) || destroyOnDamage && damageable != null)
+            if (destructionCollider.IsTouching(other) && !other.isTrigger || destroyOnDamage && damageable != null)
             {
-                if (Particle) {
-                    StartCoroutine(PlayParticle());
-                }
-                if (damageSfx)
-                    damageSfx.Play();
-                var hit = Physics2D.Raycast((Vector2) transform.position - Rb.velocity.normalized * .1f, Rb.velocity, 10f,
-                    Physics2D.GetLayerCollisionMask(gameObject.layer));
-                transform.up = -hit.normal; 
-                StartBulletDestruction();
-                foreach (var coll in gameObject.GetComponentsInChildren<Collider2D>()) {
-                    coll.enabled = false;
-                }
+                BulletExplode();
             }
         }
 
-        private IEnumerator PlayParticle()
+        public void BulletExplode()
+        {
+            if (Particle) {
+                StartCoroutine(PlayParticle());
+            }
+            if (damageSfx)
+                damageSfx.Play();
+
+            var hit = Physics2D.Raycast((Vector2) transform.position - Rb.velocity.normalized * .1f, Rb.velocity, 10f,
+                Physics2D.GetLayerCollisionMask(gameObject.layer));
+            transform.up = Vector3.Lerp(transform.up, -hit.normal, normalAlignmentPriority); 
+            StartBulletDestruction();
+            foreach (var coll in gameObject.GetComponentsInChildren<Collider2D>()) {
+                coll.enabled = false;
+            }
+        }
+
+        protected virtual IEnumerator PlayParticle()
         {
             yield return new WaitForEndOfFrame();
             var viewRect = _mainCamera.pixelRect;

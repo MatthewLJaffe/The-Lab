@@ -1424,18 +1424,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9f6464f15c08c47bb5f35422a69964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rule: {fileID: 11400000, guid: 08002d404144b40bf842342dda8fa3e4, type: 2}
+  playerStats: {fileID: 0}
+  floorNumber: 0
+  numRooms: 20
+  roomPrefab: {fileID: 0}
+  miniMap: {fileID: 0}
+  miniMapRoomPrefab: {fileID: 0}
+  miniMapHallwayPrefab: {fileID: 0}
+  firstRoom: {fileID: 0}
+  categories: []
   dimensions:
-    minWidth: 7
-    maxWidth: 15
-    minHeight: 7
-    maxHeight: 15
     minHallway: 5
     maxHallway: 9
+  labTiles:
+    roomRule: {fileID: 0}
+    wallRule: {fileID: 0}
+    verticalHallRule: {fileID: 0}
+    horizontalHallRule: {fileID: 0}
+    uDoor: {fileID: 0}
+    dDoor: {fileID: 0}
+    rDoor: {fileID: 0}
+    lDoor: {fileID: 0}
   lDoor: {fileID: 1295942710}
   rDoor: {fileID: 2104700486}
   uDoor: {fileID: 715785348}
   dDoor: {fileID: 2100452795}
+  floorParent: {fileID: 0}
 --- !u!19719996 &159960210
 TilemapCollider2D:
   m_ObjectHideFlags: 0

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf86f8d38bbb4a75a488108d487d9ab9, type: 3}
+  m_Name: SquareAgentRoom
+  m_EditorClassIdentifier: 
+  minSize: {x: 19, y: 21}
+  maxSize: {x: 19, y: 21}
+  presetSpawners: {fileID: 11400000, guid: 93bf1718c3ec2de41ad060617d2c84a8, type: 2}
+  spawners:
+  - potentialSpawns:
+    - spawner: {fileID: 11400000, guid: 14d9a0706c3afc44f8fad1993f59c4ed, type: 2}
+      spawnChance: 1
+      minSpawns: 1
+      maxSpawns: 1
+    spawnChance: 1
+    spawnOrder: 0
+    vertConstraints: 0
+    horizConstraints: 0
+  lockRoom: 1
+  enemyHandlerPrefab: {fileID: 670961924503685843, guid: 708bdb9bc8e7daf43874880b4dc13c1e, type: 3}

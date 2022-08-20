@@ -9,6 +9,7 @@ namespace EnemyScripts
         [SerializeField] protected BaseState targetAcquiredState;
         [SerializeField] protected BaseState targetLostState;
         [SerializeField] protected Transform shootPoint;
+        [SerializeField] protected float bulledWidth = .25f;
         
         public override Type Tick()
         {
@@ -19,7 +20,8 @@ namespace EnemyScripts
             Vector2 position = shootPoint.position;
             var mask = Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Enemy Bullet"));
             mask |= LayerMask.GetMask(LayerMask.LayerToName(enemy.target.gameObject.layer));
-            var hit = Physics2D.Raycast(position, (Vector2) enemy.target.position - position, farRange, mask);
+            var hit = Physics2D.BoxCast(position, new Vector2(bulledWidth,bulledWidth),0, 
+                (Vector2) enemy.target.position - position, farRange, mask);
             if (hit.transform == enemy.target) {
                 return TargetAcquired();
             }

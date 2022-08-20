@@ -11,7 +11,8 @@ namespace EntityStatsScripts.Effects
         protected override void Consume(PlayerInputManager.PlayerInputName inputName)
         {
             if (inputName != PlayerInputManager.PlayerInputName.Fire1 || !gameObject.activeSelf) return;
-            effect.Stack++;
+            if (effect)
+                effect.Stack++;
             base.Consume(inputName);
         }
     }

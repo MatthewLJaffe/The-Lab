@@ -6,13 +6,13 @@ namespace EntityStatsScripts.Effects
     public class CorruptionEffect : Effect
     {
         [SerializeField] private PlayerStats playerStats;
-        [SerializeField] private float attackBonus = 2.5f;
-        [SerializeField] private float speedBonus = 2f;
+        [SerializeField] private float attackBonus;
+        [SerializeField] private float speedBonus;
 
         protected override void ChangeEffectStack(int newStack, int oldStack)
         {
             playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += attackBonus * (newStack - oldStack);
-            playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += speedBonus * (newStack - oldStack);
+            playerStats.playerStatsDict[PlayerStats.StatType.Speed].CurrentValue += speedBonus * (newStack - oldStack);
         }
     }
 }

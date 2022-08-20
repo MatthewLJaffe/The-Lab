@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   shootSound: {fileID: 11400000, guid: ce5ce2ef29a03124fb3bd9cee0ae3c77, type: 2}
+  playSquashStretch: 1
   reloadSound: {fileID: 11400000, guid: 37c53dd2687c0fe43aab06e1ffc9efad, type: 2}
   bullet: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
   shake: 1

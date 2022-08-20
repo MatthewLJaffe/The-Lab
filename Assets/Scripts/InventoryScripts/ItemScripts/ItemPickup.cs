@@ -3,6 +3,7 @@ using System.Collections;
 using General;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace InventoryScripts.ItemScripts
@@ -17,6 +18,8 @@ namespace InventoryScripts.ItemScripts
         public Item itemToDrop;
         public static Action<Item> pickup = delegate{ };
         private Rigidbody2D _rb;
+        //used by tutorial
+        public UnityEvent onPickup;
         private bool _canDrop = true;
 
         private void Awake() {
@@ -48,6 +51,7 @@ namespace InventoryScripts.ItemScripts
                 _canDrop = false;
                 pickUpSound.Play();
                 pickup.Invoke(itemToDrop);
+                onPickup.Invoke();
                 gameObject.SetActive(false);
             }
         }
@@ -59,6 +63,7 @@ namespace InventoryScripts.ItemScripts
             if (itemToDrop == null)
                 itemToDrop = new Item(itemData);
             pickup.Invoke(itemToDrop);
+            onPickup.Invoke();
             gameObject.SetActive(false);
         }
 
