@@ -18,16 +18,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6077913416060413324}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: EntityStatsScripts.DiseaseDamage, Assembly-CSharp
+        m_MethodName: StartVent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1001 &2015111534498000220
 PrefabInstance:
@@ -114,11 +114,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5741539009534298320, guid: 0d72b0c6e08c305479d2ad0b78bb8aa3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5741539009534298320, guid: 0d72b0c6e08c305479d2ad0b78bb8aa3, type: 3}
       propertyPath: onGasStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741539009534298320, guid: 0d72b0c6e08c305479d2ad0b78bb8aa3, type: 3}
+      propertyPath: startOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3586322505233534775, guid: 0d72b0c6e08c305479d2ad0b78bb8aa3, type: 3}
@@ -134,7 +138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2015111534498000220}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077913416060413425}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61a0307887532a740aa6b4bd676bb870, type: 3}
   m_Name: 

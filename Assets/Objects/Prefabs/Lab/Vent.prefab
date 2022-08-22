@@ -77,8 +77,9 @@ MonoBehaviour:
   startDelayTimeRange: {x: 2, y: 3}
   timeRangeBetweenBursts: {x: 4, y: 6}
   burstTimeRange: {x: 2, y: 3}
-  dps: 25
+  dps: 35
   damageCollider: {fileID: 5741539009534298286}
+  startOnAwake: 1
   onGasStart:
     m_PersistentCalls:
       m_Calls:

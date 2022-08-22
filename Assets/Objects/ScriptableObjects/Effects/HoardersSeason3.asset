@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 95d35fa410486f94191976814ca6f345, type: 3}
   message: ATK scales with number of items in inventory
-  stack: 1
+  stack: 0
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
-  atkPerItem: 0.25
+  atkPerItem: 0.125

@@ -40,7 +40,8 @@ namespace PlayerScripts
         private void OnDestroy()
         {
             SceneManager.sceneLoaded -= ResetPlayer;
-            instance = null;
+            if (instance == this)
+                instance = null;
         }
 
         public void DestroyPlayer()

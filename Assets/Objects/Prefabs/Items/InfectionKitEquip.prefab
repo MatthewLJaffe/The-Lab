@@ -127,7 +127,7 @@ MonoBehaviour:
   steroidEffect: {fileID: 11400000, guid: 7e7df7f7835474648a74adb1822fee4b, type: 2}
   phdEffect: {fileID: 11400000, guid: 104971984c2199144b161be3c05bdb7f, type: 2}
   restoreType: 1
-  restoreAmount: 75
+  restoreAmount: 50
   restoreTextPrefab: {fileID: 6773606373898106743, guid: d6ae17eee84f34a48b988f4d557d31bd, type: 3}
 --- !u!1001 &6138714334919475792
 PrefabInstance:

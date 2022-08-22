@@ -16195,7 +16195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a534b205a436f54dad29daaee695bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 200
   slider: {fileID: 1038178859180404103}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 3443683575590395260}
@@ -16264,19 +16264,7 @@ MonoBehaviour:
   time: 0.2
   action:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1038178861238655090}
-        m_TargetAssemblyTypeName: EntityStatsScripts.ModifyStat, Assembly-CSharp
-        m_MethodName: ChangeStat
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: -5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1038178861238655092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16384,6 +16372,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!82 &1038178861238655094
 AudioSource:

@@ -142,7 +142,7 @@ MonoBehaviour:
     weight: 0.5
   - behaviour: {fileID: 6759166687119103119}
     weight: 0
-  speed: 3.5
+  speed: 4
   acceleration: 2.5
   OverrideState: {fileID: 0}
   onSwitchTo:
@@ -205,13 +205,13 @@ MonoBehaviour:
     weight: 0.7
   - behaviour: {fileID: 6759166687119103119}
     weight: 0
-  speed: 5
-  acceleration: 2
+  speed: 5.25
+  acceleration: 1.25
   OverrideState: {fileID: 0}
   onSwitchTo:
     m_PersistentCalls:
       m_Calls: []
-  attackRange: 2.5
+  attackRange: 3
 --- !u!1 &2591415159008789317
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +615,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8505614241952147664
 MonoBehaviour:

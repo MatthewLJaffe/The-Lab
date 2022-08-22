@@ -2104,7 +2104,7 @@ MonoBehaviour:
   maxBarWidth: 88
   defaultValue: 100
   barValue: 0
-  baseInfectionRate: 0.33
+  baseInfectionRate: 0.5
   timeUntilDiseaseTolerance: 100
   diseaseToleranceEffect: {fileID: 11400000, guid: 6e874059925596145ac5c2ce9b7fa4d8, type: 2}
 --- !u!1 &4815169407529514865

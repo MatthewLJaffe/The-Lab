@@ -96,6 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df9d8868b274f7f8775552568c8711d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onUse:
+    m_PersistentCalls:
+      m_Calls: []
+  playerStats: {fileID: 0}
+  steroidEffect: {fileID: 0}
+  phdEffect: {fileID: 0}
   restoreType: 0
   restoreAmount: 10
   restoreTextPrefab: {fileID: 6773606373898106743, guid: d6ae17eee84f34a48b988f4d557d31bd, type: 3}

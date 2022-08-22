@@ -2561,11 +2561,7 @@ MonoBehaviour:
       weight: 0.1
     - proceduralRoom: {fileID: 11400000, guid: 8b4067161dd724e478d03e0b12bcce97, type: 2}
       weight: 0.1
-    postSpawns:
-    - spawner: {fileID: 11400000, guid: f35cc14235d57cf42b8a71ba22ce88ee, type: 2}
-      amountToCreate: 1
-      minSpawnsPerRoom: 1
-      maxSpawnsPerRoom: 1
+    postSpawns: []
     totalProb: 1
     dontRepeat: 1
   - categoryName: 2

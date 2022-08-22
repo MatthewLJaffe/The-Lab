@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5160970163826563806, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
       propertyPath: damage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5566363509411267850, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
       propertyPath: m_Controller
@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
       objectReference: {fileID: 8272187346242616909, guid: c25622e61cf253549a42bd20ec8b9bfe, type: 3}
+    - target: {fileID: 6731801466449821168, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 7835492680070192807, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.081

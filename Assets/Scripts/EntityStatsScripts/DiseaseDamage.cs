@@ -14,10 +14,12 @@ namespace EntityStatsScripts
         [SerializeField] private Vector2 burstTimeRange;
         [SerializeField] private float dps;
         [SerializeField] private Collider2D damageCollider;
+        [SerializeField] private bool startOnAwake = true;
         public UnityEvent onGasStart;
         private Coroutine _damageRoutine;
         private ParticleSystem _particleSystem;
-        private static bool _damagingPlayer;
+        private bool _active;
+        private static DiseaseDamage _damagingPlayer;
 
         private void Awake()
         {
@@ -26,22 +28,31 @@ namespace EntityStatsScripts
 
         private void Start()
         {
-            StartCoroutine(BeginRoutine());        
+            if (startOnAwake)
+                StartCoroutine(BeginRoutine());        
+        }
+
+        public void StartVent()
+        {
+            StartCoroutine(BeginRoutine());
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player") && !_damagingPlayer)
             {
-                _damagingPlayer = true;
-                StartCoroutine(DamageRoutine());
+                _damagingPlayer = this;
+                _damageRoutine = StartCoroutine(DamageRoutine());
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player") && _damagingPlayer)
-                _damagingPlayer = false;
+            if (other.gameObject.CompareTag("Player") && _damagingPlayer == this)
+            {
+                StopCoroutine(_damageRoutine);
+                _damagingPlayer = null;
+            }
         }
 
         private IEnumerator BeginRoutine()
