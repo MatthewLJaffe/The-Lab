@@ -33,7 +33,7 @@ namespace PlayerScripts
             PlayerRoll.onRoll -= RollHandler;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (_animate)
                 SetAnimation();

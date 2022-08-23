@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1748638257616755484}
   - component: {fileID: -7948140380720184514}
   - component: {fileID: 6664499980671229539}
-  m_Layer: 8
+  m_Layer: 26
   m_Name: StretcherHorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,6 +9,7 @@ namespace PlayerScripts
     {
         public static Action<PlayerInputName> onInputDown = delegate {  };
         public static PlayerInputManager instance;
+        private PlayerInput cancel;
 
         private void Awake()
         {
@@ -24,6 +25,7 @@ namespace PlayerScripts
             {
                 DontDestroyOnLoad(gameObject);
             }
+            cancel = inputs.First(i => i.inputName == PlayerInputName.Cancel);
         }
 
         public enum PlayerInputName
@@ -38,15 +40,22 @@ namespace PlayerScripts
             Alpha_4,
             Alpha_5,
             Alpha_6,
-            Roll
+            Roll,
+            Cancel
         }
         [SerializeField] private PlayerInput[] inputs;
-        
+
         
         private void Update()
         {
-            foreach (var input in inputs) {
-                input.Pressed = Input.GetButton(input.inputName.ToString());
+            if (Time.timeScale == 0)
+            {
+                cancel.Pressed = Input.GetButton(cancel.inputName.ToString());
+            }
+            else
+            {
+                foreach (var input in inputs)
+                    input.Pressed = Input.GetButton(input.inputName.ToString());
             }
         }
 

@@ -16584,7 +16584,7 @@ MonoBehaviour:
   layerWeights:
   - layer: Spikes
     weight: 3
-  - layer: Block
+  - layer: Movable
     weight: 0.4
   - layer: Enemy
     weight: 1

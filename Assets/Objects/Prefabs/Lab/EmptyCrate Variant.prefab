@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmptyCrate Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2682409074037477823, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 5436477647316537631, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: onDestroyed.m_PersistentCalls.m_Calls.Array.size
       value: 1

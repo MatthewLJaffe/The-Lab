@@ -5931,16 +5931,16 @@ MonoBehaviour:
   weight: 0.5
   avoidMultiplier: 3.5
   avoidThreshold: 0.9
-  raycastDistance: 1.75
+  raycastDistance: 2
   aheadComponent: 0.5
-  maxAheadDistance: 7
+  maxAheadDistance: 6
   debug: 0
   collider: {fileID: 3472780962244704743}
   layerWeights:
   - layer: Spikes
     weight: 3
-  - layer: Block
-    weight: 0.4
+  - layer: Movable
+    weight: 0.2
   - layer: Enemy
     weight: 1
   - layer: Default

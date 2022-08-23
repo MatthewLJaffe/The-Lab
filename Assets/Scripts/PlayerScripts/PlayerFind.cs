@@ -52,10 +52,20 @@ namespace PlayerScripts
             if (tutorial)
                 SceneManager.LoadScene(1);
             else
-                SceneManager.LoadScene(2);
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene(0);
+            }
         }
         private void ResetPlayer(Scene scene, LoadSceneMode mode)
         {
+            if (scene.buildIndex == 0)
+            {
+                if (playerInstance)
+                    Destroy(playerInstance);
+                Destroy(gameObject);
+                return;
+            }
             if (playerInstance != null)
             {
                 playerInstance.transform.position = transform.position;

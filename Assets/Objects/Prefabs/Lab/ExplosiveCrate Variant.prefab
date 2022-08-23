@@ -9856,10 +9856,12 @@ MonoBehaviour:
   sourceCollider: {fileID: 8865873838467174007}
   isHazard: 1
   damageSfx: {fileID: 0}
-  hazard: 1
   layers:
     serializedVersion: 2
     m_Bits: 2102016
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
   layerDamages:
   - layer: Player
     damage: 10
@@ -14928,7 +14930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2682409074037477823, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5436477647316537631, guid: a7d35657823b0774ba90a76e298bd03d, type: 3}

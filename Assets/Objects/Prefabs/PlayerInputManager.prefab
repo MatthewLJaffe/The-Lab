@@ -66,3 +66,5 @@ MonoBehaviour:
     usable: 1
   - inputName: 10
     usable: 1
+  - inputName: 11
+    usable: 1
