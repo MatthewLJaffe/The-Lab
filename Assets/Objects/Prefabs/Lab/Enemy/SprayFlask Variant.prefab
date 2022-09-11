@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1267212575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903628759939706379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a194580a79e0450cb3512161d97544db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginOnStart: 0
+  time: 2.6
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 923496639329418287}
+        m_TargetAssemblyTypeName: WeaponScripts.ScientistFlask, Assembly-CSharp
+        m_MethodName: DestroyFlask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5437785154617959995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923496639329418275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f3c4b730b4489389e6bcdbc9675890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8194380682227329850, guid: bd67d5eccc95a114eb536b3dc899baca, type: 3}
+  onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1267212575}
+        m_TargetAssemblyTypeName: General.TimedAction, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  coolDown: 0
+  damage: 10
+  bulletSpeed: 8
+  burstNum: 25
+  burstRate: 0.1
+  burstAngle: 0
+--- !u!1001 &4439706537401531039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: atDestination.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: ShowExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burst
+      value: 
+      objectReference: {fileID: 5437785154617959995}
+    - target: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184178, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8444967976998273392, guid: d2bf9c262f1780f4e851d98a3ec7b972, type: 3}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burstAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burstRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burstNum
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1267212575}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: General.TimedAction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1140757090447468519, guid: a3c5815e90c83084e84616abe48a6fd1, type: 3}
+    - target: {fileID: 3552753921589184183, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 93e375a1133cb7f47b00d2f26d348cd0, type: 2}
+    - target: {fileID: 8759556194283312276, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_Name
+      value: SprayFlask Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.0294647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.223902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.582514
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+    - {fileID: 3552753921589184190, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+    - {fileID: 3552753921589184177, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+--- !u!1 &4903628759939706379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759556194283312276, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+  m_PrefabInstance: {fileID: 4439706537401531039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &923496639329418275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3552753921589184188, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+  m_PrefabInstance: {fileID: 4439706537401531039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &923496639329418287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+  m_PrefabInstance: {fileID: 4439706537401531039}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923496639329418275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0233b423c0b341d2b7c2e7360cb63296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

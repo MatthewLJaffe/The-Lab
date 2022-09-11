@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: f7957b0a83ff4674ba19603ec7d64f86, type: 2}
+    - target: {fileID: 5528333545015553515, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5733893318531131482, guid: 26e71dc0ddb711749881c18931d15294, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5

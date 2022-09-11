@@ -123,6 +123,14 @@ PrefabInstance:
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5160970163826563806, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
+      propertyPath: computeRot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160970163826563806, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
+      propertyPath: liveTime
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5566363509411267850, guid: d3ea08cd28d4693428a248630e7c1e16, type: 3}
       propertyPath: m_Controller
       value: 

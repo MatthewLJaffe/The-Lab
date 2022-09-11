@@ -6,6 +6,7 @@ using EntityStatsScripts.Effects;
 using General;
 using PlayerScripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace WeaponScripts
@@ -53,13 +54,14 @@ namespace WeaponScripts
         protected float critMultiplier;
         protected float reloadFactor;
         
-        protected void Start() 
+        protected void Start()
         {
+            SceneManager.sceneLoaded += CreatePool;
+            _bulletPool = new GameObjectPool(bullet);
             mainCamera = Camera.main;
             currentMagSize = gunStats.magSize;
             broadcastShot(currentMagSize, gunStats.magSize);
             _firstEquip = false;
-            _bulletPool = new GameObjectPool(bullet);
             playerTrans = PlayerFind.instance.playerInstance.transform;
             squashStretch = playerTrans.GetComponent<SquashStretch>();
             atkMult = playerStats.GetAttackMultiplier();
@@ -91,11 +93,21 @@ namespace WeaponScripts
             };
         }
 
+        private void CreatePool(Scene scene, LoadSceneMode mode)
+        {
+            _bulletPool = new GameObjectPool(bullet);
+        }
+
         protected void OnEnable() {
             if (!_firstEquip)
                 broadcastShot(currentMagSize, gunStats.magSize);
             PlayerInputManager.onInputDown += StartReload;
             broadCastWeaponSwitch.Invoke(this);
+        }
+
+        protected void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= CreatePool;
         }
         
         private void OnDisable()

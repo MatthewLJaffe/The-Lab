@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PlayerScripts;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace General
@@ -16,7 +17,11 @@ namespace General
         public void LoadScene(int buildIdx)
         {
             if (buildIdx < SceneManager.sceneCountInBuildSettings && buildIdx >= 0)
+            {
+                if (buildIdx <= 2 && PlayerFind.instance)
+                    PlayerFind.instance.DestroyPlayer();
                 SceneManager.LoadScene(buildIdx);
+            }
             else
                 Debug.LogError("Trying to load out of bounds scene");
         }

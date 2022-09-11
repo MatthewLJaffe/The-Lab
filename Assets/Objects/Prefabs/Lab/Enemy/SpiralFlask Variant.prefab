@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2540155970416077201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434491433302926958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a194580a79e0450cb3512161d97544db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginOnStart: 0
+  time: 8.1
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6572314774057251914}
+        m_TargetAssemblyTypeName: WeaponScripts.ScientistFlask, Assembly-CSharp
+        m_MethodName: DestroyFlask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &7671995942602076922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: atDestination.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: ShowExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: coolDown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burstNum
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burstAngle
+      value: 1440
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: burstRate
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2540155970416077201}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: General.TimedAction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552753921589184182, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312276, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_Name
+      value: SpiralFlask Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.0294647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.223902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.582514
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759556194283312299, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+--- !u!1 &1434491433302926958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759556194283312276, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+  m_PrefabInstance: {fileID: 7671995942602076922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6572314774057251914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3552753921589184176, guid: a8e888921a5bc584e9851ff3610877f9, type: 3}
+  m_PrefabInstance: {fileID: 7671995942602076922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0233b423c0b341d2b7c2e7360cb63296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

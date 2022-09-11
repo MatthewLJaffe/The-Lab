@@ -17,14 +17,16 @@ namespace EntityStatsScripts
         public UnityEvent onReverseUno;
         public float defense;
         public float dodgeChance;
+        [SerializeField] private PlayerAnimator playerAnimator;
+        [SerializeField] private Animator animator;
         [SerializeField] private float damageCooldown;
         [SerializeField] private GameObject numberPrefab;
         [SerializeField] private Transform displayPoint;
         [SerializeField] private float timeUntilAdrenaline = 100;
         [SerializeField] private Effect adrenaline;
         [SerializeField] private ReverseUnoCardEffect reverseUno;
+        [SerializeField] private PlayerRoll playerRoll;
         private float _currAddyCount;
-        private bool _canBeDamaged = true;
         private Coroutine _currentDisplay;
         private GameObjectPool _damageNumberPool;
         private SpriteRenderer _sr;
@@ -66,7 +68,6 @@ namespace EntityStatsScripts
         
         public void TakeDamage(float amount, Vector2 dir, DamageSource source,  bool crit = false)
         {
-            if (!_canBeDamaged) return;
             if (reverseUno.RollReverse())
             {
                 if (source)
@@ -98,23 +99,23 @@ namespace EntityStatsScripts
         
         private IEnumerator WaitDamageCooldown()
         {
-            _canBeDamaged = false;
+            gameObject.transform.root.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            playerRoll.invulnerable = true;
             yield return new WaitForSeconds(damageCooldown);
-            _canBeDamaged = true;
+            gameObject.transform.root.gameObject.layer = LayerMask.NameToLayer("Player");
+            playerRoll.invulnerable = false;
         }
 
         private IEnumerator TakeDamageEffect(TextMeshProUGUI damageText, string amount)
         {
             damageText.text = amount;
-            gameObject.transform.root.gameObject.layer = LayerMask.NameToLayer("Invincible");
-            while (!_canBeDamaged)
+            for (var t = 0f; t < damageCooldown; t += damageCooldown/4)
             {
                 var color = _sr.color;
                 color.a = Math.Abs(color.a - 1) < .01f ? .75f : 1f;
                 _sr.color = color;
                 yield return new WaitForSeconds(damageCooldown/4);
             }
-            gameObject.transform.root.gameObject.layer = LayerMask.NameToLayer("Player");
         }
         
         private void ChangeStats(PlayerStats.StatType type, float newValue)
@@ -144,12 +145,8 @@ namespace EntityStatsScripts
 
         private void KillPlayer(PlayerBarType barType)
         {
-            PlayerFind.instance.DestroyPlayer();
-        }
-
-        public void DestroyPlayer()
-        {
-            PlayerFind.instance.DestroyPlayer();
+            playerAnimator.enabled = false;
+            animator.Play("Die");
         }
 
         private IEnumerator CountToAdrenaline(float increment)

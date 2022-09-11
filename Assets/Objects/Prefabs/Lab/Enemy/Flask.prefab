@@ -125,11 +125,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   speed: 5
+  projectileSpeed: 0
   rb: {fileID: 3523079355893685709}
   rotFactor: 300
   destination: {x: 0, y: 0}
   burst: {fileID: 5250593725815385020}
   shadow: {fileID: 0}
+  rotOffset: 0
   enemy: {fileID: 0}
   atDestination:
     m_PersistentCalls:
@@ -299,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fcf40a39e4476e8b61218ff4e21c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1633223330170487667, guid: fb7732c639754444c9af428fdf65258b, type: 3}
+  bulletPrefab: {fileID: 1140757090447468519, guid: a3c5815e90c83084e84616abe48a6fd1, type: 3}
   onShoot:
     m_PersistentCalls:
       m_Calls: []

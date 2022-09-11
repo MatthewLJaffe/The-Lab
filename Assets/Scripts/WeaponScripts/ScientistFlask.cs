@@ -14,8 +14,9 @@ namespace WeaponScripts
         public Rigidbody2D rb;
         [SerializeField] private float rotFactor;
         [HideInInspector] public Vector2 destination;
-        [SerializeField] private BurstShoot burst;
+        [SerializeField] private ShootBehaviour burst;
         [SerializeField] private Shadow shadow;
+        public float rotOffset;
         public Enemy enemy;
         public UnityEvent atDestination;
         private float _distance;
@@ -61,8 +62,11 @@ namespace WeaponScripts
             rb.velocity = Vector2.zero;
             atDestination.Invoke();
             transform.up = -(enemy.target.position - transform.position);
+            if (burst.GetType() == typeof(ClusterShoot)) {
+                ((ClusterShoot)burst).rotOffset = rotOffset;
+            }
             if (enemy)
-                burst.Shoot(transform, enemy);        
+                burst.Shoot(transform, enemy);
         }
 
         public void DestroyFlask()

@@ -64,7 +64,7 @@ namespace EnemyScripts
         private IEnumerator SpawnIn()
         {
             spawnInBegin.Invoke(spawnInTime);
-            _animator.Play("SpawnIn");
+            _animator.Play("SpawnIn", 0);
             yield return new WaitForSeconds(spawnInTime);
             spawnInComplete.Invoke();
         }

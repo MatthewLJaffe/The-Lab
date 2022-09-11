@@ -32,7 +32,7 @@ namespace General
                 yield break;
             }
             yield return new WaitForEndOfFrame();
-            _newSize.y = Mathf.Max(minHeight, tmp.textBounds.size.y);
+            _newSize.y = Mathf.Max(minHeight, tmp.textBounds.size.y + tmp.fontSize);
             resizeRect.sizeDelta = _newSize;
         }
     }

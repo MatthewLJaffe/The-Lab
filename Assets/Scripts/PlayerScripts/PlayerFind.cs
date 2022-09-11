@@ -57,6 +57,7 @@ namespace PlayerScripts
                 SceneManager.LoadScene(0);
             }
         }
+        
         private void ResetPlayer(Scene scene, LoadSceneMode mode)
         {
             if (scene.buildIndex == 0)

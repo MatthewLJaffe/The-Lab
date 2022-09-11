@@ -14,7 +14,7 @@ namespace EnemyScripts
                 public float bulletSpeed;
                 protected GameObjectPool BulletPool;
                 
-                protected void Awake()
+                protected virtual void Awake()
                 { 
                         BulletPool = new GameObjectPool(bulletPrefab);
                 }

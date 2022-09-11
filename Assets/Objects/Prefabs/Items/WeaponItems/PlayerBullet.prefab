@@ -171,7 +171,7 @@ MonoBehaviour:
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 2101504
+    m_Bits: 69210368
   onDamage:
     m_PersistentCalls:
       m_Calls: []

@@ -685,6 +685,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3572731976869190983
 MonoBehaviour:
@@ -1129,7 +1132,7 @@ GameObject:
   - component: {fileID: 7982235577623037804}
   - component: {fileID: 7214901782448862880}
   - component: {fileID: 5007791154318616730}
-  m_Layer: 11
+  m_Layer: 27
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1257,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  farRange: 6
+  farRange: 5.5
   farState: {fileID: 7982235577623037804}
 --- !u!114 &7982235577623037804
 MonoBehaviour:
@@ -1300,7 +1303,7 @@ MonoBehaviour:
   farState: {fileID: 3572731977704699326}
   farRange: 11
   closeState: {fileID: 3572731977704699320}
-  closeRange: 4
+  closeRange: 3
   targetAcquiredState: {fileID: 7214901782448862880}
   targetLostState: {fileID: 0}
   shootPoint: {fileID: 3572731977049451827}

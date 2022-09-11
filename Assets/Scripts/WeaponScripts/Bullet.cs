@@ -8,29 +8,29 @@ using Random = UnityEngine.Random;
 
 namespace WeaponScripts
 {
- public class Bullet : DamageSource
- { 
-     [SerializeField] protected Collider2D destructionCollider;
-     public bool crit;
-     public float accuracy;
-     public Vector2 direction;
-     [Tooltip("Set this to nonzero to give the bullet a fixed speed leave at zero to give bullet speed based on accuracy")]
-     public float speed;
-     [SerializeField] protected float liveTime;
-     [SerializeField] protected float maxAngle;
-     [SerializeField] protected bool destroyOnDamage;
-     [SerializeField] private float colorPickOffset;
-     [SerializeField] private float normalAlignmentPriority = .75f;
-     protected Animator Animator;
-     protected Coroutine BulletReturnRoutine;
-     protected Rigidbody2D Rb;
-     protected ParticleSystem Particle;
-     protected ParticleSystem.MainModule settings;
-     private Camera _mainCamera;
-     public GameObject firedBy;
-        
+ public class Bullet : DamageSource 
+    { 
+         [SerializeField] protected Collider2D destructionCollider;
+         public bool crit;
+         public float accuracy;
+         public Vector2 direction;
+         [Tooltip("Set this to nonzero to give the bullet a fixed speed leave at zero to give bullet speed based on accuracy")]
+         public float speed;
+         [SerializeField] protected float liveTime;
+         [SerializeField] protected float maxAngle;
+         [SerializeField] protected bool destroyOnDamage;
+         [SerializeField] private float colorPickOffset;
+         [SerializeField] private float normalAlignmentPriority = .75f;
+         [SerializeField] private bool computeRot = true;
+         protected Animator Animator;
+         protected Coroutine BulletReturnRoutine;
+         protected Rigidbody2D Rb;
+         protected ParticleSystem Particle;
+         protected ParticleSystem.MainModule settings;
+         private Camera _mainCamera;
+         public GameObject firedBy;
 
-        protected override void Awake()
+         protected override void Awake()
         {
             base.Awake();
             Rb = GetComponent<Rigidbody2D>();
@@ -85,12 +85,14 @@ namespace WeaponScripts
         protected virtual IEnumerator PlayParticle()
         {
             yield return new WaitForEndOfFrame();
+            /*
             var viewRect = _mainCamera.pixelRect;
             Texture2D tex = new Texture2D( (int)viewRect.width, (int)viewRect.height);
             tex.ReadPixels( viewRect, 0, 0, false );
             tex.Apply( false );
             var pixelCoord = _mainCamera.WorldToScreenPoint(transform.position + transform.up * colorPickOffset);
             settings.startColor = tex.GetPixel((int)pixelCoord.x, (int)pixelCoord.y);
+            */
             if (!Particle.isPlaying) {
                 Particle.Play();
             }
@@ -137,7 +139,8 @@ namespace WeaponScripts
             }
             yield return new WaitUntil(() => direction != Vector2.zero);
             BulletReturnRoutine = StartCoroutine(BulletLifetime());
-            transform.rotation = GetRotation();
+            if (computeRot)
+                transform.rotation = GetRotation();
             Rb.velocity = transform.rotation * Vector2.up * speed;
         }
     }

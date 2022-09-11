@@ -14,6 +14,7 @@ namespace PlayerScripts
         [SerializeField] private float rollTime;
         [SerializeField] private float invincibleTime;
         [SerializeField] private Vector2[] rollDirections;
+        public bool invulnerable;
         private Rigidbody2D _rb;
         private bool _inCooldown;
         
@@ -79,7 +80,7 @@ namespace PlayerScripts
             gameObject.layer = LayerMask.NameToLayer("Invincible");
             for (var t = 0f; t < rollTime; t += Time.fixedDeltaTime)
             {
-                if (t > invincibleTime)
+                if (t > invincibleTime && !invulnerable)
                     gameObject.layer = LayerMask.NameToLayer("Player");
                 var rollSpeed = rollCurve.Evaluate(t / rollTime) * maxRollSpeed;
                 //if roll speed is quicker use that
@@ -98,7 +99,6 @@ namespace PlayerScripts
                 }
                 yield return fixedUpdate;
             }
-            gameObject.layer = LayerMask.NameToLayer("Player");
         }
         
     }

@@ -9,8 +9,9 @@ namespace EnemyScripts
         private float _currCooldown;
         private int _currShots;
         private ShootBehaviour _currBehaviour;
-        [HideInInspector] public Transform shootPoint;
+        public Transform shootPoint;
         [SerializeField] private ShootBehaviourWeight[] shootBehaviourWeights;
+        [SerializeField] private bool shootOnStart;
         private Enemy _enemy;
         
         [System.Serializable]
@@ -31,13 +32,14 @@ namespace EnemyScripts
             {
                 //reset shoot cooldown when able to shoot
                 if (value && !_canShoot)
-                    _currCooldown= 0;
+                    _currCooldown = 0;
                 _canShoot = value;
             }
         }
 
         private void Awake()
         {
+            CanShoot = shootOnStart;
             _enemy = GetComponentInParent<Enemy>();
             PickBehaviour();
         }

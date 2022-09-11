@@ -168,7 +168,7 @@ MonoBehaviour:
   damageSfx: {fileID: 0}
   layers:
     serializedVersion: 2
-    m_Bits: 17152
+    m_Bits: 67126016
   onDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -181,6 +181,7 @@ MonoBehaviour:
   maxAngle: 0
   destroyOnDamage: 1
   colorPickOffset: 0
+  normalAlignmentPriority: 0
   firedBy: {fileID: 0}
 --- !u!95 &8053677357786522932
 Animator:

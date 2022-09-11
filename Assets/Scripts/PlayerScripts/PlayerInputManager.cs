@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using EntityStatsScripts;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -16,9 +17,12 @@ namespace PlayerScripts
             if (instance == null)
             {
                 instance = this;
+                PlayerBar.BarDeplete += StopInput;
             }
             if (instance != this)
             {
+                if (!instance.enabled)
+                    instance.enabled = true;
                 Destroy(gameObject);
             }
             else
@@ -26,6 +30,11 @@ namespace PlayerScripts
                 DontDestroyOnLoad(gameObject);
             }
             cancel = inputs.First(i => i.inputName == PlayerInputName.Cancel);
+        }
+
+        private void OnDestroy()
+        {
+            PlayerBar.BarDeplete -= StopInput;
         }
 
         public enum PlayerInputName
@@ -41,10 +50,16 @@ namespace PlayerScripts
             Alpha_5,
             Alpha_6,
             Roll,
-            Cancel
+            Cancel,
+            Map
         }
         [SerializeField] private PlayerInput[] inputs;
 
+
+        private void StopInput(PlayerBar.PlayerBarType bar)
+        {
+            enabled = false;
+        }
         
         private void Update()
         {
