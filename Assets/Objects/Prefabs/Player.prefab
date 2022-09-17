@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7829633066364555804}
   - component: {fileID: 5112733719314593152}
   - component: {fileID: 2117083483094026932}
+  - component: {fileID: 3072630421794891096}
   m_Layer: 0
   m_Name: ExpandButton
   m_TagString: Untagged
@@ -131,6 +132,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3072630421794891096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563033243299692444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5be3a74c8d948a1a04a9f77c007f482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623076325684732997
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +279,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &4148611813679361571
 MonoBehaviour:
@@ -1751,7 +1764,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4156863, g: 0.4156863, b: 0.4156863, a: 0}
+  m_BackGroundColor: {r: 0.5058824, g: 0.56078434, b: 0.6039216, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1802,6 +1815,7 @@ MonoBehaviour:
   minPos: {x: -250, y: -250}
   maxPos: {x: 250, y: 250}
   panSpeed: 80
+  mousePanSpeed: 8
 --- !u!1 &3363164098655685179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607845, g: 0.23529413, b: 0.22352943, a: 1}
+  m_Color: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2166,7 +2180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+  m_Color: {r: 0.5058824, g: 0.56078434, b: 0.6039216, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2291,6 +2305,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7499809893397189382}
+        m_TargetAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+        m_MethodName: set_sortingOrder
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1231718618511274957}
+        m_TargetAssemblyTypeName: PlayerScripts.PlayerMove, Assembly-CSharp
+        m_MethodName: set_MovePlayer
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   putAwayMap:
     m_PersistentCalls:
       m_Calls:
@@ -2345,6 +2383,30 @@ MonoBehaviour:
       - m_Target: {fileID: 7611573522146931685}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7499809893397189382}
+        m_TargetAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+        m_MethodName: set_sortingOrder
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1231718618511274957}
+        m_TargetAssemblyTypeName: PlayerScripts.PlayerMove, Assembly-CSharp
+        m_MethodName: set_MovePlayer
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2446,6 +2508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4320968991677501993}
   - component: {fileID: 4908353675872181061}
+  - component: {fileID: 1209671977945523695}
   m_Layer: 19
   m_Name: FullMap
   m_TagString: Untagged
@@ -2481,6 +2544,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5882813054968555958}
   m_CullTransparentMesh: 0
+--- !u!114 &1209671977945523695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5882813054968555958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5be3a74c8d948a1a04a9f77c007f482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6818176949357026982
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,6 +3756,14 @@ PrefabInstance:
       propertyPath: itemParent
       value: 
       objectReference: {fileID: 2628776729204059909}
+    - target: {fileID: 7398460359752861965, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398460359752861965, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7398460359752861966, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4011,6 +4094,16 @@ PrefabInstance:
       objectReference: {fileID: 4207194329683613808, guid: 09884ce5c207a8f478ae76eeb896bb5c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+--- !u!1 &7611573522146931685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7398460359357975085, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7611573522146931681 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7398460359357975081, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
+  m_PrefabInstance: {fileID: 1084560150381033928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7611573521598211545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7398460359916395537, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
@@ -4085,16 +4178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a23f10454f04c6f8dc0b86592cd48a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7611573522146931685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7398460359357975085, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
-  m_PrefabInstance: {fileID: 1084560150381033928}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &7611573522146931681 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7398460359357975081, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}
-  m_PrefabInstance: {fileID: 1084560150381033928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7051866545864412378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7984990953141499154, guid: 6f43ec47f9ceea54e8a05cfd83a3d67b, type: 3}

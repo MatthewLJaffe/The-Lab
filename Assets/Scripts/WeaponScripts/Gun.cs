@@ -100,7 +100,11 @@ namespace WeaponScripts
 
         protected void OnEnable() {
             if (!_firstEquip)
+            {
                 broadcastShot(currentMagSize, gunStats.magSize);
+                if (currentMagSize <= 0)
+                    StartCoroutine(Reload());
+            }
             PlayerInputManager.onInputDown += StartReload;
             broadCastWeaponSwitch.Invoke(this);
         }
@@ -139,7 +143,7 @@ namespace WeaponScripts
             if (squashStretch && playSquashStretch)
                 squashStretch.PlayAnimation();
             ShootProjectile();
-            if (currentMagSize == 0)
+            if (currentMagSize <= 0)
                 StartCoroutine(Reload());
             firing = true;
             yield return new WaitForSeconds(60 / (gunStats.fireRate + gunStats.fireRate * additionalFireRate / 10));

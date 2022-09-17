@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -12
   m_Sprite: {fileID: 21300000, guid: 02c66e5d70f153841949421f8175482e, type: 3}
-  m_Color: {r: 0, g: 0.08895011, b: 0.2924528, a: 1}
+  m_Color: {r: 0.13333334, g: 0.1254902, b: 0.20392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b4f2e0242c49bbb8b77bfb965cd09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideColor: {r: 0.4156863, g: 0.4156863, b: 0.4156863, a: 1}
-  revealColor: {r: 0, g: 0.09019608, b: 0.29411766, a: 1}
+  hideColor: {r: 0.5058824, g: 0.56078434, b: 0.6039216, a: 1}
+  revealColor: {r: 0.13333334, g: 0.1254902, b: 0.20392157, a: 1}
   roomSR: {fileID: 2918062087459720446}
   hallwaySR: {fileID: 0}

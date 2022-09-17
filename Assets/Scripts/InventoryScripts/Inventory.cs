@@ -166,10 +166,16 @@ namespace InventoryScripts
         {
             if (!iName.ToString().StartsWith("Alpha_")) return;
             int slotIndex = int.Parse(iName.ToString().Split('_')[1]) - 1;
-                SetColor(_hotBar[_currentlyEquipped], defaultColor);
-                slotList[slotIndex].EquipSlot();
-                _currentlyEquipped = slotIndex;
-                SetColor(_hotBar[_currentlyEquipped], equipColor);
+            EquipSlot(slotIndex);
+        }
+
+        public void EquipSlot(int equipIdx)
+        {
+            if (equipIdx > 5 || equipIdx < 0) return;
+            SetColor(_hotBar[_currentlyEquipped], defaultColor);
+            slotList[equipIdx].EquipSlot();
+            _currentlyEquipped = equipIdx;
+            SetColor(_hotBar[_currentlyEquipped], equipColor);
         }
 
         private void ToggleEquip(bool rolling, Vector2 dir)

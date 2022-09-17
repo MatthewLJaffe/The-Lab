@@ -7,6 +7,11 @@ namespace InventoryScripts
 {
     public class TakeMouse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        private void OnDisable()
+        {
+            PlayerInputManager.instance.EnableInput(PlayerInputManager.PlayerInputName.Fire1);
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             PlayerInputManager.instance.DisableInput(PlayerInputManager.PlayerInputName.Fire1);

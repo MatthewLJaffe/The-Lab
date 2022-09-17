@@ -1,4 +1,5 @@
 ﻿using System;
+using MiniMapScripts;
 using UnityEngine;
 
 namespace CameraScripts
@@ -13,6 +14,8 @@ namespace CameraScripts
         private void Start() {
             _currentSize = main.orthographicSize;
         }
+
+        
 
 
     }

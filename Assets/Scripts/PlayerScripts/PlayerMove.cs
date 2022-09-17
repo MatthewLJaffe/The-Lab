@@ -11,6 +11,13 @@ namespace PlayerScripts
         private Rigidbody2D _rb;
         private Vector2 _dir;
         private bool _walking = true;
+        private bool _movePlayer = true;
+
+        public bool MovePlayer
+        {
+            get => _movePlayer;
+            set => _movePlayer = value;
+        }
         private float _moveTick;
 
         private void Awake() {
@@ -43,6 +50,7 @@ namespace PlayerScripts
         }
         private void FixedUpdate()
         {
+            if (!_movePlayer) return;
             if (_walking)
                 _rb.velocity = new Vector2(_dir.x, _dir.y) * moveSpeed;
             

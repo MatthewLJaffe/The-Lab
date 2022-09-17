@@ -42,7 +42,7 @@ namespace LabCreationScripts.Spawners
                 switch (sideToSpawn.side)
                 {
                     case Side.Left:
-                        for (var y = bounds.yMin + Mathf.RoundToInt(size.y/2f); y <= bounds.yMax - Mathf.RoundToInt(size.y/2f); y++)
+                        for (var y = bounds.yMin + Mathf.RoundToInt(size.y/2f) + 1; y <= bounds.yMax - Mathf.RoundToInt(size.y/2f); y++)
                             spawnPositions.Add(new Vector2Int(bounds.xMin, y));
                         while (spawnPositions.Count > 0 && currentSpawns < targetSpawns)
                         {
@@ -54,7 +54,7 @@ namespace LabCreationScripts.Spawners
                         }
                         break;
                     case Side.Top:
-                        for (var x = bounds.xMin + Mathf.RoundToInt(size.x/2f); x <= bounds.xMax - Mathf.RoundToInt(size.x/2f); x++)
+                        for (var x = bounds.xMin + Mathf.RoundToInt(size.x/2f) + 1; x <= bounds.xMax - Mathf.RoundToInt(size.x/2f); x++)
                             spawnPositions.Add(new Vector2Int(x, bounds.yMax));
                         while (spawnPositions.Count > 0 && currentSpawns < targetSpawns)
                         {
@@ -66,7 +66,7 @@ namespace LabCreationScripts.Spawners
                         }
                         break;
                     case Side.Right:
-                        for (var y = bounds.yMin + Mathf.RoundToInt(size.y/2f); y <= bounds.yMax - Mathf.RoundToInt(size.y/2f); y++)
+                        for (var y = bounds.yMin + Mathf.RoundToInt(size.y/2f) + 1; y <= bounds.yMax - Mathf.RoundToInt(size.y/2f); y++)
                             spawnPositions.Add(new Vector2Int(bounds.xMax, y));
                         while (spawnPositions.Count > 0 && currentSpawns < targetSpawns)
                         {
@@ -78,7 +78,7 @@ namespace LabCreationScripts.Spawners
                         }
                         break;
                     case Side.Bottom:
-                        for (var x = bounds.xMin + Mathf.RoundToInt(size.x/2f); x <= bounds.xMax - Mathf.RoundToInt(size.x/2f); x++)
+                        for (var x = bounds.xMin + Mathf.RoundToInt(size.x/2f) + 1; x <= bounds.xMax - Mathf.RoundToInt(size.x/2f); x++)
                             spawnPositions.Add(new Vector2Int(x, bounds.yMin));
                         while (spawnPositions.Count > 0 && currentSpawns < targetSpawns)
                         {

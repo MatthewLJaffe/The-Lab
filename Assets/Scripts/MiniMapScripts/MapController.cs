@@ -10,7 +10,7 @@ namespace MiniMapScripts
         public UnityEvent pullOutMap;
         public UnityEvent putAwayMap;
         private bool _enabled;
-
+        
         private void Awake()
         {
             TeleporterInteractor.teleportInteract += ToggleTeleportMap;

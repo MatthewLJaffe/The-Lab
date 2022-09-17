@@ -98,6 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038178859281156066}
   - component: {fileID: 1038178859281156067}
+  - component: {fileID: 262216440106140695}
   m_Layer: 12
   m_Name: Enemy canvas
   m_TagString: Untagged
@@ -146,6 +147,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &262216440106140695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038178859281156069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bc69ea1b294325bd21763253e7145e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1038178859383827136
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +383,7 @@ MonoBehaviour:
     behaviour: {fileID: 1038178859383827144}
     minShots: 1
     maxShots: 3
+  shootOnStart: 0
 --- !u!114 &1038178859383827151
 MonoBehaviour:
   m_ObjectHideFlags: 0

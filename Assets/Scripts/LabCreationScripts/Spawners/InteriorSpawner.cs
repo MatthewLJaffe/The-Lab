@@ -41,8 +41,8 @@ namespace LabCreationScripts.Spawners
             var offset = spawnCollider.offset;
             spawnBounds.position -= new Vector3Int(Mathf.RoundToInt(offset.x), Mathf.RoundToInt(offset.y), 0);
             var availableCoords = new List<Vector2Int>();
-            for (var x = spawnBounds.xMin + Mathf.RoundToInt(size.x/2); x <= spawnBounds.xMax - Mathf.RoundToInt(size.x/2); x++)
-                for (var y = spawnBounds.yMin + Mathf.RoundToInt(size.y/2); y <= spawnBounds.yMax - Mathf.RoundToInt(size.y/2); y++)
+            for (var x = spawnBounds.xMin + 1 + Mathf.RoundToInt(size.x/2); x <= spawnBounds.xMax - Mathf.RoundToInt(size.x/2); x++)
+                for (var y = spawnBounds.yMin + 1 + Mathf.RoundToInt(size.y/2); y <= spawnBounds.yMax - Mathf.RoundToInt(size.y/2); y++)
                     availableCoords.Add(new Vector2Int(x, y));
             while (availableCoords.Count > 0 && currentSpawns < targetSpawns)
             {

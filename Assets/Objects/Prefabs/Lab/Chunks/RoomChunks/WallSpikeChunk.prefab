@@ -134,6 +134,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[0].layer
+      value: Movable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[0].weight
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[1].layer
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[2].layer
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[3].layer
+      value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[4].layer
+      value: Shoot Through
+      objectReference: {fileID: 0}
     - target: {fileID: 6191364811796021946, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -207,6 +239,38 @@ PrefabInstance:
     - target: {fileID: 2591415159008789327, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[0].layer
+      value: Movable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[0].weight
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[1].layer
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[2].layer
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[3].layer
+      value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745616192424505485, guid: 68add1b867e157a42a102d672a75516d, type: 3}
+      propertyPath: layerWeights.Array.data[4].layer
+      value: Shoot Through
       objectReference: {fileID: 0}
     - target: {fileID: 6191364811796021946, guid: 68add1b867e157a42a102d672a75516d, type: 3}
       propertyPath: m_AnchorMax.x

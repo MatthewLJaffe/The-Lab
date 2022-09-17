@@ -98,6 +98,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4265663653222581255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692871313590557715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412a7c1b6fc7452987df5bdf957c4652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crateSprites:
+  - {fileID: 2004581604050292995, guid: a7cc1602e38d96740843070a1104bd37, type: 3}
+  - {fileID: 8202871399114922834, guid: a7cc1602e38d96740843070a1104bd37, type: 3}
+  - {fileID: 8106424338736548438, guid: a7cc1602e38d96740843070a1104bd37, type: 3}
+  - {fileID: 1344214147506318019, guid: a7cc1602e38d96740843070a1104bd37, type: 3}
+  - {fileID: -8609962861853558650, guid: a7cc1602e38d96740843070a1104bd37, type: 3}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 140252385}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7172550363515527664}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &9108949146360740793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,9 +230,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5572863793851426730, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+      propertyPath: m_Layer
+      value: 28
+      objectReference: {fileID: 0}
     - target: {fileID: 7811948875387752687, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Name
       value: MovingCabinet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811948875387752687, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+      propertyPath: m_Layer
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8886061935761359573, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Sprite
@@ -195,11 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 2452979307651219834, guid: 872e93af6d3f19c419ed0cfecfead0dc, type: 3}
     - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Offset.x
-      value: 0.5
+      value: 0.525
       objectReference: {fileID: 0}
     - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Offset.y
@@ -207,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8962484192931549135, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1254469594, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
@@ -221,5 +274,10 @@ GameObject:
 --- !u!1 &3692871313590557715 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5572863793851426730, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
+  m_PrefabInstance: {fileID: 9108949146360740793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &7172550363515527664 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2153697473659198025, guid: af21a700cd20ac44891cc183f443b0ea, type: 3}
   m_PrefabInstance: {fileID: 9108949146360740793}
   m_PrefabAsset: {fileID: 0}

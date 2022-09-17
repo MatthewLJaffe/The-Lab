@@ -112,9 +112,9 @@ MonoBehaviour:
   - behaviour: {fileID: 4022875433385541700}
     weight: 0.4
   - behaviour: {fileID: 2267647678660506165}
-    weight: 0.3
+    weight: 0.1
   - behaviour: {fileID: 5477255447879738438}
-    weight: 0.3
+    weight: 0.5
   speed: 3
   acceleration: 2
   OverrideState: {fileID: 0}
@@ -971,6 +971,9 @@ MonoBehaviour:
           m_StringArgument: SpawnComplete
           m_BoolArgument: 1
         m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!114 &7477241553121777689
 MonoBehaviour:

@@ -1,4 +1,5 @@
-﻿using CameraScripts;
+﻿using System;
+using CameraScripts;
 using MiniMapScripts;
 using PlayerScripts;
 using UnityEngine;
@@ -25,13 +26,11 @@ namespace General
         private void OnDestroy()
         {
             TeleporterInteractor.teleportInteract -= SetPressable;
-            PlayerInputManager.onInputDown -= CheckButtonPress;
         }
         
         private void Start()
         {
             _mapCamera =  PlayerFind.instance.playerInstance.GetComponentInChildren<CameraCoordinator>().miniMapCamera;
-            PlayerInputManager.onInputDown += CheckButtonPress;
         }
 
         private void SetPressable(bool canPress)
@@ -39,9 +38,15 @@ namespace General
             _pressable = canPress;
         }
 
-        private void CheckButtonPress(PlayerInputManager.PlayerInputName iName)
+        private void Update()
         {
-            if (iName != PlayerInputManager.PlayerInputName.Fire1 || !_pressable) return;
+            if (Input.GetMouseButtonDown(0))
+                CheckButtonPress();
+        }
+
+        private void CheckButtonPress()
+        {
+            if (!_pressable) return;
             var mousePos = _mapCamera.ScreenToWorldPoint(Input.mousePosition);
             if (InsideButton(mousePos))
                 onMapButtonPress.Invoke();
