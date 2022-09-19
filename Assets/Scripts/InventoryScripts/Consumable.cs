@@ -25,7 +25,6 @@ namespace InventoryScripts
             if (inputName != PlayerInputManager.PlayerInputName.Fire1 || !gameObject.activeSelf) return;
             onUse.Invoke();
             itemConsumed.Invoke();
-            
         }
     }
 }

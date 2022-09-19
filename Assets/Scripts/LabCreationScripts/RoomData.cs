@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,11 +18,12 @@ namespace LabCreationScripts
         public GameObject miniMapRoomPrefab;
         public GameObject miniMapHallwayPrefab;
         public Action finish;
+        public List<GameObject> usedPrefabs;
 
         public RoomData(Tilemap tMap, LabTiles labTiles,
             RoomDimensions dimensions, Room[] rooms, FloorGenerator.RoomCategory[] roomCategories,
             Transform parent, GameObject miniMap, GameObject roomPrefab, GameObject miniMapRoomPrefab, GameObject miniMapHallwayPrefab,
-            Action finish)
+            List<GameObject> usedPrefabs, Action finish)
         {
             this.tMap = tMap;
             this.labTiles = labTiles;
@@ -34,6 +36,7 @@ namespace LabCreationScripts
             this.miniMapRoomPrefab = miniMapRoomPrefab;
             this.miniMapHallwayPrefab = miniMapHallwayPrefab;
             this.finish = finish;
+            this.usedPrefabs = usedPrefabs;
         }
     }
 

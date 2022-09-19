@@ -38,9 +38,17 @@ namespace LabCreationScripts
             }
         }
 
+        public void CloseDoor()
+        {
+            if (lockable)
+                _doorCollider.enabled = true;
+            _doorAnimator.ShowDoorClosed();
+            closeDoorSound.Play(gameObject);
+        }
+        
         private void CloseDoor(Room room)
         {
-            if (room != myRoom || _enteredPreviously || myRoom.RoomId == 0) return;
+            if (myRoom == null || room != myRoom || _enteredPreviously || myRoom.RoomId == 0) return;
             _enteredPreviously = true;
             if (lockable)
                 _doorCollider.enabled = true;

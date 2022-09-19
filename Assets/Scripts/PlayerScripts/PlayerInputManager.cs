@@ -18,6 +18,7 @@ namespace PlayerScripts
             {
                 instance = this;
                 PlayerBar.BarDeplete += StopInput;
+                PlayerWin.BroadcastWin += StopInput;
             }
             if (instance != this)
             {
@@ -35,6 +36,7 @@ namespace PlayerScripts
         private void OnDestroy()
         {
             PlayerBar.BarDeplete -= StopInput;
+            PlayerWin.BroadcastWin -= StopInput;
         }
 
         public enum PlayerInputName
@@ -56,6 +58,10 @@ namespace PlayerScripts
         [SerializeField] private PlayerInput[] inputs;
 
 
+        private void StopInput()
+        {
+            enabled = false;
+        }
         private void StopInput(PlayerBar.PlayerBarType bar)
         {
             enabled = false;

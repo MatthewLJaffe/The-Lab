@@ -2485,7 +2485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   floorNumber: 1
-  numRooms: 25
+  numRooms: 20
   roomPrefab: {fileID: 4349472371054269264, guid: 2546c5b92d234f54f89260022ac69dc3, type: 3}
   miniMap: {fileID: 0}
   miniMapRoomPrefab: {fileID: 2918062087459720433, guid: 5bcf8db8d9fce684db90a7fb578eb51d, type: 3}
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   firstRoom: {fileID: 0}
   categories:
   - categoryName: 0
-    amountToCreate: 12
+    amountToCreate: 9
     roomTypes:
     - proceduralRoom: {fileID: 11400000, guid: a2deeb0fb4254334d85ec9b07022c668, type: 2}
       weight: 0.06
@@ -2530,8 +2530,9 @@ MonoBehaviour:
       maxSpawnsPerRoom: 1
     totalProb: 1
     dontRepeat: 1
+    dontRepeatPrefab: 1
   - categoryName: 1
-    amountToCreate: 7
+    amountToCreate: 5
     roomTypes:
     - proceduralRoom: {fileID: 11400000, guid: 1a0bb42dfde9b5040977f1fb36f79896, type: 2}
       weight: 0.06
@@ -2564,6 +2565,7 @@ MonoBehaviour:
     postSpawns: []
     totalProb: 1
     dontRepeat: 1
+    dontRepeatPrefab: 1
   - categoryName: 2
     amountToCreate: 5
     roomTypes:
@@ -2574,6 +2576,7 @@ MonoBehaviour:
     postSpawns: []
     totalProb: 1
     dontRepeat: 0
+    dontRepeatPrefab: 0
   - categoryName: 4
     amountToCreate: 1
     roomTypes:
@@ -2582,6 +2585,7 @@ MonoBehaviour:
     postSpawns: []
     totalProb: 1
     dontRepeat: 0
+    dontRepeatPrefab: 0
   dimensions:
     minHallway: 8
     maxHallway: 12

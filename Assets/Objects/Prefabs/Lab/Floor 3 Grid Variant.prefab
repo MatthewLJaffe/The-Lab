@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
       propertyPath: categories.Array.data[0].amountToCreate
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
       propertyPath: categories.Array.data[0].roomTypes.Array.data[0].weight
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
       propertyPath: categories.Array.data[1].amountToCreate
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5910116453363745408, guid: a5bb7031a2aef7645b8c76c9968664b0, type: 3}
       propertyPath: categories.Array.data[1].roomTypes.Array.data[0].proceduralRoom

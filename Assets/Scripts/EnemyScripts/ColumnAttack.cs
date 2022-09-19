@@ -47,9 +47,9 @@ namespace EnemyScripts
             collider.size = endSize;
             collider.offset = endOffset;
             rb.velocity = Vector2.zero;
-            yield return new WaitForSeconds(ps.main.duration);
+            yield return new WaitForSeconds(ps.main.duration * .75f);
             collider.enabled = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             Destroy(gameObject);
         }
     }

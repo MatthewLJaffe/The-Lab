@@ -5288,7 +5288,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 8122612962960986689, guid: 73150efa47599a34e90692b11ff74a1f, type: 3}
+  m_Sprite: {fileID: -8082336247085986247, guid: 213c1bdcc610fcd4f94a974a946448b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -5857,7 +5857,7 @@ MonoBehaviour:
   column: {fileID: 9097314810337076687, guid: 030f52371720df24c927b32e36e31845, type: 3}
   footPos: {fileID: 3006243306552857135}
   maxColumnDistance: 20
-  columnSpeed: 14
+  columnSpeed: 12
   columnDamage: 20
 --- !u!1 &7399742982361047926
 GameObject:
@@ -6062,7 +6062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a534b205a436f54dad29daaee695bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2000
+  maxHealth: 1500
   slider: {fileID: 1201194654075295744}
   numberPrefab: {fileID: 8370373782534043792, guid: e434b93c406817b48ae9b74c815babbc, type: 3}
   displayPoint: {fileID: 6914038970025277116}
@@ -6200,6 +6200,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 940579310053365825}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   spawnInComplete:
     m_PersistentCalls:
       m_Calls:
@@ -6227,9 +6239,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 940579310053365825}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!82 &1110141814541237792
 AudioSource:

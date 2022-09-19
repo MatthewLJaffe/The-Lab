@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LabCreationScripts.ProceduralRooms;
+using LabCreationScripts.Spawners;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -32,10 +33,51 @@ namespace LabCreationScripts
             roomGameObject = DrawRoom(roomData, doorPos, dir, roomType, prevRoom);
             if (!roomGameObject) return;
             roomCategory.amountToCreate--;
-            if (roomCategory.dontRepeat)
+            
+            if (roomCategory.dontRepeat || roomCategory.dontRepeatPrefab)
             {
                 roomCategory.totalProb -= roomWeight.weight;
                 roomCategory.roomTypes.Remove(roomWeight);
+            }
+            if (roomCategory.dontRepeatPrefab)
+            {
+                //find other room category
+                FloorGenerator.RoomCategory categoryToRemove;
+                if (roomCategory.categoryName == FloorGenerator.CategoryName.Loot)
+                    categoryToRemove = roomData.roomCategories.First(c => c.categoryName == FloorGenerator.CategoryName.NoLoot);
+                else
+                    categoryToRemove = roomData.roomCategories.First(c => c.categoryName == FloorGenerator.CategoryName.Loot);
+                //find room prefab to look for in other room category
+                var roomPrefab = roomWeight.proceduralRoom.spawners.First(s =>
+                    s.spawnOrder == 0 && s.spawnChance > .99f && s.potentialSpawns.Length == 1 &&
+                    s.potentialSpawns[0].spawner.GetType() == typeof(CenterSpawner)).potentialSpawns[0].spawner.prefabs[0];
+                //search for room prefab in other room category
+                FloorGenerator.RoomCategory.RoomWeight roomWeightToRemove = roomWeight;
+                var found = false;
+                //cry bc you over engineered a problem that never existed
+                foreach (var rw in categoryToRemove.roomTypes) 
+                {
+                    if (found)
+                        break;
+                    foreach (var spawner in rw.proceduralRoom.spawners)
+                    {
+                        if (found)
+                            break;
+                        foreach (var s in spawner.potentialSpawns)
+                        {
+                            if (found)
+                                break;
+                            if (s.spawner && s.spawner.prefabs.Length > 0 && s.spawner.prefabs[0] == roomPrefab)
+                            {
+                                roomWeightToRemove = rw;
+                                found = true;
+                            }
+                        }
+                    }
+                }
+                //remove roomType from other room category
+                categoryToRemove.totalProb -= roomWeightToRemove.weight;
+                categoryToRemove.roomTypes.Remove(roomWeightToRemove);
             }
             roomCategory.roomInstances.Add(this);
             AddRoom(roomData.rooms);
@@ -120,6 +162,13 @@ namespace LabCreationScripts
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
+                    //room spawning
+                    for(int x = 0; x < width; x++) {
+                        for(int y = 0; y < height; y++) {
+                            roomData.tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y , 0), roomData.labTiles.roomRule);
+                        }
+                    }
+                    
                     //hallway spawning
                     for(int i = 0; i < hallLength; i++) {
                         roomData.tMap.SetTile(new Vector3Int(doorPos.x, doorPos.y + i, 0), roomData.labTiles.verticalHallRule);
@@ -130,13 +179,6 @@ namespace LabCreationScripts
                     miniMapHallwayU.transform.localScale = new Vector3(2, hallLength, 1);
                     miniMapRoom.hallwaySR = miniMapHallwayU.GetComponent<SpriteRenderer>();
                     
-                    //room spawning
-                    for(int x = 0; x < width; x++) {
-                        for(int y = 0; y < height; y++) {
-                            if(!roomData.tMap.GetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y, 0)))
-                                roomData.tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y + hallLength - 1 + y , 0), roomData.labTiles.roomRule);
-                        }
-                    }
                     break;
                 
                 case Direction.Right:
@@ -148,6 +190,13 @@ namespace LabCreationScripts
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
+                    //room spawning
+                    for (int x = 0; x < width; x++) {
+                        for (int y = 0; y < height; y++) {
+                            roomData.tMap.SetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height/2 + y, 0), roomData.labTiles.roomRule);
+                        }
+                    }
+                    
                     //hallway spawning
                     for (int i = 0; i < hallLength; i++) {
                         roomData.tMap.SetTile(new Vector3Int(doorPos.x + i, doorPos.y , 0), roomData.labTiles.horizontalHallRule);
@@ -158,13 +207,7 @@ namespace LabCreationScripts
                     miniMapHallwayR.transform.localScale = new Vector3(hallLength, 2, 1);
                     miniMapRoom.hallwaySR = miniMapHallwayR.GetComponent<SpriteRenderer>();
                     
-                    //room spawning
-                    for (int x = 0; x < width; x++) {
-                        for (int y = 0; y < height; y++) {
-                            if (!roomData.tMap.GetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height / 2 + y, 0)))
-                                roomData.tMap.SetTile(new Vector3Int(doorPos.x + hallLength - 1 + x, doorPos.y - height/2 + y, 0), roomData.labTiles.roomRule);
-                        }
-                    }
+
                     break;
 
                 case Direction.Down:
@@ -176,6 +219,13 @@ namespace LabCreationScripts
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
                     
+                    //room spawning
+                    for (int x = 0; x < width; x++) {
+                        for (int y = 0; y < height; y++) {
+                            roomData.tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0), roomData.labTiles.roomRule);
+                        }
+                    }
+                    
                     //hallway spawning
                     for (int i = 0; i < hallLength; i++) {
                         roomData.tMap.SetTile(new Vector3Int(doorPos.x, doorPos.y - i, 0), roomData.labTiles.verticalHallRule);
@@ -186,13 +236,6 @@ namespace LabCreationScripts
                     miniMapHallwayD.transform.localScale = new Vector3(2, hallLength, 1);
                     miniMapRoom.hallwaySR = miniMapHallwayD.GetComponent<SpriteRenderer>();
                     
-                    //room spawning
-                    for (int x = 0; x < width; x++) {
-                        for (int y = 0; y < height; y++) {
-                            if(!roomData.tMap.GetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0)))
-                                roomData.tMap.SetTile(new Vector3Int(doorPos.x - width / 2 + x, doorPos.y - hallLength + 1 - y, 0), roomData.labTiles.roomRule);
-                        }
-                    }
                     break;
 
                 case Direction.Left:
@@ -203,6 +246,13 @@ namespace LabCreationScripts
                         .GetComponent<Door>();
                     prevRoomDoor.myRoom = pRoom;
                     thisRoomDoor.myRoom = this;
+
+                    //room spawning
+                    for (int x = 0; x < width; x++) {
+                        for (int y = 0; y < height; y++) {
+                            roomData.tMap.SetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0), roomData.labTiles.roomRule);
+                        }
+                    }
                     
                     //hallway spawning
                     for (int i = 0; i < hallLength; i++) {
@@ -213,14 +263,7 @@ namespace LabCreationScripts
                         Quaternion.identity, roomData.miniMap.transform);
                     miniMapHallwayL.transform.localScale = new Vector3(hallLength, 2, 1);
                     miniMapRoom.hallwaySR = miniMapHallwayL.GetComponent<SpriteRenderer>();
-                    
-                    //room spawning
-                    for (int x = 0; x < width; x++) {
-                        for (int y = 0; y < height; y++) {
-                            if(!roomData.tMap.GetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0)))
-                                roomData.tMap.SetTile(new Vector3Int(doorPos.x - hallLength + 1 - x, doorPos.y - height / 2 + y, 0), roomData.labTiles.roomRule);
-                        }
-                    }
+
                     break;
                 
                 default:
@@ -328,7 +371,8 @@ namespace LabCreationScripts
             }
         }
 
-        private FloorGenerator.RoomCategory.RoomWeight PickRoomType(FloorGenerator.RoomCategory[] roomCategories, int numRooms, out FloorGenerator.RoomCategory category)
+        private FloorGenerator.RoomCategory.RoomWeight PickRoomType(FloorGenerator.RoomCategory[] roomCategories, 
+            int numRooms, out FloorGenerator.RoomCategory category)
         {
             var randValue = Random.Range(0, 1f);
             if (numRooms > 1) 
@@ -354,8 +398,7 @@ namespace LabCreationScripts
             foreach (var rt in category.roomTypes)
             {
                 if (rt.weight >= randValue) {
-                    returnRoom = rt;
-                    break;
+                    return rt;
                 }
                 randValue -= rt.weight;
             }

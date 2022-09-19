@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 305457916760275167, guid: 3a9d4e97b412e0741ba5ffa517704591, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5206254369591170932, guid: 3a9d4e97b412e0741ba5ffa517704591, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -209,7 +213,7 @@ Transform:
   m_Children:
   - {fileID: 1385524707}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &905918874
 GameObject:
@@ -369,6 +373,10 @@ PrefabInstance:
       propertyPath: categories.Array.data[3].roomTypes.Array.data[0].proceduralRoom
       value: 
       objectReference: {fileID: 11400000, guid: 8ec4ad11794904040a2a69a4d8a888d7, type: 2}
+    - target: {fileID: 1477573316235253752, guid: 1cdf45c1cf8cef74fbe49196147a8a50, type: 3}
+      propertyPath: numRooms
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cdf45c1cf8cef74fbe49196147a8a50, type: 3}
 --- !u!1001 &1385524706

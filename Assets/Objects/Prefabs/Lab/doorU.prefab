@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1080987792111305969}
   doorOpen: {fileID: 11400000, guid: dd7027f711845f240ac07c9a9b7e1d91, type: 2}
+  doorCollider: {fileID: 0}
 --- !u!1 &5798586636149587448
 GameObject:
   m_ObjectHideFlags: 0

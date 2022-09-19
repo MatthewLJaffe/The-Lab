@@ -4994,7 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: -5, y: 10}
-  speed: 8
+  speed: 6
   damage: 20
   damageSource: {fileID: 9097314809458169343}
   ps: {fileID: 9097314810337076674}

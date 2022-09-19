@@ -1,6 +1,7 @@
 ﻿using System;
 using General;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LabCreationScripts
 {

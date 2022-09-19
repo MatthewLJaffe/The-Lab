@@ -32,6 +32,7 @@ namespace LabCreationScripts
         private Room[] _rooms;
         private Tilemap _tMap;
         private bool _floorFinished;
+        private List<GameObject> _usedPrefabs;
         
         public enum CategoryName
         {
@@ -61,6 +62,7 @@ namespace LabCreationScripts
             public List<Room> roomInstances;
             public float totalProb = 1f;
             public bool dontRepeat;
+            public bool dontRepeatPrefab;
             [Serializable]
             public struct RoomWeight
             {
@@ -72,6 +74,7 @@ namespace LabCreationScripts
         private void Awake()
         {
             _rooms = new Room[numRooms];
+            _usedPrefabs = new List<GameObject>();
         }
 
         private void Start()
@@ -85,7 +88,7 @@ namespace LabCreationScripts
                 cat.roomInstances = new List<Room>();
 
             var roomData = new RoomData(_tMap, labTiles, dimensions, _rooms, categories, floorParent, miniMap, roomPrefab,
-                miniMapRoomPrefab, miniMapHallwayPrefab, FinishFloor);
+                miniMapRoomPrefab, miniMapHallwayPrefab, _usedPrefabs, FinishFloor);
             var startRoom = new Room(roomData, lDoorPos, rDoorPos, uDoorPos, dDoorPos, floorParent);
             firstRoom.myRoom = startRoom;
             

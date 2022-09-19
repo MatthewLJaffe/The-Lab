@@ -9,7 +9,7 @@ namespace LabCreationScripts.Spawners
     [CreateAssetMenu(fileName = "InteriorSpawner", menuName = "InteriorSpawners/InteriorSpawner")]
     public class InteriorSpawner : ScriptableObject
     {
-        [SerializeField] protected GameObject[] prefabs;
+        public GameObject[] prefabs;
         [SerializeField] protected bool removeSpawnCollider;
         protected GameObject prefab;
         protected BoxCollider2D spawnCollider;

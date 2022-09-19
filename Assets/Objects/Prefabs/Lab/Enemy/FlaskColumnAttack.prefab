@@ -40,8 +40,8 @@ MonoBehaviour:
   coolDown: 4
   damage: 20
   bulletSpeed: 8
-  arcAngle: 115
-  numColumns: 7
+  arcAngle: 120
+  numColumns: 6
   maxColumnDistance: 25
 --- !u!1001 &8686177087407356960
 PrefabInstance:
@@ -50,6 +50,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5250593725815385012, guid: 541a445a62ab6b549a56297265da74da, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5250593725815385014, guid: 541a445a62ab6b549a56297265da74da, type: 3}
       propertyPath: m_Name
       value: FlaskColumnAttack
@@ -133,6 +137,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5250593725815385020, guid: 541a445a62ab6b549a56297265da74da, type: 3}
     - {fileID: 3523079355893685709, guid: 541a445a62ab6b549a56297265da74da, type: 3}
+    - {fileID: 5250593725815385019, guid: 541a445a62ab6b549a56297265da74da, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 541a445a62ab6b549a56297265da74da, type: 3}
 --- !u!1 &3483071583135963030 stripped
 GameObject:
