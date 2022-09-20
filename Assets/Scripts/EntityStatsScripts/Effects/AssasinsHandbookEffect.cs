@@ -32,6 +32,7 @@ namespace EntityStatsScripts.Effects
 
         protected void ModifySpeed(PlayerBullet b, bool damage)
         {
+            if (stack == 0) return;
             _totalShots++;
             if (damage)
                 _hitShots++;

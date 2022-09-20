@@ -15,6 +15,7 @@ namespace EntityStatsScripts.Effects
         
         public void ApplyPHDEffect()
         {
+            if (stack == 0) return;
             playerStats.playerStatsDict[PlayerStats.StatType.Defense].CurrentValue += _kitDefBonus;
         }
     }

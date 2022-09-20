@@ -23,6 +23,7 @@ namespace EntityStatsScripts.Effects
 
         public async void ApplySteroidEffect()
         {
+            if (stack == 0) return;
             steroidEffectStart.Invoke();
             playerStats.playerStatsDict[PlayerStats.StatType.Attack].CurrentValue += attackBounus;
             var end = Time.time + duration;

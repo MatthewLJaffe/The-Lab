@@ -18,7 +18,8 @@ namespace EntityStatsScripts.Effects
 
         public bool IsGlitch()
         {
-            return Random.Range(0f, 1f) < _glitchChance;
+            if (Stack == 0) return false;
+            return Random.Range(0f, 1f) < glitchChancePerStack * Stack;
         }
 
         public float DetermineDamage(float baseDamage)

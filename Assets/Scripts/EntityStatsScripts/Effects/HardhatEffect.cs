@@ -22,7 +22,7 @@ namespace EntityStatsScripts.Effects
 
         private async void RollDefense(Vector3 diePos)
         {
-            if (Random.Range(0f, 1f) < _procChance) return;
+            if (stack == 0 || Random.Range(0f, 1f) < _procChance) return;
             var t = Time.time;
             while (t + effectDelay > Time.time) await Task.Yield();
             playerStats.playerStatsDict[PlayerStats.StatType.MaxHealth].CurrentValue += _healthIncrease;

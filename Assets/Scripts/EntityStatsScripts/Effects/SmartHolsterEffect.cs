@@ -5,7 +5,7 @@ using WeaponScripts;
 namespace EntityStatsScripts.Effects
 {
     [CreateAssetMenu (fileName = "SmartHolsterEffect", menuName = "Effects/SmartHolsterEffect")]
-    public class SmartHolsterEffect : Effect
+    public class  SmartHolsterEffect : Effect
     {
         [SerializeField] private float switchWeaponCooldown;
         [SerializeField] private float maxReloadMult;
