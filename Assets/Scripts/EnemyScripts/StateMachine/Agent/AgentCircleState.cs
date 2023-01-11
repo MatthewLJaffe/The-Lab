@@ -4,6 +4,10 @@ using Random = UnityEngine.Random;
 
 namespace EnemyScripts.Agent
 {
+    /// <summary>
+    /// state used so steer agent npc around player
+    /// requests agent animation
+    /// </summary>
     public class AgentCircleState : DistanceBasedState
     {
         [SerializeField] private HumanAnimator moveAnimator;
@@ -15,6 +19,7 @@ namespace EnemyScripts.Agent
             return base.Tick();
         }
 
+        //randomly set circle direction on switch state
         protected override void SwitchState(BaseState state)
         {
             var rand = Random.Range(0, 2);

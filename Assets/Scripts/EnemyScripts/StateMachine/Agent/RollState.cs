@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 namespace EnemyScripts.Agent
 {
+    /// <summary>
+    /// state where agent npc dodges in direction
+    /// </summary>
     public class RollState : BaseState
     {
         [SerializeField] private BaseState[] overridableStates;

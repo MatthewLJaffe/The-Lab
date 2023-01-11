@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// component managing heath bar of enemy npcs
+    /// responsible for display and state
+    /// </summary>
     public class EnemyHealth : MonoBehaviour, IDamageable
     {
         public static Action<Vector3> killedByHazard = delegate {  };

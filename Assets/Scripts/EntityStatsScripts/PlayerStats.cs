@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// scriptable object that contains state of all player stats
+    /// </summary>
     [CreateAssetMenu(fileName = "PlayerStats", menuName = "")]
     public class PlayerStats : ScriptableObject
     {

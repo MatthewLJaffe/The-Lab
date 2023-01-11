@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// base class for behaviour of state in state machine
+    /// </summary>
     public abstract class BaseState : MonoBehaviour
     {
         [SerializeField] protected BehaviourWeight[] behaviourWeights;
@@ -28,6 +31,8 @@ namespace EnemyScripts
             }
             return Tick();
         }
+        
+        //executes state behaviour
         public abstract Type Tick();
 
         protected virtual void SwitchState(BaseState state)
@@ -40,6 +45,7 @@ namespace EnemyScripts
             onSwitchTo.Invoke();
         }
 
+        //steering behaviour weights to use for steering controller
         [Serializable]
         protected struct BehaviourWeight
         {

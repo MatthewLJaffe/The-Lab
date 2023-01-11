@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 namespace WeaponScripts
 {
+    /// <summary>
+    /// gun that fires group of projectiles whose spread is determined by accuracy
+    /// </summary>
     public class ShotGun : Gun
     {
         [SerializeField] private float maxSpreadAngle;

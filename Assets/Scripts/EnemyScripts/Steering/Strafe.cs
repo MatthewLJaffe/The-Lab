@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// weights moving at certain angle from player direction positively
+    /// </summary>
     public class Strafe : SteeringBehaviour
     {
         //determines if dashing in positive or negative angle form player

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace EnemyScripts 
 {
+    /// <summary>
+    /// weights moving away from obstacles positively
+    /// </summary>
     public class AvoidObstacles : SteeringBehaviour
     {
         [SerializeField] private float avoidThreshold = 1f;
@@ -12,6 +15,7 @@ namespace EnemyScripts
         [SerializeField] private float maxAheadDistance;
         [SerializeField] private bool debug;
         [SerializeField] private CircleCollider2D collider;
+        //make some obstacles higher or lower priority to avoid
         [SerializeField] private LayerWeight[] layerWeights;
         private int _avoidLayers;
         private Dictionary<string, float> _layerWeightDict;

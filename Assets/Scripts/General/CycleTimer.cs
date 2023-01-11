@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 namespace General
 {
+    /// <summary>
+    /// activation and deactivation events on timer
+    /// used by timed spikes
+    /// </summary>
     public class CycleTimer : MonoBehaviour
     {
         [SerializeField] private float startOffset;

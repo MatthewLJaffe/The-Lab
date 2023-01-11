@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 175442748136897455}
   - component: {fileID: 175442748136897360}
   - component: {fileID: 175442748136897361}
+  - component: {fileID: 232771528170478829}
   m_Layer: 20
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -454,7 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 67371776
   collisionEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -641,6 +642,63 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &232771528170478829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175442748136897365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c78c98caf6746e284dc6ff65fc8faa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers:
+    serializedVersion: 2
+    m_Bits: 8192
+  collisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  collisionStay:
+    m_PersistentCalls:
+      m_Calls: []
+  collisionExit:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 175442748136897363}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5652156558631736147, guid: debca395e2a01ef4588df1433f8a044f, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e1a46d564653c92499d4cadf428be50a, type: 2}
+        m_TargetAssemblyTypeName: General.SoundEffect, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &175442748176678242
 GameObject:
   m_ObjectHideFlags: 0

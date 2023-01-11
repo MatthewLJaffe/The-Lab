@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// used to display player health and infection, originally was meant to be extended for other stats as well
+    /// </summary>
     public abstract class PlayerBar : MonoBehaviour
     {
         public static Action<PlayerBarType,float> BarHigh = delegate { };
@@ -88,8 +91,16 @@ namespace EntityStatsScripts
                     if (barHighEffect != null)
                         barHighEffect.Stack = 0;
                 }
+                else if (newValue > barLowValue)
+                {
+                    if (barLowEffect != null)
+                        barLowEffect.Stack = 0;
+                    if (barHighEffect != null)
+                        barHighEffect.Stack = 0;
+                }
                 else if (newValue == 0)
                     BarDeplete.Invoke(barType);
+
                 barValue = Mathf.Clamp(value, minValue, maxValue);
                 amountText.text = $"{Mathf.Round(barValue)}/{Mathf.Round(maxValue)}";
             }

@@ -11,14 +11,17 @@ using Random = UnityEngine.Random;
 
 namespace WeaponScripts
 {
+    /// <summary>
+    /// Base class for functionality and state of equippable guns
+    /// </summary>
     public class Gun : MonoBehaviour
     {
+        //public events
         public static Action<int, int> broadcastShot = delegate { };
         public static Action<float> broadcastReload = delegate { };
         public static Action<Gun> broadCastWeaponSwitch = delegate {  };
         [SerializeField] protected PlayerStats playerStats;
         [SerializeField] protected SoundEffect shootSound;
-        [SerializeField] private bool playSquashStretch;
         [SerializeField] protected SoundEffect reloadSound;
         [SerializeField] protected GameObject bullet;
         [SerializeField] private float shake;
@@ -30,13 +33,13 @@ namespace WeaponScripts
         private bool _firstEquip = true;
         protected Transform playerTrans;
         protected Camera mainCamera;
-        protected SquashStretch squashStretch;
 
         public int CurrentMagSize
         {
             get => currentMagSize;
             set
             {
+                //broadcats magazine information to display UI
                 currentMagSize = value;
                 broadcastShot(currentMagSize, gunStats.magSize);
             }
@@ -56,6 +59,7 @@ namespace WeaponScripts
         
         protected void Start()
         {
+            //create bullet object pool
             SceneManager.sceneLoaded += CreatePool;
             _bulletPool = new GameObjectPool(bullet);
             mainCamera = Camera.main;
@@ -63,13 +67,15 @@ namespace WeaponScripts
             broadcastShot(currentMagSize, gunStats.magSize);
             _firstEquip = false;
             playerTrans = PlayerFind.instance.playerInstance.transform;
-            squashStretch = playerTrans.GetComponent<SquashStretch>();
             atkMult = playerStats.GetAttackMultiplier();
+            //cache weapon stat values
             playerCritChance = playerStats.playerStatsDict[PlayerStats.StatType.CritChance].CurrentValue;
             additionalAccuracy = playerStats.playerStatsDict[PlayerStats.StatType.Accuracy].CurrentValue;
             additionalFireRate = playerStats.playerStatsDict[PlayerStats.StatType.FireRate].CurrentValue;
             critMultiplier = playerStats.playerStatsDict[PlayerStats.StatType.CritMultiplier].CurrentValue;
             reloadFactor = playerStats.playerStatsDict[PlayerStats.StatType.ReloadFactor].CurrentValue;
+
+            //event for new weapon stat values
             PlayerStats.onStatChange += delegate(PlayerStats.StatType type, float newValue) 
             {
                 switch (type)
@@ -127,12 +133,12 @@ namespace WeaponScripts
                 StartCoroutine(Reload());
         }
         
-        
         protected void Update() {
             if (PlayerInputManager.instance.GetInput(PlayerInputManager.PlayerInputName.Fire1))
                 StartCoroutine(Fire());
         }
 
+        //rouine for shooting projectiles at fire rate
         private IEnumerator Fire()
         {
             if (reloading || firing)
@@ -140,8 +146,6 @@ namespace WeaponScripts
             currentMagSize--;
             CameraShakeController.invokeShake(shake);
             broadcastShot(currentMagSize, gunStats.magSize);
-            if (squashStretch && playSquashStretch)
-                squashStretch.PlayAnimation();
             ShootProjectile();
             if (currentMagSize <= 0)
                 StartCoroutine(Reload());
@@ -150,6 +154,7 @@ namespace WeaponScripts
             firing = false;
         }
 
+        //instantiates bullet projetile 
         protected virtual void ShootProjectile()
         {
             if (!mainCamera.gameObject.activeSelf) return;
@@ -182,6 +187,7 @@ namespace WeaponScripts
                 bulletComponent.direction = mousePos - playerTrans.position;
         }
         
+        //routine for reloading for specified reload duration 
         protected IEnumerator Reload()
         {
             if (reloading || currentMagSize == gunStats.magSize)

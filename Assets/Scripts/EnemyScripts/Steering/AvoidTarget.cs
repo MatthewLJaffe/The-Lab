@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// weights moving away from target positively
+    /// </summary>
     public class AvoidTarget : SteeringBehaviour
     {
         private Enemy _enemy;

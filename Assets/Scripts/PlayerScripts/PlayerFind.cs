@@ -34,7 +34,10 @@ namespace PlayerScripts
                 SceneManager.sceneLoaded += ResetPlayer;
             }
             if (instance != this)
+            {
+                instance.playerInstance.transform.position = transform.position;
                 Destroy(gameObject);
+            }
         }
 
         private void OnDestroy()
@@ -67,11 +70,7 @@ namespace PlayerScripts
                 Destroy(gameObject);
                 return;
             }
-            if (playerInstance != null)
-            {
-                playerInstance.transform.position = transform.position;
-            }
-            else
+            else if (playerInstance == null)
             {
                 playerInstance = Instantiate(playerPrefab, transform.position, Quaternion.identity);
                 DontDestroyOnLoad(playerInstance);

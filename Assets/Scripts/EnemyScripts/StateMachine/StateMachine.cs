@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// executes behaviour and transitions of states
+    /// </summary>
     public class StateMachine: MonoBehaviour
     {
         public Action<BaseState> onStateChange = delegate {  };
@@ -23,6 +26,7 @@ namespace EnemyScripts
             onStateChange(CurrentState);
         }
 
+        //cache states
         private void SetStates()
         {
             _availableStates = new Dictionary<Type, BaseState>();
@@ -34,7 +38,10 @@ namespace EnemyScripts
 
         private void FixedUpdate()
         {
+            //executes current state and returns new state
             var nextState = CurrentState.GetState();
+            
+            //null means keep current state
             if (nextState != null && nextState != CurrentState.GetType())
             {
                 if (debug)
@@ -43,6 +50,7 @@ namespace EnemyScripts
             }
         }
 
+        //update current state and invoke switch state event
         private void SwitchStates(Type state)
         {
             CurrentState = _availableStates[state];

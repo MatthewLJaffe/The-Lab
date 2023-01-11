@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 
 namespace CameraScripts
 {
+    /// <summary>
+    /// used to pan camera with mouse
+    /// not in use currently
+    /// </summary>
     public class CameraMoveController : MonoBehaviour
     {
         private Transform _playerTrans;

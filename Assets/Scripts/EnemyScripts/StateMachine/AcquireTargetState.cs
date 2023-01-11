@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// state for raycasting to target for clear shot
+    /// </summary>
     public class AcquireTargetState : DistanceBasedState
     {
         [SerializeField] protected BaseState targetAcquiredState;

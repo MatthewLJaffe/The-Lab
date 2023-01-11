@@ -4,11 +4,15 @@ using UnityEngine.Events;
 
 namespace General
 {
+    /// <summary>
+    /// Used to invoke unity events for physics collisions
+    /// </summary>
     [RequireComponent(typeof(Collider2D))]
-
     public class CollisionDetector : MonoBehaviour
     {
+        //layers that collision detects
         public LayerMask layers;
+        //collision events
         public UnityEvent collisionEnter;
         public UnityEvent collisionStay;
         public UnityEvent collisionExit;

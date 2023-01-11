@@ -11,6 +11,9 @@ using Random = UnityEngine.Random;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// controls health bar value and effects that are tied to health bar amount
+    /// </summary>
     public class PlayerHealthBar : PlayerBar, IDamageable
     {
         public UnityEvent onDamage;

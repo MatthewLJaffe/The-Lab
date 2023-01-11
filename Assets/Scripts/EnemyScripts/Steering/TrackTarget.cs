@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// weights moving towards player direction positively
+    /// </summary>
     public class TrackTarget : SteeringBehaviour
     {
         private Enemy _enemy;

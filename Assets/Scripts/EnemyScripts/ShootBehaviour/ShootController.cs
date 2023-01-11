@@ -4,6 +4,9 @@ using Random = UnityEngine.Random;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// controls shooting for enemy with multiple types of projectile based attacks 
+    /// </summary>
     public class ShootController: MonoBehaviour, IFire
     {
         private float _currCooldown;

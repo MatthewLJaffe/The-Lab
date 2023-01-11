@@ -7,6 +7,9 @@ using UnityEngine.Events;
 
 public class FloorChange : MonoBehaviour
 {
+    /// <summary>
+    /// used to scale damage and health of enemies when changing to different floor
+    /// </summary>
     [SerializeField] private PlayerStats playerStats;
     public UnityEvent onFloor1;
     public UnityEvent onFloor2;

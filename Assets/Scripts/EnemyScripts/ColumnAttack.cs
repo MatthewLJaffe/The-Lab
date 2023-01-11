@@ -7,6 +7,9 @@ using UnityEngine.Events;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// responsible for moving column attack through area at target
+    /// </summary>
     public class ColumnAttack : MonoBehaviour
     {
         public Vector2 destination;

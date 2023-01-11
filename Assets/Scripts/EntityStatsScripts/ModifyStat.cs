@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// component used to change player health and infection status
+    /// </summary>
     public class ModifyStat : MonoBehaviour
     {
         [SerializeField] private float changeAmount;

@@ -1,9 +1,10 @@
-﻿using System;
-using MiniMapScripts;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CameraScripts
 {
+    /// <summary>
+    /// Groups the different cameras used in the player prefab
+    /// </summary>
     public class CameraCoordinator : MonoBehaviour
     {
         [SerializeField] private Camera main;
@@ -13,10 +14,7 @@ namespace CameraScripts
 
         private void Start() {
             _currentSize = main.orthographicSize;
+            background.orthographicSize = _currentSize;
         }
-
-        
-
-
     }
 }

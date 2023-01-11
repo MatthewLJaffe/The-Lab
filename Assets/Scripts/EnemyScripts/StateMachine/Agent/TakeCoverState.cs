@@ -7,6 +7,9 @@ namespace EnemyScripts.Agent
 {
     public class TakeCoverState : BaseState
     {
+        /// <summary>
+        /// state where agent npc takes cover from player, not in use
+        /// </summary>
         [SerializeField] private Vector2 scanCooldownRange;
         [SerializeField] private float hideCooldown;
         [SerializeField] private int scanDirs;

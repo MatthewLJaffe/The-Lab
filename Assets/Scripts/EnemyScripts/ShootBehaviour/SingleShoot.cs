@@ -4,6 +4,9 @@ using WeaponScripts;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// shoot behaviour used by agent for firing a single projectile
+    /// </summary>
     public class SingleShoot : ShootBehaviour
     {
 

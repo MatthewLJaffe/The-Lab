@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// animation controller for zombie boss
+    /// </summary>
     public class BeegZombieAnimator : MonoBehaviour
     {
         [SerializeField] private BeegZombieChargeState chargeAttack;

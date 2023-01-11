@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// used by rooms to keep track of how many enemies are alive and open doors when all enemies die
+    /// </summary>
     public class EnemyHandler : MonoBehaviour
     {
         public static Action<Room> onRoomClear = delegate {  };

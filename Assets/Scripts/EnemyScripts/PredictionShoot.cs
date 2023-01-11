@@ -6,6 +6,9 @@ using WeaponScripts;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// calculates where target is going to be and fires projectile at estimated position
+    /// </summary>
     public class PredictionShoot : MonoBehaviour, IFire
     {
         [SerializeField] private float damage;

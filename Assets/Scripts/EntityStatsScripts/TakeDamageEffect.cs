@@ -7,6 +7,10 @@ using UnityEngine.Events;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// plays white flash effect on enemies that take damage
+    /// also handles spawn in and death animations
+    /// </summary>
     public class TakeDamageEffect : MonoBehaviour
     {
         [SerializeField] private UnityEvent onPlayDeath;

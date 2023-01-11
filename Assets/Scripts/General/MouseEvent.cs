@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace General
 {
+    /// <summary>
+    /// used to handle mouse entering worldspace object
+    /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class MouseEvent : MonoBehaviour
     {

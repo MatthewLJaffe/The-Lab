@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// applies force to enemies based on direction and amount of damage taken
+    /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public class KnockBack : MonoBehaviour
     {

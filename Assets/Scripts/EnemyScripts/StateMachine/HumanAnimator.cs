@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// animation controller for humanoid npcs
+    /// </summary>
     public class HumanAnimator : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rb;

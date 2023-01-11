@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// rotates transform to look at target
+    /// </summary>
     public class LookAtTarget : MonoBehaviour
     {
         private Enemy _enemy;

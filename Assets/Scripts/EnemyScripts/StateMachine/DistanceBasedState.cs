@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
-    //TODO refactor so that other states inherit from this
+    /// <summary>
+    /// state that executes behaviour and changes state based on predefined distance thresholds
+    /// </summary>
     public class DistanceBasedState : BaseState
     {
         [SerializeField] protected BaseState farState;

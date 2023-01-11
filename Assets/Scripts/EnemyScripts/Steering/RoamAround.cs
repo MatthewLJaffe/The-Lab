@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// randomly move in direction for time
+    /// </summary>
     public class RoamAround : SteeringBehaviour
     {
         [SerializeField] private float changeDirTime;

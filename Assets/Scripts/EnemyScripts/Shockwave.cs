@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// hitbox for zombie boss shockwave attack
+    /// </summary>
     public class Shockwave : MonoBehaviour
     {
         [SerializeField] private SoundEffect stompSound;

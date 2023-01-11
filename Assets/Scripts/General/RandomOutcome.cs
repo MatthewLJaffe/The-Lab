@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 namespace General
 {
+    /// <summary>
+    /// used for procedural generatinon to randomly do something
+    /// </summary>
     public class RandomOutcome : MonoBehaviour
     {
         [SerializeField] private OutcomeWeight[] possibilities;

@@ -6,6 +6,9 @@ using WeaponScripts;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// used by reload armor effect to shield player from damage while reloading
+    /// </summary>
     public class ReloadArmor : MonoBehaviour, IDamageable
     {
         [SerializeField] private ArmoredMagEffect armoredMagEffect;

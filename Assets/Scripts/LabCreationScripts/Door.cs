@@ -58,6 +58,7 @@ namespace LabCreationScripts
         
         private void SetDoorTrigger(Room room)
         {
+            if (_doorTrigger == null || room == null) return;
             _doorTrigger.enabled = room.RoomId != myRoom.RoomId;
         }
 

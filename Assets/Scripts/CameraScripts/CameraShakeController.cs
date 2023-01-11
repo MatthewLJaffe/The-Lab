@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 namespace CameraScripts
 {
+    /// <summary>
+    /// used by other classes to create screenshake via static refrence
+    /// </summary>
     public class CameraShakeController : MonoBehaviour
     {
         public static Action<float> invokeShake = delegate { };
@@ -28,6 +31,7 @@ namespace CameraScripts
             invokeShake -= ShakeScreen;
         }
 
+        //shakes camera in semirandom directions with displacement decreasing after each shake
         private async void ShakeScreen(float intensity)
         {
             if (!cam) return;
@@ -48,6 +52,7 @@ namespace CameraScripts
             _shaking = false;
         }
 
+        //asyc move camera to pos in time
         private async Task Move(Vector2 dir, float time)
         {
             var dest = cam.transform.localPosition + (Vector3)dir;

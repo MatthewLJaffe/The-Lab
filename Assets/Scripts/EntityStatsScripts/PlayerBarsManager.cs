@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// used to update player health / infection stats and bars
+    /// </summary>
     public class PlayerBarsManager : MonoBehaviour
     {
         public static PlayerBarsManager Instance;

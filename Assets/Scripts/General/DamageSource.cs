@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 namespace General
 {
+    /// <summary>
+    /// component that allows objects to interface with damageable components
+    /// base class for all sources of damage in the game
+    /// </summary>
     public class DamageSource : MonoBehaviour
     {
         public float damage;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// state that performs stomp attack
+    /// </summary>
     public class BeegZombieStompAttack : BeegZombieAttackState
     {
         [SerializeField] private Rigidbody2D rb;

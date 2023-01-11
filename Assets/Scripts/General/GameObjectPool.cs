@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace General
 {
+    /// <summary>
+    /// pools gameobjects that would otherwise be allocated / deallocated frequently
+    /// </summary>
     public class GameObjectPool
     {
         private Queue<GameObject> _pool;

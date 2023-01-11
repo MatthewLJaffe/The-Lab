@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// component on all enemy npcs used for instantiation and keeping track of which enemies are alive / dead
+    /// </summary>
     public class Enemy : MonoBehaviour
     {
         public static Action broadcastDeath = delegate {  };

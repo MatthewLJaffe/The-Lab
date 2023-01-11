@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 namespace EnemyScripts
 {
+        /// <summary>
+        /// gives shoot controller a way of interfacing with different projectile attack patterns
+        /// </summary>
         public abstract class ShootBehaviour : MonoBehaviour
         {
                 [SerializeField] protected GameObject bulletPrefab;

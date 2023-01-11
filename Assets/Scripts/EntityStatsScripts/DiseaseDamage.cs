@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// applies disease damage to player when entering hitbox used on toxic vents
+    /// </summary>
     public class DiseaseDamage : MonoBehaviour
     {
         [SerializeField] private Vector2 startDelayTimeRange;

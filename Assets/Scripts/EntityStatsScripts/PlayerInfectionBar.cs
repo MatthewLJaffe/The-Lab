@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// controls infection bar value and effects that are tied to health bar amount
+    /// </summary>
     public class PlayerInfectionBar : PlayerBar
     {
         [SerializeField] private float baseInfectionRate;
@@ -25,7 +28,7 @@ namespace EntityStatsScripts
                     StopCoroutine(_diseaseToleranceRoutine);
                 if (barValue <= barVeryLowValue)
                     _diseaseToleranceRoutine= StartCoroutine(CountToDiseaseTolerance(2));
-                else if (barValue < barVeryLowValue)
+                else if (barValue < barLowValue)
                     _diseaseToleranceRoutine = StartCoroutine(CountToDiseaseTolerance(1));
             }
         }

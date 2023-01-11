@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// uses steering behaviours to compute direction to move uses acceleration to gradually change direction
+    /// </summary>
     public class SteeringController : MonoBehaviour
     {
         [SerializeField] private Enemy enemy;
@@ -49,13 +52,15 @@ namespace EnemyScripts
 
         private void FixedUpdate()
         {
+            //stop
             if (speed < .1f && _rb.velocity.magnitude < .1f) {
                 _rb.velocity = Vector2.zero;
                 return;
             }
-            
             if (_steeringBehaviours.Sum(sb => sb.weight) == 0) return;
+            
             var velocity = _rb.velocity;
+            //only recompute steering direction every so often for performance
             if (frameCount >= scanFrames) 
             {
                 frameCount = 0;
@@ -65,7 +70,9 @@ namespace EnemyScripts
                 foreach (var dir in _steeringWeights.Keys.ToList())
                     _steeringWeights[dir] = 0;
             }
+            //apply acceleration force
             _rb.AddForce(_accDir * (Time.fixedDeltaTime * acceleration * _rb.mass), ForceMode2D.Impulse);
+            //cap velocity mag
             if (_rb.velocity.magnitude > speed)
                 _rb.velocity = _rb.velocity.normalized * speed;
             frameCount++;
@@ -73,6 +80,7 @@ namespace EnemyScripts
 
         private Vector2 SteerDirection()
         {
+            //executes steering behaviours
             foreach (var sb in _steeringBehaviours) {
                 sb.AdjustWeights(_steeringWeights);
             }

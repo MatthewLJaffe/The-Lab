@@ -2,6 +2,9 @@
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// instantiates an arc of column attacks
+    /// </summary>
     public class BeegColumnAttack : ShootBehaviour
     {
         [SerializeField] private float arcAngle;

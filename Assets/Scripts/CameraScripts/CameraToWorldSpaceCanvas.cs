@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace CameraScripts
 {
+    /// <summary>
+    /// dynamically set worldspace camera of canvas at runtime
+    /// </summary>
     public class CameraToWorldSpaceCanvas : MonoBehaviour
     {
         private Camera _camera;

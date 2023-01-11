@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 namespace EntityStatsScripts
 {
+    /// <summary>
+    /// displays that steroid effect is active
+    /// </summary>
     public class SteroidVisual : MonoBehaviour
     {
         [SerializeField] private SteroidEffect steroidEffect;

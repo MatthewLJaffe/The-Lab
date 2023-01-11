@@ -5,6 +5,9 @@ using WeaponScripts;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// used by enemies to instantiate bullets
+    /// </summary>
     public class EnemyShoot : MonoBehaviour, IFire
     {
         public UnityEvent onShoot;

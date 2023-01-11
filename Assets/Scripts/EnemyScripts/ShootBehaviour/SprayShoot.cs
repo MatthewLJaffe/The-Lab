@@ -4,6 +4,9 @@ using WeaponScripts;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// fires burst of projectiles used for scientist boss attack
+    /// </summary>
     public class SprayShoot : ShootBehaviour
     {
         [SerializeField] private int burstNum;

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace CameraScripts
 {
+    /// <summary>
+    /// component for invoking screen shake
+    /// </summary>
     public class ShakeScreen : MonoBehaviour
     {
         [SerializeField] private float defaultShake;

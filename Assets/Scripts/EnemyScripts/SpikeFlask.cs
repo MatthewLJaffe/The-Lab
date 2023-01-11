@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace EnemyScripts
 {
+    /// <summary>
+    /// attack for scientist that holds on to and throws explosive flask at player
+    /// </summary>
     public class SpikeFlask : MonoBehaviour, IFire
     {
         [SerializeField] private GameObject flask;
