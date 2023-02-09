@@ -26,6 +26,7 @@ namespace EntityStatsScripts.Effects
             var t = Time.time;
             while (t + effectDelay > Time.time) await Task.Yield();
             playerStats.playerStatsDict[PlayerStats.StatType.MaxHealth].CurrentValue += _healthIncrease;
+            PlayerBarsManager.Instance.ModifyAndDisplayStat(PlayerBar.PlayerBarType.Health, _healthIncrease);
             effectSound.Play();
             Instantiate(cone, diePos, Quaternion.identity);
         }

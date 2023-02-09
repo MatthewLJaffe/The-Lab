@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HardhatEffect
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 350f33c231fb7ec499573ea96e30c181, type: 3}
-  message: Environmental kills have a chance to increase Def
+  message: Environmental kills have a chance to increase Max HP
   stack: 0
   cone: {fileID: 8289071559091184421, guid: 1e2bc418b4dd4d84f9011bbcc00d9c14, type: 3}
   effectSound: {fileID: 11400000, guid: 18c36093ff6f775458ecc22677b70e46, type: 2}

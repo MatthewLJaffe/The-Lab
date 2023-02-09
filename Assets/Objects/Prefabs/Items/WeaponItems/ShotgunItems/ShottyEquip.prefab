@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239771321658607421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9625, y: 0.0867, z: 0}
+  m_LocalPosition: {x: 1.023, y: 0.0867, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8663708951940368261}
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 3d941771553f19445b53131cd44cc517, type: 2}
   shootSound: {fileID: 11400000, guid: 8d2713df4fd654b46b8571215522157e, type: 2}
-  playSquashStretch: 1
   reloadSound: {fileID: 11400000, guid: 10b4e3289d82eb34f9ab5f3d6dff5029, type: 2}
   bullet: {fileID: 5587561943361001404, guid: ce08c1ac7eb97d5439a3c7112f9ec770, type: 3}
   shake: 3
